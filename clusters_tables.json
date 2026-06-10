@@ -1,0 +1,992 @@
+{
+ "0": {
+  "rca": [
+   {
+    "name": "Paper Bag and Coated and Treated Paper Manufacturing",
+    "name_ru": "Бумажные пакеты и бумага с покрытием",
+    "spec_pct": 83.0,
+    "lift": 3.2,
+    "rca": 28.4
+   },
+   {
+    "name": "Plate Work Manufacturing",
+    "name_ru": "Листовые металлоконструкции",
+    "spec_pct": 100.0,
+    "lift": 2.6,
+    "rca": 9.0
+   },
+   {
+    "name": "Sawmill, Woodworking, and Paper Machinery Manufacturing",
+    "name_ru": "Машины для лесопилок, деревообработки и бумаги",
+    "spec_pct": 67.0,
+    "lift": 5.9,
+    "rca": 90.7
+   },
+   {
+    "name": "Food Product Machinery Manufacturing",
+    "name_ru": "Машины для пищевой промышленности",
+    "spec_pct": 67.0,
+    "lift": 3.7,
+    "rca": 64.6
+   },
+   {
+    "name": "Cheese Manufacturing",
+    "name_ru": "Производство сыра",
+    "spec_pct": 67.0,
+    "lift": 5.3,
+    "rca": 89.5
+   },
+   {
+    "name": "All Other Miscellaneous Fabricated Metal Product Manufacturing",
+    "name_ru": "Прочие металлоизделия",
+    "spec_pct": 100.0,
+    "lift": 2.4,
+    "rca": 6.5
+   },
+   {
+    "name": "Sheet Metal Work Manufacturing",
+    "name_ru": "Изделия из листового металла",
+    "spec_pct": 100.0,
+    "lift": 2.4,
+    "rca": 16.2
+   },
+   {
+    "name": "Other Commercial and Service Industry Machinery Manufacturing",
+    "name_ru": "Прочее коммерческое и сервисное оборудование",
+    "spec_pct": 67.0,
+    "lift": 2.6,
+    "rca": 5.8
+   }
+  ],
+  "emp": [
+   {
+    "name": "Paper (except Newsprint) Mills",
+    "name_ru": "Бумажные фабрики (кроме газетной бумаги)",
+    "jobs": 3544,
+    "lq": 82.55
+   },
+   {
+    "name": "Sanitary Paper Product Manufacturing",
+    "name_ru": "Санитарно-гигиеническая бумага",
+    "jobs": 2881,
+    "lq": 69.78
+   },
+   {
+    "name": "Cheese Manufacturing",
+    "name_ru": "Производство сыра",
+    "jobs": 7050,
+    "lq": 36.88
+   },
+   {
+    "name": "Plastics Packaging Film and Sheet (including Laminated) Manufacturing",
+    "name_ru": "Плёнка и листы для пластиковой упаковки",
+    "jobs": 3775,
+    "lq": 35.6
+   },
+   {
+    "name": "Paper Bag and Coated and Treated Paper Manufacturing",
+    "name_ru": "Бумажные пакеты и бумага с покрытием",
+    "jobs": 3218,
+    "lq": 16.11
+   },
+   {
+    "name": "Poultry Processing",
+    "name_ru": "Переработка птицы",
+    "jobs": 6977,
+    "lq": 12.62
+   },
+   {
+    "name": "Animal (except Poultry) Slaughtering",
+    "name_ru": "Убой скота (кроме птицы)",
+    "jobs": 3513,
+    "lq": 10.88
+   },
+   {
+    "name": "Wood Kitchen Cabinet and Countertop Manufacturing",
+    "name_ru": "Кухонная мебель и столешницы",
+    "jobs": 3054,
+    "lq": 6.77
+   }
+  ]
+ },
+ "1": {
+  "rca": [
+   {
+    "name": "Roofing, Siding, and Insulation Material Merchant Wholesalers",
+    "name_ru": "Оптовая торговля кровлей и изоляцией",
+    "spec_pct": 92.0,
+    "lift": 1.8,
+    "rca": 3.2
+   },
+   {
+    "name": "Commodity Contracts Brokerage",
+    "name_ru": "Брокеры товарных контрактов",
+    "spec_pct": 42.0,
+    "lift": 4.2,
+    "rca": 3.6
+   },
+   {
+    "name": "Automobile and Other Motor Vehicle Merchant Wholesalers",
+    "name_ru": "Оптовая торговля автомобилями",
+    "spec_pct": 92.0,
+    "lift": 1.9,
+    "rca": 2.9
+   },
+   {
+    "name": "Bowling Centers",
+    "name_ru": "Боулинг-центры",
+    "spec_pct": 83.0,
+    "lift": 1.4,
+    "rca": 2.2
+   },
+   {
+    "name": "Plate Work Manufacturing",
+    "name_ru": "Листовые металлоконструкции",
+    "spec_pct": 58.0,
+    "lift": 1.5,
+    "rca": 9.7
+   },
+   {
+    "name": "Household Appliance Stores",
+    "name_ru": "Магазины бытовой техники",
+    "spec_pct": 92.0,
+    "lift": 1.8,
+    "rca": 2.4
+   },
+   {
+    "name": "Blood and Organ Banks",
+    "name_ru": "Банки крови и органов",
+    "spec_pct": 67.0,
+    "lift": 1.5,
+    "rca": 3.3
+   },
+   {
+    "name": "School and Employee Bus Transportation",
+    "name_ru": "Школьные и служебные автобусы",
+    "spec_pct": 58.0,
+    "lift": 1.6,
+    "rca": 2.3
+   }
+  ],
+  "emp": [
+   {
+    "name": "Tire Manufacturing (except Retreading)",
+    "name_ru": "Производство шин (кроме восстановления)",
+    "jobs": 2747,
+    "lq": 43.37
+   },
+   {
+    "name": "Animal (except Poultry) Slaughtering",
+    "name_ru": "Убой скота (кроме птицы)",
+    "jobs": 13174,
+    "lq": 20.09
+   },
+   {
+    "name": "Farm Machinery and Equipment Manufacturing",
+    "name_ru": "Сельскохозяйственная техника и оборудование",
+    "jobs": 5472,
+    "lq": 12.52
+   },
+   {
+    "name": "Construction Machinery Manufacturing",
+    "name_ru": "Строительная техника",
+    "jobs": 3191,
+    "lq": 11.51
+   },
+   {
+    "name": "Grain and Field Bean Merchant Wholesalers",
+    "name_ru": "Оптовая торговля зерном и бобовыми",
+    "jobs": 2123,
+    "lq": 7.58
+   },
+   {
+    "name": "Wood Window and Door Manufacturing",
+    "name_ru": "Деревянные окна и двери",
+    "jobs": 2176,
+    "lq": 6.59
+   },
+   {
+    "name": "Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology)",
+    "name_ru": "НИОКР в физике, инженерии и науках о жизни",
+    "jobs": 37636,
+    "lq": 5.85
+   },
+   {
+    "name": "Plate Work Manufacturing",
+    "name_ru": "Листовые металлоконструкции",
+    "jobs": 2098,
+    "lq": 5.65
+   }
+  ]
+ },
+ "2": {
+  "rca": [
+   {
+    "name": "Electroplating, Plating, Polishing, Anodizing, and Coloring",
+    "name_ru": "Гальваника, покрытия, полировка, анодирование",
+    "spec_pct": 83.0,
+    "lift": 2.7,
+    "rca": 4.7
+   },
+   {
+    "name": "Metal Heat Treating",
+    "name_ru": "Термообработка металла",
+    "spec_pct": 61.0,
+    "lift": 2.9,
+    "rca": 5.9
+   },
+   {
+    "name": "Industrial Mold Manufacturing",
+    "name_ru": "Промышленные пресс-формы",
+    "spec_pct": 65.0,
+    "lift": 2.7,
+    "rca": 9.6
+   },
+   {
+    "name": "Cutting Tool and Machine Tool Accessory Manufacturing",
+    "name_ru": "Режущий инструмент и станочная оснастка",
+    "spec_pct": 65.0,
+    "lift": 2.5,
+    "rca": 8.7
+   },
+   {
+    "name": "Metal Crown, Closure, and Other Metal Stamping (except Automotive)",
+    "name_ru": "Металлоштамповка (кроме автомобильной)",
+    "spec_pct": 65.0,
+    "lift": 2.9,
+    "rca": 6.8
+   },
+   {
+    "name": "Plate Work Manufacturing",
+    "name_ru": "Листовые металлоконструкции",
+    "spec_pct": 78.0,
+    "lift": 2.1,
+    "rca": 4.2
+   },
+   {
+    "name": "Machine Tool Manufacturing",
+    "name_ru": "Производство станков",
+    "spec_pct": 61.0,
+    "lift": 2.7,
+    "rca": 7.4
+   },
+   {
+    "name": "Corrugated and Solid Fiber Box Manufacturing",
+    "name_ru": "Гофрокартонные коробки",
+    "spec_pct": 74.0,
+    "lift": 2.2,
+    "rca": 5.3
+   }
+  ],
+  "emp": [
+   {
+    "name": "Motor Home Manufacturing",
+    "name_ru": "Производство автодомов",
+    "jobs": 5343,
+    "lq": 20.19
+   },
+   {
+    "name": "Travel Trailer and Camper Manufacturing",
+    "name_ru": "Туристические прицепы и кемперы",
+    "jobs": 27091,
+    "lq": 14.94
+   },
+   {
+    "name": "Aluminum Sheet, Plate, and Foil Manufacturing",
+    "name_ru": "Алюминиевый лист, плита и фольга",
+    "jobs": 2150,
+    "lq": 12.05
+   },
+   {
+    "name": "Aircraft Engine and Engine Parts Manufacturing",
+    "name_ru": "Производство авиадвигателей и их деталей",
+    "jobs": 21492,
+    "lq": 8.39
+   },
+   {
+    "name": "Iron Foundries",
+    "name_ru": "Чугунолитейные заводы",
+    "jobs": 3018,
+    "lq": 7.92
+   },
+   {
+    "name": "Fluid Power Cylinder and Actuator Manufacturing",
+    "name_ru": "Гидроцилиндры и приводы",
+    "jobs": 3158,
+    "lq": 6.82
+   },
+   {
+    "name": "Railroad Rolling Stock Manufacturing",
+    "name_ru": "Железнодорожный подвижной состав",
+    "jobs": 4568,
+    "lq": 6.73
+   },
+   {
+    "name": "Power Boiler and Heat Exchanger Manufacturing",
+    "name_ru": "Котлы и теплообменники",
+    "jobs": 3795,
+    "lq": 6.49
+   }
+  ]
+ },
+ "3": {
+  "rca": [
+   {
+    "name": "Fiber, Yarn, and Thread Mills",
+    "name_ru": "Фабрики волокна, пряжи и нитей",
+    "spec_pct": 86.0,
+    "lift": 14.4,
+    "rca": 80.3
+   },
+   {
+    "name": "Nonwoven Fabric Mills",
+    "name_ru": "Фабрики нетканых материалов",
+    "spec_pct": 86.0,
+    "lift": 11.8,
+    "rca": 39.3
+   },
+   {
+    "name": "Broadwoven Fabric Mills",
+    "name_ru": "Ткацкие фабрики (широкие ткани)",
+    "spec_pct": 71.0,
+    "lift": 12.0,
+    "rca": 66.1
+   },
+   {
+    "name": "Crushed and Broken Granite Mining and Quarrying",
+    "name_ru": "Добыча гранитного щебня",
+    "spec_pct": 86.0,
+    "lift": 9.2,
+    "rca": 17.4
+   },
+   {
+    "name": "Textile and Fabric Finishing Mills",
+    "name_ru": "Отделка тканей",
+    "spec_pct": 71.0,
+    "lift": 8.3,
+    "rca": 56.9
+   },
+   {
+    "name": "Piece Goods, Notions, and Other Dry Goods Merchant Wholesalers",
+    "name_ru": "Оптовая торговля тканями и галантереей",
+    "spec_pct": 86.0,
+    "lift": 5.4,
+    "rca": 12.5
+   },
+   {
+    "name": "Paper Bag and Coated and Treated Paper Manufacturing",
+    "name_ru": "Бумажные пакеты и бумага с покрытием",
+    "spec_pct": 86.0,
+    "lift": 3.3,
+    "rca": 10.3
+   },
+   {
+    "name": "Other Industrial Machinery Manufacturing",
+    "name_ru": "Прочее промышленное машиностроение",
+    "spec_pct": 86.0,
+    "lift": 2.7,
+    "rca": 5.9
+   }
+  ],
+  "emp": [
+   {
+    "name": "Carpet and Rug Mills",
+    "name_ru": "Ковровые фабрики",
+    "jobs": 12906,
+    "lq": 39.94
+   },
+   {
+    "name": "Tobacco Manufacturing",
+    "name_ru": "Табачное производство",
+    "jobs": 3286,
+    "lq": 38.6
+   },
+   {
+    "name": "Upholstered Household Furniture Manufacturing",
+    "name_ru": "Мягкая домашняя мебель",
+    "jobs": 15433,
+    "lq": 30.9
+   },
+   {
+    "name": "Broadwoven Fabric Mills",
+    "name_ru": "Ткацкие фабрики (широкие ткани)",
+    "jobs": 2833,
+    "lq": 29.01
+   },
+   {
+    "name": "Fiber, Yarn, and Thread Mills",
+    "name_ru": "Фабрики волокна, пряжи и нитей",
+    "jobs": 4637,
+    "lq": 26.24
+   },
+   {
+    "name": "Nonwoven Fabric Mills",
+    "name_ru": "Фабрики нетканых материалов",
+    "jobs": 3228,
+    "lq": 26.02
+   },
+   {
+    "name": "Monetary Authorities-Central Bank",
+    "name_ru": "Центральный банк",
+    "jobs": 3016,
+    "lq": 19.91
+   },
+   {
+    "name": "Textile and Fabric Finishing Mills",
+    "name_ru": "Отделка тканей",
+    "jobs": 2591,
+    "lq": 19.79
+   }
+  ]
+ },
+ "5": {
+  "rca": [
+   {
+    "name": "Pipeline Transportation of Crude Oil",
+    "name_ru": "Трубопроводный транспорт сырой нефти",
+    "spec_pct": 90.0,
+    "lift": 10.5,
+    "rca": 19.6
+   },
+   {
+    "name": "All Other Basic Organic Chemical Manufacturing",
+    "name_ru": "Прочая базовая органическая химия",
+    "spec_pct": 80.0,
+    "lift": 4.6,
+    "rca": 13.2
+   },
+   {
+    "name": "Oil and Gas Pipeline and Related Structures Construction",
+    "name_ru": "Строительство нефте- и газопроводов",
+    "spec_pct": 90.0,
+    "lift": 5.9,
+    "rca": 21.8
+   },
+   {
+    "name": "Oil and Gas Field Machinery and Equipment Manufacturing",
+    "name_ru": "Нефтегазовое промысловое оборудование",
+    "spec_pct": 60.0,
+    "lift": 10.1,
+    "rca": 27.9
+   },
+   {
+    "name": "Inland Water Freight Transportation",
+    "name_ru": "Речные грузоперевозки",
+    "spec_pct": 60.0,
+    "lift": 10.1,
+    "rca": 61.5
+   },
+   {
+    "name": "Pipeline Transportation of Natural Gas",
+    "name_ru": "Трубопроводный транспорт газа",
+    "spec_pct": 90.0,
+    "lift": 5.7,
+    "rca": 7.5
+   },
+   {
+    "name": "Pipeline Transportation of Refined Petroleum Products",
+    "name_ru": "Трубопроводный транспорт нефтепродуктов",
+    "spec_pct": 70.0,
+    "lift": 4.8,
+    "rca": 11.4
+   },
+   {
+    "name": "Remediation Services",
+    "name_ru": "Рекультивация и очистка территорий",
+    "spec_pct": 90.0,
+    "lift": 3.1,
+    "rca": 3.9
+   }
+  ],
+  "emp": [
+   {
+    "name": "Petrochemical Manufacturing",
+    "name_ru": "Нефтехимическое производство",
+    "jobs": 8278,
+    "lq": 24.46
+   },
+   {
+    "name": "Inland Water Freight Transportation",
+    "name_ru": "Речные грузоперевозки",
+    "jobs": 7719,
+    "lq": 16.15
+   },
+   {
+    "name": "Oil and Gas Field Machinery and Equipment Manufacturing",
+    "name_ru": "Нефтегазовое промысловое оборудование",
+    "jobs": 13427,
+    "lq": 14.91
+   },
+   {
+    "name": "Petroleum Refineries",
+    "name_ru": "Нефтеперерабатывающие заводы",
+    "jobs": 16904,
+    "lq": 13.72
+   },
+   {
+    "name": "Pipeline Transportation of Crude Oil",
+    "name_ru": "Трубопроводный транспорт сырой нефти",
+    "jobs": 3578,
+    "lq": 12.67
+   },
+   {
+    "name": "Oil and Gas Pipeline and Related Structures Construction",
+    "name_ru": "Строительство нефте- и газопроводов",
+    "jobs": 66101,
+    "lq": 12.19
+   },
+   {
+    "name": "Crude Petroleum Extraction",
+    "name_ru": "Добыча сырой нефти",
+    "jobs": 18523,
+    "lq": 10.23
+   },
+   {
+    "name": "Drilling Oil and Gas Wells",
+    "name_ru": "Бурение нефтегазовых скважин",
+    "jobs": 12738,
+    "lq": 9.83
+   }
+  ]
+ },
+ "6": {
+  "rca": [
+   {
+    "name": "Urethane and Other Foam Product (except Polystyrene) Manufacturing",
+    "name_ru": "Пенополиуретановые изделия (кроме полистирола)",
+    "spec_pct": 79.0,
+    "lift": 3.4,
+    "rca": 2.7
+   },
+   {
+    "name": "Printing and Writing Paper Merchant Wholesalers",
+    "name_ru": "Оптовая торговля печатной и писчей бумагой",
+    "spec_pct": 71.0,
+    "lift": 3.7,
+    "rca": 2.0
+   },
+   {
+    "name": "Industrial and Commercial Fan and Blower and Air Purification Equipment Manufacturing",
+    "name_ru": "Промышленные вентиляторы и воздухоочистка",
+    "spec_pct": 71.0,
+    "lift": 3.8,
+    "rca": 3.4
+   },
+   {
+    "name": "Soft Drink Manufacturing",
+    "name_ru": "Производство безалкогольных напитков",
+    "spec_pct": 71.0,
+    "lift": 3.1,
+    "rca": 2.5
+   },
+   {
+    "name": "Frozen Specialty Food Manufacturing",
+    "name_ru": "Замороженные готовые блюда",
+    "spec_pct": 62.0,
+    "lift": 4.1,
+    "rca": 4.5
+   },
+   {
+    "name": "Plastics Bottle Manufacturing",
+    "name_ru": "Производство пластиковых бутылок",
+    "spec_pct": 62.0,
+    "lift": 3.5,
+    "rca": 4.8
+   },
+   {
+    "name": "Paper Bag and Coated and Treated Paper Manufacturing",
+    "name_ru": "Бумажные пакеты и бумага с покрытием",
+    "spec_pct": 71.0,
+    "lift": 2.7,
+    "rca": 3.5
+   },
+   {
+    "name": "Perishable Prepared Food Manufacturing",
+    "name_ru": "Скоропортящиеся готовые блюда",
+    "spec_pct": 67.0,
+    "lift": 3.4,
+    "rca": 1.9
+   }
+  ],
+  "emp": [
+   {
+    "name": "Light Truck and Utility Vehicle Manufacturing",
+    "name_ru": "Лёгкие грузовики и внедорожники",
+    "jobs": 33162,
+    "lq": 3.75
+   },
+   {
+    "name": "Major Household Appliance Manufacturing",
+    "name_ru": "Крупная бытовая техника",
+    "jobs": 13686,
+    "lq": 3.36
+   },
+   {
+    "name": "Passenger Car Leasing",
+    "name_ru": "Лизинг легковых автомобилей",
+    "jobs": 6384,
+    "lq": 3.09
+   },
+   {
+    "name": "Printing Ink Manufacturing",
+    "name_ru": "Типографские краски",
+    "jobs": 4175,
+    "lq": 2.97
+   },
+   {
+    "name": "Motor Vehicle Brake System Manufacturing",
+    "name_ru": "Автомобильные тормозные системы",
+    "jobs": 3349,
+    "lq": 2.89
+   },
+   {
+    "name": "Steel Foundries (except Investment)",
+    "name_ru": "Сталелитейные заводы",
+    "jobs": 2538,
+    "lq": 2.83
+   },
+   {
+    "name": "Rolled Steel Shape Manufacturing",
+    "name_ru": "Стальной фасонный прокат",
+    "jobs": 6277,
+    "lq": 2.81
+   },
+   {
+    "name": "Fluid Power Pump and Motor Manufacturing",
+    "name_ru": "Гидронасосы и гидромоторы",
+    "jobs": 2422,
+    "lq": 2.76
+   }
+  ]
+ },
+ "7": {
+  "rca": [
+   {
+    "name": "All Other Publishers",
+    "name_ru": "Прочие издательства",
+    "spec_pct": 62.0,
+    "lift": 3.1,
+    "rca": 2.0
+   },
+   {
+    "name": "Printed Circuit Assembly (Electronic Assembly) Manufacturing",
+    "name_ru": "Сборка печатных плат",
+    "spec_pct": 52.0,
+    "lift": 2.4,
+    "rca": 2.9
+   },
+   {
+    "name": "Language Schools",
+    "name_ru": "Языковые школы",
+    "spec_pct": 48.0,
+    "lift": 4.0,
+    "rca": 2.4
+   },
+   {
+    "name": "Medicinal and Botanical Manufacturing",
+    "name_ru": "Лекарственные и растительные препараты",
+    "spec_pct": 52.0,
+    "lift": 3.4,
+    "rca": 5.4
+   },
+   {
+    "name": "Solar Electric Power Generation",
+    "name_ru": "Солнечная электрогенерация",
+    "spec_pct": 52.0,
+    "lift": 3.6,
+    "rca": 2.8
+   },
+   {
+    "name": "Marketing Research and Public Opinion Polling",
+    "name_ru": "Маркетинговые исследования и опросы",
+    "spec_pct": 48.0,
+    "lift": 2.9,
+    "rca": 2.5
+   },
+   {
+    "name": "Mortgage and Nonmortgage Loan Brokers",
+    "name_ru": "Ипотечные и кредитные брокеры",
+    "spec_pct": 62.0,
+    "lift": 3.0,
+    "rca": 2.2
+   },
+   {
+    "name": "Apparel Accessories and Other Apparel Manufacturing",
+    "name_ru": "Аксессуары и прочая одежда",
+    "spec_pct": 48.0,
+    "lift": 3.4,
+    "rca": 2.2
+   }
+  ],
+  "emp": [
+   {
+    "name": "Other Guided Missile and Space Vehicle Parts and Auxiliary Equipment Manufacturing",
+    "name_ru": "Прочие части ракет и космических аппаратов",
+    "jobs": 2236,
+    "lq": 3.33
+   },
+   {
+    "name": "Guided Missile and Space Vehicle Propulsion Unit and Propulsion Unit Parts Manufacturing",
+    "name_ru": "Двигатели ракет и космических аппаратов и их части",
+    "jobs": 10840,
+    "lq": 3.33
+   },
+   {
+    "name": "Deep Sea Passenger Transportation",
+    "name_ru": "Морские пассажирские перевозки (круизы)",
+    "jobs": 12311,
+    "lq": 3.33
+   },
+   {
+    "name": "Computer Storage Device Manufacturing",
+    "name_ru": "Устройства хранения данных",
+    "jobs": 3972,
+    "lq": 3.28
+   },
+   {
+    "name": "Women’s, Girls’, and Infants’ Cut and Sew Apparel Manufacturing",
+    "name_ru": "Женская и детская швейная одежда",
+    "jobs": 5865,
+    "lq": 2.98
+   },
+   {
+    "name": "Cane Sugar Manufacturing",
+    "name_ru": "Производство тростникового сахара",
+    "jobs": 2765,
+    "lq": 2.82
+   },
+   {
+    "name": "Teleproduction and Other Postproduction Services",
+    "name_ru": "Телепродакшн и постпродакшн",
+    "jobs": 18394,
+    "lq": 2.79
+   },
+   {
+    "name": "Record Production and Distribution",
+    "name_ru": "Производство и дистрибуция звукозаписей",
+    "jobs": 8516,
+    "lq": 2.68
+   }
+  ]
+ },
+ "8": {
+  "rca": [
+   {
+    "name": "Landscape Architectural Services",
+    "name_ru": "Ландшафтная архитектура",
+    "spec_pct": 63.0,
+    "lift": 1.8,
+    "rca": 2.8
+   },
+   {
+    "name": "Direct Title Insurance Carriers",
+    "name_ru": "Страхование титула",
+    "spec_pct": 56.0,
+    "lift": 2.0,
+    "rca": 2.0
+   },
+   {
+    "name": "All Other Specialty Food Stores",
+    "name_ru": "Прочие специализированные продуктовые магазины",
+    "spec_pct": 77.0,
+    "lift": 1.8,
+    "rca": 3.3
+   },
+   {
+    "name": "Sewing, Needlework, and Piece Goods Stores",
+    "name_ru": "Магазины тканей и рукоделия",
+    "spec_pct": 81.0,
+    "lift": 1.3,
+    "rca": 2.7
+   },
+   {
+    "name": "Office Supplies and Stationery Stores",
+    "name_ru": "Магазины канцтоваров",
+    "spec_pct": 74.0,
+    "lift": 1.4,
+    "rca": 2.1
+   },
+   {
+    "name": "Motion Picture Theaters (except Drive-Ins)",
+    "name_ru": "Кинотеатры",
+    "spec_pct": 65.0,
+    "lift": 1.7,
+    "rca": 2.1
+   },
+   {
+    "name": "All Other Traveler Accommodation",
+    "name_ru": "Прочие средства размещения туристов",
+    "spec_pct": 51.0,
+    "lift": 2.3,
+    "rca": 10.1
+   },
+   {
+    "name": "Reupholstery and Furniture Repair",
+    "name_ru": "Перетяжка и ремонт мебели",
+    "spec_pct": 44.0,
+    "lift": 1.4,
+    "rca": 2.8
+   }
+  ],
+  "emp": [
+   {
+    "name": "Secondary Market Financing",
+    "name_ru": "Вторичный ипотечный рынок",
+    "jobs": 14132,
+    "lq": 10.74
+   },
+   {
+    "name": "Research and Development in the Social Sciences and Humanities",
+    "name_ru": "Исследования в социально-гуманитарных науках",
+    "jobs": 20758,
+    "lq": 6.17
+   },
+   {
+    "name": "Wineries",
+    "name_ru": "Винодельни",
+    "jobs": 25426,
+    "lq": 5.72
+   },
+   {
+    "name": "Frozen Fruit, Juice, and Vegetable Manufacturing",
+    "name_ru": "Заморозка фруктов, соков и овощей",
+    "jobs": 4220,
+    "lq": 5.23
+   },
+   {
+    "name": "Professional Organizations",
+    "name_ru": "Профессиональные ассоциации",
+    "jobs": 27522,
+    "lq": 4.28
+   },
+   {
+    "name": "Political Organizations",
+    "name_ru": "Политические организации",
+    "jobs": 2404,
+    "lq": 3.84
+   },
+   {
+    "name": "Business Associations",
+    "name_ru": "Деловые ассоциации",
+    "jobs": 28815,
+    "lq": 3.76
+   },
+   {
+    "name": "Satellite Telecommunications",
+    "name_ru": "Спутниковая связь",
+    "jobs": 2585,
+    "lq": 3.7
+   }
+  ]
+ },
+ "9": {
+  "rca": [
+   {
+    "name": "Surgical and Medical Instrument Manufacturing",
+    "name_ru": "Хирургические и медицинские инструменты",
+    "spec_pct": 100.0,
+    "lift": 4.7,
+    "rca": 1.9
+   },
+   {
+    "name": "Other Communication and Energy Wire Manufacturing",
+    "name_ru": "Провода связи и энергокабель",
+    "spec_pct": 80.0,
+    "lift": 8.1,
+    "rca": 30.9
+   },
+   {
+    "name": "Limousine Service",
+    "name_ru": "Лимузин-сервис",
+    "spec_pct": 100.0,
+    "lift": 3.7,
+    "rca": 2.2
+   },
+   {
+    "name": "All Other Miscellaneous Textile Product Mills",
+    "name_ru": "Прочие текстильные изделия",
+    "spec_pct": 100.0,
+    "lift": 3.3,
+    "rca": 1.7
+   },
+   {
+    "name": "Special Die and Tool, Die Set, Jig, and Fixture Manufacturing",
+    "name_ru": "Штампы, пресс-формы, кондукторы и оснастка",
+    "spec_pct": 100.0,
+    "lift": 3.9,
+    "rca": 1.9
+   },
+   {
+    "name": "Plastics Materials and Basic Forms and Shapes Merchant Wholesalers",
+    "name_ru": "Оптовая торговля пластмассами",
+    "spec_pct": 80.0,
+    "lift": 3.2,
+    "rca": 3.3
+   },
+   {
+    "name": "Fossil Fuel Electric Power Generation",
+    "name_ru": "Тепловая электрогенерация",
+    "spec_pct": 100.0,
+    "lift": 3.4,
+    "rca": 3.8
+   },
+   {
+    "name": "Rolling Mill and Other Metalworking Machinery Manufacturing",
+    "name_ru": "Прокатные станы и металлообрабатывающее оборудование",
+    "spec_pct": 60.0,
+    "lift": 4.8,
+    "rca": 15.4
+   }
+  ],
+  "emp": [
+   {
+    "name": "Analytical Laboratory Instrument Manufacturing",
+    "name_ru": "Аналитические лабораторные приборы",
+    "jobs": 4746,
+    "lq": 12.53
+   },
+   {
+    "name": "All Other Miscellaneous Electrical Equipment and Component Manufacturing",
+    "name_ru": "Прочее электрооборудование и компоненты",
+    "jobs": 2623,
+    "lq": 9.07
+   },
+   {
+    "name": "Cable and Other Subscription Programming",
+    "name_ru": "Кабельные и подписные телеканалы",
+    "jobs": 2583,
+    "lq": 6.43
+   },
+   {
+    "name": "Savings Institutions",
+    "name_ru": "Сберегательные учреждения",
+    "jobs": 3763,
+    "lq": 5.3
+   },
+   {
+    "name": "Fuel Dealers",
+    "name_ru": "Торговля топливом",
+    "jobs": 2401,
+    "lq": 4.83
+   },
+   {
+    "name": "School and Employee Bus Transportation",
+    "name_ru": "Школьные и служебные автобусы",
+    "jobs": 6812,
+    "lq": 4.2
+   },
+   {
+    "name": "Precision Turned Product Manufacturing",
+    "name_ru": "Точные токарные изделия",
+    "jobs": 2782,
+    "lq": 3.72
+   },
+   {
+    "name": "Colleges, Universities, and Professional Schools",
+    "name_ru": "Колледжи, университеты и профшколы",
+    "jobs": 51349,
+    "lq": 3.61
+   }
+  ]
+ }
+}
