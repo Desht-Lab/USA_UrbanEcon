@@ -368,7 +368,7 @@
     .ind-pci { margin-left: 5px; color: var(--nav-accent); font-weight: 600; font-variant-numeric: tabular-nums; }
     .emp-list { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
     .emp-row { display: flex; align-items: baseline; gap: 8px; font-size: 12px; }
-    .emp-name { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .emp-name { flex: 1 1 auto; min-width: 0; }
     .emp-val { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
     .emp-share { color: var(--nav-accent); font-weight: 600; font-variant-numeric: tabular-nums; min-width: 44px; text-align: right; }
     .emp-bar { height: 3px; border-radius: 99px; background: color-mix(in srgb, var(--accent) 55%, transparent); margin-top: 2px; }
@@ -602,6 +602,11 @@
 
     function shortCity(id) {
       return String(id || "").split(",")[0].trim();
+    }
+
+    function shortInd(name) {
+      // full industry name; only the trailing ", 123456" NAICS code is removed
+      return String(name || "").replace(/,\s*\d+\s*$/, "").trim();
     }
 
     function fullCity(id) {
@@ -973,7 +978,7 @@
     /* ── chips / status ────────────────────────────────────────────────── */
     function focusLabel() {
       if (state.pinnedCity) return shortCity(state.pinnedCity);
-      if (state.selectedIndustry) return shortCity(state.selectedIndustry);
+      if (state.selectedIndustry) return shortInd(state.selectedIndustry);
       if (state.selectedCluster !== null) return t("clusterWord");
       return t("none");
     }
@@ -989,7 +994,7 @@
         status.textContent = shortCity(state.pinnedCity) + " · " + nb + " " + t("neighbors");
       } else if (state.selectedIndustry) {
         const n = (state.industryToCities.get(state.selectedIndustry) || new Set()).size;
-        status.textContent = n + " " + t("specializeIn") + " " + shortCity(state.selectedIndustry);
+        status.textContent = n + " " + t("specializeIn") + " " + shortInd(state.selectedIndustry);
       } else if (state.selectedCluster !== null) {
         const m = state.clusterMeta.find((c) => c.id === state.selectedCluster);
         status.textContent = (m ? m.name : t("clusterWord")) + " · " + (m ? m.count : 0) + " " + t("metrosWord");
@@ -1042,7 +1047,7 @@
           top.map((r) =>
             '<div>' +
               '<div class="emp-row">' +
-                '<span class="emp-name" title="' + escapeAttr(shortCity(r.name)) + '">' + paren(escapeHtml(shortCity(r.name))) + '</span>' +
+                '<span class="emp-name">' + paren(escapeHtml(shortInd(r.name))) + '</span>' +
                 '<span class="emp-val">' + fmtN(r.emp) + '</span>' +
                 '<span class="emp-share">' + fmtShare(r.share) + '</span>' +
               '</div>' +
@@ -1076,7 +1081,6 @@
           '<div class="metric"><div class="metric-label">' + t("employment") + '</div><div class="metric-value">' + fmtEmp(node.emp) + '</div></div>' +
           '<div class="metric"><div class="metric-label">' + t("avgSalary") + '</div><div class="metric-value">' + (Number.isFinite(node.wage) ? "$" + Math.round(node.wage) + "k" : "—") + '</div></div>' +
           '<div class="metric"><div class="metric-label">ECI</div><div class="metric-value">' + fmt(node.eci, 2) + '</div></div>' +
-          '<div class="metric"><div class="metric-label">' + t("niche") + '</div><div class="metric-value">' + fmt(node.niche, 1) + '</div></div>' +
           '<div class="metric"><div class="metric-label">' + t("links") + '</div><div class="metric-value">' + neighbors + '</div></div>' +
         '</div>' +
         topEmpHtml(id) +
@@ -1084,14 +1088,14 @@
         '<div class="ind-list">' +
           (inds.length
             ? inds.map((i) => '<span class="ind-pill" data-ind="' + escapeAttr(i) + '">' +
-                paren(escapeHtml(shortCity(i))) + '<span class="ind-pci">' + fmtPci(i) + '</span></span>').join("")
+                paren(escapeHtml(shortInd(i))) + '<span class="ind-pci">' + fmtPci(i) + '</span></span>').join("")
             : '<span class="field-hint">' + t("noRca") + '</span>') +
         '</div>';
 
       body.querySelectorAll(".ind-pill").forEach((pill) => {
         pill.addEventListener("click", () => {
           const ind = pill.getAttribute("data-ind");
-          if (industryCombo) industryCombo.setValue(shortCity(ind));
+          if (industryCombo) industryCombo.setValue(shortInd(ind));
           selectIndustry(ind);
         });
       });
@@ -1266,7 +1270,7 @@
       // industry combobox: items sorted by PCI (product complexity) descending,
       // then by # of specializing metros; each option shows its PCI under the name
       const industryItems = Array.from(state.industryToCities.entries())
-        .map(([id, set]) => ({ id, label: id, short: shortCity(id), count: set.size }))
+        .map(([id, set]) => ({ id, label: id, short: shortInd(id), count: set.size }))
         .filter((it) => it.count > 0)
         .sort((a, b) => {
           const pa = pciOf(a.id), pb = pciOf(b.id);
@@ -1280,7 +1284,7 @@
         onClear: () => selectIndustry(""),
         renderItem: (it) =>
           '<span class="opt-main">' +
-            '<span class="opt-name">' + paren(escapeHtml(shortCity(it.id))) + '</span>' +
+            '<span class="opt-name">' + paren(escapeHtml(shortInd(it.id))) + '</span>' +
             '<span class="opt-sub">PCI ' + fmtPci(it.id) + '</span>' +
           '</span>' +
           '<span class="combo-count">' + it.count + '</span>'
