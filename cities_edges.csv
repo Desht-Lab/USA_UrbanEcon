@@ -1,0 +1,370 @@
+,u,v,sim
+0,"Akron, OH Metro Area, Portage County, Ohio, 10420","Dayton-Kettering-Beavercreek, OH Metro Area, Greene County, Ohio, 19430",0.4005199056816137
+1,"Akron, OH Metro Area, Portage County, Ohio, 10420","Racine-Mount Pleasant, WI Metro Area, Racine County, Wisconsin, 39540",0.35470444877346674
+2,"Akron, OH Metro Area, Portage County, Ohio, 10420","Buffalo-Cheektowaga, NY Metro Area, Erie County, New York, 15380",0.3611763709690293
+3,"Akron, OH Metro Area, Portage County, Ohio, 10420","Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410",0.37717558129004314
+4,"Akron, OH Metro Area, Portage County, Ohio, 10420","Fort Wayne, IN Metro Area, Allen County, Indiana, 23060",0.37063465537957124
+5,"Akron, OH Metro Area, Portage County, Ohio, 10420","Grand Rapids-Wyoming-Kentwood, MI Metro Area, Barry County, Michigan, 24340",0.36719389646856965
+6,"Akron, OH Metro Area, Portage County, Ohio, 10420","Greenville-Anderson-Greer, SC Metro Area, Anderson County, South Carolina, 24860",0.35301850272713986
+7,"Akron, OH Metro Area, Portage County, Ohio, 10420","Rochester, NY Metro Area, Livingston County, New York, 40380",0.3506375867190977
+8,"Akron, OH Metro Area, Portage County, Ohio, 10420","Rockford, IL Metro Area, Boone County, Illinois, 40420",0.3690260824527928
+9,"Albany-Schenectady-Troy, NY Metro Area, Albany County, New York, 10580","Syracuse, NY Metro Area, Madison County, New York, 45060",0.3562646474763365
+10,"Allentown-Bethlehem-Easton, PA-NJ Metro Area, Warren County, New Jersey, 10900","Riverside-San Bernardino-Ontario, CA Metro Area, Riverside County, California, 40140",0.3479670137822678
+11,"Anchorage, AK Metro Area, Anchorage Municipality, Alaska, 11260","Urban Honolulu, HI Metro Area, Honolulu County, Hawaii, 46520",0.41320295435181426
+12,"Ann Arbor, MI Metro Area, Washtenaw County, Michigan, 11460","Boulder, CO Metro Area, Boulder County, Colorado, 14500",0.3816559918548093
+13,"Appleton, WI Metro Area, Calumet County, Wisconsin, 11540","Green Bay, WI Metro Area, Brown County, Wisconsin, 24580",0.41252892808409525
+14,"Appleton, WI Metro Area, Calumet County, Wisconsin, 11540","Lancaster, PA Metro Area, Lancaster County, Pennsylvania, 29540",0.3424139956842239
+15,"Atlanta-Sandy Springs-Roswell, GA Metro Area, Barrow County, Georgia, 12060","Dallas-Fort Worth-Arlington, TX Metro Area, Collin County, Texas, 19100",0.4422123089186925
+16,"Atlanta-Sandy Springs-Roswell, GA Metro Area, Barrow County, Georgia, 12060","Charlotte-Concord-Gastonia, NC-SC Metro Area, Anson County, North Carolina, 16740",0.4033297265336692
+17,"Atlanta-Sandy Springs-Roswell, GA Metro Area, Barrow County, Georgia, 12060","Chicago-Naperville-Elgin, IL-IN Metro Area, Cook County, Illinois, 16980",0.4257547198139536
+18,"Atlanta-Sandy Springs-Roswell, GA Metro Area, Barrow County, Georgia, 12060","Cincinnati, OH-KY-IN Metro Area, Dearborn County, Indiana, 17140",0.37195968629115195
+19,"Atlanta-Sandy Springs-Roswell, GA Metro Area, Barrow County, Georgia, 12060","Columbus, OH Metro Area, Delaware County, Ohio, 18140",0.36341385081823396
+20,"Atlanta-Sandy Springs-Roswell, GA Metro Area, Barrow County, Georgia, 12060","Los Angeles-Long Beach-Anaheim, CA Metro Area, Los Angeles County, California, 31080",0.39202593564705057
+21,"Atlanta-Sandy Springs-Roswell, GA Metro Area, Barrow County, Georgia, 12060","Minneapolis-St. Paul-Bloomington, MN-WI Metro Area, Anoka County, Minnesota, 33460",0.3671540604184847
+22,"Atlanta-Sandy Springs-Roswell, GA Metro Area, Barrow County, Georgia, 12060","Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metro Area, New Castle County, Delaware, 37980",0.40356229492680423
+23,"Atlanta-Sandy Springs-Roswell, GA Metro Area, Barrow County, Georgia, 12060","Riverside-San Bernardino-Ontario, CA Metro Area, Riverside County, California, 40140",0.38095948360119103
+24,"Austin-Round Rock-San Marcos, TX Metro Area, Bastrop County, Texas, 12420","Boulder, CO Metro Area, Boulder County, Colorado, 14500",0.3806786146827992
+25,"Austin-Round Rock-San Marcos, TX Metro Area, Bastrop County, Texas, 12420","Dallas-Fort Worth-Arlington, TX Metro Area, Collin County, Texas, 19100",0.3644704343701646
+26,"Baltimore-Columbia-Towson, MD Metro Area, Anne Arundel County, Maryland, 12580","Miami-Fort Lauderdale-West Palm Beach, FL Metro Area, Broward County, Florida, 33100",0.3901060654746708
+27,"Barnstable Town, MA Metro Area, Barnstable County, Massachusetts, 12700","Bellingham, WA Metro Area, Whatcom County, Washington, 13380",0.4197031248029039
+28,"Barnstable Town, MA Metro Area, Barnstable County, Massachusetts, 12700","Naples-Marco Island, FL Metro Area, Collier County, Florida, 34940",0.4114230277348319
+29,"Barnstable Town, MA Metro Area, Barnstable County, Massachusetts, 12700","Portland-South Portland, ME Metro Area, Cumberland County, Maine, 38860",0.402066996432619
+30,"Barnstable Town, MA Metro Area, Barnstable County, Massachusetts, 12700","Salinas, CA Metro Area, Monterey County, California, 41500",0.3967489233084431
+31,"Barnstable Town, MA Metro Area, Barnstable County, Massachusetts, 12700","Norwich-New London-Willimantic, CT Metro Area, Southeastern Connecticut Planning Region, Connecticut, 35980",0.39498121942246783
+32,"Barnstable Town, MA Metro Area, Barnstable County, Massachusetts, 12700","Traverse City, MI Metro Area, Benzie County, Michigan, 45900",0.3601658726229077
+33,"Barnstable Town, MA Metro Area, Barnstable County, Massachusetts, 12700","Bend, OR Metro Area, Crook County, Oregon, 13460",0.3879360656410149
+34,"Barnstable Town, MA Metro Area, Barnstable County, Massachusetts, 12700","Bozeman, MT Metro Area, Gallatin County, Montana, 14580",0.37090014573632774
+35,"Barnstable Town, MA Metro Area, Barnstable County, Massachusetts, 12700","Santa Maria-Santa Barbara, CA Metro Area, Santa Barbara County, California, 42200",0.3695131827639752
+36,"Barnstable Town, MA Metro Area, Barnstable County, Massachusetts, 12700","Santa Rosa-Petaluma, CA Metro Area, Sonoma County, California, 42220",0.35269453472487683
+37,"Baton Rouge, LA Metro Area, Ascension Parish, Louisiana, 12940","Beaumont-Port Arthur, TX Metro Area, Hardin County, Texas, 13140",0.527040331514118
+38,"Baton Rouge, LA Metro Area, Ascension Parish, Louisiana, 12940","Houston-Pasadena-The Woodlands, TX Metro Area, Austin County, Texas, 26420",0.3532959698237884
+39,"Baton Rouge, LA Metro Area, Ascension Parish, Louisiana, 12940","Lake Charles, LA Metro Area, Calcasieu Parish, Louisiana, 29340",0.4794656849096389
+40,"Baton Rouge, LA Metro Area, Ascension Parish, Louisiana, 12940","New Orleans-Metairie, LA Metro Area, Jefferson Parish, Louisiana, 35380",0.4577352382603763
+41,"Baton Rouge, LA Metro Area, Ascension Parish, Louisiana, 12940","Tulsa, OK Metro Area, Creek County, Oklahoma, 46140",0.36314621829599336
+42,"Beaumont-Port Arthur, TX Metro Area, Hardin County, Texas, 13140","Lake Charles, LA Metro Area, Calcasieu Parish, Louisiana, 29340",0.533551291609104
+43,"Beaumont-Port Arthur, TX Metro Area, Hardin County, Texas, 13140","New Orleans-Metairie, LA Metro Area, Jefferson Parish, Louisiana, 35380",0.4609443108050998
+44,"Beaumont-Port Arthur, TX Metro Area, Hardin County, Texas, 13140","Houma-Bayou Cane-Thibodaux, LA Metro Area, Lafourche Parish, Louisiana, 26380",0.4460640970412143
+45,"Beaumont-Port Arthur, TX Metro Area, Hardin County, Texas, 13140","Houston-Pasadena-The Woodlands, TX Metro Area, Austin County, Texas, 26420",0.37222911362327804
+46,"Beaumont-Port Arthur, TX Metro Area, Hardin County, Texas, 13140","Midland, TX Metro Area, Martin County, Texas, 33260",0.35053292237314515
+47,"Bellingham, WA Metro Area, Whatcom County, Washington, 13380","Bend, OR Metro Area, Crook County, Oregon, 13460",0.3812078713761504
+48,"Bellingham, WA Metro Area, Whatcom County, Washington, 13380","Portland-South Portland, ME Metro Area, Cumberland County, Maine, 38860",0.3719142042721969
+49,"Bend, OR Metro Area, Crook County, Oregon, 13460","Medford, OR Metro Area, Jackson County, Oregon, 32780",0.4050324586051054
+50,"Bend, OR Metro Area, Crook County, Oregon, 13460","Bozeman, MT Metro Area, Gallatin County, Montana, 14580",0.3968143662845977
+51,"Bend, OR Metro Area, Crook County, Oregon, 13460","Boise City, ID Metro Area, Ada County, Idaho, 14260",0.3531914732425396
+52,"Bend, OR Metro Area, Crook County, Oregon, 13460","Naples-Marco Island, FL Metro Area, Collier County, Florida, 34940",0.3517835787651778
+53,"Bend, OR Metro Area, Crook County, Oregon, 13460","Ogden, UT Metro Area, Davis County, Utah, 36260",0.35983739750116783
+54,"Bend, OR Metro Area, Crook County, Oregon, 13460","Santa Rosa-Petaluma, CA Metro Area, Sonoma County, California, 42220",0.36767937406176543
+55,"Bend, OR Metro Area, Crook County, Oregon, 13460","St. George, UT Metro Area, Washington County, Utah, 41100",0.39029547952741905
+56,"Billings, MT Metro Area, Carbon County, Montana, 13740","Missoula, MT Metro Area, Mineral County, Montana, 33540",0.39685729497365374
+57,"Billings, MT Metro Area, Carbon County, Montana, 13740","Fargo, ND-MN Metro Area, Clay County, Minnesota, 22020",0.3605035395077694
+58,"Billings, MT Metro Area, Carbon County, Montana, 13740","Lake Charles, LA Metro Area, Calcasieu Parish, Louisiana, 29340",0.350675337464087
+59,"Birmingham, AL Metro Area, Bibb County, Alabama, 13820","Canton-Massillon, OH Metro Area, Carroll County, Ohio, 15940",0.354407991000428
+60,"Birmingham, AL Metro Area, Bibb County, Alabama, 13820","Indianapolis-Carmel-Greenwood, IN Metro Area, Boone County, Indiana, 26900",0.35167294630256135
+61,"Bloomington, IL Metro Area, McLean County, Illinois, 14010","Champaign-Urbana, IL Metro Area, Champaign County, Illinois, 16580",0.3588565604699517
+62,"Boise City, ID Metro Area, Ada County, Idaho, 14260","Portland-Vancouver-Hillsboro, OR-WA Metro Area, Clackamas County, Oregon, 38900",0.3664055701809246
+63,"Boston-Cambridge-Newton, MA-NH Metro Area, Essex County, Massachusetts, 14460","San Diego-Chula Vista-Carlsbad, CA Metro Area, San Diego County, California, 41740",0.39726759846433196
+64,"Boston-Cambridge-Newton, MA-NH Metro Area, Essex County, Massachusetts, 14460","San Francisco-Oakland-Fremont, CA Metro Area, Alameda County, California, 41860",0.38599714220797016
+65,"Boston-Cambridge-Newton, MA-NH Metro Area, Essex County, Massachusetts, 14460","San Jose-Sunnyvale-Santa Clara, CA Metro Area, San Benito County, California, 41940",0.33386104959777735
+66,"Boston-Cambridge-Newton, MA-NH Metro Area, Essex County, Massachusetts, 14460","Chicago-Naperville-Elgin, IL-IN Metro Area, Cook County, Illinois, 16980",0.3635937439370376
+67,"Boston-Cambridge-Newton, MA-NH Metro Area, Essex County, Massachusetts, 14460","Los Angeles-Long Beach-Anaheim, CA Metro Area, Los Angeles County, California, 31080",0.37524005868747506
+68,"Boston-Cambridge-Newton, MA-NH Metro Area, Essex County, Massachusetts, 14460","Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metro Area, New Castle County, Delaware, 37980",0.37582301031549387
+69,"Boulder, CO Metro Area, Boulder County, Colorado, 14500","Santa Cruz-Watsonville, CA Metro Area, Santa Cruz County, California, 42100",0.3679435050326838
+70,"Boulder, CO Metro Area, Boulder County, Colorado, 14500","Charlottesville, VA Metro Area, Albemarle County, Virginia, 16820",0.3506238871976721
+71,"Boulder, CO Metro Area, Boulder County, Colorado, 14500","Fort Collins-Loveland, CO Metro Area, Larimer County, Colorado, 22660",0.3669610485906011
+72,"Bozeman, MT Metro Area, Gallatin County, Montana, 14580","Missoula, MT Metro Area, Mineral County, Montana, 33540",0.42337952657111577
+73,"Bozeman, MT Metro Area, Gallatin County, Montana, 14580","Charlottesville, VA Metro Area, Albemarle County, Virginia, 16820",0.419962126253409
+74,"Bozeman, MT Metro Area, Gallatin County, Montana, 14580","Naples-Marco Island, FL Metro Area, Collier County, Florida, 34940",0.4009255718763184
+75,"Bozeman, MT Metro Area, Gallatin County, Montana, 14580","Fort Collins-Loveland, CO Metro Area, Larimer County, Colorado, 22660",0.3812466455998973
+76,"Bozeman, MT Metro Area, Gallatin County, Montana, 14580","Napa, CA Metro Area, Napa County, California, 34900",0.36529052458506894
+77,"Bozeman, MT Metro Area, Gallatin County, Montana, 14580","Concord, NH Micro Area, Merrimack County, New Hampshire, 18180",0.36105634420354304
+78,"Bozeman, MT Metro Area, Gallatin County, Montana, 14580","Logan, UT-ID Metro Area, Franklin County, Idaho, 30860",0.34834455250293167
+79,"Bozeman, MT Metro Area, Gallatin County, Montana, 14580","Hilo-Kailua, HI Micro Area, Hawaii County, Hawaii, 25900",0.3584980964367621
+80,"Bozeman, MT Metro Area, Gallatin County, Montana, 14580","Kahului-Wailuku, HI Metro Area, Kalawao County, Hawaii, 27980",0.3667005214248866
+81,"Bozeman, MT Metro Area, Gallatin County, Montana, 14580","Portland-South Portland, ME Metro Area, Cumberland County, Maine, 38860",0.35555364603363276
+82,"Bozeman, MT Metro Area, Gallatin County, Montana, 14580","Santa Cruz-Watsonville, CA Metro Area, Santa Cruz County, California, 42100",0.3788715587941417
+83,"Bozeman, MT Metro Area, Gallatin County, Montana, 14580","Santa Maria-Santa Barbara, CA Metro Area, Santa Barbara County, California, 42200",0.3636936298288753
+84,"Bozeman, MT Metro Area, Gallatin County, Montana, 14580","Santa Rosa-Petaluma, CA Metro Area, Sonoma County, California, 42220",0.3803411017765528
+85,"Bridgeport-Stamford-Danbury, CT Metro Area, Greater Bridgeport Planning Region, Connecticut, 14860","New York-Newark-Jersey City, NY-NJ Metro Area, Bergen County, New Jersey, 35620",0.40537679527345377
+86,"Buffalo-Cheektowaga, NY Metro Area, Erie County, New York, 15380","Syracuse, NY Metro Area, Madison County, New York, 45060",0.38699304456243944
+87,"Buffalo-Cheektowaga, NY Metro Area, Erie County, New York, 15380","Minneapolis-St. Paul-Bloomington, MN-WI Metro Area, Anoka County, Minnesota, 33460",0.3835086401286805
+88,"Buffalo-Cheektowaga, NY Metro Area, Erie County, New York, 15380","Providence-Warwick, RI-MA Metro Area, Bristol County, Massachusetts, 39300",0.3788967041236475
+89,"Buffalo-Cheektowaga, NY Metro Area, Erie County, New York, 15380","Cincinnati, OH-KY-IN Metro Area, Dearborn County, Indiana, 17140",0.37981515223017726
+90,"Buffalo-Cheektowaga, NY Metro Area, Erie County, New York, 15380","Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410",0.38189809014291815
+91,"Buffalo-Cheektowaga, NY Metro Area, Erie County, New York, 15380","Dayton-Kettering-Beavercreek, OH Metro Area, Greene County, Ohio, 19430",0.3743493724852136
+92,"Buffalo-Cheektowaga, NY Metro Area, Erie County, New York, 15380","Grand Rapids-Wyoming-Kentwood, MI Metro Area, Barry County, Michigan, 24340",0.38112449860395053
+93,"Buffalo-Cheektowaga, NY Metro Area, Erie County, New York, 15380","Kansas City, MO-KS Metro Area, Johnson County, Kansas, 28140",0.37413325281813814
+94,"Buffalo-Cheektowaga, NY Metro Area, Erie County, New York, 15380","Riverside-San Bernardino-Ontario, CA Metro Area, Riverside County, California, 40140",0.3682877040253325
+95,"Buffalo-Cheektowaga, NY Metro Area, Erie County, New York, 15380","Rochester, NY Metro Area, Livingston County, New York, 40380",0.3553785452371086
+96,"Buffalo-Cheektowaga, NY Metro Area, Erie County, New York, 15380","St. Louis, MO-IL Metro Area, Bond County, Illinois, 41180",0.3563495618999101
+97,"Buffalo-Cheektowaga, NY Metro Area, Erie County, New York, 15380","Toledo, OH Metro Area, Fulton County, Ohio, 45780",0.3706048016168719
+98,"Buffalo-Cheektowaga, NY Metro Area, Erie County, New York, 15380","Tulsa, OK Metro Area, Creek County, Oklahoma, 46140",0.3654203007709009
+99,"Burlington-South Burlington, VT Metro Area, Chittenden County, Vermont, 15540","Norwich-New London-Willimantic, CT Metro Area, Southeastern Connecticut Planning Region, Connecticut, 35980",0.3745102130919623
+100,"Burlington-South Burlington, VT Metro Area, Chittenden County, Vermont, 15540","Missoula, MT Metro Area, Mineral County, Montana, 33540",0.3684292353978521
+101,"Burlington-South Burlington, VT Metro Area, Chittenden County, Vermont, 15540","Santa Maria-Santa Barbara, CA Metro Area, Santa Barbara County, California, 42200",0.3582742519947699
+102,"Canton-Massillon, OH Metro Area, Carroll County, Ohio, 15940","Youngstown-Warren, OH Metro Area, Mahoning County, Ohio, 49660",0.40456879369010323
+103,"Canton-Massillon, OH Metro Area, Carroll County, Ohio, 15940","York-Hanover, PA Metro Area, York County, Pennsylvania, 49620",0.39049446634565477
+104,"Canton-Massillon, OH Metro Area, Carroll County, Ohio, 15940","Reading, PA Metro Area, Berks County, Pennsylvania, 39740",0.37851001396123335
+105,"Canton-Massillon, OH Metro Area, Carroll County, Ohio, 15940","Fort Wayne, IN Metro Area, Allen County, Indiana, 23060",0.3593872211934383
+106,"Canton-Massillon, OH Metro Area, Carroll County, Ohio, 15940","Rockford, IL Metro Area, Boone County, Illinois, 40420",0.35285991401998307
+107,"Canton-Massillon, OH Metro Area, Carroll County, Ohio, 15940","Springfield, MA Metro Area, Hampden County, Massachusetts, 44140",0.35757885622636115
+108,"Canton-Massillon, OH Metro Area, Carroll County, Ohio, 15940","Toledo, OH Metro Area, Fulton County, Ohio, 45780",0.3720292370399548
+109,"Champaign-Urbana, IL Metro Area, Champaign County, Illinois, 16580","Des Moines-West Des Moines, IA Metro Area, Dallas County, Iowa, 19780",0.31500664713250426
+110,"Charleston, WV Metro Area, Boone County, West Virginia, 16620","Concord, NH Micro Area, Merrimack County, New Hampshire, 18180",0.325143057590293
+111,"Charlotte-Concord-Gastonia, NC-SC Metro Area, Anson County, North Carolina, 16740","Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410",0.4292260667922069
+112,"Charlotte-Concord-Gastonia, NC-SC Metro Area, Anson County, North Carolina, 16740","Chicago-Naperville-Elgin, IL-IN Metro Area, Cook County, Illinois, 16980",0.3791032455544851
+113,"Charlotte-Concord-Gastonia, NC-SC Metro Area, Anson County, North Carolina, 16740","Cincinnati, OH-KY-IN Metro Area, Dearborn County, Indiana, 17140",0.3945981539746888
+114,"Charlotte-Concord-Gastonia, NC-SC Metro Area, Anson County, North Carolina, 16740","Dallas-Fort Worth-Arlington, TX Metro Area, Collin County, Texas, 19100",0.35662201205684213
+115,"Charlotte-Concord-Gastonia, NC-SC Metro Area, Anson County, North Carolina, 16740","Grand Rapids-Wyoming-Kentwood, MI Metro Area, Barry County, Michigan, 24340",0.35331161500937397
+116,"Charlotte-Concord-Gastonia, NC-SC Metro Area, Anson County, North Carolina, 16740","Greensboro-High Point, NC Metro Area, Guilford County, North Carolina, 24660",0.35889843795804094
+117,"Charlotte-Concord-Gastonia, NC-SC Metro Area, Anson County, North Carolina, 16740","Greenville-Anderson-Greer, SC Metro Area, Anderson County, South Carolina, 24860",0.3633657336507436
+118,"Charlotte-Concord-Gastonia, NC-SC Metro Area, Anson County, North Carolina, 16740","Hickory-Lenoir-Morganton, NC Metro Area, Alexander County, North Carolina, 25860",0.35142365394393243
+119,"Charlotte-Concord-Gastonia, NC-SC Metro Area, Anson County, North Carolina, 16740","Minneapolis-St. Paul-Bloomington, MN-WI Metro Area, Anoka County, Minnesota, 33460",0.3757197195528616
+120,"Charlotte-Concord-Gastonia, NC-SC Metro Area, Anson County, North Carolina, 16740","Riverside-San Bernardino-Ontario, CA Metro Area, Riverside County, California, 40140",0.3798750085482884
+121,"Charlottesville, VA Metro Area, Albemarle County, Virginia, 16820","Trenton-Princeton, NJ Metro Area, Mercer County, New Jersey, 45940",0.3605037534451171
+122,"Charlottesville, VA Metro Area, Albemarle County, Virginia, 16820","Washington-Arlington-Alexandria, DC-VA-MD-WV Metro Area, District of Columbia, District of Columbia, 47900",0.35358590177023136
+123,"Charlottesville, VA Metro Area, Albemarle County, Virginia, 16820","Naples-Marco Island, FL Metro Area, Collier County, Florida, 34940",0.3573203510965734
+124,"Chicago-Naperville-Elgin, IL-IN Metro Area, Cook County, Illinois, 16980","Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410",0.48768802263312194
+125,"Chicago-Naperville-Elgin, IL-IN Metro Area, Cook County, Illinois, 16980","Los Angeles-Long Beach-Anaheim, CA Metro Area, Los Angeles County, California, 31080",0.4689387426479936
+126,"Chicago-Naperville-Elgin, IL-IN Metro Area, Cook County, Illinois, 16980","Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metro Area, New Castle County, Delaware, 37980",0.4602913126805405
+127,"Chicago-Naperville-Elgin, IL-IN Metro Area, Cook County, Illinois, 16980","Dallas-Fort Worth-Arlington, TX Metro Area, Collin County, Texas, 19100",0.4513468392938482
+128,"Chicago-Naperville-Elgin, IL-IN Metro Area, Cook County, Illinois, 16980","Kansas City, MO-KS Metro Area, Johnson County, Kansas, 28140",0.4079156282511296
+129,"Chicago-Naperville-Elgin, IL-IN Metro Area, Cook County, Illinois, 16980","Cincinnati, OH-KY-IN Metro Area, Dearborn County, Indiana, 17140",0.45064558704465413
+130,"Chicago-Naperville-Elgin, IL-IN Metro Area, Cook County, Illinois, 16980","Detroit-Warren-Dearborn, MI Metro Area, Lapeer County, Michigan, 19820",0.45414230170067366
+131,"Chicago-Naperville-Elgin, IL-IN Metro Area, Cook County, Illinois, 16980","Grand Rapids-Wyoming-Kentwood, MI Metro Area, Barry County, Michigan, 24340",0.37738249896190446
+132,"Chicago-Naperville-Elgin, IL-IN Metro Area, Cook County, Illinois, 16980","Houston-Pasadena-The Woodlands, TX Metro Area, Austin County, Texas, 26420",0.4036877621137165
+133,"Chicago-Naperville-Elgin, IL-IN Metro Area, Cook County, Illinois, 16980","Milwaukee-Waukesha, WI Metro Area, Milwaukee County, Wisconsin, 33340",0.4388660266872377
+134,"Chicago-Naperville-Elgin, IL-IN Metro Area, Cook County, Illinois, 16980","Minneapolis-St. Paul-Bloomington, MN-WI Metro Area, Anoka County, Minnesota, 33460",0.4280723682650506
+135,"Chicago-Naperville-Elgin, IL-IN Metro Area, Cook County, Illinois, 16980","New York-Newark-Jersey City, NY-NJ Metro Area, Bergen County, New Jersey, 35620",0.40135173055655426
+136,"Chicago-Naperville-Elgin, IL-IN Metro Area, Cook County, Illinois, 16980","Pittsburgh, PA Metro Area, Allegheny County, Pennsylvania, 38300",0.38252809350298955
+137,"Chicago-Naperville-Elgin, IL-IN Metro Area, Cook County, Illinois, 16980","Portland-Vancouver-Hillsboro, OR-WA Metro Area, Clackamas County, Oregon, 38900",0.3636955305696112
+138,"Chicago-Naperville-Elgin, IL-IN Metro Area, Cook County, Illinois, 16980","Providence-Warwick, RI-MA Metro Area, Bristol County, Massachusetts, 39300",0.3675993543515461
+139,"Chicago-Naperville-Elgin, IL-IN Metro Area, Cook County, Illinois, 16980","Riverside-San Bernardino-Ontario, CA Metro Area, Riverside County, California, 40140",0.42939054944194033
+140,"Chicago-Naperville-Elgin, IL-IN Metro Area, Cook County, Illinois, 16980","St. Louis, MO-IL Metro Area, Bond County, Illinois, 41180",0.4075727171558358
+141,"Cincinnati, OH-KY-IN Metro Area, Dearborn County, Indiana, 17140","Milwaukee-Waukesha, WI Metro Area, Milwaukee County, Wisconsin, 33340",0.4691525646333526
+142,"Cincinnati, OH-KY-IN Metro Area, Dearborn County, Indiana, 17140","Minneapolis-St. Paul-Bloomington, MN-WI Metro Area, Anoka County, Minnesota, 33460",0.4473908971214375
+143,"Cincinnati, OH-KY-IN Metro Area, Dearborn County, Indiana, 17140","Grand Rapids-Wyoming-Kentwood, MI Metro Area, Barry County, Michigan, 24340",0.44535990376528406
+144,"Cincinnati, OH-KY-IN Metro Area, Dearborn County, Indiana, 17140","Columbus, OH Metro Area, Delaware County, Ohio, 18140",0.39255211972522963
+145,"Cincinnati, OH-KY-IN Metro Area, Dearborn County, Indiana, 17140","Rochester, NY Metro Area, Livingston County, New York, 40380",0.387856817839877
+146,"Cincinnati, OH-KY-IN Metro Area, Dearborn County, Indiana, 17140","Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410",0.4664999735326469
+147,"Cincinnati, OH-KY-IN Metro Area, Dearborn County, Indiana, 17140","Dallas-Fort Worth-Arlington, TX Metro Area, Collin County, Texas, 19100",0.392639616944202
+148,"Cincinnati, OH-KY-IN Metro Area, Dearborn County, Indiana, 17140","Greensboro-High Point, NC Metro Area, Guilford County, North Carolina, 24660",0.36886474308361883
+149,"Cincinnati, OH-KY-IN Metro Area, Dearborn County, Indiana, 17140","Hartford-West Hartford-East Hartford, CT Metro Area, Capitol Planning Region, Connecticut, 25540",0.3601688346137775
+150,"Cincinnati, OH-KY-IN Metro Area, Dearborn County, Indiana, 17140","Indianapolis-Carmel-Greenwood, IN Metro Area, Boone County, Indiana, 26900",0.39520737965455216
+151,"Cincinnati, OH-KY-IN Metro Area, Dearborn County, Indiana, 17140","Kansas City, MO-KS Metro Area, Johnson County, Kansas, 28140",0.38083806841104856
+152,"Cincinnati, OH-KY-IN Metro Area, Dearborn County, Indiana, 17140","Louisville/Jefferson County, KY-IN Metro Area, Clark County, Indiana, 31140",0.38142151936921537
+153,"Cincinnati, OH-KY-IN Metro Area, Dearborn County, Indiana, 17140","Providence-Warwick, RI-MA Metro Area, Bristol County, Massachusetts, 39300",0.3597497301298008
+154,"Cincinnati, OH-KY-IN Metro Area, Dearborn County, Indiana, 17140","Riverside-San Bernardino-Ontario, CA Metro Area, Riverside County, California, 40140",0.38723512345149497
+155,"Cincinnati, OH-KY-IN Metro Area, Dearborn County, Indiana, 17140","St. Louis, MO-IL Metro Area, Bond County, Illinois, 41180",0.39321683716513284
+156,"Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410","Detroit-Warren-Dearborn, MI Metro Area, Lapeer County, Michigan, 19820",0.4908564735857919
+157,"Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410","Milwaukee-Waukesha, WI Metro Area, Milwaukee County, Wisconsin, 33340",0.466783555386135
+158,"Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410","Pittsburgh, PA Metro Area, Allegheny County, Pennsylvania, 38300",0.46508638695827254
+159,"Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410","Houston-Pasadena-The Woodlands, TX Metro Area, Austin County, Texas, 26420",0.414009727520337
+160,"Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410","Columbus, OH Metro Area, Delaware County, Ohio, 18140",0.3689929086258702
+161,"Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410","Dallas-Fort Worth-Arlington, TX Metro Area, Collin County, Texas, 19100",0.35240946105257215
+162,"Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410","Dayton-Kettering-Beavercreek, OH Metro Area, Greene County, Ohio, 19430",0.35419814810904493
+163,"Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410","Grand Rapids-Wyoming-Kentwood, MI Metro Area, Barry County, Michigan, 24340",0.42623543302713174
+164,"Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410","Hartford-West Hartford-East Hartford, CT Metro Area, Capitol Planning Region, Connecticut, 25540",0.3542138933791574
+165,"Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410","Los Angeles-Long Beach-Anaheim, CA Metro Area, Los Angeles County, California, 31080",0.3908471949050546
+166,"Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410","Louisville/Jefferson County, KY-IN Metro Area, Clark County, Indiana, 31140",0.3674451897182643
+167,"Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410","Minneapolis-St. Paul-Bloomington, MN-WI Metro Area, Anoka County, Minnesota, 33460",0.41337171552039154
+168,"Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410","Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metro Area, New Castle County, Delaware, 37980",0.39682352436027774
+169,"Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410","Riverside-San Bernardino-Ontario, CA Metro Area, Riverside County, California, 40140",0.40790549544041993
+170,"Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410","St. Louis, MO-IL Metro Area, Bond County, Illinois, 41180",0.352725622199171
+171,"Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410","Toledo, OH Metro Area, Fulton County, Ohio, 45780",0.35233381568533584
+172,"Cleveland, OH Metro Area, Ashtabula County, Ohio, 17410","Tulsa, OK Metro Area, Creek County, Oklahoma, 46140",0.3720527464988742
+173,"Columbus, OH Metro Area, Delaware County, Ohio, 18140","Scranton--Wilkes-Barre, PA Metro Area, Lackawanna County, Pennsylvania, 42540",0.33942117626112944
+174,"Columbus, OH Metro Area, Delaware County, Ohio, 18140","Dallas-Fort Worth-Arlington, TX Metro Area, Collin County, Texas, 19100",0.3712262475508754
+175,"Columbus, OH Metro Area, Delaware County, Ohio, 18140","Grand Rapids-Wyoming-Kentwood, MI Metro Area, Barry County, Michigan, 24340",0.3546787431643379
+176,"Columbus, OH Metro Area, Delaware County, Ohio, 18140","Indianapolis-Carmel-Greenwood, IN Metro Area, Boone County, Indiana, 26900",0.37723451070914815
+177,"Columbus, OH Metro Area, Delaware County, Ohio, 18140","Kansas City, MO-KS Metro Area, Johnson County, Kansas, 28140",0.3532630261305806
+178,"Columbus, OH Metro Area, Delaware County, Ohio, 18140","Louisville/Jefferson County, KY-IN Metro Area, Clark County, Indiana, 31140",0.36604740274266023
+179,"Columbus, OH Metro Area, Delaware County, Ohio, 18140","Minneapolis-St. Paul-Bloomington, MN-WI Metro Area, Anoka County, Minnesota, 33460",0.3612367225894644
+180,"Concord, NH Micro Area, Merrimack County, New Hampshire, 18180","Topeka, KS Metro Area, Jackson County, Kansas, 45820",0.3080371722516592
+181,"Dallas-Fort Worth-Arlington, TX Metro Area, Collin County, Texas, 19100","Phoenix-Mesa-Chandler, AZ Metro Area, Maricopa County, Arizona, 38060",0.3979265773637875
+182,"Dallas-Fort Worth-Arlington, TX Metro Area, Collin County, Texas, 19100","Nashville-Davidson--Murfreesboro--Franklin, TN Metro Area, Cannon County, Tennessee, 34980",0.36814761122687595
+183,"Dallas-Fort Worth-Arlington, TX Metro Area, Collin County, Texas, 19100","Denver-Aurora-Centennial, CO Metro Area, Adams County, Colorado, 19740",0.366626493061978
+184,"Dallas-Fort Worth-Arlington, TX Metro Area, Collin County, Texas, 19100","Grand Rapids-Wyoming-Kentwood, MI Metro Area, Barry County, Michigan, 24340",0.3529873946455247
+185,"Dallas-Fort Worth-Arlington, TX Metro Area, Collin County, Texas, 19100","Houston-Pasadena-The Woodlands, TX Metro Area, Austin County, Texas, 26420",0.3947544034593981
+186,"Dallas-Fort Worth-Arlington, TX Metro Area, Collin County, Texas, 19100","Kansas City, MO-KS Metro Area, Johnson County, Kansas, 28140",0.37865928848413566
+187,"Dallas-Fort Worth-Arlington, TX Metro Area, Collin County, Texas, 19100","Los Angeles-Long Beach-Anaheim, CA Metro Area, Los Angeles County, California, 31080",0.40164094151940166
+188,"Dallas-Fort Worth-Arlington, TX Metro Area, Collin County, Texas, 19100","Miami-Fort Lauderdale-West Palm Beach, FL Metro Area, Broward County, Florida, 33100",0.36651420769424425
+189,"Dallas-Fort Worth-Arlington, TX Metro Area, Collin County, Texas, 19100","Minneapolis-St. Paul-Bloomington, MN-WI Metro Area, Anoka County, Minnesota, 33460",0.3612138431260284
+190,"Dallas-Fort Worth-Arlington, TX Metro Area, Collin County, Texas, 19100","Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metro Area, New Castle County, Delaware, 37980",0.36401202045447606
+191,"Dallas-Fort Worth-Arlington, TX Metro Area, Collin County, Texas, 19100","Riverside-San Bernardino-Ontario, CA Metro Area, Riverside County, California, 40140",0.4084194209082845
+192,"Dallas-Fort Worth-Arlington, TX Metro Area, Collin County, Texas, 19100","St. Louis, MO-IL Metro Area, Bond County, Illinois, 41180",0.3650470608059871
+193,"Dallas-Fort Worth-Arlington, TX Metro Area, Collin County, Texas, 19100","Tampa-St. Petersburg-Clearwater, FL Metro Area, Hernando County, Florida, 45300",0.3801130573302347
+194,"Dalton, GA Metro Area, Murray County, Georgia, 19140","Greensboro-High Point, NC Metro Area, Guilford County, North Carolina, 24660",0.35689975232682486
+195,"Dalton, GA Metro Area, Murray County, Georgia, 19140","Hickory-Lenoir-Morganton, NC Metro Area, Alexander County, North Carolina, 25860",0.3512061544651759
+196,"Davenport-Moline-Rock Island, IA-IL Metro Area, Henry County, Illinois, 19340","Fort Wayne, IN Metro Area, Allen County, Indiana, 23060",0.35627560637301825
+197,"Dayton-Kettering-Beavercreek, OH Metro Area, Greene County, Ohio, 19430","Rockford, IL Metro Area, Boone County, Illinois, 40420",0.39190231564747646
+198,"Dayton-Kettering-Beavercreek, OH Metro Area, Greene County, Ohio, 19430","Fort Wayne, IN Metro Area, Allen County, Indiana, 23060",0.38689224452334475
+199,"Dayton-Kettering-Beavercreek, OH Metro Area, Greene County, Ohio, 19430","Toledo, OH Metro Area, Fulton County, Ohio, 45780",0.37464381381423273
+200,"Dayton-Kettering-Beavercreek, OH Metro Area, Greene County, Ohio, 19430","Hartford-West Hartford-East Hartford, CT Metro Area, Capitol Planning Region, Connecticut, 25540",0.3730945774706623
+201,"Dayton-Kettering-Beavercreek, OH Metro Area, Greene County, Ohio, 19430","Rochester, NY Metro Area, Livingston County, New York, 40380",0.35145658816819536
+202,"Dayton-Kettering-Beavercreek, OH Metro Area, Greene County, Ohio, 19430","Tulsa, OK Metro Area, Creek County, Oklahoma, 46140",0.36265655643086175
+203,"Denver-Aurora-Centennial, CO Metro Area, Adams County, Colorado, 19740","Orlando-Kissimmee-Sanford, FL Metro Area, Lake County, Florida, 36740",0.38439881852080493
+204,"Denver-Aurora-Centennial, CO Metro Area, Adams County, Colorado, 19740","Phoenix-Mesa-Chandler, AZ Metro Area, Maricopa County, Arizona, 38060",0.3714108514424081
+205,"Des Moines-West Des Moines, IA Metro Area, Dallas County, Iowa, 19780","Sioux Falls, SD-MN Metro Area, Rock County, Minnesota, 43620",0.3427712142023897
+206,"Detroit-Warren-Dearborn, MI Metro Area, Lapeer County, Michigan, 19820","Grand Rapids-Wyoming-Kentwood, MI Metro Area, Barry County, Michigan, 24340",0.37600120021263034
+207,"Detroit-Warren-Dearborn, MI Metro Area, Lapeer County, Michigan, 19820","Los Angeles-Long Beach-Anaheim, CA Metro Area, Los Angeles County, California, 31080",0.3620691527068673
+208,"Detroit-Warren-Dearborn, MI Metro Area, Lapeer County, Michigan, 19820","Pittsburgh, PA Metro Area, Allegheny County, Pennsylvania, 38300",0.3685448409543469
+209,"Durham-Chapel Hill, NC Metro Area, Chatham County, North Carolina, 20500","Raleigh-Cary, NC Metro Area, Franklin County, North Carolina, 39580",0.3406134798346211
+210,"Eau Claire, WI Metro Area, Chippewa County, Wisconsin, 20740","La Crosse-Onalaska, WI-MN Metro Area, Houston County, Minnesota, 29100",0.34177727946992154
+211,"Eau Claire, WI Metro Area, Chippewa County, Wisconsin, 20740","Janesville-Beloit, WI Metro Area, Rock County, Wisconsin, 27500",0.31666787625309933
+212,"Elkhart-Goshen, IN Metro Area, Elkhart County, Indiana, 21140","Grand Rapids-Wyoming-Kentwood, MI Metro Area, Barry County, Michigan, 24340",0.42084039788899824
+213,"Elkhart-Goshen, IN Metro Area, Elkhart County, Indiana, 21140","Fort Wayne, IN Metro Area, Allen County, Indiana, 23060",0.38392813479506405
+214,"Erie, PA Metro Area, Erie County, Pennsylvania, 21500","Youngstown-Warren, OH Metro Area, Mahoning County, Ohio, 49660",0.34734766059470235
+215,"Fargo, ND-MN Metro Area, Clay County, Minnesota, 22020","Sioux Falls, SD-MN Metro Area, Rock County, Minnesota, 43620",0.3814970767728907
+216,"Fargo, ND-MN Metro Area, Clay County, Minnesota, 22020","St. Cloud, MN Metro Area, Benton County, Minnesota, 41060",0.33930410004832084
+217,"Fayetteville-Springdale-Rogers, AR Metro Area, Benton County, Arkansas, 22220","Ogden, UT Metro Area, Davis County, Utah, 36260",0.3158145951890587
+218,"Fort Collins-Loveland, CO Metro Area, Larimer County, Colorado, 22660","Lebanon-Claremont, NH-VT Micro Area, Grafton County, New Hampshire, 30150",0.3288879066336445
+219,"Fort Collins-Loveland, CO Metro Area, Larimer County, Colorado, 22660","Missoula, MT Metro Area, Mineral County, Montana, 33540",0.3617207644866547
+220,"Fort Collins-Loveland, CO Metro Area, Larimer County, Colorado, 22660","St. George, UT Metro Area, Washington County, Utah, 41100",0.3552803963816265
+221,"Fort Wayne, IN Metro Area, Allen County, Indiana, 23060","Grand Rapids-Wyoming-Kentwood, MI Metro Area, Barry County, Michigan, 24340",0.4070106929796364
+222,"Fort Wayne, IN Metro Area, Allen County, Indiana, 23060","Kalamazoo-Portage, MI Metro Area, Kalamazoo County, Michigan, 28020",0.32759714239861987
+223,"Fort Wayne, IN Metro Area, Allen County, Indiana, 23060","Greenville-Anderson-Greer, SC Metro Area, Anderson County, South Carolina, 24860",0.36125237292081885
+224,"Fort Wayne, IN Metro Area, Allen County, Indiana, 23060","Rockford, IL Metro Area, Boone County, Illinois, 40420",0.3831590285254218
+225,"Fort Wayne, IN Metro Area, Allen County, Indiana, 23060","Toledo, OH Metro Area, Fulton County, Ohio, 45780",0.36656184162290767
+226,"Fort Wayne, IN Metro Area, Allen County, Indiana, 23060","York-Hanover, PA Metro Area, York County, Pennsylvania, 49620",0.3578769829290103
+227,"Fort Wayne, IN Metro Area, Allen County, Indiana, 23060","Youngstown-Warren, OH Metro Area, Mahoning County, Ohio, 49660",0.35543026640666353
+228,"Gainesville, GA Metro Area, Hall County, Georgia, 23580","Wausau, WI Metro Area, Marathon County, Wisconsin, 48140",0.3410724825452091
+229,"Grand Junction, CO Metro Area, Mesa County, Colorado, 24300","Traverse City, MI Metro Area, Benzie County, Michigan, 45900",0.4045275650032039
+230,"Grand Junction, CO Metro Area, Mesa County, Colorado, 24300","Missoula, MT Metro Area, Mineral County, Montana, 33540",0.3565979380430015
+231,"Grand Rapids-Wyoming-Kentwood, MI Metro Area, Barry County, Michigan, 24340","Riverside-San Bernardino-Ontario, CA Metro Area, Riverside County, California, 40140",0.44163377087275235
+232,"Grand Rapids-Wyoming-Kentwood, MI Metro Area, Barry County, Michigan, 24340","Louisville/Jefferson County, KY-IN Metro Area, Clark County, Indiana, 31140",0.4406588475607866
+233,"Grand Rapids-Wyoming-Kentwood, MI Metro Area, Barry County, Michigan, 24340","Greensboro-High Point, NC Metro Area, Guilford County, North Carolina, 24660",0.4344503812994033
+234,"Grand Rapids-Wyoming-Kentwood, MI Metro Area, Barry County, Michigan, 24340","Indianapolis-Carmel-Greenwood, IN Metro Area, Boone County, Indiana, 26900",0.4222169470802119
+235,"Grand Rapids-Wyoming-Kentwood, MI Metro Area, Barry County, Michigan, 24340","Greenville-Anderson-Greer, SC Metro Area, Anderson County, South Carolina, 24860",0.3811460404844706
+236,"Grand Rapids-Wyoming-Kentwood, MI Metro Area, Barry County, Michigan, 24340","Hickory-Lenoir-Morganton, NC Metro Area, Alexander County, North Carolina, 25860",0.3656775408286661
+237,"Grand Rapids-Wyoming-Kentwood, MI Metro Area, Barry County, Michigan, 24340","Kansas City, MO-KS Metro Area, Johnson County, Kansas, 28140",0.36492438809375266
+238,"Grand Rapids-Wyoming-Kentwood, MI Metro Area, Barry County, Michigan, 24340","Milwaukee-Waukesha, WI Metro Area, Milwaukee County, Wisconsin, 33340",0.44214412614321075
+239,"Grand Rapids-Wyoming-Kentwood, MI Metro Area, Barry County, Michigan, 24340","Minneapolis-St. Paul-Bloomington, MN-WI Metro Area, Anoka County, Minnesota, 33460",0.420731398905255
+240,"Greeley, CO Metro Area, Weld County, Colorado, 24540","Lake Charles, LA Metro Area, Calcasieu Parish, Louisiana, 29340",0.3692762048726014
+241,"Greeley, CO Metro Area, Weld County, Colorado, 24540","Midland, TX Metro Area, Martin County, Texas, 33260",0.3662941949388962
+242,"Green Bay, WI Metro Area, Brown County, Wisconsin, 24580","Wausau, WI Metro Area, Marathon County, Wisconsin, 48140",0.37667134953669446
+243,"Green Bay, WI Metro Area, Brown County, Wisconsin, 24580","Oshkosh-Neenah, WI Metro Area, Winnebago County, Wisconsin, 36780",0.3574544043571603
+244,"Greensboro-High Point, NC Metro Area, Guilford County, North Carolina, 24660","Hickory-Lenoir-Morganton, NC Metro Area, Alexander County, North Carolina, 25860",0.540260012501274
+245,"Greensboro-High Point, NC Metro Area, Guilford County, North Carolina, 24660","Greenville-Anderson-Greer, SC Metro Area, Anderson County, South Carolina, 24860",0.4368211531750509
+246,"Greensboro-High Point, NC Metro Area, Guilford County, North Carolina, 24660","Spartanburg, SC Metro Area, Spartanburg County, South Carolina, 43900",0.40516214145879886
+247,"Greensboro-High Point, NC Metro Area, Guilford County, North Carolina, 24660","Winston-Salem, NC Metro Area, Davidson County, North Carolina, 49180",0.4060025992120531
+248,"Greenville-Anderson-Greer, SC Metro Area, Anderson County, South Carolina, 24860","Spartanburg, SC Metro Area, Spartanburg County, South Carolina, 43900",0.428852975111456
+249,"Greenville-Anderson-Greer, SC Metro Area, Anderson County, South Carolina, 24860","Hickory-Lenoir-Morganton, NC Metro Area, Alexander County, North Carolina, 25860",0.35198562933036565
+250,"Greenville-Anderson-Greer, SC Metro Area, Anderson County, South Carolina, 24860","Winston-Salem, NC Metro Area, Davidson County, North Carolina, 49180",0.3577025559527969
+251,"Harrisburg-Carlisle, PA Metro Area, Cumberland County, Pennsylvania, 25420","Scranton--Wilkes-Barre, PA Metro Area, Lackawanna County, Pennsylvania, 42540",0.33738357730544094
+252,"Hartford-West Hartford-East Hartford, CT Metro Area, Capitol Planning Region, Connecticut, 25540","Milwaukee-Waukesha, WI Metro Area, Milwaukee County, Wisconsin, 33340",0.3653884983114867
+253,"Hartford-West Hartford-East Hartford, CT Metro Area, Capitol Planning Region, Connecticut, 25540","Rochester, NY Metro Area, Livingston County, New York, 40380",0.3558588427228457
+254,"Hickory-Lenoir-Morganton, NC Metro Area, Alexander County, North Carolina, 25860","Winston-Salem, NC Metro Area, Davidson County, North Carolina, 49180",0.44313298761134856
+255,"Hickory-Lenoir-Morganton, NC Metro Area, Alexander County, North Carolina, 25860","Spartanburg, SC Metro Area, Spartanburg County, South Carolina, 43900",0.3786567875944549
+256,"Hilo-Kailua, HI Micro Area, Hawaii County, Hawaii, 25900","Kahului-Wailuku, HI Metro Area, Kalawao County, Hawaii, 27980",0.5815673546954613
+257,"Hilo-Kailua, HI Micro Area, Hawaii County, Hawaii, 25900","Urban Honolulu, HI Metro Area, Honolulu County, Hawaii, 46520",0.5068888265830893
+258,"Houma-Bayou Cane-Thibodaux, LA Metro Area, Lafourche Parish, Louisiana, 26380","New Orleans-Metairie, LA Metro Area, Jefferson Parish, Louisiana, 35380",0.4464084507841954
+259,"Houston-Pasadena-The Woodlands, TX Metro Area, Austin County, Texas, 26420","Tulsa, OK Metro Area, Creek County, Oklahoma, 46140",0.37619962837640125
+260,"Houston-Pasadena-The Woodlands, TX Metro Area, Austin County, Texas, 26420","Pittsburgh, PA Metro Area, Allegheny County, Pennsylvania, 38300",0.39714433680591454
+261,"Huntsville, AL Metro Area, Limestone County, Alabama, 26620","Ogden, UT Metro Area, Davis County, Utah, 36260",0.29311626226226367
+262,"Idaho Falls, ID Metro Area, Bonneville County, Idaho, 26820","Kennewick-Richland, WA Metro Area, Benton County, Washington, 28420",0.3631726751442158
+263,"Indianapolis-Carmel-Greenwood, IN Metro Area, Boone County, Indiana, 26900","Kansas City, MO-KS Metro Area, Johnson County, Kansas, 28140",0.3523636360708892
+264,"Indianapolis-Carmel-Greenwood, IN Metro Area, Boone County, Indiana, 26900","Louisville/Jefferson County, KY-IN Metro Area, Clark County, Indiana, 31140",0.36880314666447495
+265,"Kahului-Wailuku, HI Metro Area, Kalawao County, Hawaii, 27980","Naples-Marco Island, FL Metro Area, Collier County, Florida, 34940",0.35428617156742903
+266,"Kahului-Wailuku, HI Metro Area, Kalawao County, Hawaii, 27980","Salinas, CA Metro Area, Monterey County, California, 41500",0.35647284654110006
+267,"Kahului-Wailuku, HI Metro Area, Kalawao County, Hawaii, 27980","Urban Honolulu, HI Metro Area, Honolulu County, Hawaii, 46520",0.49903124362722096
+268,"Kansas City, MO-KS Metro Area, Johnson County, Kansas, 28140","Louisville/Jefferson County, KY-IN Metro Area, Clark County, Indiana, 31140",0.36535427648399565
+269,"Kansas City, MO-KS Metro Area, Johnson County, Kansas, 28140","Memphis, TN-MS-AR Metro Area, Crittenden County, Arkansas, 32820",0.35524968618027836
+270,"Kansas City, MO-KS Metro Area, Johnson County, Kansas, 28140","Milwaukee-Waukesha, WI Metro Area, Milwaukee County, Wisconsin, 33340",0.36483051985816295
+271,"Kansas City, MO-KS Metro Area, Johnson County, Kansas, 28140","Minneapolis-St. Paul-Bloomington, MN-WI Metro Area, Anoka County, Minnesota, 33460",0.3885416185428579
+272,"Kansas City, MO-KS Metro Area, Johnson County, Kansas, 28140","St. Louis, MO-IL Metro Area, Bond County, Illinois, 41180",0.3757400018391731
+273,"Kennewick-Richland, WA Metro Area, Benton County, Washington, 28420","Modesto, CA Metro Area, Stanislaus County, California, 33700",0.4079720062449029
+274,"Kennewick-Richland, WA Metro Area, Benton County, Washington, 28420","Salinas, CA Metro Area, Monterey County, California, 41500",0.3926821578607674
+275,"La Crosse-Onalaska, WI-MN Metro Area, Houston County, Minnesota, 29100","St. Cloud, MN Metro Area, Benton County, Minnesota, 41060",0.3480491783194854
+276,"Lake Charles, LA Metro Area, Calcasieu Parish, Louisiana, 29340","New Orleans-Metairie, LA Metro Area, Jefferson Parish, Louisiana, 35380",0.4138835899962047
+277,"Lancaster, PA Metro Area, Lancaster County, Pennsylvania, 29540","Minneapolis-St. Paul-Bloomington, MN-WI Metro Area, Anoka County, Minnesota, 33460",0.34661748374252205
+278,"Los Angeles-Long Beach-Anaheim, CA Metro Area, Los Angeles County, California, 31080","New York-Newark-Jersey City, NY-NJ Metro Area, Bergen County, New Jersey, 35620",0.5319983271726948
+279,"Los Angeles-Long Beach-Anaheim, CA Metro Area, Los Angeles County, California, 31080","San Diego-Chula Vista-Carlsbad, CA Metro Area, San Diego County, California, 41740",0.3970836960718211
+280,"Los Angeles-Long Beach-Anaheim, CA Metro Area, Los Angeles County, California, 31080","Seattle-Tacoma-Bellevue, WA Metro Area, King County, Washington, 42660",0.3397055520265317
+281,"Los Angeles-Long Beach-Anaheim, CA Metro Area, Los Angeles County, California, 31080","Miami-Fort Lauderdale-West Palm Beach, FL Metro Area, Broward County, Florida, 33100",0.4669041502460071
+282,"Los Angeles-Long Beach-Anaheim, CA Metro Area, Los Angeles County, California, 31080","Minneapolis-St. Paul-Bloomington, MN-WI Metro Area, Anoka County, Minnesota, 33460",0.3960491863715683
+283,"Los Angeles-Long Beach-Anaheim, CA Metro Area, Los Angeles County, California, 31080","Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metro Area, New Castle County, Delaware, 37980",0.3807211721628085
+284,"Los Angeles-Long Beach-Anaheim, CA Metro Area, Los Angeles County, California, 31080","Phoenix-Mesa-Chandler, AZ Metro Area, Maricopa County, Arizona, 38060",0.36672061061970473
+285,"Los Angeles-Long Beach-Anaheim, CA Metro Area, Los Angeles County, California, 31080","Portland-Vancouver-Hillsboro, OR-WA Metro Area, Clackamas County, Oregon, 38900",0.3923436886477536
+286,"Los Angeles-Long Beach-Anaheim, CA Metro Area, Los Angeles County, California, 31080","Riverside-San Bernardino-Ontario, CA Metro Area, Riverside County, California, 40140",0.40848650766739614
+287,"Los Angeles-Long Beach-Anaheim, CA Metro Area, Los Angeles County, California, 31080","San Francisco-Oakland-Fremont, CA Metro Area, Alameda County, California, 41860",0.35554720876166646
+288,"Louisville/Jefferson County, KY-IN Metro Area, Clark County, Indiana, 31140","Milwaukee-Waukesha, WI Metro Area, Milwaukee County, Wisconsin, 33340",0.38167210814171737
+289,"Louisville/Jefferson County, KY-IN Metro Area, Clark County, Indiana, 31140","Minneapolis-St. Paul-Bloomington, MN-WI Metro Area, Anoka County, Minnesota, 33460",0.36490483318495437
+290,"Louisville/Jefferson County, KY-IN Metro Area, Clark County, Indiana, 31140","Riverside-San Bernardino-Ontario, CA Metro Area, Riverside County, California, 40140",0.4029618967353942
+291,"Louisville/Jefferson County, KY-IN Metro Area, Clark County, Indiana, 31140","Rockford, IL Metro Area, Boone County, Illinois, 40420",0.35205160757935433
+292,"Madison, WI Metro Area, Columbia County, Wisconsin, 31540","Minneapolis-St. Paul-Bloomington, MN-WI Metro Area, Anoka County, Minnesota, 33460",0.34053692770135585
+293,"Manchester-Nashua, NH Metro Area, Hillsborough County, New Hampshire, 31700","Worcester, MA Metro Area, Worcester County, Massachusetts, 49340",0.36862591811005985
+294,"Manchester-Nashua, NH Metro Area, Hillsborough County, New Hampshire, 31700","Waterbury-Shelton, CT Metro Area, Naugatuck Valley Planning Region, Connecticut, 47930",0.35996461610606667
+295,"Manchester-Nashua, NH Metro Area, Hillsborough County, New Hampshire, 31700","San Diego-Chula Vista-Carlsbad, CA Metro Area, San Diego County, California, 41740",0.3514901798013874
+296,"Medford, OR Metro Area, Jackson County, Oregon, 32780","Missoula, MT Metro Area, Mineral County, Montana, 33540",0.36531102156813355
+297,"Memphis, TN-MS-AR Metro Area, Crittenden County, Arkansas, 32820","Toledo, OH Metro Area, Fulton County, Ohio, 45780",0.3673144225163753
+298,"Memphis, TN-MS-AR Metro Area, Crittenden County, Arkansas, 32820","New Orleans-Metairie, LA Metro Area, Jefferson Parish, Louisiana, 35380",0.363641894926866
+299,"Miami-Fort Lauderdale-West Palm Beach, FL Metro Area, Broward County, Florida, 33100","New York-Newark-Jersey City, NY-NJ Metro Area, Bergen County, New Jersey, 35620",0.5128440124801389
+300,"Miami-Fort Lauderdale-West Palm Beach, FL Metro Area, Broward County, Florida, 33100","Orlando-Kissimmee-Sanford, FL Metro Area, Lake County, Florida, 36740",0.4288347526707742
+301,"Miami-Fort Lauderdale-West Palm Beach, FL Metro Area, Broward County, Florida, 33100","Urban Honolulu, HI Metro Area, Honolulu County, Hawaii, 46520",0.38183661754848247
+302,"Miami-Fort Lauderdale-West Palm Beach, FL Metro Area, Broward County, Florida, 33100","Tampa-St. Petersburg-Clearwater, FL Metro Area, Hernando County, Florida, 45300",0.37281122193222943
+303,"Midland, TX Metro Area, Martin County, Texas, 33260","Odessa, TX Metro Area, Ector County, Texas, 36220",0.4964705879062807
+304,"Milwaukee-Waukesha, WI Metro Area, Milwaukee County, Wisconsin, 33340","St. Louis, MO-IL Metro Area, Bond County, Illinois, 41180",0.4203071223098579
+305,"Milwaukee-Waukesha, WI Metro Area, Milwaukee County, Wisconsin, 33340","Minneapolis-St. Paul-Bloomington, MN-WI Metro Area, Anoka County, Minnesota, 33460",0.4336967489881126
+306,"Milwaukee-Waukesha, WI Metro Area, Milwaukee County, Wisconsin, 33340","Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metro Area, New Castle County, Delaware, 37980",0.35537014596995753
+307,"Milwaukee-Waukesha, WI Metro Area, Milwaukee County, Wisconsin, 33340","Pittsburgh, PA Metro Area, Allegheny County, Pennsylvania, 38300",0.36892986289805746
+308,"Milwaukee-Waukesha, WI Metro Area, Milwaukee County, Wisconsin, 33340","Portland-Vancouver-Hillsboro, OR-WA Metro Area, Clackamas County, Oregon, 38900",0.3719071753963678
+309,"Milwaukee-Waukesha, WI Metro Area, Milwaukee County, Wisconsin, 33340","Riverside-San Bernardino-Ontario, CA Metro Area, Riverside County, California, 40140",0.3617261435525561
+310,"Minneapolis-St. Paul-Bloomington, MN-WI Metro Area, Anoka County, Minnesota, 33460","Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metro Area, New Castle County, Delaware, 37980",0.35331386801648257
+311,"Minneapolis-St. Paul-Bloomington, MN-WI Metro Area, Anoka County, Minnesota, 33460","Portland-Vancouver-Hillsboro, OR-WA Metro Area, Clackamas County, Oregon, 38900",0.3816260744669282
+312,"Minneapolis-St. Paul-Bloomington, MN-WI Metro Area, Anoka County, Minnesota, 33460","Riverside-San Bernardino-Ontario, CA Metro Area, Riverside County, California, 40140",0.4161705506888966
+313,"Minneapolis-St. Paul-Bloomington, MN-WI Metro Area, Anoka County, Minnesota, 33460","Rochester, NY Metro Area, Livingston County, New York, 40380",0.38780401308291945
+314,"Minneapolis-St. Paul-Bloomington, MN-WI Metro Area, Anoka County, Minnesota, 33460","St. Louis, MO-IL Metro Area, Bond County, Illinois, 41180",0.37853432253621844
+315,"Missoula, MT Metro Area, Mineral County, Montana, 33540","Ogden, UT Metro Area, Davis County, Utah, 36260",0.35529451094361647
+316,"Modesto, CA Metro Area, Stanislaus County, California, 33700","Santa Rosa-Petaluma, CA Metro Area, Sonoma County, California, 42220",0.35161009740807553
+317,"Napa, CA Metro Area, Napa County, California, 34900","Santa Rosa-Petaluma, CA Metro Area, Sonoma County, California, 42220",0.3641117537107542
+318,"Naples-Marco Island, FL Metro Area, Collier County, Florida, 34940","St. George, UT Metro Area, Washington County, Utah, 41100",0.39102226542888285
+319,"Naples-Marco Island, FL Metro Area, Collier County, Florida, 34940","Salinas, CA Metro Area, Monterey County, California, 41500",0.3890618695625741
+320,"Nashville-Davidson--Murfreesboro--Franklin, TN Metro Area, Cannon County, Tennessee, 34980","Riverside-San Bernardino-Ontario, CA Metro Area, Riverside County, California, 40140",0.3510663843010598
+321,"New Haven, CT Metro Area, South Central Connecticut Planning Region, Connecticut, 35300","Worcester, MA Metro Area, Worcester County, Massachusetts, 49340",0.38214619275041856
+322,"New Haven, CT Metro Area, South Central Connecticut Planning Region, Connecticut, 35300","Springfield, MA Metro Area, Hampden County, Massachusetts, 44140",0.36880222457023726
+323,"New Orleans-Metairie, LA Metro Area, Jefferson Parish, Louisiana, 35380","Urban Honolulu, HI Metro Area, Honolulu County, Hawaii, 46520",0.37960215138410863
+324,"New York-Newark-Jersey City, NY-NJ Metro Area, Bergen County, New Jersey, 35620","San Francisco-Oakland-Fremont, CA Metro Area, Alameda County, California, 41860",0.3855225503214225
+325,"Ogden, UT Metro Area, Davis County, Utah, 36260","Provo-Orem-Lehi, UT Metro Area, Juab County, Utah, 39340",0.3835817583118685
+326,"Ogden, UT Metro Area, Davis County, Utah, 36260","St. George, UT Metro Area, Washington County, Utah, 41100",0.3778915158107518
+327,"Ogden, UT Metro Area, Davis County, Utah, 36260","Reno, NV Metro Area, Lyon County, Nevada, 39900",0.36811198548042523
+328,"Ogden, UT Metro Area, Davis County, Utah, 36260","Salt Lake City-Murray, UT Metro Area, Salt Lake County, Utah, 41620",0.35936205915949054
+329,"Orlando-Kissimmee-Sanford, FL Metro Area, Lake County, Florida, 36740","Phoenix-Mesa-Chandler, AZ Metro Area, Maricopa County, Arizona, 38060",0.38081296175781765
+330,"Orlando-Kissimmee-Sanford, FL Metro Area, Lake County, Florida, 36740","Salt Lake City-Murray, UT Metro Area, Salt Lake County, Utah, 41620",0.3585480050344195
+331,"Orlando-Kissimmee-Sanford, FL Metro Area, Lake County, Florida, 36740","Tampa-St. Petersburg-Clearwater, FL Metro Area, Hernando County, Florida, 45300",0.37880548189213453
+332,"Orlando-Kissimmee-Sanford, FL Metro Area, Lake County, Florida, 36740","Urban Honolulu, HI Metro Area, Honolulu County, Hawaii, 46520",0.35997080497356754
+333,"Oxnard-Thousand Oaks-Ventura, CA Metro Area, Ventura County, California, 37100","Santa Cruz-Watsonville, CA Metro Area, Santa Cruz County, California, 42100",0.36118148972893394
+334,"Oxnard-Thousand Oaks-Ventura, CA Metro Area, Ventura County, California, 37100","Santa Rosa-Petaluma, CA Metro Area, Sonoma County, California, 42220",0.35294090182778676
+335,"Peoria, IL Metro Area, Marshall County, Illinois, 37900","Sioux Falls, SD-MN Metro Area, Rock County, Minnesota, 43620",0.37141739145603603
+336,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metro Area, New Castle County, Delaware, 37980","Pittsburgh, PA Metro Area, Allegheny County, Pennsylvania, 38300",0.38776055450278885
+337,"Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metro Area, New Castle County, Delaware, 37980","Providence-Warwick, RI-MA Metro Area, Bristol County, Massachusetts, 39300",0.3589413409828608
+338,"Phoenix-Mesa-Chandler, AZ Metro Area, Maricopa County, Arizona, 38060","Salt Lake City-Murray, UT Metro Area, Salt Lake County, Utah, 41620",0.39407430911330577
+339,"Phoenix-Mesa-Chandler, AZ Metro Area, Maricopa County, Arizona, 38060","Tampa-St. Petersburg-Clearwater, FL Metro Area, Hernando County, Florida, 45300",0.38960243499318603
+340,"Phoenix-Mesa-Chandler, AZ Metro Area, Maricopa County, Arizona, 38060","Sacramento-Roseville-Folsom, CA Metro Area, El Dorado County, California, 40900",0.38723005972875213
+341,"Phoenix-Mesa-Chandler, AZ Metro Area, Maricopa County, Arizona, 38060","Reno, NV Metro Area, Lyon County, Nevada, 39900",0.35177008294561807
+342,"Phoenix-Mesa-Chandler, AZ Metro Area, Maricopa County, Arizona, 38060","Riverside-San Bernardino-Ontario, CA Metro Area, Riverside County, California, 40140",0.3740061551902881
+343,"Pittsburgh, PA Metro Area, Allegheny County, Pennsylvania, 38300","St. Louis, MO-IL Metro Area, Bond County, Illinois, 41180",0.40673619783841297
+344,"Pittsburgh, PA Metro Area, Allegheny County, Pennsylvania, 38300","Tulsa, OK Metro Area, Creek County, Oklahoma, 46140",0.3706120841187326
+345,"Portland-Vancouver-Hillsboro, OR-WA Metro Area, Clackamas County, Oregon, 38900","Riverside-San Bernardino-Ontario, CA Metro Area, Riverside County, California, 40140",0.3940291523779953
+346,"Providence-Warwick, RI-MA Metro Area, Bristol County, Massachusetts, 39300","Rochester, NY Metro Area, Livingston County, New York, 40380",0.3756165237179826
+347,"Provo-Orem-Lehi, UT Metro Area, Juab County, Utah, 39340","Salt Lake City-Murray, UT Metro Area, Salt Lake County, Utah, 41620",0.4040052994557987
+348,"Racine-Mount Pleasant, WI Metro Area, Racine County, Wisconsin, 39540","Waterloo-Cedar Falls, IA Metro Area, Black Hawk County, Iowa, 47940",0.3474660829190483
+349,"Raleigh-Cary, NC Metro Area, Franklin County, North Carolina, 39580","Washington-Arlington-Alexandria, DC-VA-MD-WV Metro Area, District of Columbia, District of Columbia, 47900",0.33273329187642553
+350,"Richmond, VA Metro Area, Amelia County, Virginia, 40060","Winston-Salem, NC Metro Area, Davidson County, North Carolina, 49180",0.33364586439331256
+351,"Riverside-San Bernardino-Ontario, CA Metro Area, Riverside County, California, 40140","Rochester, NY Metro Area, Livingston County, New York, 40380",0.35357457249048696
+352,"Riverside-San Bernardino-Ontario, CA Metro Area, Riverside County, California, 40140","Salt Lake City-Murray, UT Metro Area, Salt Lake County, Utah, 41620",0.3747275546439798
+353,"Riverside-San Bernardino-Ontario, CA Metro Area, Riverside County, California, 40140","St. Louis, MO-IL Metro Area, Bond County, Illinois, 41180",0.3749893978839823
+354,"Rochester, MN Metro Area, Dodge County, Minnesota, 40340","St. Cloud, MN Metro Area, Benton County, Minnesota, 41060",0.29302078394651876
+355,"Rochester, NY Metro Area, Livingston County, New York, 40380","Worcester, MA Metro Area, Worcester County, Massachusetts, 49340",0.3865377737225749
+356,"Rochester, NY Metro Area, Livingston County, New York, 40380","San Diego-Chula Vista-Carlsbad, CA Metro Area, San Diego County, California, 41740",0.35257221398672367
+357,"Rockford, IL Metro Area, Boone County, Illinois, 40420","Toledo, OH Metro Area, Fulton County, Ohio, 45780",0.35716125431086754
+358,"Salinas, CA Metro Area, Monterey County, California, 41500","Santa Maria-Santa Barbara, CA Metro Area, Santa Barbara County, California, 42200",0.39701889105784605
+359,"Salinas, CA Metro Area, Monterey County, California, 41500","Santa Cruz-Watsonville, CA Metro Area, Santa Cruz County, California, 42100",0.3926096000171382
+360,"San Diego-Chula Vista-Carlsbad, CA Metro Area, San Diego County, California, 41740","Tampa-St. Petersburg-Clearwater, FL Metro Area, Hernando County, Florida, 45300",0.366663604182063
+361,"Santa Cruz-Watsonville, CA Metro Area, Santa Cruz County, California, 42100","Santa Maria-Santa Barbara, CA Metro Area, Santa Barbara County, California, 42200",0.3755396179451533
+362,"Santa Maria-Santa Barbara, CA Metro Area, Santa Barbara County, California, 42200","Santa Rosa-Petaluma, CA Metro Area, Sonoma County, California, 42220",0.39630626182715906
+363,"Santa Rosa-Petaluma, CA Metro Area, Sonoma County, California, 42220","Vallejo, CA Metro Area, Solano County, California, 46700",0.35352683524520323
+364,"Sioux City, IA-NE-SD Metro Area, Woodbury County, Iowa, 43580","Sioux Falls, SD-MN Metro Area, Rock County, Minnesota, 43620",0.34808950909498665
+365,"Springfield, MA Metro Area, Hampden County, Massachusetts, 44140","Worcester, MA Metro Area, Worcester County, Massachusetts, 49340",0.3667731055530636
+366,"St. Louis, MO-IL Metro Area, Bond County, Illinois, 41180","Toledo, OH Metro Area, Fulton County, Ohio, 45780",0.35256990083893147
+367,"Toledo, OH Metro Area, Fulton County, Ohio, 45780","Youngstown-Warren, OH Metro Area, Mahoning County, Ohio, 49660",0.37487131723060285
+368,"Toledo, OH Metro Area, Fulton County, Ohio, 45780","Tulsa, OK Metro Area, Creek County, Oklahoma, 46140",0.3553931235735581

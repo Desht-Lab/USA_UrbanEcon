@@ -1,0 +1,963 @@
+naics_name,pci
+"Abrasive Product Manufacturing, 327910",1.5296
+"Adhesive Manufacturing, 325520",0.9794
+"Administrative Management and General Management Consulting Services , 541611",-0.6548
+"Advertising Agencies, 541810",0.225
+"Advertising Material Distribution Services, 541870",0.7667
+"Agents and Managers for Artists, Athletes, Entertainers, and Other Public Figures, 711410",0.1845
+"Air Traffic Control, 488111",1.0856
+"Air and Gas Compressor Manufacturing , 333912",0.918
+"Air-Conditioning and Warm Air Heating Equipment and Commercial and Industrial Refrigeration Equipment Manufacturing , 333415",0.3429
+"Aircraft Engine and Engine Parts Manufacturing , 336412",0.7897
+"Aircraft Manufacturing , 336411",0.7749
+"All Other Amusement and Recreation Industries , 713990",-1.1826
+"All Other Automotive Repair and Maintenance , 811198",-0.5896
+"All Other Basic Organic Chemical Manufacturing , 325199",0.0472
+"All Other Business Support Services , 561499",0.4012
+"All Other Consumer Goods Rental , 532289",-0.7116
+"All Other Converted Paper Product Manufacturing , 322299",0.9889
+"All Other General Merchandise Stores , 452319",-1.6103
+"All Other Health and Personal Care Stores , 446199",-1.1371
+"All Other Home Furnishings Stores , 442299",-0.835
+"All Other Information Services, 519190",0.7142
+"All Other Insurance Related Activities , 524298",0.5387
+"All Other Leather Good and Allied Product Manufacturing , 316998",0.3471
+"All Other Legal Services , 541199",0.0542
+"All Other Miscellaneous Ambulatory Health Care Services , 621999",-0.8875
+"All Other Miscellaneous Chemical Product and Preparation Manufacturing , 325998",0.1642
+"All Other Miscellaneous Electrical Equipment and Component Manufacturing , 335999",0.6132
+"All Other Miscellaneous Fabricated Metal Product Manufacturing , 332999",-0.5824
+"All Other Miscellaneous Food Manufacturing , 311999",0.5565
+"All Other Miscellaneous General Purpose Machinery Manufacturing , 333999",0.1003
+"All Other Miscellaneous Manufacturing , 339999",-0.4599
+"All Other Miscellaneous Nonmetallic Mineral Product Manufacturing , 327999",1.0245
+"All Other Miscellaneous Schools and Instruction , 611699",-0.515
+"All Other Miscellaneous Store Retailers (except Tobacco Stores) , 453998",-1.4088
+"All Other Miscellaneous Textile Product Mills , 314999",-0.034
+"All Other Miscellaneous Waste Management Services , 562998",-0.1356
+"All Other Miscellaneous Wood Product Manufacturing , 321999",-0.6664
+"All Other Nondepository Credit Intermediation , 522298",-1.4819
+"All Other Nonmetallic Mineral Mining , 212399",0.8175
+"All Other Outpatient Care Centers , 621498",-1.4362
+"All Other Personal Services , 812990",-0.8869
+"All Other Petroleum and Coal Products Manufacturing , 324199",1.4247
+"All Other Pipeline Transportation, 486990",2.3257
+"All Other Plastics Product Manufacturing , 326199",-0.8672
+"All Other Professional, Scientific, and Technical Services, 541990",-0.6892
+"All Other Publishers , 511199",0.748
+"All Other Rubber Product Manufacturing , 326299",0.4838
+"All Other Specialty Food Stores , 445299",-0.8335
+"All Other Specialty Trade Contractors, 238990",-1.4205
+"All Other Support Activities for Transportation , 488999",1.0326
+"All Other Support Services, 561990",-1.1314
+"All Other Telecommunications , 517919",0.57
+"All Other Transit and Ground Passenger Transportation , 485999",-0.0646
+"All Other Transportation Equipment Manufacturing , 336999",0.675
+"All Other Travel Arrangement and Reservation Services , 561599",0.0086
+"All Other Traveler Accommodation , 721199",-0.9592
+"Alumina Refining and Primary Aluminum Production , 331313",1.5521
+"Aluminum Foundries (except Die-Casting) , 331524",0.7567
+"Aluminum Sheet, Plate, and Foil Manufacturing , 331315",1.1384
+"Ambulance Services , 621910",-1.2364
+"Amusement Arcades, 713120",-0.3793
+"Amusement and Theme Parks , 713110",0.0289
+"Analytical Laboratory Instrument Manufacturing , 334516",0.602
+"Animal (except Poultry) Slaughtering , 311611",-0.9522
+"Anthracite Mining , 212113",-1.0761
+"Apparel Accessories and Other Apparel Manufacturing , 315990",0.9163
+"Appliance Repair and Maintenance , 811412",-0.5833
+"Apprenticeship Training , 611513",0.1639
+"Architectural Services, 541310",-0.5185
+"Armored Car Services , 561613",0.5019
+"Art Dealers , 453920",-0.9739
+"Artificial and Synthetic Fibers and Filaments Manufacturing, 325220",0.3304
+"Asphalt Paving Mixture and Block Manufacturing , 324121",-0.1638
+"Asphalt Shingle and Coating Materials Manufacturing , 324122",1.0421
+"Assisted Living Facilities for the Elderly , 623312",-1.3163
+"Audio and Video Equipment Manufacturing, 334310",0.9582
+"Automatic Environmental Control Manufacturing for Residential, Commercial, and Appliance Use , 334512",1.0142
+"Automobile Driving Schools , 611692",-0.0883
+"Automobile Manufacturing , 336111",0.9545
+"Automobile and Other Motor Vehicle Merchant Wholesalers , 423110",-0.8466
+"Automotive Body, Paint, and Interior Repair and Maintenance , 811121",-1.5355
+"Automotive Exhaust System Repair , 811112",0.2348
+"Automotive Glass Replacement Shops , 811122",-0.9574
+"Automotive Oil Change and Lubrication Shops , 811191",-1.0507
+"Automotive Parts and Accessories Stores , 441310",-1.5729
+"Automotive Transmission Repair , 811113",-0.4974
+"Baked Goods Stores , 445291",0.0462
+"Ball and Roller Bearing Manufacturing, 332991",1.2006
+"Barber Shops , 812111",-0.5821
+"Bare Printed Circuit Board Manufacturing  , 334412",1.5617
+"Beauty Salons , 812112",-1.3129
+"Bed-and-Breakfast Inns , 721191",-0.9578
+"Beer and Ale Merchant Wholesalers , 424810",-0.3823
+"Beer, Wine, and Liquor Stores , 445310",-1.538
+"Biological Product (except Diagnostic) Manufacturing , 325414",1.0257
+"Biomass Electric Power Generation , 221117",0.7081
+"Bituminous Coal Underground Mining , 212112",-1.177
+"Bituminous Coal and Lignite Surface Mining , 212111",-1.2
+"Blank Magnetic and Optical Recording Media Manufacturing , 334613",2.3716
+"Blind and Shade Manufacturing, 337920",1.0865
+"Blood and Organ Banks , 621991",-0.2259
+"Boat Building , 336612",-0.7767
+"Boat Dealers , 441222",-0.8987
+"Bolt, Nut, Screw, Rivet, and Washer Manufacturing , 332722",0.6161
+"Book Publishers , 511130",-0.0543
+"Book Stores , 451211",-0.8902
+"Book, Periodical, and Newspaper Merchant Wholesalers , 424920",0.6716
+"Books Printing , 323117",1.3696
+"Bottled Water Manufacturing , 312112",1.1506
+"Bowling Centers, 713950",-0.4758
+"Breakfast Cereal Manufacturing, 311230",-1.2487
+"Breweries, 312120",-0.8628
+"Brick, Stone, and Related Construction Material Merchant Wholesalers , 423320",-0.31
+"Broadwoven Fabric Mills, 313210",0.1013
+"Broom, Brush, and Mop Manufacturing , 339994",1.8239
+"Building Inspection Services, 541350",-0.6291
+"Burial Casket Manufacturing , 339995",-0.5269
+"Bus and Other Motor Vehicle Transit Systems , 485113",0.97
+"Business Associations , 813910",-1.3001
+"Business and Secretarial Schools , 611410",1.7068
+"Business to Business Electronic Markets , 425110",1.2245
+"Cable and Other Subscription Programming, 515210",1.1536
+"Cafeterias, Grill Buffets, and Buffets , 722514",-0.8676
+"Cane Sugar Manufacturing , 311314",1.7523
+"Capacitor, Resistor, Coil, Transformer, and Other Inductor Manufacturing , 334416",0.8645
+"Car Washes , 811192",-1.3461
+"Carbon and Graphite Product Manufacturing , 335991",1.3431
+"Carpet and Rug Mills, 314110",0.1789
+"Carpet and Upholstery Cleaning Services, 561740",-0.7049
+"Casino Hotels, 721120",-0.4169
+"Casinos (except Casino Hotels), 713210",0.1892
+"Caterers, 722320",-0.6316
+"Cement Manufacturing, 327310",0.968
+"Cemeteries and Crematories , 812220",-0.9067
+"Charter Bus Industry, 485510",0.5099
+"Cheese Manufacturing , 311513",-0.655
+"Child Day Care Services , 624410",-1.5856
+"Child and Youth Services , 624110",-1.2539
+"Children's and Infants' Clothing Stores , 448130",-0.6373
+"Chocolate and Confectionery Manufacturing from Cacao Beans , 311351",1.1747
+"Civic and Social Organizations , 813410",-1.5047
+"Claims Adjusting , 524291",-0.2439
+"Clay Building Material and Refractories Manufacturing , 327120",0.3708
+"Clay and Ceramic and Refractory Minerals Mining , 212325",-0.919
+"Clothing Accessories Stores , 448150",-0.8427
+"Coal and Other Mineral and Ore Merchant Wholesalers , 423520",1.103
+"Coastal and Great Lakes Freight Transportation , 483113",0.2261
+"Coastal and Great Lakes Passenger Transportation , 483114",0.5561
+"Coffee and Tea Manufacturing , 311920",0.0956
+"Coin-Operated Laundries and Drycleaners , 812310",-0.9771
+"Collection Agencies, 561440",0.0144
+"Colleges, Universities, and Professional Schools , 611310",-0.1177
+"Commercial Air, Rail, and Water Transportation Equipment Rental and Leasing , 532411",0.579
+"Commercial Bakeries , 311812",0.0372
+"Commercial Banking , 522110",-1.7346
+"Commercial Photography , 541922",-0.1634
+"Commercial Printing (except Screen and Books) , 323111",-0.9052
+"Commercial Screen Printing , 323113",-0.7674
+"Commercial and Industrial Machinery and Equipment (except Automotive and Electronic) Repair and Maintenance , 811310",-1.5173
+"Commercial and Institutional Building Construction , 236220",-1.4189
+"Commercial, Industrial, and Institutional Electric Lighting Fixture Manufacturing , 335122",0.9544
+"Commodity Contracts Brokerage , 523140",0.2792
+"Commodity Contracts Dealing , 523130",1.1228
+"Communication Equipment Repair and Maintenance , 811213",-0.342
+"Community Food Services , 624210",-1.0335
+"Computer Facilities Management Services , 541513",-0.3153
+"Computer Storage Device Manufacturing , 334112",1.9362
+"Computer Systems Design Services , 541512",-0.6163
+"Computer Terminal and Other Computer Peripheral Equipment Manufacturing , 334118",1.484
+"Computer Training , 611420",0.6573
+"Computer and Computer Peripheral Equipment and Software Merchant Wholesalers , 423430",0.2384
+"Computer and Office Machine Repair and Maintenance , 811212",-0.495
+"Concrete Block and Brick Manufacturing , 327331",0.5212
+"Concrete Pipe Manufacturing , 327332",1.4444
+"Confectionery Manufacturing from Purchased Chocolate , 311352",0.0191
+"Confectionery Merchant Wholesalers , 424450",-0.2449
+"Confectionery and Nut Stores , 445292",-0.5344
+"Construction Machinery Manufacturing, 333120",0.0599
+"Construction Sand and Gravel Mining , 212321",-0.8883
+"Construction and Mining (except Oil Well) Machinery and Equipment Merchant Wholesalers , 423810",-0.8346
+"Construction, Mining, and Forestry Machinery and Equipment Rental and Leasing , 532412",-0.9938
+"Consumer Electronics Repair and Maintenance , 811211",0.3937
+"Consumer Electronics and Appliances Rental, 532210",-0.977
+"Consumer Lending , 522291",-1.6348
+"Continuing Care Retirement Communities , 623311",-0.8381
+"Convenience Stores , 445120",-1.4738
+"Convention and Trade Show Organizers, 561920",0.3144
+"Convention and Visitors Bureaus , 561591",0.5826
+"Conveyor and Conveying Equipment Manufacturing , 333922",-0.0775
+"Cookie and Cracker Manufacturing , 311821",0.9225
+"Copper Rolling, Drawing, Extruding, and Alloying, 331420",0.3869
+"Copper, Nickel, Lead, and Zinc Mining , 212230",-0.9618
+"Corporate, Subsidiary, and Regional Managing Offices , 551114",-0.7059
+"Corrugated and Solid Fiber Box Manufacturing , 322211",0.0019
+"Cosmetics, Beauty Supplies, and Perfume Stores , 446120",-1.203
+"Cosmetology and Barber Schools , 611511",0.0908
+"Cotton Ginning , 115111",-1.5904
+"Couriers and Express Delivery Services, 492110",-1.1582
+"Court Reporting and Stenotype Services , 561492",0.1076
+"Creamery Butter Manufacturing , 311512",-0.9577
+"Credit Bureaus, 561450",1.6429
+"Credit Card Issuing , 522210",0.964
+"Credit Unions , 522130",-1.4034
+"Crop Harvesting, Primarily by Machine , 115113",-0.8841
+"Crude Petroleum Extraction , 211120",-1.4261
+"Crushed and Broken Granite Mining and Quarrying , 212313",0.378
+"Crushed and Broken Limestone Mining and Quarrying , 212312",-0.7581
+"Current-Carrying Wiring Device Manufacturing , 335931",1.1555
+"Curtain and Linen Mills, 314120",0.8156
+"Custom Architectural Woodwork and Millwork Manufacturing , 337212",-0.0446
+"Custom Compounding of Purchased Resins , 325991",0.817
+"Custom Computer Programming Services , 541511",-0.3727
+"Custom Roll Forming , 332114",1.2966
+"Cut Stock, Resawing Lumber, and Planing , 321912",-0.3324
+"Cut Stone and Stone Product Manufacturing , 327991",-0.2425
+"Cut and Sew Apparel Contractors , 315210",0.7213
+"Cutting Tool and Machine Tool Accessory Manufacturing , 333515",0.1999
+"Cyclic Crude, Intermediate, and Gum and Wood Chemical Manufacturing , 325194",2.3257
+"Dairy Product (except Dried or Canned) Merchant Wholesalers , 424430",0.1834
+"Dance Companies , 711120",0.8398
+"Data Processing, Hosting, and Related Services, 518210",-0.0252
+"Deep Sea Freight Transportation , 483111",1.0018
+"Deep Sea Passenger Transportation , 483112",2.0114
+"Dental Equipment and Supplies Manufacturing , 339114",0.7025
+"Dental Laboratories , 339116",-0.5707
+"Department Stores , 452210",-0.2901
+"Diagnostic Imaging Centers , 621512",-0.6263
+"Diet and Weight Reducing Centers , 812191",-0.1443
+"Dimension Stone Mining and Quarrying , 212311",-0.5936
+"Direct Health and Medical Insurance Carriers , 524114",0.0573
+"Direct Life Insurance Carriers , 524113",0.0052
+"Direct Mail Advertising, 541860",0.5421
+"Direct Property and Casualty Insurance Carriers , 524126",-0.3876
+"Direct Title Insurance Carriers , 524127",-0.3995
+"Directory and Mailing List Publishers , 511140",1.3956
+"Distilleries , 312140",-0.3308
+"Document Preparation Services, 561410",-0.3609
+"Dog and Cat Food Manufacturing , 311111",0.363
+"Doll, Toy, and Game Manufacturing, 339930",1.3432
+"Drafting Services, 541340",-0.3804
+"Dried and Dehydrated Food Manufacturing , 311423",0.0056
+"Drilling Oil and Gas Wells, 213111",-1.3964
+"Drinking Places (Alcoholic Beverages) , 722410",-1.4102
+"Drive-In Motion Picture Theaters , 512132",1.1144
+"Drugs and Druggists' Sundries Merchant Wholesalers , 424210",-0.2017
+"Dry Pasta, Dough, and Flour Mixes Manufacturing from Purchased Flour , 311824",1.705
+"Dry, Condensed, and Evaporated Dairy Product Manufacturing , 311514",0.7502
+"Drycleaning and Laundry Services (except Coin-Operated) , 812320",-0.9175
+"Drywall and Insulation Contractors , 238310",-1.0356
+"Educational Support Services, 611710",-0.5366
+"Electric Bulk Power Transmission and Control , 221121",0.2236
+"Electric Lamp Bulb and Part Manufacturing, 335110",2.2232
+"Electric Power Distribution , 221122",-1.3474
+"Electrical Apparatus and Equipment, Wiring Supplies, and Related Equipment Merchant Wholesalers , 423610",-0.9253
+"Electrical Contractors and Other Wiring Installation Contractors, 238210",-1.5133
+"Electromedical and Electrotherapeutic Apparatus Manufacturing , 334510",1.3166
+"Electronic Computer Manufacturing , 334111",1.4628
+"Electronic Connector Manufacturing , 334417",1.3833
+"Electronic Shopping and Mail-Order Houses , 454110",-0.9504
+"Electronics Stores , 443142",-1.1098
+"Electroplating, Plating, Polishing, Anodizing, and Coloring , 332813",0.035
+"Elementary and Secondary Schools , 611110",-1.1576
+"Elevator and Moving Stairway Manufacturing , 333921",1.8955
+"Emergency and Other Relief Services , 624230",0.2419
+"Employment Placement Agencies , 561311",-0.205
+"Engineered Wood Member (except Truss) Manufacturing , 321213",-1.0367
+"Engineering Services, 541330",-1.0014
+"Environment, Conservation and Wildlife Organizations , 813312",-1.174
+"Environmental Consulting Services, 541620",-0.766
+"Ethyl Alcohol Manufacturing , 325193",-0.8887
+"Exam Preparation and Tutoring , 611691",-0.1892
+"Executive Search Services , 561312",0.6512
+"Explosives Manufacturing, 325920",0.4157
+"Exterminating and Pest Control Services, 561710",-1.2484
+"Fabric Coating Mills, 313320",1.2269
+"Fabricated Pipe and Pipe Fitting Manufacturing , 332996",0.5953
+"Fabricated Structural Metal Manufacturing , 332312",-0.7012
+"Facilities Support Services, 561210",-0.9163
+"Family Clothing Stores , 448140",-1.3278
+"Family Planning Centers , 621410",-0.5703
+"Farm Labor Contractors and Crew Leaders , 115115",-0.9356
+"Farm Machinery and Equipment Manufacturing , 333111",-1.2255
+"Farm Management Services , 115116",-0.6865
+"Farm Product Warehousing and Storage, 493130",-0.6882
+"Farm Supplies Merchant Wholesalers , 424910",-1.5314
+"Farm and Garden Machinery and Equipment Merchant Wholesalers , 423820",-1.542
+"Fastener, Button, Needle, and Pin Manufacturing , 339993",2.4376
+"Fats and Oils Refining and Blending , 311225",1.7259
+"Fertilizer (Mixing Only) Manufacturing , 325314",0.0154
+"Fiber Optic Cable Manufacturing , 335921",1.173
+"Fiber, Yarn, and Thread Mills , 313110",-0.3897
+"Financial Transactions Processing, Reserve, and Clearinghouse Activities , 522320",0.6564
+"Fine Arts Schools , 611610",-0.8411
+"Finfish Fishing , 114111",-0.9559
+"Finish Carpentry Contractors, 238350",-1.2449
+"Fish and Seafood Markets , 445220",-0.4357
+"Fish and Seafood Merchant Wholesalers , 424460",-0.1985
+"Fitness and Recreational Sports Centers , 713940",-1.2717
+"Flat Glass Manufacturing , 327211",1.312
+"Flavoring Syrup and Concentrate Manufacturing, 311930",1.8391
+"Flight Training , 611512",-0.0146
+"Floor Covering Stores , 442210",-1.1665
+"Flooring Contractors, 238330",-0.9125
+"Florists , 453110",-1.2205
+"Flour Milling , 311211",0.4251
+"Flower, Nursery Stock, and Florists' Supplies Merchant Wholesalers , 424930",-0.4183
+"Fluid Milk Manufacturing , 311511",0.9084
+"Fluid Power Cylinder and Actuator Manufacturing , 333995",1.0265
+"Fluid Power Pump and Motor Manufacturing , 333996",1.8174
+"Fluid Power Valve and Hose Fitting Manufacturing , 332912",0.9303
+"Folding Paperboard Box Manufacturing , 322212",0.9089
+"Food (Health) Supplement Stores , 446191",-0.9728
+"Food Product Machinery Manufacturing , 333241",0.5671
+"Food Service Contractors, 722310",-1.3997
+"Footwear Manufacturing , 316210",0.6438
+"Footwear Merchant Wholesalers , 424340",1.3381
+"Footwear and Leather Goods Repair, 811430",1.1898
+"Forest Nurseries and Gathering of Forest Products , 113210",1.0303
+"Formal Wear and Costume Rental, 532281",0.2683
+"Fossil Fuel Electric Power Generation , 221112",-0.559
+"Framing Contractors , 238130",-1.1355
+"Freestanding Ambulatory Surgical and Emergency Centers , 621493",-1.008
+"Freight Transportation Arrangement , 488510",-0.6941
+"Fresh Fruit and Vegetable Merchant Wholesalers , 424480",-0.4566
+"Frozen Cakes, Pies, and Other Pastries Manufacturing , 311813",1.6017
+"Frozen Fruit, Juice, and Vegetable Manufacturing , 311411",-0.7401
+"Frozen Specialty Food Manufacturing , 311412",1.0715
+"Fruit and Vegetable Canning , 311421",-0.0895
+"Fruit and Vegetable Markets , 445230",-0.7016
+"Fuel Dealers , 454310",-1.406
+"Full-Service Restaurants , 722511",-1.6126
+"Funeral Homes and Funeral Services , 812210",-1.4599
+"Furniture Merchant Wholesalers , 423210",-0.011
+"Furniture Stores , 442110",-1.4069
+"Gasket, Packing, and Sealing Device Manufacturing , 339991",0.9354
+"Gasoline Stations with Convenience Stores , 447110",-1.5828
+"General Automotive Repair , 811111",-1.5567
+"General Freight Trucking, Local , 484110",-1.5141
+"General Freight Trucking, Long-Distance, Less Than Truckload , 484122",-0.948
+"General Freight Trucking, Long-Distance, Truckload , 484121",-1.5708
+"General Line Grocery Merchant Wholesalers , 424410",0.2972
+"General Medical and Surgical Hospitals , 622110",-0.8874
+"General Rental Centers, 532310",-0.565
+"General Warehousing and Storage , 493110",-1.141
+"Geophysical Surveying and Mapping Services, 541360",-0.4161
+"Geothermal Electric Power Generation , 221116",-1.2477
+"Gift, Novelty, and Souvenir Stores , 453220",-1.313
+"Glass Container Manufacturing , 327213",1.0908
+"Glass Product Manufacturing Made of Purchased Glass , 327215",0.3634
+"Glass and Glazing Contractors , 238150",-0.6445
+"Gold Ore Mining , 212221",-0.9954
+"Golf Courses and Country Clubs, 713910",-1.3164
+"Grain and Field Bean Merchant Wholesalers , 424510",-1.5866
+"Grantmaking Foundations , 813211",-0.9585
+"Graphic Design Services, 541430",-0.6303
+"Greeting Card Publishers , 511191",1.7973
+"Ground or Treated Mineral and Earth Manufacturing , 327992",0.8585
+"Guided Missile and Space Vehicle Manufacturing , 336414",1.1178
+"Guided Missile and Space Vehicle Propulsion Unit and Propulsion Unit Parts Manufacturing , 336415",1.4777
+"Gypsum Product Manufacturing, 327420",1.3458
+"HMO Medical Centers , 621491",0.3606
+"Hardware Manufacturing, 332510",0.8124
+"Hardware Merchant Wholesalers , 423710",-0.2406
+"Hardware Stores , 444130",-1.4826
+"Hardwood Veneer and Plywood Manufacturing , 321211",0.3397
+"Hazardous Waste Collection , 562112",0.9686
+"Hazardous Waste Treatment and Disposal , 562211",0.3293
+"Heating Equipment (except Warm Air Furnaces) Manufacturing , 333414",1.2598
+"Heavy Duty Truck Manufacturing, 336120",0.9431
+"Highway, Street, and Bridge Construction , 237310",-1.2337
+"Historical Sites, 712120",0.0442
+"Hobby, Toy, and Game Stores , 451120",-0.9233
+"Home Centers , 444110",-0.8597
+"Home Furnishing Merchant Wholesalers , 423220",0.2158
+"Home Health Care Services, 621610",-1.5086
+"Home Health Equipment Rental , 532283",-0.6406
+"Home and Garden Equipment Repair and Maintenance , 811411",-0.096
+"Hosiery and Sock Mills, 315110",-0.0323
+"Hotels (except Casino Hotels) and Motels , 721110",-1.6409
+"Household Appliance Stores , 443141",-0.9022
+"Household Appliances, Electric Housewares, and Consumer Electronics Merchant Wholesalers , 423620",0.734
+"Household Furniture (except Wood and Metal) Manufacturing , 337125",1.477
+"Human Resources Consulting Services , 541612",0.5965
+"Human Rights Organizations , 813311",-0.543
+"Hunting and Trapping, 114210",0.3626
+"Hydroelectric Power Generation , 221111",-0.5899
+"Ice Cream and Frozen Dessert Manufacturing, 311520",0.6827
+"Ice Manufacturing , 312113",1.3559
+"In-Vitro Diagnostic Substance Manufacturing , 325413",1.4142
+"Independent Artists, Writers, and Performers , 711510",-1.1573
+"Industrial Building Construction , 236210",-0.6689
+"Industrial Design Services, 541420",0.9212
+"Industrial Gas Manufacturing, 325120",0.1732
+"Industrial Launderers , 812332",0.0355
+"Industrial Machinery and Equipment Merchant Wholesalers , 423830",-1.1009
+"Industrial Mold Manufacturing , 333511",0.007
+"Industrial Process Furnace and Oven Manufacturing , 333994",1.1146
+"Industrial Sand Mining , 212322",-0.1871
+"Industrial Supplies Merchant Wholesalers, 423840",-0.976
+"Industrial Truck, Tractor, Trailer, and Stacker Machinery Manufacturing , 333924",1.233
+"Industrial Valve Manufacturing , 332911",0.8566
+"Industrial and Commercial Fan and Blower and Air Purification Equipment Manufacturing , 333413",0.9914
+"Industrial and Personal Service Paper Merchant Wholesalers , 424130",-0.0795
+"Inland Water Freight Transportation , 483211",0.2205
+"Inland Water Passenger Transportation , 483212",-0.0016
+"Institutional Furniture Manufacturing , 337127",0.2824
+"Instrument Manufacturing for Measuring and Testing Electricity and Electrical Signals , 334515",1.0461
+"Instruments and Related Products Manufacturing for Measuring, Displaying, and Controlling Industrial Process Variables , 334513",0.6713
+"Insurance Agencies and Brokerages , 524210",-1.6002
+"Interior Design Services, 541410",-0.4268
+"International Trade Financing , 522293",2.3492
+"Internet Publishing and Broadcasting and Web Search Portals, 519130",0.8883
+"Interurban and Rural Bus Transportation, 485210",0.7305
+"Investigation Services , 561611",0.353
+"Investment Advice , 523930",-0.4287
+"Investment Banking and Securities Dealing , 523110",2.0658
+"Iron Foundries , 331511",0.374
+"Iron Ore Mining, 212210",-0.8335
+"Iron and Steel Forging , 332111",1.247
+"Iron and Steel Mills and Ferroalloy Manufacturing , 331110",0.2807
+"Iron and Steel Pipe and Tube Manufacturing from Purchased Steel, 331210",0.5349
+"Irradiation Apparatus Manufacturing , 334517",1.7365
+"Janitorial Services , 561720",-1.4001
+"Jewelry Stores , 448310",-1.2328
+"Jewelry and Silverware Manufacturing , 339910",-0.2485
+"Jewelry, Watch, Precious Stone, and Precious Metal Merchant Wholesalers , 423940",-0.1171
+"Junior Colleges , 611210",0.6598
+"Kaolin and Ball Clay Mining , 212324",-0.5744
+"Kidney Dialysis Centers , 621492",-1.0877
+"Knit Fabric Mills, 313240",0.7935
+"Labor Unions and Similar Labor Organizations , 813930",-0.8848
+"Laminated Plastics Plate, Sheet (except Packaging), and Shape Manufacturing, 326130",1.2
+"Land Subdivision , 237210",-0.5127
+"Landscape Architectural Services, 541320",-0.3111
+"Landscaping Services, 561730",-1.4054
+"Language Schools , 611630",0.9536
+"Lawn and Garden Tractor and Home Lawn and Garden Equipment Manufacturing , 333112",0.8936
+"Leather and Hide Tanning and Finishing, 316110",1.461
+"Lessors of Miniwarehouses and Self-Storage Units , 531130",-1.1476
+"Lessors of Nonfinancial Intangible Assets (except Copyrighted Works), 533110",0.2165
+"Lessors of Nonresidential Buildings (except Miniwarehouses) , 531120",-1.2155
+"Lessors of Other Real Estate Property , 531190",-1.2435
+"Lessors of Residential Buildings and Dwellings , 531110",-1.5132
+"Libraries and Archives , 519120",-0.9503
+"Light Truck and Utility Vehicle Manufacturing , 336112",2.5303
+"Lime Manufacturing, 327410",1.6929
+"Limited-Service Restaurants , 722513",-1.5967
+"Limousine Service, 485320",0.0563
+"Linen Supply , 812331",0.3895
+"Livestock Merchant Wholesalers , 424520",-0.2879
+"Local Messengers and Local Delivery, 492210",-0.4511
+"Locksmiths , 561622",-0.4089
+"Logging , 113310",-1.5685
+"Luggage and Leather Goods Stores , 448320",0.785
+"Lumber, Plywood, Millwork, and Wood Panel Merchant Wholesalers , 423310",-0.7136
+"Machine Shops, 332710",-1.3508
+"Machine Tool Manufacturing , 333517",0.0222
+"Major Household Appliance Manufacturing , 335220",1.212
+"Malt Manufacturing , 311213",1.4712
+"Manufactured (Mobile) Home Dealers , 453930",-0.9251
+"Manufactured Home (Mobile Home) Manufacturing , 321991",0.2714
+"Marinas, 713930",-0.8982
+"Marine Cargo Handling, 488320",0.3544
+"Marketing Consulting Services , 541613",-0.3842
+"Marketing Research and Public Opinion Polling, 541910",0.7822
+"Masonry Contractors , 238140",-1.1466
+"Materials Recovery Facilities , 562920",0.2036
+"Mattress Manufacturing, 337910",0.8344
+"Mayonnaise, Dressing, and Other Prepared Sauce Manufacturing , 311941",1.0427
+"Measuring, Dispensing, and Other Pumping Equipment Manufacturing , 333914",0.492
+"Meat Markets , 445210",-0.8469
+"Meat Processed from Carcasses , 311612",-0.2307
+"Meat and Meat Product Merchant Wholesalers , 424470",0.3495
+"Mechanical Power Transmission Equipment Manufacturing , 333613",1.6129
+"Media Buying Agencies, 541830",1.6571
+"Media Representatives, 541840",0.9778
+"Medical Laboratories , 621511",-0.7514
+"Medical, Dental, and Hospital Equipment and Supplies Merchant Wholesalers , 423450",0.4174
+"Medicinal and Botanical Manufacturing , 325411",0.628
+"Men's Clothing Stores , 448110",-0.6781
+"Men's and Boys' Clothing and Furnishings Merchant Wholesalers , 424320",0.1422
+"Men’s and Boys’ Cut and Sew Apparel Manufacturing , 315220",1.0229
+"Metal Can Manufacturing , 332431",1.4157
+"Metal Coating, Engraving (except Jewelry and Silverware), and Allied Services to Manufacturers , 332812",-0.2602
+"Metal Crown, Closure, and Other Metal Stamping (except Automotive) , 332119",0.1154
+"Metal Heat Treating , 332811",0.4561
+"Metal Household Furniture Manufacturing , 337124",1.1341
+"Metal Kitchen Cookware, Utensil, Cutlery, and Flatware (except Precious) Manufacturing , 332215",0.7354
+"Metal Service Centers and Other Metal Merchant Wholesalers , 423510",-0.7318
+"Metal Tank (Heavy Gauge) Manufacturing, 332420",0.1849
+"Metal Window and Door Manufacturing , 332321",0.5765
+"Military Armored Vehicle, Tank, and Tank Component Manufacturing , 336992",0.5051
+"Mineral Wool Manufacturing , 327993",1.4344
+"Mining Machinery and Equipment Manufacturing , 333131",-0.1769
+"Miscellaneous Financial Investment Activities , 523999",0.8959
+"Miscellaneous Intermediation , 523910",0.0128
+"Mixed Mode Transit Systems , 485111",2.3716
+"Mobile Food Services, 722330",-1.137
+"Monetary Authorities-Central Bank, 521110",1.8919
+"Mortgage and Nonmortgage Loan Brokers , 522310",-0.1213
+"Motion Picture Theaters (except Drive-Ins) , 512131",-0.6517
+"Motion Picture and Video Distribution, 512120",1.4919
+"Motion Picture and Video Production , 512110",0.0834
+"Motor Home Manufacturing , 336213",0.9427
+"Motor Vehicle Body Manufacturing , 336211",0.088
+"Motor Vehicle Brake System Manufacturing, 336340",1.258
+"Motor Vehicle Electrical and Electronic Equipment Manufacturing, 336320",0.6469
+"Motor Vehicle Gasoline Engine and Engine Parts Manufacturing, 336310",0.1824
+"Motor Vehicle Metal Stamping, 336370",-0.1436
+"Motor Vehicle Parts (Used) Merchant Wholesalers , 423140",-0.0479
+"Motor Vehicle Seating and Interior Trim Manufacturing, 336360",0.7627
+"Motor Vehicle Steering and Suspension Components (except Spring) Manufacturing, 336330",0.1792
+"Motor Vehicle Supplies and New Parts Merchant Wholesalers , 423120",-1.0907
+"Motor Vehicle Towing, 488410",-1.1329
+"Motor Vehicle Transmission and Power Train Parts Manufacturing, 336350",0.1161
+"Motor and Generator Manufacturing , 335312",0.6007
+"Motorcycle, ATV, and All Other Motor Vehicle Dealers , 441228",-1.1432
+"Motorcycle, Bicycle, and Parts Manufacturing , 336991",0.417
+"Museums , 712110",-1.0673
+"Music Publishers, 512230",1.4292
+"Musical Groups and Artists , 711130",-0.0751
+"Musical Instrument Manufacturing , 339992",0.4937
+"Musical Instrument and Supplies Stores , 451140",-0.3183
+"Nail Salons , 812113",-0.988
+"Narrow Fabric Mills and Schiffli Machine Embroidery, 313220",1.6827
+"Natural Gas Distribution , 221210",-0.5634
+"Natural Gas Extraction , 211130",-1.2051
+"Nature Parks and Other Similar Institutions, 712190",0.1861
+"Navigational Services to Shipping , 488330",-0.3699
+"New Car Dealers , 441110",-1.4524
+"New Housing For-Sale Builders , 236117",-0.8309
+"New Multifamily Housing Construction (except For-Sale Builders) , 236116",-0.1538
+"New Single-Family Housing Construction (except For-Sale Builders) , 236115",-1.5145
+"News Dealers and Newsstands , 451212",0.9152
+"News Syndicates, 519110",1.1429
+"Newspaper Publishers , 511110",-1.1614
+"Nitrogenous Fertilizer Manufacturing , 325311",1.1595
+"Nonchocolate Confectionery Manufacturing, 311340",0.7332
+"Noncurrent-Carrying Wiring Device Manufacturing , 335932",1.7843
+"Nonferrous Forging , 332112",2.4237
+"Nonferrous Metal (except Aluminum) Smelting and Refining , 331410",1.2833
+"Nonferrous Metal (except Copper and Aluminum) Rolling, Drawing, and Extruding , 331491",1.2515
+"Nonferrous Metal Die-Casting Foundries , 331523",0.7484
+"Nonresidential Property Managers , 531312",-0.2823
+"Nonscheduled Chartered Freight Air Transportation , 481212",0.8291
+"Nonscheduled Chartered Passenger Air Transportation , 481211",0.1115
+"Nonupholstered Wood Household Furniture Manufacturing , 337122",-0.3807
+"Nonwoven Fabric Mills, 313230",0.3782
+"Nuclear Electric Power Generation , 221113",0.0519
+"Nursery, Garden Center, and Farm Supply Stores , 444220",-1.5033
+"Nursing Care Facilities (Skilled Nursing Facilities) , 623110",-1.4899
+"Office Administrative Services, 561110",-1.1052
+"Office Equipment Merchant Wholesalers , 423420",-0.3712
+"Office Furniture (except Wood) Manufacturing , 337214",0.3698
+"Office Machinery and Equipment Rental and Leasing, 532420",1.4418
+"Office Supplies (except Paper) Manufacturing, 339940",1.7402
+"Office Supplies and Stationery Stores , 453210",-0.572
+"Offices of All Other Miscellaneous Health Practitioners , 621399",-1.3824
+"Offices of Bank Holding Companies , 551111",0.1336
+"Offices of Certified Public Accountants , 541211",-1.5153
+"Offices of Chiropractors , 621310",-1.4836
+"Offices of Dentists , 621210",-1.5603
+"Offices of Lawyers, 541110",-1.0049
+"Offices of Mental Health Practitioners (except Physicians) , 621330",-1.2105
+"Offices of Optometrists, 621320",-1.4318
+"Offices of Other Holding Companies , 551112",-0.046
+"Offices of Physical, Occupational and Speech Therapists, and Audiologists , 621340",-1.51
+"Offices of Physicians (except Mental Health Specialists) , 621111",-1.4395
+"Offices of Physicians, Mental Health Specialists , 621112",-0.6807
+"Offices of Podiatrists , 621391",-0.8444
+"Offices of Real Estate Agents and Brokers, 531210",-1.2795
+"Offices of Real Estate Appraisers , 531320",-1.0918
+"Oil and Gas Field Machinery and Equipment Manufacturing , 333132",-0.8534
+"Oil and Gas Pipeline and Related Structures Construction , 237120",-1.2015
+"One-Hour Photofinishing , 812922",2.4063
+"Open-End Investment Funds , 525910",1.8358
+"Ophthalmic Goods Manufacturing , 339115",0.9404
+"Ophthalmic Goods Merchant Wholesalers , 423460",1.3202
+"Optical Goods Stores , 446130",-0.8459
+"Optical Instrument and Lens Manufacturing , 333314",0.7807
+"Ornamental and Architectural Metal Work Manufacturing , 332323",-0.1721
+"Other Accounting Services , 541219",-1.3246
+"Other Activities Related to Credit Intermediation , 522390",-1.3696
+"Other Activities Related to Real Estate , 531390",-0.6996
+"Other Aircraft Parts and Auxiliary Equipment Manufacturing , 336413",0.4125
+"Other Airport Operations , 488119",-0.0346
+"Other Aluminum Rolling, Drawing, and Extruding , 331318",0.887
+"Other Animal Food Manufacturing , 311119",-1.1388
+"Other Apparel Knitting Mills , 315190",1.8891
+"Other Automotive Mechanical and Electrical Repair and Maintenance , 811118",-0.7048
+"Other Basic Inorganic Chemical Manufacturing , 325180",0.063
+"Other Building Equipment Contractors , 238290",-0.8595
+"Other Building Finishing Contractors, 238390",-0.407
+"Other Building Material Dealers , 444190",-1.5036
+"Other Business Service Centers (including Copy Shops) , 561439",0.1437
+"Other Chemical and Allied Products Merchant Wholesalers , 424690",-1.0512
+"Other Chemical and Fertilizer Mineral Mining , 212393",2.5313
+"Other Clothing Stores , 448190",-0.9525
+"Other Commercial Equipment Merchant Wholesalers , 423440",0.1386
+"Other Commercial and Industrial Machinery and Equipment Rental and Leasing , 532490",-0.7804
+"Other Commercial and Service Industry Machinery Manufacturing , 333318",0.3095
+"Other Communication and Energy Wire Manufacturing , 335929",1.3281
+"Other Communications Equipment Manufacturing, 334290",1.3692
+"Other Community Housing Services , 624229",-0.7323
+"Other Computer Related Services, 541519",0.046
+"Other Concrete Product Manufacturing , 327390",-0.316
+"Other Construction Material Merchant Wholesalers , 423390",-0.1833
+"Other Crushed and Broken Stone Mining and Quarrying , 212319",0.2402
+"Other Cut and Sew Apparel Manufacturing , 315280",1.1509
+"Other Depository Credit Intermediation , 522190",1.2609
+"Other Direct Insurance (except Life, Health, and Medical) Carriers , 524128",0.8841
+"Other Direct Selling Establishments , 454390",-1.344
+"Other Electric Power Generation , 221118",2.4181
+"Other Electronic Component Manufacturing , 334419",0.5338
+"Other Electronic Parts and Equipment Merchant Wholesalers , 423690",0.1268
+"Other Electronic and Precision Equipment Repair and Maintenance , 811219",-0.0435
+"Other Engine Equipment Manufacturing , 333618",0.8995
+"Other Fabricated Wire Product Manufacturing , 332618",0.5866
+"Other Farm Product Raw Material Merchant Wholesalers , 424590",-0.1178
+"Other Financial Vehicles , 525990",0.9541
+"Other Foundation, Structure, and Building Exterior Contractors , 238190",-1.052
+"Other Gambling Industries , 713290",-0.9677
+"Other Gasoline Stations , 447190",-1.4305
+"Other Grantmaking and Giving Services , 813219",-0.4972
+"Other Grocery and Related Products Merchant Wholesalers , 424490",-1.1383
+"Other Guided Missile and Space Vehicle Parts and Auxiliary Equipment Manufacturing , 336419",2.7167
+"Other Heavy and Civil Engineering Construction , 237990",-1.0143
+"Other Individual and Family Services , 624190",-1.4686
+"Other Industrial Machinery Manufacturing , 333249",0.1291
+"Other Lighting Equipment Manufacturing , 335129",1.9562
+"Other Management Consulting Services , 541618",-0.282
+"Other Marine Fishing , 114119",0.2004
+"Other Measuring and Controlling Device Manufacturing , 334519",0.6901
+"Other Metal Container Manufacturing , 332439",1.7095
+"Other Metal Valve and Pipe Fitting Manufacturing , 332919",1.7597
+"Other Millwork (including Flooring) , 321918",-0.3189
+"Other Miscellaneous Durable Goods Merchant Wholesalers , 423990",-0.6871
+"Other Miscellaneous Nondurable Goods Merchant Wholesalers , 424990",-0.5481
+"Other Motion Picture and Video Industries , 512199",1.8387
+"Other Motor Vehicle Parts Manufacturing, 336390",-0.391
+"Other Nonferrous Metal Foundries (except Die-Casting) , 331529",1.0514
+"Other Nonhazardous Waste Treatment and Disposal , 562219",0.6048
+"Other Nonscheduled Air Transportation , 481219",0.2617
+"Other Paperboard Container Manufacturing , 322219",0.8615
+"Other Performing Arts Companies , 711190",0.3397
+"Other Personal Care Services , 812199",-0.9486
+"Other Personal and Household Goods Repair and Maintenance , 811490",-1.0637
+"Other Pressed and Blown Glass and Glassware Manufacturing , 327212",0.3678
+"Other Professional Equipment and Supplies Merchant Wholesalers , 423490",0.2931
+"Other Residential Care Facilities , 623990",-0.8735
+"Other Scientific and Technical Consulting Services, 541690",-1.1272
+"Other Services Related to Advertising , 541890",-0.167
+"Other Services to Buildings and Dwellings , 561790",-0.9285
+"Other Similar Organizations (except Business, Professional, Labor, and Political Organizations) , 813990",-1.0739
+"Other Snack Food Manufacturing , 311919",0.6706
+"Other Social Advocacy Organizations , 813319",-0.851
+"Other Sound Recording Industries, 512290",0.952
+"Other Specialized Design Services, 541490",0.0048
+"Other Spectator Sports , 711219",-0.4228
+"Other Support Activities for Air Transportation, 488190",-0.6469
+"Other Support Activities for Road Transportation , 488490",-0.2996
+"Other Support Activities for Water Transportation, 488390",0.0259
+"Other Technical and Trade Schools , 611519",-0.3226
+"Other Urban Transit Systems , 485119",1.6191
+"Other Warehousing and Storage, 493190",-0.0075
+"Other Waste Collection , 562119",-0.1446
+"Outdoor Advertising, 541850",-0.1571
+"Outdoor Power Equipment Stores , 444210",-0.8731
+"Outpatient Mental Health and Substance Abuse Centers , 621420",-1.3175
+"Overhead Traveling Crane, Hoist, and Monorail System Manufacturing , 333923",0.8915
+"Packaged Frozen Food Merchant Wholesalers , 424420",0.1234
+"Packaging Machinery Manufacturing , 333993",0.689
+"Packaging and Labeling Services, 561910",0.0201
+"Packing and Crating , 488991",0.4966
+"Paint and Coating Manufacturing, 325510",0.619
+"Paint and Wallpaper Stores , 444120",-0.842
+"Paint, Varnish, and Supplies Merchant Wholesalers , 424950",-0.0554
+"Painting and Wall Covering Contractors, 238320",-1.251
+"Paper (except Newsprint) Mills , 322121",0.468
+"Paper Bag and Coated and Treated Paper Manufacturing, 322220",0.5035
+"Paperboard Mills , 322130",0.9647
+"Parking Lots and Garages , 812930",0.8803
+"Passenger Car Leasing , 532112",1.7053
+"Passenger Car Rental , 532111",-0.8356
+"Payroll Services , 541214",-0.3427
+"Periodical Publishers , 511120",-0.0487
+"Perishable Prepared Food Manufacturing , 311991",0.711
+"Pesticide and Other Agricultural Chemical Manufacturing, 325320",1.2292
+"Pet Care (except Veterinary) Services , 812910",-1.2262
+"Pet and Pet Supplies Stores , 453910",-0.9551
+"Petrochemical Manufacturing, 325110",0.3805
+"Petroleum Bulk Stations and Terminals , 424710",-0.949
+"Petroleum Lubricating Oil and Grease Manufacturing , 324191",1.1526
+"Petroleum Refineries, 324110",0.8038
+"Petroleum and Petroleum Products Merchant Wholesalers (except Bulk Stations and Terminals) , 424720",-0.6496
+"Pharmaceutical Preparation Manufacturing , 325412",0.2903
+"Pharmacies and Drug Stores , 446110",-1.5442
+"Phosphate Rock Mining , 212392",-0.1947
+"Phosphatic Fertilizer Manufacturing , 325312",1.068
+"Photofinishing Laboratories (except One-Hour) , 812921",1.2332
+"Photographic Equipment and Supplies Merchant Wholesalers , 423410",1.6351
+"Photographic Film, Paper, Plate, and Chemical Manufacturing , 325992",1.7478
+"Photographic and Photocopying Equipment Manufacturing , 333316",1.7937
+"Photography Studios, Portrait , 541921",-0.8245
+"Piece Goods, Notions, and Other Dry Goods Merchant Wholesalers , 424310",0.279
+"Pipeline Transportation of Crude Oil, 486110",-0.9591
+"Pipeline Transportation of Natural Gas, 486210",-1.1108
+"Pipeline Transportation of Refined Petroleum Products, 486910",-0.3461
+"Plastics Bag and Pouch Manufacturing , 326111",1.0344
+"Plastics Bottle Manufacturing, 326160",0.8592
+"Plastics Material and Resin Manufacturing , 325211",-0.0981
+"Plastics Materials and Basic Forms and Shapes Merchant Wholesalers , 424610",0.3725
+"Plastics Packaging Film and Sheet (including Laminated) Manufacturing , 326112",1.0722
+"Plastics Pipe and Pipe Fitting Manufacturing , 326122",0.3835
+"Plastics Plumbing Fixture Manufacturing , 326191",1.1968
+"Plate Work Manufacturing , 332313",-0.2853
+"Plumbing Fixture Fitting and Trim Manufacturing , 332913",2.1979
+"Plumbing and Heating Equipment and Supplies (Hydronics) Merchant Wholesalers , 423720",-0.8018
+"Plumbing, Heating, and Air-Conditioning Contractors , 238220",-1.4801
+"Polish and Other Sanitation Good Manufacturing , 325612",1.0175
+"Political Organizations , 813940",-0.1736
+"Polystyrene Foam Product Manufacturing, 326140",0.9289
+"Port and Harbor Operations, 488310",0.2879
+"Portfolio Management , 523920",-0.781
+"Postharvest Crop Activities (except Cotton Ginning) , 115114",-1.0861
+"Potash, Soda, and Borate Mineral Mining , 212391",-0.3279
+"Pottery, Ceramics, and Plumbing Fixture Manufacturing , 327110",0.2815
+"Poultry Processing , 311615",-0.8007
+"Poultry and Poultry Product Merchant Wholesalers , 424440",0.5622
+"Poured Concrete Foundation and Structure Contractors , 238110",-1.4087
+"Powder Metallurgy Part Manufacturing , 332117",0.9798
+"Power Boiler and Heat Exchanger Manufacturing, 332410",0.7425
+"Power and Communication Line and Related Structures Construction , 237130",-1.0785
+"Power, Distribution, and Specialty Transformer Manufacturing , 335311",1.4179
+"Power-Driven Handtool Manufacturing , 333991",2.3292
+"Precision Turned Product Manufacturing , 332721",-0.7423
+"Prefabricated Metal Building and Component Manufacturing , 332311",0.0189
+"Prefabricated Wood Building Manufacturing , 321992",-0.2146
+"Primary Battery Manufacturing , 335912",1.4525
+"Printed Circuit Assembly (Electronic Assembly) Manufacturing , 334418",0.5571
+"Printing Ink Manufacturing, 325910",1.5594
+"Printing Machinery and Equipment Manufacturing , 333244",1.1275
+"Printing and Writing Paper Merchant Wholesalers , 424110",1.1175
+"Private Mail Centers , 561431",-0.5216
+"Process, Physical Distribution, and Logistics Consulting Services , 541614",-0.2709
+"Professional Employer Organizations, 561330",-0.2836
+"Professional Organizations , 813920",-0.2706
+"Professional and Management Development Training , 611430",-0.2618
+"Promoters of Performing Arts, Sports, and Similar Events with Facilities , 711310",-0.5321
+"Promoters of Performing Arts, Sports, and Similar Events without Facilities , 711320",-0.4751
+"Psychiatric and Substance Abuse Hospitals , 622210",0.5344
+"Public Relations Agencies, 541820",0.0084
+"RV (Recreational Vehicle) Parks and Campgrounds , 721211",-1.3118
+"Racetracks , 711212",0.7845
+"Radio Networks , 515111",0.388
+"Radio Stations , 515112",-0.964
+"Radio and Television Broadcasting and Wireless Communications Equipment Manufacturing, 334220",0.6322
+"Railroad Rolling Stock Manufacturing, 336510",0.0496
+"Ready-Mix Concrete Manufacturing, 327320",-1.0429
+"Real Estate Credit , 522292",-0.7336
+"Reconstituted Wood Product Manufacturing , 321219",0.3736
+"Record Production and Distribution, 512250",1.4478
+"Recreational Goods Rental , 532284",-0.7301
+"Recreational Vehicle Dealers , 441210",-0.8469
+"Recreational and Vacation Camps (except Campgrounds) , 721214",-1.0625
+"Recyclable Material Merchant Wholesalers , 423930",-1.0744
+"Refrigerated Warehousing and Storage, 493120",-0.2821
+"Refrigeration Equipment and Supplies Merchant Wholesalers , 423740",0.3334
+"Reinsurance Carriers , 524130",1.6209
+"Relay and Industrial Control Manufacturing , 335314",0.5435
+"Religious Organizations , 813110",-1.6
+"Remediation Services , 562910",-0.697
+"Rendering and Meat Byproduct Processing , 311613",1.4587
+"Repossession Services , 561491",0.3648
+"Research and Development in Biotechnology (except Nanobiotechnology), 541714",0.3647
+"Research and Development in Nanotechnology , 541713",0.5887
+"Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology) , 541715",-0.1834
+"Research and Development in the Social Sciences and Humanities , 541720",0.3583
+"Residential Electric Lighting Fixture Manufacturing , 335121",2.0125
+"Residential Intellectual and Developmental Disability Facilities , 623210",-1.4634
+"Residential Mental Health and Substance Abuse Facilities , 623220",-0.958
+"Residential Property Managers , 531311",-1.0839
+"Residential Remodelers , 236118",-1.4628
+"Retail Bakeries , 311811",-0.7422
+"Reupholstery and Furniture Repair, 811420",-0.1229
+"Rice Milling , 311212",-0.291
+"Roasted Nuts and Peanut Butter Manufacturing , 311911",0.1825
+"Rolled Steel Shape Manufacturing , 331221",1.2891
+"Rolling Mill and Other Metalworking Machinery Manufacturing , 333519",0.9654
+"Roofing Contractors , 238160",-1.2157
+"Roofing, Siding, and Insulation Material Merchant Wholesalers , 423330",-0.5223
+"Rooming and Boarding Houses, Dormitories, and Workers' Camps , 721310",-0.6373
+"Rope, Cordage, Twine, Tire Cord, and Tire Fabric Mills , 314994",1.3111
+"Rubber Product Manufacturing for Mechanical Use , 326291",0.8743
+"Rubber and Plastics Hoses and Belting Manufacturing, 326220",1.2886
+"Sales Financing , 522220",0.6497
+"Sanitary Paper Product Manufacturing , 322291",0.0084
+"Satellite Telecommunications, 517410",1.2775
+"Savings Institutions , 522120",-1.0887
+"Saw Blade and Handtool Manufacturing , 332216",0.4467
+"Sawmill, Woodworking, and Paper Machinery Manufacturing , 333243",0.4336
+"Sawmills , 321113",-1.3427
+"Scale and Balance Manufacturing , 333997",2.674
+"Scenic and Sightseeing Transportation, Land, 487110",-0.3609
+"Scenic and Sightseeing Transportation, Other, 487990",-0.5637
+"Scenic and Sightseeing Transportation, Water, 487210",-0.4414
+"Scheduled Freight Air Transportation , 481112",1.0954
+"Scheduled Passenger Air Transportation , 481111",0.8281
+"School and Employee Bus Transportation, 485410",-0.8803
+"Seafood Product Preparation and Packaging, 311710",-0.6817
+"Search, Detection, Navigation, Guidance, Aeronautical, and Nautical System and Instrument Manufacturing , 334511",0.8535
+"Secondary Market Financing , 522294",1.7238
+"Secondary Smelting and Alloying of Aluminum , 331314",0.725
+"Secondary Smelting, Refining, and Alloying of Nonferrous Metal (except Copper and Aluminum) , 331492",1.866
+"Securities Brokerage , 523120",0.0952
+"Securities and Commodity Exchanges, 523210",2.6517
+"Security Guards and Patrol Services , 561612",-0.5633
+"Security Systems Services (except Locksmiths) , 561621",-0.4118
+"Semiconductor Machinery Manufacturing , 333242",1.6779
+"Semiconductor and Related Device Manufacturing , 334413",0.5178
+"Septic Tank and Related Services , 562991",-0.9449
+"Service Establishment Equipment and Supplies Merchant Wholesalers , 423850",-0.5906
+"Services for the Elderly and Persons with Disabilities , 624120",-1.5385
+"Sewage Treatment Facilities , 221320",0.2718
+"Sewing, Needlework, and Piece Goods Stores , 451130",-0.6123
+"Sheet Metal Work Manufacturing , 332322",-0.6407
+"Shellfish Fishing , 114112",-0.6366
+"Ship Building and Repairing , 336611",-0.2571
+"Shoe Stores , 448210",-1.4174
+"Showcase, Partition, Shelving, and Locker Manufacturing , 337215",0.6203
+"Siding Contractors , 238170",-0.9997
+"Sign Manufacturing, 339950",-0.5944
+"Site Preparation Contractors, 238910",-1.5289
+"Skiing Facilities, 713920",-0.5511
+"Small Arms Ammunition Manufacturing , 332992",0.0548
+"Small Arms, Ordnance, and Ordnance Accessories Manufacturing , 332994",0.2319
+"Small Electrical Appliance Manufacturing, 335210",1.775
+"Snack and Nonalcoholic Beverage Bars , 722515",-1.539
+"Soap and Other Detergent Manufacturing , 325611",0.7943
+"Soft Drink Manufacturing , 312111",0.9667
+"Software Publishers, 511210",0.0679
+"Software and Other Prerecorded Compact Disc, Tape, and Record Reproducing , 334614",1.8642
+"Softwood Veneer and Plywood Manufacturing , 321212",-0.7035
+"Soil Preparation, Planting, and Cultivating , 115112",-1.263
+"Solar Electric Power Generation , 221114",0.6798
+"Solid Waste Collection , 562111",-1.2064
+"Solid Waste Combustors and Incinerators , 562213",2.4516
+"Solid Waste Landfill , 562212",-0.0275
+"Sound Recording Studios, 512240",0.358
+"Soybean and Other Oilseed Processing , 311224",-0.5684
+"Special Die and Tool, Die Set, Jig, and Fixture Manufacturing , 333514",-0.4604
+"Special Needs Transportation , 485991",-0.5709
+"Specialized Freight (except Used Goods) Trucking, Local , 484220",-1.5908
+"Specialized Freight (except Used Goods) Trucking, Long-Distance , 484230",-1.3679
+"Specialty (except Psychiatric and Substance Abuse) Hospitals , 622310",0.1063
+"Specialty Canning , 311422",2.1926
+"Speed Changer, Industrial High-Speed Drive, and Gear Manufacturing , 333612",1.3769
+"Spice and Extract Manufacturing , 311942",0.7821
+"Sporting Goods Stores , 451110",-1.2625
+"Sporting and Athletic Goods Manufacturing, 339920",-0.4973
+"Sporting and Recreational Goods and Supplies Merchant Wholesalers , 423910",-0.4809
+"Sports Teams and Clubs , 711211",1.3446
+"Sports and Recreation Instruction , 611620",-0.9676
+"Spring Manufacturing , 332613",1.1857
+"Stationery Product Manufacturing, 322230",1.2406
+"Stationery and Office Supplies Merchant Wholesalers , 424120",-0.0993
+"Steam and Air-Conditioning Supply , 221330",1.9051
+"Steel Foundries (except Investment) , 331513",0.7264
+"Steel Investment Foundries , 331512",1.301
+"Steel Wire Drawing , 331222",1.5037
+"Storage Battery Manufacturing , 335911",1.3088
+"Structural Steel and Precast Concrete Contractors , 238120",-0.4677
+"Supermarkets and Other Grocery (except Convenience) Stores , 445110",-1.5652
+"Support Activities for Animal Production, 115210",-1.0477
+"Support Activities for Coal Mining , 213113",-1.1876
+"Support Activities for Forestry, 115310",-1.2252
+"Support Activities for Metal Mining , 213114",-0.5188
+"Support Activities for Nonmetallic Minerals (except Fuels) Mining , 213115",0.6064
+"Support Activities for Oil and Gas Operations , 213112",-1.5414
+"Support Activities for Printing, 323120",0.7223
+"Support Activities for Rail Transportation, 488210",-0.4998
+"Surface Active Agent Manufacturing , 325613",1.4994
+"Surgical Appliance and Supplies Manufacturing , 339113",0.3811
+"Surgical and Medical Instrument Manufacturing , 339112",0.3773
+"Surveying and Mapping (except Geophysical) Services, 541370",-1.0553
+"Switchgear and Switchboard Apparatus Manufacturing , 335313",1.0536
+"Synthetic Dye and Pigment Manufacturing, 325130",2.0695
+"Synthetic Rubber Manufacturing , 325212",1.3619
+"Tax Preparation Services , 541213",-1.4949
+"Taxi Service , 485310",-0.1729
+"Telecommunications Resellers , 517911",-0.5539
+"Telemarketing Bureaus and Other Contact Centers , 561422",-0.158
+"Telephone Answering Services , 561421",0.1621
+"Telephone Apparatus Manufacturing, 334210",1.7735
+"Teleproduction and Other Postproduction Services , 512191",2.2418
+"Television Broadcasting, 515120",-0.5191
+"Temporary Help Services, 561320",-1.1943
+"Temporary Shelters , 624221",-0.9272
+"Testing Laboratories, 541380",-0.7486
+"Textile Bag and Canvas Mills , 314910",-0.0735
+"Textile and Fabric Finishing Mills , 313310",0.4783
+"Theater Companies and Dinner Theaters , 711110",-0.2468
+"Third Party Administration of Insurance and Pension Funds , 524292",-0.1772
+"Tile and Terrazzo Contractors, 238340",-0.8009
+"Timber Tract Operations, 113110",-0.5394
+"Tire Dealers , 441320",-1.4249
+"Tire Manufacturing (except Retreading) , 326211",0.2485
+"Tire Retreading , 326212",1.2685
+"Tire and Tube Merchant Wholesalers , 423130",-0.3604
+"Title Abstract and Settlement Offices , 541191",-1.0645
+"Tobacco Manufacturing , 312230",0.0299
+"Tobacco Stores , 453991",-1.4133
+"Tobacco and Tobacco Product Merchant Wholesalers , 424940",0.084
+"Toilet Preparation Manufacturing, 325620",0.5762
+"Tortilla Manufacturing, 311830",0.8249
+"Totalizing Fluid Meter and Counting Device Manufacturing , 334514",1.4181
+"Tour Operators, 561520",-0.3085
+"Toy and Hobby Goods and Supplies Merchant Wholesalers , 423920",1.047
+"Translation and Interpretation Services, 541930",0.1969
+"Transportation Equipment and Supplies (except Motor Vehicle) Merchant Wholesalers , 423860",-0.013
+"Travel Agencies, 561510",-0.2215
+"Travel Trailer and Camper Manufacturing , 336214",-1.0324
+"Truck Trailer Manufacturing , 336212",-0.3081
+"Truck, Utility Trailer, and RV (Recreational Vehicle) Rental and Leasing , 532120",-0.6644
+"Truss Manufacturing , 321214",-0.0397
+"Trust, Fiduciary, and Custody Activities , 523991",0.0572
+"Turbine and Turbine Generator Set Units Manufacturing , 333611",1.0852
+"Unlaminated Plastics Film and Sheet (except Packaging) Manufacturing , 326113",0.9215
+"Unlaminated Plastics Profile Shape Manufacturing , 326121",1.4082
+"Upholstered Household Furniture Manufacturing , 337121",0.2284
+"Urethane and Other Foam Product (except Polystyrene) Manufacturing, 326150",0.7526
+"Used Car Dealers , 441120",-1.403
+"Used Household and Office Goods Moving, 484210",-0.76
+"Used Merchandise Stores , 453310",-1.3866
+"Vending Machine Operators , 454210",-0.3668
+"Veterinary Services , 541940",-1.5156
+"Video Tape and Disc Rental, 532282",0.1581
+"Vocational Rehabilitation Services , 624310",-1.0166
+"Voluntary Health Organizations , 813212",-0.1827
+"Warehouse Clubs and Supercenters , 452311",-0.9195
+"Warm Air Heating and Air-Conditioning Equipment and Supplies Merchant Wholesalers , 423730",-0.5501
+"Water Supply and Irrigation Systems , 221310",-1.1683
+"Water and Sewer Line and Related Structures Construction , 237110",-1.2913
+"Welding and Soldering Equipment Manufacturing , 333992",0.7588
+"Wet Corn Milling , 311221",-0.0335
+"Wholesale Trade Agents and Brokers , 425120",-0.8945
+"Wind Electric Power Generation , 221115",-0.4524
+"Window Treatment Stores , 442291",-0.1058
+"Wine and Distilled Alcoholic Beverage Merchant Wholesalers , 424820",0.2238
+"Wineries , 312130",-1.2181
+"Wired Telecommunications Carriers , 517311",-1.5641
+"Wireless Telecommunications Carriers (except Satellite), 517312",-1.6388
+"Women's Clothing Stores , 448120",-1.56
+"Women's Handbag and Purse Manufacturing , 316992",1.2262
+"Women's, Children's, and Infants' Clothing and Accessories Merchant Wholesalers , 424330",0.0084
+"Women’s, Girls’, and Infants’ Cut and Sew Apparel Manufacturing , 315240",1.1076
+"Wood Container and Pallet Manufacturing, 321920",-0.745
+"Wood Kitchen Cabinet and Countertop Manufacturing, 337110",-1.0735
+"Wood Office Furniture Manufacturing , 337211",0.9863
+"Wood Preservation , 321114",0.1547
+"Wood Window and Door Manufacturing , 321911",-0.0399
+"Zoos and Botanical Gardens , 712130",0.3605

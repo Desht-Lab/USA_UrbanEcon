@@ -1,0 +1,1294 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>US City Economic Clusters — Desht</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/d3plus@2"></script>
+  <style>
+    /* ── Desht design tokens (dark-first, light variant) ───────────────── */
+    :root {
+      --bg: #0f1115;
+      --fg: #e5e7eb;
+      --muted: #9ca3af;
+      --panel: #14171d;
+      --card: #16191f;
+      --accent: #376c8a;
+      --accent-2: #4f86a4;
+      --nav-accent: #e5b983;
+      --nav-accent-2: #f0cb9b;
+      --border: #222733;
+      --accent-shadow: rgba(55, 108, 138, .35);
+      --bg-grad-1: rgba(55, 108, 138, .12);
+      --bg-grad-2: rgba(229, 185, 131, .07);
+      --node-muted: #363d4b;
+      --edge-color: rgba(229, 231, 235, .10);
+      --label-fg: #f3f4f6;
+      --label-bg: #0f1115;
+      --focus-ring: #ffffff;
+      --halo: rgba(0, 0, 0, .55);
+      --shadow: 0 12px 30px rgba(0, 0, 0, .35);
+      --shadow-sm: 0 6px 16px rgba(0, 0, 0, .25);
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --fg: #0f172a;
+      --muted: #475569;
+      --panel: #eeedeb;
+      --card: #ffffff;
+      --accent: #e5b983;
+      --accent-2: #e4c7a1;
+      --nav-accent: #376c8a;
+      --nav-accent-2: #4f86a4;
+      --border: #e9e1d7;
+      --accent-shadow: rgba(229, 185, 131, .35);
+      --bg-grad-1: rgba(55, 108, 138, .08);
+      --bg-grad-2: rgba(229, 185, 131, .14);
+      --node-muted: #c7cdd6;
+      --edge-color: #d4d9e0;
+      --label-fg: #0f172a;
+      --label-bg: #f8fafc;
+      --focus-ring: #000000;
+      --halo: rgba(15, 23, 42, .20);
+      --shadow: 0 12px 30px rgba(15, 23, 42, .14);
+      --shadow-sm: 0 6px 16px rgba(15, 23, 42, .10);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
+      font-family: "Gotham", "Space Grotesk", "Inter", "Segoe UI", system-ui, sans-serif;
+      color: var(--fg);
+      background:
+        radial-gradient(60% 50% at 12% 0%, var(--bg-grad-1), transparent 60%),
+        radial-gradient(55% 55% at 100% 100%, var(--bg-grad-2), transparent 55%),
+        var(--bg);
+      background-attachment: fixed;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Topbar ────────────────────────────────────────────────────────── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px clamp(16px, 3vw, 28px);
+      border-bottom: 1px solid var(--border);
+      background: color-mix(in srgb, var(--panel) 78%, transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .topbar-left { display: flex; align-items: center; gap: 14px; min-width: 0; }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+
+    .pill-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--card);
+      color: var(--fg);
+      font: inherit; font-size: 12.5px; font-weight: 500;
+      cursor: pointer; white-space: nowrap; text-decoration: none;
+      transition: border-color .15s ease, color .15s ease, transform .15s ease;
+    }
+    .pill-btn:hover { border-color: var(--nav-accent); color: var(--nav-accent); transform: translateY(-1px); }
+    .pill-btn .x { font-size: 14px; line-height: 1; }
+
+    html[data-lang="en"] .lang.ru { display: none; }
+    html[data-lang="ru"] .lang.en { display: none; }
+    .lang-switch { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; }
+    .lang-switch button { border: 0; background: transparent; color: var(--muted); font: inherit; font-size: 12.5px; font-weight: 600; padding: 8px 12px; cursor: pointer; }
+    .lang-switch button.on { background: var(--nav-accent); color: #0f1115; }
+
+    .brand-mark {
+      width: 36px; height: 36px;
+      flex: none;
+      display: grid; place-items: center;
+      border-radius: 11px;
+      background: linear-gradient(135deg, var(--nav-accent), var(--nav-accent-2));
+      color: #0f1115;
+      font-weight: 700;
+      font-size: 18px;
+      box-shadow: 0 6px 18px var(--accent-shadow);
+    }
+
+    .brand-title { font-size: 16px; font-weight: 600; letter-spacing: .2px; white-space: nowrap; }
+    .brand-sub { font-size: 12px; color: var(--muted); white-space: nowrap; }
+
+    .topbar-right { display: flex; align-items: center; gap: 10px; }
+
+    .chips { display: flex; gap: 8px; }
+
+    .chip {
+      display: inline-flex; align-items: baseline; gap: 6px;
+      padding: 6px 11px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--card) 70%, transparent);
+      font-size: 12px; color: var(--muted);
+      white-space: nowrap;
+    }
+    .chip b { color: var(--fg); font-weight: 600; font-variant-numeric: tabular-nums; }
+    .chip.focus-chip { border-color: color-mix(in srgb, var(--nav-accent) 55%, var(--border)); }
+    .chip.focus-chip b { color: var(--nav-accent); }
+
+    .icon-btn {
+      width: 38px; height: 38px;
+      display: grid; place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      background: var(--card);
+      color: var(--fg);
+      cursor: pointer;
+      font-size: 16px;
+      transition: background .15s ease, border-color .15s ease, transform .15s ease;
+    }
+    .icon-btn:hover { border-color: var(--accent-2); transform: translateY(-1px); }
+    .icon-btn:active { transform: translateY(0); }
+
+    /* ── Layout ────────────────────────────────────────────────────────── */
+    .layout {
+      height: calc(100vh - 63px);
+      display: grid;
+      grid-template-columns: 340px minmax(0, 1fr) 300px;
+      gap: 14px;
+      padding: 14px clamp(16px, 3vw, 28px) 18px;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-height: 0;
+      overflow: auto;
+      padding-right: 4px;
+    }
+    .sidebar::-webkit-scrollbar { width: 8px; }
+    .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+    .card {
+      background: color-mix(in srgb, var(--card) 92%, transparent);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      padding: 16px;
+    }
+
+    .card-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
+    .card-title { font-size: 13px; font-weight: 600; letter-spacing: .3px; }
+    .card-title .hint-num { color: var(--muted); font-weight: 500; }
+
+    .field-label {
+      display: block;
+      font-size: 11px; font-weight: 600; letter-spacing: .6px; text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+    .field-hint { margin-top: 8px; font-size: 11.5px; color: var(--muted); line-height: 1.4; }
+
+    /* ── Combobox ──────────────────────────────────────────────────────── */
+    .combo { position: relative; }
+    .combo + .combo { margin-top: 14px; }
+
+    .combo-control {
+      position: relative;
+      display: flex; align-items: center;
+    }
+    .combo-input {
+      width: 100%;
+      padding: 10px 36px 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      color: var(--fg);
+      font: inherit; font-size: 13.5px;
+      transition: border-color .15s ease, box-shadow .15s ease;
+    }
+    .combo-input::placeholder { color: var(--muted); }
+    .combo-input:focus {
+      outline: none;
+      border-color: var(--accent-2);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 28%, transparent);
+    }
+    .combo-clear {
+      position: absolute; right: 6px;
+      width: 24px; height: 24px;
+      display: grid; place-items: center;
+      border: 0; border-radius: 7px;
+      background: transparent; color: var(--muted);
+      cursor: pointer; font-size: 16px; line-height: 1;
+    }
+    .combo-clear:hover { background: color-mix(in srgb, var(--fg) 10%, transparent); color: var(--fg); }
+
+    .combo-pop {
+      position: absolute; left: 0; right: 0; top: calc(100% + 6px);
+      z-index: 20;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .combo-list { list-style: none; margin: 0; padding: 5px; max-height: 280px; overflow: auto; }
+    .combo-list::-webkit-scrollbar { width: 8px; }
+    .combo-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+    .combo-option {
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .combo-option:hover, .combo-option.active { background: color-mix(in srgb, var(--accent) 18%, transparent); }
+    .combo-option .opt-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+    .combo-option .opt-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    /* metro names carry county info — let them wrap so the full name shows */
+    #combo-city .combo-option .opt-name { white-space: normal; overflow: visible; line-height: 1.3; }
+    .combo-option .opt-sub { font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .combo-count {
+      flex: none;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--nav-accent) 22%, transparent);
+      color: var(--nav-accent);
+      font-size: 11px; font-weight: 600; font-variant-numeric: tabular-nums;
+    }
+    .combo-swatch { flex: none; width: 11px; height: 11px; border-radius: 50%; border: 1px solid rgba(0,0,0,.25); }
+    .combo-empty { padding: 12px; font-size: 12.5px; color: var(--muted); text-align: center; }
+
+    /* ── Cluster legend ────────────────────────────────────────────────── */
+    .legend-list { display: grid; gap: 5px; }
+    .legend-item {
+      display: grid;
+      grid-template-columns: 14px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 11px;
+      padding: 8px 10px;
+      border: 1px solid transparent;
+      border-radius: 9px;
+      background: transparent;
+      color: var(--fg);
+      cursor: pointer;
+      text-align: left;
+      font: inherit;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .legend-item:hover { background: color-mix(in srgb, var(--fg) 7%, transparent); }
+    .legend-item.active {
+      border-color: color-mix(in srgb, var(--nav-accent) 55%, var(--border));
+      background: color-mix(in srgb, var(--nav-accent) 12%, transparent);
+    }
+    .legend-swatch { width: 14px; height: 14px; border-radius: 4px; border: 1px solid rgba(0,0,0,.3); }
+    .legend-text { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+    .legend-name { font-size: 12.5px; font-weight: 500; line-height: 1.25; }
+    .legend-meta { font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .legend-count {
+      font-size: 11px; font-weight: 600; color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      padding: 2px 7px; border-radius: 999px;
+      background: color-mix(in srgb, var(--fg) 8%, transparent);
+    }
+
+    .ghost-btn {
+      width: 100%;
+      margin-top: 12px;
+      padding: 9px 10px;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-sm);
+      background: transparent;
+      color: var(--muted);
+      font: inherit; font-size: 12.5px;
+      cursor: pointer;
+      transition: color .15s ease, border-color .15s ease;
+    }
+    .ghost-btn:hover { color: var(--fg); border-color: var(--accent-2); }
+
+    /* ── Detail panel ──────────────────────────────────────────────────── */
+    .detail[hidden] { display: none; }
+    .detail-close {
+      width: 26px; height: 26px;
+      border: 1px solid var(--border); border-radius: 8px;
+      background: transparent; color: var(--muted);
+      cursor: pointer; font-size: 15px; line-height: 1;
+    }
+    .detail-close:hover { color: var(--fg); border-color: var(--accent-2); }
+    .detail-city { font-size: 15px; font-weight: 600; line-height: 1.3; }
+    .detail-cluster {
+      display: inline-flex; align-items: center; gap: 7px;
+      margin-top: 6px; font-size: 12px; color: var(--muted);
+    }
+    .detail-cluster .legend-swatch { width: 11px; height: 11px; }
+
+    .metric-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;
+      margin: 14px 0;
+    }
+    /* odd number of metrics: let the last one span the full row */
+    .metric-grid > .metric:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .metric {
+      padding: 9px 10px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+    }
+    .metric-label { font-size: 10px; letter-spacing: .5px; text-transform: uppercase; color: var(--muted); }
+    .metric-value { font-size: 17px; font-weight: 600; font-variant-numeric: tabular-nums; margin-top: 2px; }
+
+    .detail-sub { font-size: 11px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; color: var(--muted); margin: 4px 0 8px; }
+    .ind-list { display: flex; flex-wrap: wrap; gap: 6px; max-height: 168px; overflow: auto; }
+    .ind-list::-webkit-scrollbar { width: 8px; }
+    .ind-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+    .ind-pill {
+      padding: 4px 9px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--card) 70%, transparent);
+      font-size: 11.5px; color: var(--fg);
+      cursor: pointer;
+      transition: border-color .15s ease, background .15s ease;
+    }
+    .ind-pill:hover { border-color: var(--accent-2); background: color-mix(in srgb, var(--accent) 14%, transparent); }
+    .ind-pci { margin-left: 5px; color: var(--nav-accent); font-weight: 600; font-variant-numeric: tabular-nums; }
+    .paren { font-style: italic; font-size: .85em; opacity: .9; }
+
+    /* ── Viz ───────────────────────────────────────────────────────────── */
+    .viz-card {
+      position: relative;
+      background: color-mix(in srgb, var(--card) 92%, transparent);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      min-height: 0;
+    }
+    #viz { width: 100%; height: 100%; }
+    /* soft halo so nodes lift off the edge tangle */
+    #viz svg circle { filter: drop-shadow(0 0 2.5px var(--halo)); }
+
+    .viz-hint {
+      position: absolute; left: 14px; bottom: 14px;
+      z-index: 5;
+      display: flex; align-items: center; gap: 8px;
+      padding: 7px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--panel) 82%, transparent);
+      backdrop-filter: blur(8px);
+      font-size: 11.5px; color: var(--muted);
+      pointer-events: none;
+    }
+    .viz-status {
+      position: absolute; right: 14px; top: 14px;
+      z-index: 5;
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--panel) 82%, transparent);
+      backdrop-filter: blur(8px);
+      font-size: 11.5px; color: var(--muted);
+      max-width: 60%;
+    }
+
+    .force-id-label { font-family: "Space Grotesk", system-ui, sans-serif; }
+
+    /* ── Responsive ────────────────────────────────────────────────────── */
+    @media (max-width: 1180px) {
+      .chips { display: none; }
+    }
+    @media (max-width: 1100px) {
+      .layout {
+        height: auto;
+        grid-template-columns: 1fr;
+      }
+      .sidebar { overflow: visible; }
+      .viz-card { min-height: 70vh; }
+      body { overflow: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-left">
+      <button id="clear-all" class="pill-btn" type="button" title="Clear all selections (Esc)">
+        <span class="x">✕</span> <span class="lang en">Clear all</span><span class="lang ru">Сбросить</span>
+      </button>
+      <div class="brand">
+        <div class="brand-mark">◇</div>
+        <div>
+          <div class="brand-title"><span class="lang en">US City Economic Clusters</span><span class="lang ru">Экономические кластеры городов США</span></div>
+          <div class="brand-sub"><span class="lang en">TF-IDF metro similarity · V4 · Desht</span><span class="lang ru">Сходство метрополисов по TF-IDF · V4 · Desht</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <div class="chips">
+        <span class="chip"><span class="lang en">Metros</span><span class="lang ru">Города</span> <b id="chip-nodes">—</b></span>
+        <span class="chip"><span class="lang en">Links</span><span class="lang ru">Связи</span> <b id="chip-edges">—</b></span>
+        <span class="chip focus-chip"><span class="lang en">Focus</span><span class="lang ru">Фокус</span> <b id="chip-focus">none</b></span>
+      </div>
+      <a class="pill-btn" href="methods.html" title="Methodology"><span class="lang en">Methodology</span><span class="lang ru">Методология</span></a>
+      <a class="pill-btn" href="clusters_story.html" title="Cluster storyline"><span class="lang en">Cluster storyline →</span><span class="lang ru">Сторилайн →</span></a>
+      <div class="lang-switch" id="lang-switch"><button data-lang="en" type="button">EN</button><button data-lang="ru" type="button">RU</button></div>
+      <button id="theme-toggle" class="icon-btn" type="button" title="Toggle theme" aria-label="Toggle theme">☀</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <!-- Search -->
+      <section class="card">
+        <div class="card-head"><div class="card-title"><span class="lang en">Search</span><span class="lang ru">Поиск</span></div></div>
+
+        <div class="combo" id="combo-industry">
+          <label class="field-label" for="industry-input"><span class="lang en">Highlight metros by industry</span><span class="lang ru">Подсветить города по отрасли</span></label>
+          <div class="combo-control">
+            <input id="industry-input" class="combo-input" type="search" autocomplete="off"
+                   placeholder="Type an industry or NAICS…" role="combobox" aria-expanded="false">
+            <button class="combo-clear" type="button" title="Clear" aria-label="Clear">×</button>
+          </div>
+          <div class="combo-pop" hidden><ul class="combo-list"></ul></div>
+          <div class="field-hint"><span id="industry-count">—</span> <span class="lang en">industries · <b>PCI</b> = product complexity · lights up every metro that specializes in it (RCA ≥ 1).</span><span class="lang ru">отраслей · <b>PCI</b> = сложность продукта · подсвечивает каждый город, специализирующийся на ней (RCA ≥ 1).</span></div>
+        </div>
+
+        <div class="combo" id="combo-city">
+          <label class="field-label" for="city-input"><span class="lang en">Find &amp; focus a metro</span><span class="lang ru">Найти и выделить город</span></label>
+          <div class="combo-control">
+            <input id="city-input" class="combo-input" type="search" autocomplete="off"
+                   placeholder="Type a metro name…" role="combobox" aria-expanded="false">
+            <button class="combo-clear" type="button" title="Clear" aria-label="Clear">×</button>
+          </div>
+          <div class="combo-pop" hidden><ul class="combo-list"></ul></div>
+          <div class="field-hint"><span class="lang en">Pins the metro and its network neighbors.</span><span class="lang ru">Закрепляет город и его соседей по сети.</span></div>
+        </div>
+      </section>
+
+      <!-- Detail panel -->
+      <section class="card detail" id="detail" hidden>
+        <div class="card-head">
+          <div class="card-title"><span class="lang en">Metro detail</span><span class="lang ru">О городе</span></div>
+          <button class="detail-close" id="detail-close" type="button" aria-label="Close">×</button>
+        </div>
+        <div id="detail-body"></div>
+      </section>
+    </aside>
+
+    <section class="viz-card">
+      <div id="viz"></div>
+      <div class="viz-status" id="status">Loading…</div>
+      <div class="viz-hint"><span class="lang en">◇ Click a metro to focus its neighbors · scroll to zoom · drag to pan</span><span class="lang ru">◇ Кликните город, чтобы выделить соседей · колесо — зум · перетаскивание — сдвиг</span></div>
+    </section>
+
+    <aside class="sidebar sidebar-right">
+      <!-- Cluster legend (moved to the right) -->
+      <section class="card">
+        <div class="card-head">
+          <div class="card-title"><span class="lang en">Clusters</span><span class="lang ru">Кластеры</span> <span class="hint-num" id="cluster-count"></span></div>
+        </div>
+        <div class="legend-list" id="legend-list"></div>
+      </section>
+    </aside>
+  </main>
+
+  <script>
+    /* Cluster names — see networks/cluster_economic_profiles.md for the full rationale. */
+    const CLUSTER_NAMES_EN = {
+      0: "Upper-Midwest Paper, Dairy & Food Machinery",
+      1: "Plains Agribusiness, Grain Trade & Insurance",
+      2: "Great Lakes Precision Metalworking Belt",
+      3: "Carolina Piedmont Textile & Fiber Belt",
+      4: "Central Pennsylvania Logistics & Capital Services",
+      5: "Gulf Coast Oil, Gas & Petrochemicals",
+      6: "Diversified Industrial & Logistics Powerhouses",
+      7: "Coastal Superstar & Tech-Finance Metros",
+      8: "High-Amenity, Knowledge & Tourism Economies",
+      9: "Southern New England Hardware & Instruments"
+    };
+    const CLUSTER_NAMES_RU = {
+      0: "Бумага, молочка и пищевое машиностроение Верхнего Среднего Запада",
+      1: "Агробизнес, зерноторговля и страхование Великих равнин",
+      2: "Пояс точной металлообработки Великих озёр",
+      3: "Текстильно-волоконный пояс Пидмонта (Каролины)",
+      4: "Логистика и сервисы столицы Центральной Пенсильвании",
+      5: "Нефть, газ и нефтехимия Мексиканского залива",
+      6: "Диверсифицированные промышленно-логистические центры",
+      7: "Прибрежные суперзвёзды технологий и финансов",
+      8: "Экономики комфорта, знаний и туризма",
+      9: "Метизы и приборы Южной Новой Англии"
+    };
+    let lang = "en";
+    let CLUSTER_NAMES = CLUSTER_NAMES_EN;
+    const UI = {
+      en: { employment:"Employment", avgSalary:"Avg salary", niche:"Niche", links:"Links",
+        specInd:"Specialized industries", byPci:"by PCI", noRca:"No RCA ≥ 1 industries recorded.", generic:"Generic",
+        none:"none", clusterWord:"Cluster", neighbors:"neighbors", metrosWord:"metros", linksWord:"links",
+        specializeIn:"metros specialize in", phInd:"Type an industry or NAICS…", phCity:"Type a metro name…" },
+      ru: { employment:"Занятость", avgSalary:"Ср. зарплата", niche:"Ниша", links:"Связи",
+        specInd:"Специализации", byPci:"по PCI", noRca:"Отраслей с RCA ≥ 1 не зафиксировано.", generic:"Без ниши",
+        none:"нет", clusterWord:"Кластер", neighbors:"соседей", metrosWord:"городов", linksWord:"связей",
+        specializeIn:"городов специализируются на", phInd:"Введите отрасль или NAICS…", phCity:"Введите название города…" }
+    };
+    const t = (k) => UI[lang][k];
+
+    /* Cluster palette — mid-tone, evenly-spaced hues chosen to keep contrast on
+       BOTH the dark (#0f1115) and light (#f8fafc) backgrounds (no pale pastels). */
+    const CLUSTER_PALETTE = [
+      "#4878c0", // 0  blue
+      "#e07b39", // 1  orange
+      "#4fa05a", // 2  green
+      "#d1495b", // 3  red
+      "#8a63c9", // 4  purple
+      "#2aa198", // 5  teal
+      "#d96aa6", // 6  pink / magenta
+      "#b5892a", // 7  ochre / gold
+      "#6c7a99", // 8  slate
+      "#9c6b4f"  // 9  brown
+    ];
+    function clusterColor(c) {
+      if (c == null || c < 0) return "#8b93a3";          // generic / unclustered
+      return CLUSTER_PALETTE[c % CLUSTER_PALETTE.length];
+    }
+
+    const state = {
+      allNodes: [],
+      allLinks: [],
+      nodeById: new Map(),
+      adjacency: new Map(),         // id -> Set(neighbor ids)
+      industryToCities: new Map(),  // naics_name -> Set(city ids, m_cp=1)
+      cityToIndustries: new Map(),  // city id -> Set(naics_name, m_cp=1)
+      industryPci: new Map(),       // naics_name -> pci (product complexity)
+      clusterMeta: [],              // [{id, color, count, eciMean, name}]
+      clusterColor: new Map(),      // cluster id -> hex color
+      selectedIndustry: "",
+      selectedCluster: null,
+      pinnedCity: "",
+      labelIds: new Set()
+    };
+
+    let net = null;  // single d3plus.Network instance (preserves zoom across updates)
+
+    /* ── helpers ───────────────────────────────────────────────────────── */
+    const cssVar = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
+    function num(value, fallback) {
+      const parsed = Number(value);
+      return Number.isFinite(parsed) ? parsed : fallback;
+    }
+
+    function shortCity(id) {
+      return String(id || "").split(",")[0].trim();
+    }
+
+    function fullCity(id) {
+      // full metro name incl. county, minus the trailing numeric CBSA code
+      return String(id || "").replace(/,\s*\d+\s*$/, "").trim();
+    }
+
+    // wrap parenthetical text (already-escaped html ok) in an italic/smaller span
+    const paren = (s) => String(s).replace(/(\([^)]*\))/g, '<span class="paren">$1</span>');
+
+    function parseCsvRows(csvText) {
+      const rows = [];
+      let row = [], value = "", inQuotes = false;
+      const text = String(csvText || "").replace(/^﻿/, "");
+      for (let i = 0; i < text.length; i += 1) {
+        const char = text[i], next = text[i + 1];
+        if (inQuotes) {
+          if (char === '"' && next === '"') { value += '"'; i += 1; }
+          else if (char === '"') { inQuotes = false; }
+          else { value += char; }
+          continue;
+        }
+        if (char === '"') { inQuotes = true; continue; }
+        if (char === ",") { row.push(value); value = ""; continue; }
+        if (char === "\n") {
+          row.push(value);
+          if (row.some((c) => c.trim() !== "")) rows.push(row);
+          row = []; value = ""; continue;
+        }
+        if (char !== "\r") value += char;
+      }
+      if (value.length || row.length) {
+        row.push(value);
+        if (row.some((c) => c.trim() !== "")) rows.push(row);
+      }
+      return rows;
+    }
+
+    function parseNodesCsv(csvText) {
+      const rows = parseCsvRows(csvText);
+      if (!rows.length) return [];
+      const headers = rows[0].map((h) => h.trim());
+      const idx = (name) => headers.indexOf(name);
+      const idIdx = idx("id");
+      if (idIdx < 0) throw new Error("cities_nodes.csv must include an id column");
+      const nodes = [];
+      for (let i = 1; i < rows.length; i += 1) {
+        const cols = rows[i];
+        const id = (cols[idIdx] || "").trim();
+        if (!id) continue;
+        const get = (name, fb) => { const j = idx(name); return j >= 0 ? (cols[j] || "") : fb; };
+        const cl = Math.trunc(num(get("cluster"), -1));
+        nodes.push({
+          id,
+          label: (get("label", id) || id).trim() || id,
+          title: (get("title", "") || "").trim(),
+          color: clusterColor(cl),   // theme-friendly palette, overrides the CSV color
+          size: num(get("size"), 10),
+          value: num(get("value"), 0),
+          x: num(get("x"), 0),
+          y: num(get("y"), 0),
+          cluster: cl,
+          eci: num(get("eci"), NaN),
+          niche: num(get("niche_strength"), NaN),
+          emp: num(get("emp"), NaN),
+          empLn: num(get("emp_ln"), NaN),
+          wage: num(get("wage"), NaN)
+        });
+      }
+      return nodes;
+    }
+
+    function parseEdgesCsv(csvText, validNodeIds) {
+      const rows = parseCsvRows(csvText);
+      if (!rows.length) return [];
+      const headers = rows[0].map((h) => h.trim());
+      const uIdx = headers.indexOf("u"), vIdx = headers.indexOf("v"), simIdx = headers.indexOf("sim");
+      if (uIdx < 0 || vIdx < 0) throw new Error("edges.csv must include u and v columns");
+      const links = [], seen = new Set();
+      for (let i = 1; i < rows.length; i += 1) {
+        const cols = rows[i];
+        const rawU = (cols[uIdx] || "").trim(), rawV = (cols[vIdx] || "").trim();
+        const sim = simIdx >= 0 ? num(cols[simIdx], 0) : 0;
+        if (!rawU || !rawV || rawU === rawV) continue;
+        if (!validNodeIds.has(rawU) || !validNodeIds.has(rawV)) continue;
+        const source = rawU < rawV ? rawU : rawV, target = rawU < rawV ? rawV : rawU;
+        const key = source + "|" + target;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        links.push({ source, target, sim, weight: sim });
+      }
+      return links;
+    }
+
+    function parseSpecCsv(csvText) {
+      const rows = parseCsvRows(csvText);
+      const industryToCities = new Map(), cityToIndustries = new Map();
+      if (!rows.length) return { industryToCities, cityToIndustries };
+      const headers = rows[0].map((h) => h.trim());
+      const cityIdx = headers.indexOf("msa_name_net");
+      const indIdx = headers.indexOf("naics_name");
+      const mcpIdx = headers.indexOf("m_cp");
+      if (cityIdx < 0 || indIdx < 0 || mcpIdx < 0)
+        throw new Error("spec.csv must include msa_name_net, naics_name, and m_cp columns");
+      for (let i = 1; i < rows.length; i += 1) {
+        const cols = rows[i];
+        const cityId = (cols[cityIdx] || "").trim();
+        const indId = (cols[indIdx] || "").trim();
+        const mcp = (cols[mcpIdx] || "").trim();
+        if (!indId) continue;
+        if (!industryToCities.has(indId)) industryToCities.set(indId, new Set());
+        if (cityId && mcp === "1") {
+          industryToCities.get(indId).add(cityId);
+          if (!cityToIndustries.has(cityId)) cityToIndustries.set(cityId, new Set());
+          cityToIndustries.get(cityId).add(indId);
+        }
+      }
+      return { industryToCities, cityToIndustries };
+    }
+
+    function parsePciCsv(csvText) {
+      const map = new Map();
+      const rows = parseCsvRows(csvText);
+      if (!rows.length) return map;
+      const headers = rows[0].map((h) => h.trim());
+      const nameIdx = headers.indexOf("naics_name");
+      const pciIdx = headers.indexOf("pci");
+      if (nameIdx < 0 || pciIdx < 0) return map;
+      for (let i = 1; i < rows.length; i += 1) {
+        const cols = rows[i];
+        const name = (cols[nameIdx] || "").trim();
+        const pci = num(cols[pciIdx], NaN);
+        if (name && Number.isFinite(pci)) map.set(name, pci);
+      }
+      return map;
+    }
+
+    const pciOf = (name) => { const v = state.industryPci.get(name); return Number.isFinite(v) ? v : NaN; };
+    const fmtPci = (name) => { const v = pciOf(name); return Number.isFinite(v) ? v.toFixed(2) : "—"; };
+    const fmtEmp = (v) => {
+      if (!Number.isFinite(v)) return "—";
+      if (v >= 1e6) return (v / 1e6).toFixed(1) + "M";
+      if (v >= 1e3) return Math.round(v / 1e3) + "k";
+      return String(v);
+    };
+
+    /* ── highlight model ───────────────────────────────────────────────── */
+    const anyActive = () => !!(state.pinnedCity || state.selectedIndustry || state.selectedCluster !== null);
+
+    function activeHighlight() {
+      const ids = new Set();
+      if (state.pinnedCity) {
+        ids.add(state.pinnedCity);
+        (state.adjacency.get(state.pinnedCity) || new Set()).forEach((n) => ids.add(n));
+      }
+      if (state.selectedIndustry) {
+        (state.industryToCities.get(state.selectedIndustry) || new Set()).forEach((n) => ids.add(n));
+      }
+      if (state.selectedCluster !== null) {
+        state.allNodes.forEach((n) => { if (n.cluster === state.selectedCluster) ids.add(n.id); });
+      }
+      return ids;
+    }
+
+    function topByValue(k) {
+      return new Set(state.allNodes.slice().sort((a, b) => b.value - a.value).slice(0, k).map((n) => n.id));
+    }
+
+    function getDisplayNodes() {
+      const active = anyActive();
+      const ids = active ? activeHighlight() : null;
+      state.labelIds = active ? new Set(ids) : topByValue(26);
+      const muted = cssVar("--node-muted") || "#363d4b";
+      return state.allNodes.map((n) => ({
+        ...n,
+        displayColor: !active || ids.has(n.id) ? n.color : muted,
+        isFocus: n.id === state.pinnedCity
+      }));
+    }
+
+    function hexToRgba(hex, a) {
+      const h = String(hex || "").replace("#", "");
+      if (h.length !== 6) return hex;
+      const r = parseInt(h.slice(0, 2), 16), g = parseInt(h.slice(2, 4), 16), b = parseInt(h.slice(4, 6), 16);
+      return "rgba(" + r + "," + g + "," + b + "," + a + ")";
+    }
+
+    /* ── d3plus network ────────────────────────────────────────────────── */
+    function formatTooltip(d) {
+      const bits = [];
+      if (Number.isFinite(d.eci)) bits.push("ECI " + d.eci.toFixed(2));
+      if (Number.isFinite(d.emp)) bits.push(fmtEmp(d.emp) + " jobs");
+      if (Number.isFinite(d.niche)) bits.push("Niche " + d.niche.toFixed(1));
+      const cl = CLUSTER_NAMES[d.cluster];
+      if (cl) bits.push(cl);
+      return bits.join(" · ");
+    }
+
+    function buildNetwork() {
+      const strokeColor = cssVar("--card") || "#16191f";
+      const FOCUS_RING = cssVar("--focus-ring") || "#ffffff";
+      net = new d3plus.Network()
+        .select("#viz")
+        .nodes(getDisplayNodes())
+        .links(state.allLinks)
+        .x("x").y("y")
+        .size((d) => (Number.isFinite(d.empLn) ? d.empLn : (d.size ? +d.size * 1.7 : 10)))
+        .sizeMin(4).sizeMax(15)
+        .label(() => "")
+        .shapeConfig({
+          fill: (d) => d.displayColor || d.color,
+          stroke: (d) => (d.isFocus ? FOCUS_RING : strokeColor),
+          strokeWidth: (d) => (d.isFocus ? 3 : 1)
+        })
+        .tooltipConfig({
+          width: 360,
+          title: (d) => shortCity(d.id),
+          titleStyle: { "font-family": "Space Grotesk, sans-serif", "font-size": "14px" },
+          body: (d) => formatTooltip(d),
+          bodyStyle: { "font-size": "12px", "margin-top": "4px", color: "#475569" }
+        })
+        .on("click", (d) => { if (d && d.id) pinCity(d.id, true); })
+        .render();
+    }
+
+    function updateViz() {
+      if (!net) { buildNetwork(); }
+      else {
+        const strokeColor = cssVar("--card");
+        const FOCUS_RING = cssVar("--focus-ring") || "#ffffff";
+        net.shapeConfig({
+          fill: (d) => d.displayColor || d.color,
+          stroke: (d) => (d.isFocus ? FOCUS_RING : strokeColor),
+          strokeWidth: (d) => (d.isFocus ? 3 : 1)
+        }).nodes(getDisplayNodes()).render();
+      }
+      scheduleDecorate();
+      updateChips();
+    }
+
+    /* ── SVG post-processing (edges + labels) ──────────────────────────── */
+    function extractId(datum) {
+      if (!datum || typeof datum !== "object") return "";
+      if (typeof datum.id === "string") return datum.id;
+      if (datum.data && typeof datum.data.id === "string") return datum.data.id;
+      const m = datum.__d3plus__;
+      if (!m) return "";
+      if (typeof m.id === "string") return m.id;
+      if (m.data && typeof m.data.id === "string") return m.data.id;
+      if (Array.isArray(m.ids) && m.ids.length) return String(m.ids[0]);
+      return "";
+    }
+
+    function edgeInfo(edge) {
+      const d = edge.__data__;
+      if (!d || typeof d !== "object") return { a: "", b: "", w: NaN };
+      const data = (d.data && (d.data.source || d.data.target)) ? d.data : d;
+      const norm = (e) => (e && typeof e === "object") ? extractId(e) : (typeof e === "string" ? e : "");
+      const w = data.weight != null ? +data.weight : (data.sim != null ? +data.sim : NaN);
+      return { a: norm(data.source), b: norm(data.target), w };
+    }
+
+    // curve a straight path edge ("M x,y L x,y") into a gentle arc — declutters
+    // overlapping links. Defensive: only touches paths with exactly 2 points.
+    function curveEdge(edge) {
+      if (edge.nodeName.toLowerCase() !== "path") return;
+      const d = edge.getAttribute("d");
+      if (!d) return;
+      const nums = d.match(/-?\d+(?:\.\d+)?/g);
+      if (!nums || nums.length !== 4) return;            // already-curved (Q) has 6
+      const x1 = +nums[0], y1 = +nums[1], x2 = +nums[2], y2 = +nums[3];
+      const dx = x2 - x1, dy = y2 - y1, len = Math.hypot(dx, dy);
+      if (!len) return;
+      const off = Math.min(len * 0.12, 55);
+      const cx = (x1 + x2) / 2 + (-dy / len) * off;
+      const cy = (y1 + y2) / 2 + (dx / len) * off;
+      edge.setAttribute("d", "M" + x1 + "," + y1 + "Q" + cx + "," + cy + " " + x2 + "," + y2);
+    }
+
+    const W_LO = 0.30, W_HI = 0.72;                        // cosine-sim range across edges
+    const wNorm = (w) => Math.max(0, Math.min(1, (w - W_LO) / (W_HI - W_LO)));
+    const wWidth = (w) => Number.isFinite(w) ? 0.8 + wNorm(w) * 3.0 : 1.6;
+    const wOpacity = (w) => Number.isFinite(w) ? 0.30 + wNorm(w) * 0.55 : 0.5;
+
+    function decorate() {
+      const svg = document.querySelector("#viz svg");
+      if (!svg) return;
+      const edgeColor = cssVar("--edge-color") || "rgba(255,255,255,.1)";
+      const focusEdge = cssVar("--focus-ring") || "#ffffff";
+      const focus = state.pinnedCity;
+      svg.querySelectorAll("path, line").forEach((edge) => {
+        if (edge.closest(".d3plus-tooltip")) return;
+        curveEdge(edge);
+        const { a, b, w } = edgeInfo(edge);
+        const connected = focus && (a === focus || b === focus);
+        if (focus && connected) {
+          edge.style.stroke = focusEdge;
+          edge.style.strokeWidth = Math.max(2.2, wWidth(w)) + "px";
+          edge.style.opacity = "0.95";
+        } else if (focus) {
+          edge.style.stroke = edgeColor;
+          edge.style.strokeWidth = "1.1px";
+          edge.style.opacity = "0.16";
+        } else {
+          // tint within-cluster links by the cluster color; cross-cluster stays neutral
+          const ca = state.nodeById.get(a), cb = state.nodeById.get(b);
+          edge.style.stroke = (ca && cb && ca.cluster === cb.cluster)
+            ? hexToRgba(state.clusterColor.get(ca.cluster) || "#888888", 0.6)
+            : edgeColor;
+          edge.style.strokeWidth = wWidth(w) + "px";
+          edge.style.opacity = String(wOpacity(w));
+        }
+      });
+
+      svg.querySelectorAll("text.force-id-label").forEach((n) => n.remove());
+      const fg = cssVar("--label-fg") || "#fff";
+      const bg = cssVar("--label-bg") || "#000";
+      svg.querySelectorAll("circle").forEach((circle) => {
+        const parent = circle.parentNode;
+        if (!parent || parent.nodeName.toLowerCase() !== "g") return;
+        const id = extractId(circle.__data__) || extractId(parent.__data__);
+        if (!id || !state.labelIds.has(id)) return;
+        const cx = +circle.getAttribute("cx") || 0;
+        const cy = +circle.getAttribute("cy") || 0;
+        const r = +circle.getAttribute("r") || 0;
+        const t = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        t.setAttribute("class", "force-id-label");
+        t.setAttribute("x", cx); t.setAttribute("y", cy - r - 4);
+        t.setAttribute("text-anchor", "middle");
+        t.setAttribute("font-size", "9.5");
+        t.setAttribute("font-weight", "600");
+        t.setAttribute("fill", fg);
+        t.setAttribute("stroke", bg);
+        t.setAttribute("stroke-width", "2.4");
+        t.setAttribute("paint-order", "stroke");
+        t.style.pointerEvents = "none";
+        t.textContent = shortCity(id);
+        parent.appendChild(t);
+      });
+    }
+
+    function scheduleDecorate() {
+      setTimeout(decorate, 90);
+      setTimeout(decorate, 320);
+    }
+
+    /* ── chips / status ────────────────────────────────────────────────── */
+    function focusLabel() {
+      if (state.pinnedCity) return shortCity(state.pinnedCity);
+      if (state.selectedIndustry) return shortCity(state.selectedIndustry);
+      if (state.selectedCluster !== null) return t("clusterWord");
+      return t("none");
+    }
+
+    function updateChips() {
+      document.getElementById("chip-nodes").textContent = state.allNodes.length;
+      document.getElementById("chip-edges").textContent = state.allLinks.length;
+      document.getElementById("chip-focus").textContent = focusLabel();
+
+      const status = document.getElementById("status");
+      if (state.pinnedCity) {
+        const nb = (state.adjacency.get(state.pinnedCity) || new Set()).size;
+        status.textContent = shortCity(state.pinnedCity) + " · " + nb + " " + t("neighbors");
+      } else if (state.selectedIndustry) {
+        const n = (state.industryToCities.get(state.selectedIndustry) || new Set()).size;
+        status.textContent = n + " " + t("specializeIn") + " " + shortCity(state.selectedIndustry);
+      } else if (state.selectedCluster !== null) {
+        const m = state.clusterMeta.find((c) => c.id === state.selectedCluster);
+        status.textContent = (m ? m.name : t("clusterWord")) + " · " + (m ? m.count : 0) + " " + t("metrosWord");
+      } else {
+        status.textContent = state.allNodes.length + " " + t("metrosWord") + " · " + state.allLinks.length + " " + t("linksWord");
+      }
+    }
+
+    /* ── actions ───────────────────────────────────────────────────────── */
+    function pinCity(id, fromCanvas) {
+      state.pinnedCity = (state.pinnedCity === id && !fromCanvas) ? "" : id;
+      if (state.pinnedCity) showDetail(state.pinnedCity);
+      else hideDetail();
+      if (cityCombo) cityCombo.setValue(state.pinnedCity ? fullCity(state.pinnedCity) : "");
+      updateViz();
+    }
+
+    function selectIndustry(id) {
+      state.selectedIndustry = id || "";
+      updateViz();
+    }
+
+    function selectCluster(id) {
+      state.selectedCluster = (state.selectedCluster === id) ? null : id;
+      renderLegend();
+      updateViz();
+    }
+
+    function resetAll() {
+      state.selectedIndustry = "";
+      state.selectedCluster = null;
+      state.pinnedCity = "";
+      if (industryCombo) industryCombo.setValue("");
+      if (cityCombo) cityCombo.setValue("");
+      hideDetail();
+      renderLegend();
+      updateViz();
+    }
+
+    /* ── detail panel ──────────────────────────────────────────────────── */
+    function showDetail(id) {
+      const node = state.nodeById.get(id);
+      if (!node) return;
+      const panel = document.getElementById("detail");
+      const body = document.getElementById("detail-body");
+      const meta = state.clusterMeta.find((c) => c.id === node.cluster);
+      const neighbors = (state.adjacency.get(id) || new Set()).size;
+      const inds = Array.from(state.cityToIndustries.get(id) || new Set())
+        .sort((a, b) => {
+          const pa = pciOf(a), pb = pciOf(b);
+          const va = Number.isFinite(pa) ? pa : -Infinity;
+          const vb = Number.isFinite(pb) ? pb : -Infinity;
+          return vb - va || a.localeCompare(b);
+        });
+      const swatch = '<span class="legend-swatch" style="background:' + node.color + '"></span>';
+      const fmt = (v, d) => (Number.isFinite(v) ? v.toFixed(d) : "—");
+
+      body.innerHTML =
+        '<div class="detail-city">' + escapeHtml(shortCity(id)) + '</div>' +
+        '<div class="detail-cluster">' + swatch + paren(escapeHtml(meta ? meta.name : t("generic"))) + '</div>' +
+        '<div class="metric-grid">' +
+          '<div class="metric"><div class="metric-label">' + t("employment") + '</div><div class="metric-value">' + fmtEmp(node.emp) + '</div></div>' +
+          '<div class="metric"><div class="metric-label">' + t("avgSalary") + '</div><div class="metric-value">' + (Number.isFinite(node.wage) ? "$" + Math.round(node.wage) + "k" : "—") + '</div></div>' +
+          '<div class="metric"><div class="metric-label">ECI</div><div class="metric-value">' + fmt(node.eci, 2) + '</div></div>' +
+          '<div class="metric"><div class="metric-label">' + t("niche") + '</div><div class="metric-value">' + fmt(node.niche, 1) + '</div></div>' +
+          '<div class="metric"><div class="metric-label">' + t("links") + '</div><div class="metric-value">' + neighbors + '</div></div>' +
+        '</div>' +
+        '<div class="detail-sub">' + t("specInd") + ' · ' + inds.length + ' · ' + t("byPci") + '</div>' +
+        '<div class="ind-list">' +
+          (inds.length
+            ? inds.map((i) => '<span class="ind-pill" data-ind="' + escapeAttr(i) + '">' +
+                paren(escapeHtml(shortCity(i))) + '<span class="ind-pci">' + fmtPci(i) + '</span></span>').join("")
+            : '<span class="field-hint">' + t("noRca") + '</span>') +
+        '</div>';
+
+      body.querySelectorAll(".ind-pill").forEach((pill) => {
+        pill.addEventListener("click", () => {
+          const ind = pill.getAttribute("data-ind");
+          if (industryCombo) industryCombo.setValue(shortCity(ind));
+          selectIndustry(ind);
+        });
+      });
+
+      panel.hidden = false;
+    }
+    function hideDetail() { document.getElementById("detail").hidden = true; }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    }
+    function escapeAttr(s) { return escapeHtml(s).replace(/'/g, "&#39;"); }
+
+    /* ── cluster legend ────────────────────────────────────────────────── */
+    function buildClusterMeta() {
+      const byCluster = new Map();
+      state.allNodes.forEach((n) => {
+        if (!byCluster.has(n.cluster)) byCluster.set(n.cluster, { colors: {}, ecis: [], count: 0 });
+        const e = byCluster.get(n.cluster);
+        e.count += 1;
+        e.colors[n.color] = (e.colors[n.color] || 0) + 1;
+        if (Number.isFinite(n.eci)) e.ecis.push(n.eci);
+      });
+      state.clusterMeta = Array.from(byCluster.entries()).map(([id, e]) => ({
+        id,
+        count: e.count,
+        color: Object.keys(e.colors).sort((a, b) => e.colors[b] - e.colors[a])[0] || "#888",
+        eciMean: e.ecis.length ? e.ecis.reduce((a, b) => a + b, 0) / e.ecis.length : NaN,
+        name: CLUSTER_NAMES[id] || ("Cluster " + id)
+      })).sort((a, b) => (b.eciMean || -99) - (a.eciMean || -99));
+      state.clusterColor = new Map(state.clusterMeta.map((c) => [c.id, c.color]));
+    }
+
+    function renderLegend() {
+      const list = document.getElementById("legend-list");
+      list.innerHTML = "";
+      state.clusterMeta.forEach((c) => {
+        const btn = document.createElement("button");
+        btn.className = "legend-item" + (state.selectedCluster === c.id ? " active" : "");
+        btn.type = "button";
+        btn.innerHTML =
+          '<span class="legend-swatch" style="background:' + c.color + '"></span>' +
+          '<span class="legend-text">' +
+            '<span class="legend-name">' + paren(escapeHtml(c.name)) + '</span>' +
+            '<span class="legend-meta">ECI ' + (Number.isFinite(c.eciMean) ? c.eciMean.toFixed(2) : "—") + '</span>' +
+          '</span>' +
+          '<span class="legend-count">' + c.count + '</span>';
+        btn.addEventListener("click", () => selectCluster(c.id));
+        list.appendChild(btn);
+      });
+      document.getElementById("cluster-count").textContent = "· " + state.clusterMeta.length;
+    }
+
+    /* ── combobox ──────────────────────────────────────────────────────── */
+    function createCombobox(rootId, { items, onSelect, onClear, renderItem }) {
+      const root = document.getElementById(rootId);
+      const input = root.querySelector(".combo-input");
+      const clearBtn = root.querySelector(".combo-clear");
+      const pop = root.querySelector(".combo-pop");
+      const list = root.querySelector(".combo-list");
+      let current = [], activeIdx = -1;
+
+      const open = () => { pop.hidden = false; input.setAttribute("aria-expanded", "true"); };
+      const close = () => { pop.hidden = true; activeIdx = -1; input.setAttribute("aria-expanded", "false"); };
+
+      function refresh() {
+        const q = input.value.trim().toLowerCase();
+        const all = items();
+        current = (q ? all.filter((it) => it.label.toLowerCase().includes(q)) : all).slice(0, 60);
+        activeIdx = -1;
+        render();
+        open();
+      }
+      function render() {
+        list.innerHTML = "";
+        if (!current.length) { list.innerHTML = '<li class="combo-empty">No matches</li>'; return; }
+        current.forEach((it, i) => {
+          const li = document.createElement("li");
+          li.className = "combo-option" + (i === activeIdx ? " active" : "");
+          li.innerHTML = renderItem(it);
+          li.addEventListener("mousedown", (e) => { e.preventDefault(); choose(it); });
+          list.appendChild(li);
+          if (i === activeIdx) li.scrollIntoView({ block: "nearest" });
+        });
+      }
+      function choose(it) { input.value = it.short || it.label; close(); onSelect(it); }
+
+      input.addEventListener("focus", refresh);
+      input.addEventListener("input", () => { if (!input.value.trim()) onClear(); refresh(); });
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowDown") { activeIdx = Math.min(activeIdx + 1, current.length - 1); render(); e.preventDefault(); }
+        else if (e.key === "ArrowUp") { activeIdx = Math.max(activeIdx - 1, 0); render(); e.preventDefault(); }
+        else if (e.key === "Enter") { const pick = current[activeIdx] || (current.length === 1 ? current[0] : null); if (pick) choose(pick); }
+        else if (e.key === "Escape") { close(); input.blur(); }
+      });
+      clearBtn.addEventListener("click", () => { input.value = ""; onClear(); close(); input.focus(); });
+      document.addEventListener("click", (e) => { if (!root.contains(e.target)) close(); });
+
+      return { setValue: (v) => { input.value = v; } };
+    }
+
+    let industryCombo = null, cityCombo = null;
+
+    /* ── theme ─────────────────────────────────────────────────────────── */
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      document.getElementById("theme-toggle").textContent = theme === "dark" ? "☀" : "☾";
+      try { localStorage.setItem("desht-theme", theme); } catch (e) {}
+      if (net) updateViz();
+    }
+
+    function applyLang(l) {
+      lang = l;
+      CLUSTER_NAMES = l === "ru" ? CLUSTER_NAMES_RU : CLUSTER_NAMES_EN;
+      document.documentElement.setAttribute("data-lang", l);
+      document.documentElement.setAttribute("lang", l);
+      document.querySelectorAll("#lang-switch button").forEach((b) => b.classList.toggle("on", b.dataset.lang === l));
+      try { localStorage.setItem("desht-lang", l); } catch (e) {}
+      const ii = document.getElementById("industry-input"); if (ii) ii.placeholder = t("phInd");
+      const ci = document.getElementById("city-input"); if (ci) ci.placeholder = t("phCity");
+      if (state.allNodes.length) {
+        buildClusterMeta(); renderLegend(); updateChips();
+        if (state.pinnedCity) showDetail(state.pinnedCity);
+      }
+    }
+
+    /* ── bootstrap ─────────────────────────────────────────────────────── */
+    async function main() {
+      const [nodesR, edgesR, specR] = await Promise.all([
+        fetch("cities_nodes.csv", { cache: "no-store" }),
+        fetch("cities_edges.csv", { cache: "no-store" }),
+        fetch("cities_df_spec.csv", { cache: "no-store" })
+      ]);
+      if (!nodesR.ok) throw new Error("Could not load cities_nodes.csv");
+      if (!edgesR.ok) throw new Error("Could not load cities_edges.csv");
+      if (!specR.ok) throw new Error("Could not load cities_df_spec.csv");
+
+      const nodes = parseNodesCsv(await nodesR.text());
+      const validIds = new Set(nodes.map((n) => n.id));
+      const links = parseEdgesCsv(await edgesR.text(), validIds);
+      const spec = parseSpecCsv(await specR.text());
+
+      // PCI is optional — degrade gracefully if the file is absent
+      try {
+        const pciR = await fetch("cities_naics_pci.csv", { cache: "no-store" });
+        if (pciR.ok) state.industryPci = parsePciCsv(await pciR.text());
+      } catch (e) { /* no pci file: filter + detail just omit it */ }
+
+      state.allNodes = nodes.slice().sort((a, b) => a.id.localeCompare(b.id));
+      state.allLinks = links;
+      state.nodeById = new Map(nodes.map((n) => [n.id, n]));
+      state.industryToCities = spec.industryToCities;
+      state.cityToIndustries = spec.cityToIndustries;
+
+      state.adjacency = new Map(nodes.map((n) => [n.id, new Set()]));
+      links.forEach((l) => {
+        state.adjacency.get(l.source).add(l.target);
+        state.adjacency.get(l.target).add(l.source);
+      });
+
+      buildClusterMeta();
+      renderLegend();
+
+      document.getElementById("industry-count").textContent = state.industryToCities.size;
+
+      // industry combobox: items sorted by PCI (product complexity) descending,
+      // then by # of specializing metros; each option shows its PCI under the name
+      const industryItems = Array.from(state.industryToCities.entries())
+        .map(([id, set]) => ({ id, label: id, short: shortCity(id), count: set.size }))
+        .filter((it) => it.count > 0)
+        .sort((a, b) => {
+          const pa = pciOf(a.id), pb = pciOf(b.id);
+          const va = Number.isFinite(pa) ? pa : -Infinity;
+          const vb = Number.isFinite(pb) ? pb : -Infinity;
+          return vb - va || b.count - a.count || a.label.localeCompare(b.label);
+        });
+      industryCombo = createCombobox("combo-industry", {
+        items: () => industryItems,
+        onSelect: (it) => selectIndustry(it.id),
+        onClear: () => selectIndustry(""),
+        renderItem: (it) =>
+          '<span class="opt-main">' +
+            '<span class="opt-name">' + paren(escapeHtml(shortCity(it.id))) + '</span>' +
+            '<span class="opt-sub">PCI ' + fmtPci(it.id) + '</span>' +
+          '</span>' +
+          '<span class="combo-count">' + it.count + '</span>'
+      });
+
+      // city combobox: full metro names (with county), sorted by ECI descending
+      const cityItems = state.allNodes
+        .map((n) => ({ id: n.id, label: fullCity(n.id), short: fullCity(n.id), color: n.color, eci: n.eci }))
+        .sort((a, b) => {
+          const va = Number.isFinite(a.eci) ? a.eci : -Infinity;
+          const vb = Number.isFinite(b.eci) ? b.eci : -Infinity;
+          return vb - va || a.label.localeCompare(b.label);
+        });
+      cityCombo = createCombobox("combo-city", {
+        items: () => cityItems,
+        onSelect: (it) => pinCity(it.id, true),
+        onClear: () => { if (state.pinnedCity) { state.pinnedCity = ""; hideDetail(); updateViz(); } },
+        renderItem: (it) =>
+          '<span class="combo-swatch" style="background:' + it.color + '"></span>' +
+          '<span class="opt-main">' +
+            '<span class="opt-name">' + paren(escapeHtml(it.label)) + '</span>' +
+            '<span class="opt-sub">ECI ' + (Number.isFinite(it.eci) ? it.eci.toFixed(2) : "—") + '</span>' +
+          '</span>'
+      });
+
+      document.getElementById("industry-input").placeholder = t("phInd");
+      document.getElementById("city-input").placeholder = t("phCity");
+
+      document.getElementById("clear-all").addEventListener("click", resetAll);
+      document.getElementById("detail-close").addEventListener("click", () => pinCity(state.pinnedCity));
+      document.getElementById("theme-toggle").addEventListener("click", () => {
+        const cur = document.documentElement.getAttribute("data-theme");
+        applyTheme(cur === "dark" ? "light" : "dark");
+      });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") resetAll(); });
+
+      updateViz();   // builds the network AND schedules edge/label decoration
+
+      let rt;
+      window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(decorate, 160); });
+      const viz = document.getElementById("viz");
+      viz.addEventListener("mouseup", () => setTimeout(decorate, 90));
+      viz.addEventListener("wheel", () => setTimeout(decorate, 90), { passive: true });
+    }
+
+    // restore theme before data loads (avoids flash)
+    try {
+      const saved = localStorage.getItem("desht-theme");
+      if (saved) document.documentElement.setAttribute("data-theme", saved);
+    } catch (e) {}
+    document.getElementById("theme-toggle").textContent =
+      document.documentElement.getAttribute("data-theme") === "light" ? "☾" : "☀";
+
+    // restore language
+    try {
+      const sl = localStorage.getItem("desht-lang");
+      if (sl) { lang = sl; CLUSTER_NAMES = sl === "ru" ? CLUSTER_NAMES_RU : CLUSTER_NAMES_EN;
+        document.documentElement.setAttribute("data-lang", sl); document.documentElement.setAttribute("lang", sl); }
+    } catch (e) {}
+    document.querySelectorAll("#lang-switch button").forEach((b) => {
+      b.classList.toggle("on", b.dataset.lang === lang);
+      b.addEventListener("click", () => applyLang(b.dataset.lang));
+    });
+
+    main().catch((err) => {
+      document.getElementById("status").textContent = "Error: " + err.message;
+      console.error(err);
+    });
+  </script>
+</body>
+</html>

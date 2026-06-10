@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cluster Storyline — Nine Economic Americas · Desht</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <style>
+    :root {
+      --bg: #0f1115; --fg: #e5e7eb; --muted: #9ca3af; --panel: #14171d; --card: #16191f;
+      --accent: #376c8a; --accent-2: #4f86a4; --nav-accent: #e5b983; --nav-accent-2: #f0cb9b;
+      --border: #222733; --accent-shadow: rgba(55,108,138,.35);
+      --bg-grad-1: rgba(55,108,138,.12); --bg-grad-2: rgba(229,185,131,.07);
+      --shadow: 0 12px 30px rgba(0,0,0,.35); --shadow-sm: 0 6px 16px rgba(0,0,0,.25);
+      --radius: 16px; --radius-sm: 10px;
+    }
+    [data-theme="light"] {
+      --bg: #f8fafc; --fg: #0f172a; --muted: #475569; --panel: #eeedeb; --card: #ffffff;
+      --accent: #e5b983; --accent-2: #e4c7a1; --nav-accent: #376c8a; --nav-accent-2: #4f86a4;
+      --border: #e9e1d7; --accent-shadow: rgba(229,185,131,.35);
+      --bg-grad-1: rgba(55,108,138,.08); --bg-grad-2: rgba(229,185,131,.14);
+      --shadow: 0 12px 30px rgba(15,23,42,.14); --shadow-sm: 0 6px 16px rgba(15,23,42,.10);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    html[data-lang="en"] .lang.ru { display: none; }
+    html[data-lang="ru"] .lang.en { display: none; }
+    body {
+      margin: 0; color: var(--fg);
+      font-family: "Gotham","Space Grotesk","Inter","Segoe UI",system-ui,sans-serif;
+      background:
+        radial-gradient(60% 50% at 12% 0%, var(--bg-grad-1), transparent 60%),
+        radial-gradient(55% 55% at 100% 100%, var(--bg-grad-2), transparent 55%),
+        var(--bg);
+      background-attachment: fixed; line-height: 1.6; -webkit-font-smoothing: antialiased;
+    }
+    .topbar {
+      position: sticky; top: 0; z-index: 1100;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 12px clamp(16px,3vw,28px);
+      border-bottom: 1px solid var(--border);
+      background: color-mix(in srgb, var(--panel) 80%, transparent);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark {
+      width: 36px; height: 36px; flex: none; display: grid; place-items: center;
+      border-radius: 11px; background: linear-gradient(135deg, var(--nav-accent), var(--nav-accent-2));
+      color: #0f1115; font-weight: 700; font-size: 18px; box-shadow: 0 6px 18px var(--accent-shadow);
+    }
+    .brand-title { font-size: 16px; font-weight: 600; }
+    .brand-sub { font-size: 12px; color: var(--muted); }
+    .topbar-right { display: flex; align-items: center; gap: 10px; }
+    .pill-btn {
+      display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px;
+      border: 1px solid var(--border); border-radius: 999px; background: var(--card);
+      color: var(--fg); font: inherit; font-size: 12.5px; font-weight: 500; cursor: pointer;
+      text-decoration: none; white-space: nowrap;
+      transition: border-color .15s, color .15s, transform .15s;
+    }
+    .pill-btn:hover { border-color: var(--nav-accent); color: var(--nav-accent); transform: translateY(-1px); }
+    .icon-btn {
+      width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--border);
+      border-radius: 11px; background: var(--card); color: var(--fg); cursor: pointer; font-size: 16px;
+      transition: border-color .15s, transform .15s;
+    }
+    .icon-btn:hover { border-color: var(--accent-2); transform: translateY(-1px); }
+    .lang-switch { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; }
+    .lang-switch button { border: 0; background: transparent; color: var(--muted); font: inherit; font-size: 12.5px; font-weight: 600; padding: 8px 12px; cursor: pointer; }
+    .lang-switch button.on { background: var(--nav-accent); color: #0f1115; }
+
+    .hero { min-height: 72vh; display: flex; flex-direction: column; justify-content: center; padding: 6vh 0 5vh; }
+    .eyebrow { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--nav-accent); font-weight: 600; }
+    .hero h1 { font-size: clamp(26px,2.6vw,40px); line-height: 1.12; margin: 14px 0 0; letter-spacing: -.4px; }
+    .hero p.lede { font-size: clamp(15px,1.4vw,17px); color: var(--muted); max-width: 60ch; margin: 18px 0 0; }
+    .scroll-cue { margin-top: 34px; font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+    .scroll-cue .arrow { animation: bob 1.6s ease-in-out infinite; }
+    @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(4px)} }
+
+    .scrolly { position: relative; max-width: 1320px; margin: 0 auto; padding: 0 clamp(16px,3vw,28px);
+      display: grid; grid-template-columns: minmax(0,440px) minmax(0,1fr); gap: clamp(20px,4vw,56px); }
+    .narrative { padding: 6vh 0 12vh; }
+    .map-col { position: relative; }
+    .map-sticky { position: sticky; top: 84px; height: calc(100vh - 104px); display: flex; flex-direction: column; }
+    .map-card {
+      position: relative; flex: 1; min-height: 0; background: var(--panel);
+      border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
+    }
+    #map { position: absolute; inset: 0; width: 100%; height: 100%; background: var(--panel); }
+    .leaflet-container { background: var(--panel); font-family: inherit; }
+    .leaflet-tooltip.metro-tip {
+      background: var(--card); border: 1px solid var(--border); color: var(--fg);
+      border-radius: 9px; box-shadow: var(--shadow); padding: 8px 11px; font-size: 12px; line-height: 1.35;
+    }
+    .leaflet-tooltip.metro-tip::before { display: none; }
+    .metro-tip b { display:block; font-size: 13px; margin-bottom: 2px; }
+    .metro-tip .t-meta { color: var(--muted); font-size: 11px; }
+
+    .map-head {
+      position: absolute; left: 14px; top: 14px; z-index: 1000; pointer-events: none;
+      display: flex; align-items: center; gap: 10px; max-width: calc(100% - 28px);
+      padding: 10px 14px; border: 1px solid var(--border); border-radius: 12px;
+      background: color-mix(in srgb, var(--panel) 88%, transparent); backdrop-filter: blur(8px);
+    }
+    .map-head .dot { width: 14px; height: 14px; border-radius: 4px; flex: none; }
+    .map-head .mh-name { font-size: 14px; font-weight: 600; line-height: 1.2; }
+    .map-head .mh-meta { font-size: 11.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+    .map-legend {
+      position: absolute; left: 14px; bottom: 14px; z-index: 1000; max-width: 62%;
+      display: flex; flex-direction: column; gap: 2px;
+      padding: 10px 12px; border: 1px solid var(--border); border-radius: 12px;
+      background: color-mix(in srgb, var(--panel) 86%, transparent); backdrop-filter: blur(8px);
+    }
+    .leg-row { display: flex; align-items: center; gap: 8px; font-size: 11.5px; color: var(--muted); cursor: pointer; padding: 2px 4px; border-radius: 6px; }
+    .leg-row:hover { color: var(--fg); background: color-mix(in srgb, var(--fg) 7%, transparent); }
+    .leg-row.active { color: var(--fg); font-weight: 600; }
+    .leg-row .sw { width: 11px; height: 11px; border-radius: 3px; flex: none; }
+
+    .story-section { min-height: 84vh; display: flex; flex-direction: column; justify-content: center; padding: 4vh 0; }
+    .sec-rank { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+    .sec-rank .swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -1px; margin-right: 7px; }
+    .sec-name { font-size: clamp(24px,3.2vw,34px); line-height: 1.12; margin: 10px 0 6px; letter-spacing: -.3px; }
+    .sec-tag { font-size: 16px; color: var(--nav-accent); font-weight: 500; margin-bottom: 16px; }
+    .sec-binds { font-size: 16px; color: var(--fg); max-width: 56ch; }
+    .paren { font-style: italic; font-size: .82em; opacity: .9; }
+    .sec-stats { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 16px; }
+    .sstat { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 9px 13px; background: color-mix(in srgb, var(--card) 65%, transparent); }
+    .sstat b { display: block; font-size: 19px; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .sstat span { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .4px; }
+    .chips-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 6px; }
+    .chip-lbl { width: 100%; font-size: 11px; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); margin-bottom: 2px; }
+    .ind-chip, .metro-chip {
+      font-size: 12px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--card) 70%, transparent);
+    }
+    .ind-chip { color: var(--fg); }
+    .metro-chip { color: var(--muted); }
+
+    .outro { max-width: 820px; margin: 0 auto; padding: 8vh clamp(20px,5vw,32px) 14vh; }
+    .outro h2 { font-size: clamp(22px,3vw,30px); }
+    .outro p { color: var(--muted); max-width: 68ch; }
+    .outro a { color: var(--nav-accent); }
+    .note { font-size: 13px; color: var(--muted); border-left: 2px solid var(--border); padding: 4px 0 4px 14px; margin: 18px 0; }
+
+    @media (max-width: 980px) {
+      .scrolly { grid-template-columns: 1fr; }
+      .map-col { order: -1; }
+      .map-sticky { position: sticky; top: 70px; height: 54vh; }
+      .narrative { padding-top: 2vh; }
+      .story-section { min-height: 70vh; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">◇</div>
+      <div>
+        <div class="brand-title"><span class="lang en">Cluster storyline</span><span class="lang ru">Сторилайн кластеров</span></div>
+        <div class="brand-sub"><span class="lang en">Nine economic Americas · Desht</span><span class="lang ru">Девять экономических Америк · Desht</span></div>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <a class="pill-btn" href="index_cities.html"><span class="lang en">← Network</span><span class="lang ru">← Сеть</span></a>
+      <a class="pill-btn" href="methods.html"><span class="lang en">How it works</span><span class="lang ru">Как это работает</span></a>
+      <div class="lang-switch" id="lang-switch">
+        <button data-lang="en" type="button">EN</button>
+        <button data-lang="ru" type="button">RU</button>
+      </div>
+      <button id="theme-toggle" class="icon-btn" type="button" title="Toggle theme" aria-label="Toggle theme">☀</button>
+    </div>
+  </header>
+
+  <div class="scrolly">
+    <div class="narrative">
+    <section class="hero">
+    <div class="eyebrow"><span class="lang en">Urban economics · CBP 2023 · 151 niche metros · 9 economic clusters</span><span class="lang ru">Урбанистическая экономика · CBP 2023 · 151 характерный метрополис · 9 экономических кластеров</span></div>
+    <h1>
+      <span class="lang en">The United States isn't one economy.<br>It's nine specialised ones.</span>
+      <span class="lang ru">США — это не одна экономика.<br>Это девять разных, специализированных.</span>
+    </h1>
+    <p class="lede">
+      <span class="lang en">An urban-economics view of the country: cluster every distinctive U.S. metro by the industries
+        it specialises in, and it sorts itself into nine economic worlds — from coastal tech-and-finance superstars
+        to a Carolina textile belt, a Gulf-Coast hydrocarbon chain and a Great-Lakes machine shop. Scroll to meet
+        each one; the map lights up the metros that belong to it.</span>
+      <span class="lang ru">Взгляд урбанистической экономики на страну: если сгруппировать каждый характерный метрополис
+        США по отраслям, в которых он специализируется, он распадается на девять экономических миров — от прибрежных
+        суперзвёзд технологий и финансов до текстильного пояса Каролин, углеводородной цепочки Мексиканского залива и
+        «механического цеха» Великих озёр. Прокручивайте, чтобы познакомиться с каждым; карта подсвечивает города,
+        входящие в кластер.</span>
+    </p>
+    <div class="scroll-cue"><span class="arrow">↓</span> <span class="lang en">Scroll to begin</span><span class="lang ru">Прокрутите, чтобы начать</span></div>
+    </section>
+    <div id="sections"></div>
+    </div>
+    <div class="map-col">
+      <div class="map-sticky">
+        <div class="map-card">
+          <div class="map-head" id="map-head">
+            <span class="dot" style="background:var(--muted)"></span>
+            <div><div class="mh-name" id="mh-name">—</div><div class="mh-meta" id="mh-meta">—</div></div>
+          </div>
+          <div id="map"></div>
+          <div class="map-legend" id="map-legend"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="outro">
+    <h2><span class="lang en">How these clusters were drawn</span><span class="lang ru">Как построены эти кластеры</span></h2>
+    <p>
+      <span class="lang en">Each metro is described by the industries it is <em>specialised</em> in, weighted so that rare
+        industries count and ubiquitous ones (gas stations, restaurants) don't. Metros are then linked by how similar
+        those profiles are, and the network is split into communities. The result is real, statistically significant
+        structure — though the exact partition is sensitive, so read the clusters as economic <em>types</em>, not hard
+        borders. The <a href="methods.html">plain-language methodology</a> walks through every step.</span>
+      <span class="lang ru">Каждый метрополис описывается отраслями, в которых он <em>специализируется</em>, со взвешиванием:
+        редкие отрасли учитываются, а вездесущие (заправки, рестораны) — почти нет. Затем города связываются по
+        похожести профилей, и сеть делится на сообщества. Получается реальная, статистически значимая структура —
+        хотя точное разбиение чувствительно к настройкам, поэтому читайте кластеры как экономические <em>типы</em>, а
+        не жёсткие границы. <a href="methods.html">Методология простыми словами</a> разбирает каждый шаг.</span>
+    </p>
+    <div class="note">
+      <span class="lang en">For simplicity this story folds the two-metro <b>Central Pennsylvania</b> fragment
+        (Harrisburg &amp; Scranton) into the <b>Diversified Industrial &amp; Logistics Powerhouses</b>, with which it
+        shares a logistics-and-distribution profile — leaving nine clusters.</span>
+      <span class="lang ru">Для простоты этот сюжет объединяет двухгородский фрагмент <b>Центральной Пенсильвании</b>
+        (Гаррисберг и Скрантон) с <b>Диверсифицированными промышленно-логистическими центрами</b>, с которыми он делит
+        логистическо-дистрибуционный профиль, — остаётся девять кластеров.</span>
+    </div>
+    <p>
+      <span class="lang en">Explore the underlying similarity network in the <a href="index_cities.html">interactive network view</a>.</span>
+      <span class="lang ru">Изучите лежащую в основе сеть сходства в <a href="index_cities.html">интерактивном виде сети</a>.</span>
+    </p>
+  </section>
+
+  <script>
+    const PALETTE = ["#4878c0","#e07b39","#4fa05a","#d1495b","#8a63c9","#2aa198","#d96aa6","#b5892a","#6c7a99","#9c6b4f"];
+    const clusterColor = (c) => (c == null || c < 0) ? "#8b93a3" : PALETTE[c % PALETTE.length];
+
+    const NAMES_EN = {
+      0:"Upper-Midwest Paper, Dairy & Food Machinery",
+      1:"Plains Agribusiness, Grain Trade & Insurance",
+      2:"Great Lakes Precision Metalworking Belt",
+      3:"Carolina Piedmont Textile & Fiber Belt",
+      5:"Gulf Coast Oil, Gas & Petrochemicals",
+      6:"Diversified Industrial & Logistics Powerhouses",
+      7:"Coastal Superstar & Tech-Finance Metros",
+      8:"High-Amenity, Knowledge & Tourism Economies",
+      9:"Southern New England Hardware & Instruments"
+    };
+    const NAMES_RU = {
+      0:"Бумага, молочка и пищевое машиностроение Верхнего Среднего Запада",
+      1:"Агробизнес, зерноторговля и страхование Великих равнин",
+      2:"Пояс точной металлообработки Великих озёр",
+      3:"Текстильно-волоконный пояс Пидмонта (Каролины)",
+      5:"Нефть, газ и нефтехимия Мексиканского залива",
+      6:"Диверсифицированные промышленно-логистические центры",
+      7:"Прибрежные суперзвёзды технологий и финансов",
+      8:"Экономики комфорта, знаний и туризма",
+      9:"Метизы и приборы Южной Новой Англии"
+    };
+    const NARR_EN = {
+      6: { tag:"The tier-1 metros that anchor America's production and distribution.",
+        binds:"From Chicago and Dallas to Grand Rapids and Madison — and, folded in here, the Harrisburg–Scranton logistics pair — these metros share a deep layer of mid-stream industrial manufacturing (fluid-power pumps, abrasives, printing ink, lubricants, springs, industrial furnaces) layered on diversified service economies. No single industry defines them; sheer breadth does.",
+        inds:["Fluid-power pumps & motors","Abrasives","Printing ink","Industrial furnaces","Springs & bearings","Logistics & distribution"] },
+      7: { tag:"The highest-wage knowledge and finance hubs.",
+        binds:"New York, LA, San Francisco, Boston, Seattle and Denver, joined by Mountain-West risers like Salt Lake, Provo and Huntsville. Their defining sectors — finance, software, professional services — are too universal to stand out statistically, so the tell is the adjacent knowledge economy: in-vitro diagnostics, computer and language training, solar power and specialised information services.",
+        inds:["Finance & software","In-vitro diagnostics","Computer & language training","Solar generation","Information services"] },
+      9: { tag:"New England's brass-and-hardware valley, still humming.",
+        binds:"Worcester, New Haven, Manchester, Springfield and Waterbury carry an unusually old-industrial niche: communication and energy wire, copper rolling, rolling-mill machinery, surgical instruments and electronic connectors. Surgical instruments show up in all five.",
+        inds:["Wire & cable","Copper rolling","Surgical instruments","Electronic connectors","Metalworking machinery"] },
+      3: { tag:"The most concentrated industry district in the country.",
+        binds:"Greenville, Greensboro, Winston-Salem, Spartanburg, Hickory and Dalton run a complete textile value chain — fiber and yarn, broadwoven, knit and nonwoven fabric, finishing, and carpet (Dalton alone makes roughly three-quarters of the world's carpet). Specialisation runs up to 16× the national baseline.",
+        inds:["Fiber & yarn mills","Broadwoven & knit fabric","Nonwoven fabric","Textile finishing","Carpet & flooring","Hosiery"] },
+      2: { tag:"The country's tightest durable-goods district.",
+        binds:"Akron, Buffalo, Rochester, Dayton, Toledo and eighteen others across the lower Great Lakes and upstate New York share a 'machine-shop' system: electroplating, heat treating, machine tools, cutting tools and industrial molds — 60–83% of members specialise in these trades.",
+        inds:["Electroplating & coating","Heat treating","Machine tools","Cutting tools","Industrial molds","Metal stamping"] },
+      5: { tag:"The U.S. hydrocarbon value chain, end to end.",
+        binds:"Houston, New Orleans, Baton Rouge, Beaumont, Midland and Odessa span the whole chain — gas extraction, drilling, oilfield machinery, crude pipelines, refining and petrochemicals — at 6–15× the national baseline.",
+        inds:["Oil & gas extraction","Drilling & well services","Oilfield machinery","Crude pipelines","Refining","Petrochemicals"] },
+      8: { tag:"Capital, college, coast and resort towns bound by high-end services.",
+        binds:"Forty-three metros from Washington DC, Austin and Raleigh-Durham to Honolulu, Naples, Santa Barbara and Bend. They share an amenity-and-knowledge service profile — hotels, wineries, art dealers, environmental consulting, fine dining — rather than any factory. Really two overlapping types: knowledge/government hubs and tourism/lifestyle metros.",
+        inds:["Hotels & lodging","Wineries","Professional & tech services","Environmental consulting","Arts & culture","Universities & government"] },
+      0: { tag:"Wisconsin's Fox Valley paper-and-food cluster and kin.",
+        binds:"Green Bay, Appleton, Oshkosh and Wausau — with Lancaster, PA and Gainesville, GA — turn forests into paper and dairy into cheese, plus the food and lawn-equipment machinery that serves them. Paper and food-processing specialisation runs 8–10× the baseline.",
+        inds:["Paper mills","Converted paper products","Cheese manufacturing","Food machinery","Sawmills","Lawn & garden equipment"] },
+      1: { tag:"The grain-belt agribusiness-and-finance complex.",
+        binds:"Des Moines, Sioux Falls, Peoria and Fargo pair primary agriculture — farm machinery, grain wholesaling, animal slaughtering, soil prep — with the trading and insurance layer that monetises it (State Farm in Bloomington, Principal in Des Moines). It is the lowest-complexity cluster in the network.",
+        inds:["Farm machinery","Grain wholesaling","Commodity brokerage","Insurance & finance","Animal processing","Farm warehousing"] },
+    };
+    const NARR_RU = {
+      6: { tag:"Метрополисы первого эшелона — опора американского производства и логистики.",
+        binds:"От Чикаго и Далласа до Гранд-Рапидса и Мэдисона — и сюда же отнесена пара Гаррисберг–Скрантон — эти города объединяет глубокий слой среднего звена промышленного производства (гидронасосы, абразивы, типографская краска, смазки, пружины, промышленные печи) поверх диверсифицированных сервисных экономик. Их определяет не одна отрасль, а сама широта.",
+        inds:["Гидронасосы и моторы","Абразивы","Типографская краска","Промышленные печи","Пружины и подшипники","Логистика и дистрибуция"] },
+      7: { tag:"Самые высокооплачиваемые центры знаний и финансов.",
+        binds:"Нью-Йорк, Лос-Анджелес, Сан-Франциско, Бостон, Сиэтл и Денвер, к которым присоединяются растущие города Горного Запада — Солт-Лейк-Сити, Прово, Хантсвилл. Их главные секторы (финансы, ПО, профессиональные услуги) слишком распространены, чтобы выделяться статистически, поэтому маркером служит смежная экономика знаний: in-vitro диагностика, компьютерные и языковые курсы, солнечная энергетика и специализированные информационные услуги.",
+        inds:["Финансы и ПО","In-vitro диагностика","Компьютерные и языковые курсы","Солнечная энергетика","Информационные услуги"] },
+      9: { tag:"Латунно-метизная долина Новой Англии, всё ещё в строю.",
+        binds:"Вустер, Нью-Хейвен, Манчестер, Спрингфилд и Уотербери несут необычно «старопромышленную» нишу: кабель и провод связи и энергетики, прокат меди, прокатные станы, хирургические инструменты и электронные разъёмы. Хирургические инструменты встречаются во всех пяти городах.",
+        inds:["Провод и кабель","Прокат меди","Хирургические инструменты","Электронные разъёмы","Металлообр. оборудование"] },
+      3: { tag:"Самая концентрированная отраслевая зона страны.",
+        binds:"Гринвилл, Гринсборо, Уинстон-Сейлем, Спартанберг, Хикори и Далтон образуют полную текстильную цепочку — волокно и пряжа, ткацкое, трикотажное и нетканое производство, отделка и ковры (один Далтон выпускает около трёх четвертей мирового ковра). Специализация достигает 16-кратного превышения среднего уровня по стране.",
+        inds:["Волокно и пряжа","Ткацкое и трикотажное","Нетканые материалы","Отделка тканей","Ковры и напольные","Чулочно-носочное"] },
+      2: { tag:"Самая плотная зона производства товаров длительного пользования.",
+        binds:"Акрон, Буффало, Рочестер, Дейтон, Толидо и ещё восемнадцать городов нижних Великих озёр и севера штата Нью-Йорк объединяет система «механического цеха»: гальваника, термообработка, станки, режущий инструмент и промышленные пресс-формы — 60–83% участников специализируются на этих ремёслах.",
+        inds:["Гальваника и покрытия","Термообработка","Станки","Режущий инструмент","Пресс-формы","Штамповка металла"] },
+      5: { tag:"Углеводородная цепочка США от начала до конца.",
+        binds:"Хьюстон, Новый Орлеан, Батон-Руж, Бомонт, Мидленд и Одесса охватывают всю цепочку — добыча газа, бурение, нефтепромысловое оборудование, нефтепроводы, переработка и нефтехимия — с 6–15-кратным превышением среднего уровня.",
+        inds:["Добыча нефти и газа","Бурение и сервис","Нефтепром. оборудование","Нефтепроводы","Нефтепереработка","Нефтехимия"] },
+      8: { tag:"Столичные, университетские, прибрежные и курортные города, связанные услугами высокого класса.",
+        binds:"Сорок три города — от Вашингтона, Остина и Роли-Дарема до Гонолулу, Неаполя (Флорида), Санта-Барбары и Бенда. Их объединяет профиль услуг комфорта и знаний (отели, винодельни, арт-дилеры, экологический консалтинг, рестораны высокой кухни), а не заводы. По сути это два пересекающихся типа: центры знаний/госуправления и туристическо-курортные города.",
+        inds:["Отели и размещение","Винодельни","Проф. и тех. услуги","Эко-консалтинг","Искусство и культура","Университеты и госсектор"] },
+      0: { tag:"Бумажно-пищевой кластер долины Фокс в Висконсине и родственные города.",
+        binds:"Грин-Бей, Эпплтон, Ошкош и Уосо — вместе с Ланкастером (Пенсильвания) и Гейнсвиллом (Джорджия) — превращают леса в бумагу, а молоко в сыр, плюс пищевое и садовое машиностроение, которое их обслуживает. Специализация по бумаге и пищепрому — 8–10-кратная.",
+        inds:["Бумажные фабрики","Переработка бумаги","Производство сыра","Пищевое машиностроение","Лесопилки","Садовая техника"] },
+      1: { tag:"Зерновой агробизнес-финансовый комплекс.",
+        binds:"Де-Мойн, Су-Фолс, Пеория и Фарго сочетают первичное сельское хозяйство (сельхозтехника, оптовая торговля зерном, забой скота, подготовка почвы) с торговым и страховым слоем, который его монетизирует (State Farm в Блумингтоне, Principal в Де-Мойне). Это кластер с самой низкой сложностью в сети.",
+        inds:["Сельхозтехника","Оптовая торговля зерном","Товарные биржи","Страхование и финансы","Переработка мяса","Хранение зерна"] },
+    };
+    const UI = {
+      en: { nicheMetros:"niche metros", econClusters:"economic clusters", jobsCovered:"jobs covered", sixDigit:"6-digit industries",
+        byComplexity:"by complexity", defining:"Defining industries", anchors:"Anchor metros",
+        metros:"metros", jobs:"jobs", avgWage:"avg wage", meanEci:"mean ECI",
+        allMetros:"All 151 niche metros", allSub:"9 clusters · scroll to explore", metrosWord:"metros", jobsWord:"jobs" },
+      ru: { nicheMetros:"характерных метрополиса", econClusters:"экономических кластера", jobsCovered:"рабочих мест", sixDigit:"6-значных отраслей",
+        byComplexity:"по сложности", defining:"Ключевые отрасли", anchors:"Якорные города",
+        metros:"городов", jobs:"раб. мест", avgWage:"ср. зарплата", meanEci:"средний ECI",
+        allMetros:"Все 151 характерный метрополис", allSub:"9 кластеров · прокрутите, чтобы изучить", metrosWord:"городов", jobsWord:"раб. мест" }
+    };
+
+    let lang = "en", NAMES = NAMES_EN, NARR = NARR_EN;
+    const t = (k) => UI[lang][k];
+    const paren = (s) => String(s).replace(/(\([^)]*\))/g, '<span class="paren">$1</span>');
+    const fmtJobs = (n) => n >= 1e6 ? (n/1e6).toFixed(1)+"M" : Math.round(n/1e3)+"k";
+    const num = (v,d=2) => Number.isFinite(v) ? v.toFixed(d) : "—";
+
+    let STORY = [], map = null, geoLayer = null, baseLayer = null, active = null;
+    const TILES = { dark: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                    light: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" };
+
+    function styleFor(f) {
+      const cl = f.properties.cluster;
+      const on = active == null || cl === active;
+      return {
+        color: active != null && cl === active ? "#ffffff" : "rgba(255,255,255,.35)",
+        weight: active != null && cl === active ? 1.1 : 0.4,
+        fillColor: clusterColor(cl), fillOpacity: on ? 0.85 : 0.12, opacity: on ? 0.9 : 0.18
+      };
+    }
+
+    function setActive(cl) {
+      active = cl;
+      if (geoLayer) {
+        geoLayer.setStyle(styleFor);
+        geoLayer.eachLayer((l) => { if (active != null && l.feature.properties.cluster === active) l.bringToFront(); });
+      }
+      const dot = document.querySelector("#map-head .dot");
+      if (active == null) {
+        dot.style.background = "var(--muted)";
+        document.getElementById("mh-name").textContent = t("allMetros");
+        document.getElementById("mh-meta").textContent = t("allSub");
+      } else {
+        const s = STORY.find((x) => x.id === active);
+        dot.style.background = clusterColor(active);
+        document.getElementById("mh-name").innerHTML = paren(NAMES[active]);
+        document.getElementById("mh-meta").textContent =
+          s.size + " " + t("metrosWord") + " · " + fmtJobs(s.jobs) + " " + t("jobsWord") + " · ECI " + num(s.eci) + " · $" + Math.round(s.wage) + "k";
+      }
+      document.querySelectorAll(".leg-row").forEach((r) => r.classList.toggle("active", +r.dataset.cl === active));
+    }
+
+    function buildNarrative() {
+      document.getElementById("sections").innerHTML = STORY.map((s, i) => {
+        const n = NARR[s.id], col = clusterColor(s.id);
+        const stats = [[s.size, t("metros")], ["$"+Math.round(s.wage)+"k", t("avgWage")], [num(s.eci), t("meanEci")]]
+          .map(([b, l]) => `<div class="sstat"><b>${b}</b><span>${l}</span></div>`).join("");
+        const inds = n.inds.map((x) => `<span class="ind-chip">${x}</span>`).join("");
+        const metros = s.top_metros.map((x) => `<span class="metro-chip">${x}</span>`).join("");
+        return `<section class="story-section" data-cluster="${s.id}">
+          <div class="sec-rank"><span class="swatch" style="background:${col}"></span>#${i + 1} ${t("byComplexity")}</div>
+          <h2 class="sec-name">${paren(NAMES[s.id])}</h2>
+          <div class="sec-tag">${paren(n.tag)}</div>
+          <div class="sec-stats">${stats}</div>
+          <p class="sec-binds">${paren(n.binds)}</p>
+          <div class="chips-row"><div class="chip-lbl">${t("defining")}</div>${inds}</div>
+          <div class="chips-row"><div class="chip-lbl">${t("anchors")}</div>${metros}</div>
+        </section>`;
+      }).join("");
+    }
+
+    function buildLegend() {
+      const leg = document.getElementById("map-legend");
+      leg.innerHTML = STORY.map((s) =>
+        `<div class="leg-row" data-cl="${s.id}"><span class="sw" style="background:${clusterColor(s.id)}"></span>${NAMES[s.id].split(" ").slice(0, 3).join(" ")}</div>`
+      ).join("");
+      leg.querySelectorAll(".leg-row").forEach((r) => r.addEventListener("click", () => {
+        const sec = document.querySelector(`.story-section[data-cluster="${r.dataset.cl}"]`);
+        if (sec) sec.scrollIntoView({ behavior: "smooth", block: "center" });
+      }));
+    }
+
+    const tileUrlForTheme = () => document.documentElement.getAttribute("data-theme") === "light" ? TILES.light : TILES.dark;
+
+    async function buildMap() {
+      const geo = await fetch("cities_geo.json", { cache: "no-store" }).then((r) => r.json());
+      map = L.map("map", { zoomControl: false, attributionControl: true, scrollWheelZoom: true, minZoom: 3, maxZoom: 9 });
+      L.control.zoom({ position: "topright" }).addTo(map);
+      map.fitBounds([[24.5, -125], [49.5, -66.5]]);
+      baseLayer = L.tileLayer(tileUrlForTheme(), { subdomains: "abcd", maxZoom: 9, attribution: '© OpenStreetMap · © CARTO' }).addTo(map);
+      geoLayer = L.geoJSON(geo, {
+        style: styleFor,
+        onEachFeature: (f, layer) => {
+          const p = f.properties;
+          layer.on("click", () => {
+            const sec = document.querySelector(`.story-section[data-cluster="${p.cluster}"]`);
+            if (sec) sec.scrollIntoView({ behavior: "smooth", block: "center" });
+          });
+          layer.on("mouseover", () => {
+            layer.setStyle({ weight: 1.4, color: "#fff" });
+            layer.bindTooltip(
+              `<b>${paren(p.name)}</b><span class="t-meta">${paren(NAMES[p.cluster])}<br>${fmtJobs(p.emp)} ${t("jobsWord")} · ECI ${num(p.eci)} · $${Math.round(p.wage)}k</span>`,
+              { className: "metro-tip", sticky: true, direction: "top", opacity: 1 }).openTooltip();
+          });
+          layer.on("mouseout", () => geoLayer.setStyle(styleFor));
+        }
+      }).addTo(map);
+      setTimeout(() => map.invalidateSize(), 200);
+    }
+
+    let storyIO = null;
+    function observeStory() {
+      if (storyIO) storyIO.disconnect();
+      storyIO = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) setActive(+e.target.dataset.cluster); }),
+        { rootMargin: "-45% 0px -45% 0px", threshold: 0 });
+      document.querySelectorAll(".story-section").forEach((s) => storyIO.observe(s));
+    }
+    function observeEnds() {
+      const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) setActive(null); }),
+        { rootMargin: "-45% 0px -45% 0px", threshold: 0 });
+      document.querySelectorAll(".hero, .outro").forEach((s) => io.observe(s));
+    }
+
+    function applyTheme(th) {
+      document.documentElement.setAttribute("data-theme", th);
+      document.getElementById("theme-toggle").textContent = th === "dark" ? "☀" : "☾";
+      try { localStorage.setItem("desht-theme", th); } catch (e) {}
+      if (baseLayer) baseLayer.setUrl(tileUrlForTheme());
+    }
+    function applyLang(l) {
+      lang = l; NAMES = l === "ru" ? NAMES_RU : NAMES_EN; NARR = l === "ru" ? NARR_RU : NARR_EN;
+      document.documentElement.setAttribute("data-lang", l);
+      document.documentElement.setAttribute("lang", l);
+      document.querySelectorAll("#lang-switch button").forEach((b) => b.classList.toggle("on", b.dataset.lang === l));
+      try { localStorage.setItem("desht-lang", l); } catch (e) {}
+      if (STORY.length) { buildNarrative(); buildLegend(); observeStory(); setActive(active); }
+    }
+
+    async function main() {
+      STORY = await fetch("clusters_story.json", { cache: "no-store" }).then((r) => r.json());
+      buildNarrative(); buildLegend();
+      await buildMap();
+      setActive(null);
+      observeStory(); observeEnds();
+    }
+
+    try { const s = localStorage.getItem("desht-theme"); if (s) document.documentElement.setAttribute("data-theme", s); } catch (e) {}
+    try { const l = localStorage.getItem("desht-lang"); if (l) { lang = l; NAMES = l === "ru" ? NAMES_RU : NAMES_EN; NARR = l === "ru" ? NARR_RU : NARR_EN; document.documentElement.setAttribute("data-lang", l); document.documentElement.setAttribute("lang", l); } } catch (e) {}
+    document.getElementById("theme-toggle").textContent = document.documentElement.getAttribute("data-theme") === "light" ? "☾" : "☀";
+    document.querySelectorAll("#lang-switch button").forEach((b) => b.classList.toggle("on", b.dataset.lang === lang));
+    document.getElementById("theme-toggle").addEventListener("click", () =>
+      applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark"));
+    document.querySelectorAll("#lang-switch button").forEach((b) => b.addEventListener("click", () => applyLang(b.dataset.lang)));
+
+    main().catch((err) => { document.getElementById("mh-name").textContent = "Error: " + err.message; console.error(err); });
+  </script>
+</body>
+</html>

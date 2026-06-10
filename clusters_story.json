@@ -1,0 +1,137 @@
+[
+ {
+  "id": 6,
+  "size": 24,
+  "jobs": 32181054,
+  "wage": 68.7,
+  "eci": 2.92,
+  "niche": 44.9,
+  "top_metros": [
+   "Chicago-Naperville-Elgin",
+   "Dallas-Fort Worth-Arlington",
+   "Philadelphia-Camden-Wilmington",
+   "Atlanta-Sandy Springs-Roswell",
+   "Minneapolis-St. Paul-Bloomington"
+  ]
+ },
+ {
+  "id": 7,
+  "size": 21,
+  "jobs": 36224228,
+  "wage": 85.1,
+  "eci": 2.67,
+  "niche": 39.8,
+  "top_metros": [
+   "New York-Newark-Jersey City",
+   "Los Angeles-Long Beach-Anaheim",
+   "Boston-Cambridge-Newton",
+   "Miami-Fort Lauderdale-West Palm Beach",
+   "San Francisco-Oakland-Fremont"
+  ]
+ },
+ {
+  "id": 9,
+  "size": 5,
+  "jobs": 1024639,
+  "wage": 64.0,
+  "eci": 1.63,
+  "niche": 29.7,
+  "top_metros": [
+   "Worcester",
+   "New Haven",
+   "Manchester-Nashua",
+   "Springfield",
+   "Waterbury-Shelton"
+  ]
+ },
+ {
+  "id": 3,
+  "size": 7,
+  "jobs": 1797391,
+  "wage": 57.6,
+  "eci": 1.6,
+  "niche": 30.3,
+  "top_metros": [
+   "Richmond",
+   "Greenville-Anderson-Greer",
+   "Greensboro-High Point",
+   "Winston-Salem",
+   "Spartanburg"
+  ]
+ },
+ {
+  "id": 2,
+  "size": 23,
+  "jobs": 5828382,
+  "wage": 58.6,
+  "eci": 1.53,
+  "niche": 30.3,
+  "top_metros": [
+   "Providence-Warwick",
+   "Hartford-West Hartford-East Hartford",
+   "Birmingham",
+   "Buffalo-Cheektowaga",
+   "Rochester"
+  ]
+ },
+ {
+  "id": 5,
+  "size": 10,
+  "jobs": 4672153,
+  "wage": 70.4,
+  "eci": 1.36,
+  "niche": 27.9,
+  "top_metros": [
+   "Houston-Pasadena-The Woodlands",
+   "Memphis",
+   "New Orleans-Metairie",
+   "Baton Rouge",
+   "Beaumont-Port Arthur"
+  ]
+ },
+ {
+  "id": 8,
+  "size": 43,
+  "jobs": 9172113,
+  "wage": 72.5,
+  "eci": 0.99,
+  "niche": 25.8,
+  "top_metros": [
+   "Washington-Arlington-Alexandria",
+   "Austin-Round Rock-San Marcos",
+   "Raleigh-Cary",
+   "Urban Honolulu",
+   "Boise City"
+  ]
+ },
+ {
+  "id": 0,
+  "size": 6,
+  "jobs": 673797,
+  "wage": 57.2,
+  "eci": 0.96,
+  "niche": 24.0,
+  "top_metros": [
+   "Lancaster",
+   "Green Bay",
+   "Appleton",
+   "Oshkosh-Neenah",
+   "Gainesville"
+  ]
+ },
+ {
+  "id": 1,
+  "size": 12,
+  "jobs": 1368086,
+  "wage": 61.4,
+  "eci": 0.63,
+  "niche": 20.1,
+  "top_metros": [
+   "Des Moines-West Des Moines",
+   "Sioux Falls",
+   "Peoria",
+   "Fargo",
+   "Rochester"
+  ]
+ }
+]

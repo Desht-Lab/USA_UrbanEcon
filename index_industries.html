@@ -1,0 +1,865 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>USA Industry Clusters Network (nodes.json)</title>
+  <script src="https://cdn.jsdelivr.net/npm/d3plus@2"></script>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --panel: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #d1d5db;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .header {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 16px;
+      border-bottom: 1px solid var(--border);
+      background: var(--panel);
+    }
+
+    .title {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    .status {
+      font-size: 13px;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .viz-shell {
+      height: calc(100vh - 64px);
+      padding: 10px;
+      background: var(--bg);
+    }
+
+    .layout {
+      height: 100%;
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 10px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .filter-panel {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .filter-header {
+      padding: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .filter-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .filter-help,
+    .filter-summary {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .filter-summary {
+      margin-top: 6px;
+    }
+
+    .filter-controls {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      gap: 10px;
+    }
+
+    .filter-search {
+      width: 100%;
+      padding: 9px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font: inherit;
+      color: var(--text);
+      background: #ffffff;
+    }
+
+    .filter-select {
+      width: 100%;
+      padding: 9px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font: inherit;
+      color: var(--text);
+      background: #ffffff;
+    }
+
+    .filter-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .filter-inline {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .filter-button {
+      flex: 1;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #ffffff;
+      color: var(--text);
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .filter-button:hover {
+      background: #f9fafb;
+    }
+
+    .filter-button-small {
+      min-width: 72px;
+    }
+
+    .filter-list {
+      flex: 1;
+      min-height: 0;
+      overflow: auto;
+      padding: 8px;
+      display: grid;
+      gap: 6px;
+      align-content: start;
+    }
+
+    .filter-item {
+      display: grid;
+      grid-template-columns: 16px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+      padding: 8px 10px;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      background: #ffffff;
+      cursor: pointer;
+    }
+
+    .filter-item:hover {
+      background: #f9fafb;
+    }
+
+    .filter-item input {
+      margin: 2px 0 0;
+    }
+
+    .filter-item-id {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--text);
+      word-break: break-word;
+    }
+
+    .filter-item-label {
+      margin-top: 2px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.35;
+      word-break: break-word;
+    }
+
+    .filter-empty {
+      padding: 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    #viz {
+      width: 100%;
+      height: 100%;
+      background: var(--panel);
+      border: 0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: 260px minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="title">USA Industry Clusters Network</div>
+    <div id="status" class="status">Loading data...</div>
+  </div>
+  <div class="viz-shell">
+    <div class="layout">
+      <aside class="panel filter-panel">
+        <div class="filter-header">
+          <div class="filter-title">Node Filter</div>
+          <div class="filter-help">Search cities from <code>spec.csv</code>. For the selected city, indicators with <code>m_cp = 1</code> keep their color.</div>
+          <div id="filter-summary" class="filter-summary">Loading nodes...</div>
+        </div>
+        <div class="filter-controls">
+          <div class="filter-inline">
+            <input id="city-filter" class="filter-search" type="search" list="city-filter-options" placeholder="Поиск города">
+            <button id="clear-city-filter" class="filter-button filter-button-small" type="button">Clear</button>
+          </div>
+          <datalist id="city-filter-options"></datalist>
+          <input id="node-search" class="filter-search" type="search" placeholder="Search by node id or label">
+          <div class="filter-actions">
+            <button id="select-visible" class="filter-button" type="button">Select visible</button>
+            <button id="clear-selection" class="filter-button" type="button">Show all colors</button>
+          </div>
+        </div>
+        <div id="node-filter-list" class="filter-list"></div>
+      </aside>
+      <div id="viz" class="panel"></div>
+    </div>
+  </div>
+
+  <script>
+    const state = {
+      allNodes: [],
+      allLinks: [],
+      cityIndicatorMap: new Map(),
+      cityNameMap: new Map(),
+      cityLookup: new Map(),
+      selectedcityId: "",
+      selectedNodeIds: new Set(),
+      visibleNodeIds: []
+    };
+    const mutedNodeColor = "#c7cdd6";
+
+    function num(value, fallback) {
+      const parsed = Number(value);
+      return Number.isFinite(parsed) ? parsed : fallback;
+    }
+
+    function parseCsvRows(csvText) {
+      const rows = [];
+      let row = [];
+      let value = "";
+      let inQuotes = false;
+      const text = String(csvText || "").replace(/^\uFEFF/, "");
+
+      for (let i = 0; i < text.length; i += 1) {
+        const char = text[i];
+        const next = text[i + 1];
+
+        if (inQuotes) {
+          if (char === "\"" && next === "\"") {
+            value += "\"";
+            i += 1;
+          } else if (char === "\"") {
+            inQuotes = false;
+          } else {
+            value += char;
+          }
+          continue;
+        }
+
+        if (char === "\"") {
+          inQuotes = true;
+          continue;
+        }
+
+        if (char === ",") {
+          row.push(value);
+          value = "";
+          continue;
+        }
+
+        if (char === "\n") {
+          row.push(value);
+          if (row.some((cell) => cell.trim() !== "")) {
+            rows.push(row);
+          }
+          row = [];
+          value = "";
+          continue;
+        }
+
+        if (char !== "\r") {
+          value += char;
+        }
+      }
+
+      if (value.length || row.length) {
+        row.push(value);
+        if (row.some((cell) => cell.trim() !== "")) {
+          rows.push(row);
+        }
+      }
+
+      return rows;
+    }
+
+    function formatTooltipText(value) {
+      return String(value || "")
+        .replace(/<br\s*\/?>/gi, " | ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function extractId(datum) {
+      if (!datum || typeof datum !== "object") return "";
+      if (typeof datum.id === "string") return datum.id;
+      if (datum.data && typeof datum.data.id === "string") return datum.data.id;
+      const meta = datum.__d3plus__;
+      if (!meta) return "";
+      if (typeof meta.id === "string") return meta.id;
+      if (meta.data && typeof meta.data.id === "string") return meta.data.id;
+      if (Array.isArray(meta.ids) && meta.ids.length) return String(meta.ids[0]);
+      return "";
+    }
+
+    function drawTopIdLabels() {
+      const svg = document.querySelector("#viz svg");
+      if (!svg) return;
+
+      svg.querySelectorAll("text.force-id-label").forEach((n) => n.remove());
+
+      svg.querySelectorAll("circle").forEach((circle) => {
+        const parent = circle.parentNode;
+        if (!parent || parent.nodeName.toLowerCase() !== "g") return;
+
+        const id = extractId(circle.__data__) || extractId(parent.__data__);
+        if (!id) return;
+
+        const cx = Number(circle.getAttribute("cx") || 0);
+        const cy = Number(circle.getAttribute("cy") || 0);
+        const r = Number(circle.getAttribute("r") || 0);
+
+        const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        label.setAttribute("class", "force-id-label");
+        label.setAttribute("x", String(cx));
+        label.setAttribute("y", String(cy - r - 4));
+        label.setAttribute("text-anchor", "middle");
+        label.setAttribute("dominant-baseline", "alphabetic");
+        label.setAttribute("font-family", "Segoe UI, Tahoma, sans-serif");
+        label.setAttribute("font-size", "9");
+        label.setAttribute("fill", "#1f2937");
+        label.setAttribute("stroke", "#ffffff");
+        label.setAttribute("stroke-width", "2");
+        label.setAttribute("paint-order", "stroke");
+        label.style.pointerEvents = "none";
+        label.textContent = id;
+
+        parent.appendChild(label);
+      });
+    }
+
+    function thickenEdges() {
+      const svg = document.querySelector("#viz svg");
+      if (!svg) return;
+
+      svg.querySelectorAll("path, line").forEach((edge) => {
+        edge.style.stroke = "#BFBFBF";
+        edge.style.strokeWidth = "3.5px";
+        edge.style.opacity = "0.95";
+      });
+    }
+
+    function scheduleLabelRedraw() {
+      setTimeout(() => {
+        thickenEdges();
+        drawTopIdLabels();
+      }, 80);
+      setTimeout(() => {
+        thickenEdges();
+        drawTopIdLabels();
+      }, 300);
+    }
+
+    function parseEdgesCsv(csvText, validNodeIds) {
+      const rows = parseCsvRows(csvText);
+
+      if (!rows.length) return [];
+
+      const headers = rows[0].map((h) => h.trim());
+      const uIdx = headers.indexOf("u");
+      const vIdx = headers.indexOf("v");
+      const simIdx = headers.indexOf("sim");
+
+      if (uIdx < 0 || vIdx < 0) {
+        throw new Error("edges.csv must include u and v columns");
+      }
+
+      const links = [];
+      const seen = new Set();
+
+      for (let i = 1; i < rows.length; i += 1) {
+        const cols = rows[i];
+        const rawU = (cols[uIdx] || "").trim();
+        const rawV = (cols[vIdx] || "").trim();
+        const sim = simIdx >= 0 ? num(cols[simIdx], 0) : 0;
+
+        if (!rawU || !rawV || rawU === rawV) continue;
+        if (!validNodeIds.has(rawU) || !validNodeIds.has(rawV)) continue;
+
+        const source = rawU < rawV ? rawU : rawV;
+        const target = rawU < rawV ? rawV : rawU;
+        const key = source + "|" + target;
+
+        if (seen.has(key)) continue;
+        seen.add(key);
+
+        links.push({
+          source,
+          target,
+          sim,
+          weight: sim
+        });
+      }
+
+      return links;
+    }
+
+    function parseSpecCsv(csvText) {
+      const rows = parseCsvRows(csvText);
+
+      if (!rows.length) {
+        return {
+          cityIndicatorMap: new Map(),
+          cityNameMap: new Map()
+        };
+      }
+
+      const headers = rows[0].map((h) => h.trim());
+      const cityIdx = headers.indexOf("msa_name_net");
+      const indicatorIdx = headers.indexOf("naics_name");
+      const mcpIdx = headers.indexOf("m_cp");
+      const detectedNameRuIdx = headers.findIndex(
+        (header) => header === "msa_name_net" || header.includes("msa_name_net")
+      );
+      const nameRuIdx = detectedNameRuIdx >= 0 ? detectedNameRuIdx : 4;
+
+      if (cityIdx < 0 || indicatorIdx < 0 || mcpIdx < 0) {
+        throw new Error("spec.csv must include id, indicator, and m_cp columns");
+      }
+
+      const cityMap = new Map();
+      const cityNameMap = new Map();
+
+      for (let i = 1; i < rows.length; i += 1) {
+        const cols = rows[i];
+        const cityId = (cols[cityIdx] || "").trim();
+        const indicatorId = (cols[indicatorIdx] || "").trim();
+        const mcp = (cols[mcpIdx] || "").trim();
+        const cityNameRu = nameRuIdx >= 0 ? (cols[nameRuIdx] || "").trim() : "";
+
+        if (!cityId) continue;
+
+        if (!cityMap.has(cityId)) {
+          cityMap.set(cityId, new Set());
+        }
+
+        if (cityNameRu && !cityNameMap.has(cityId)) {
+          cityNameMap.set(cityId, cityNameRu);
+        }
+
+        if (indicatorId && mcp === "1") {
+          cityMap.get(cityId).add(indicatorId);
+        }
+      }
+
+      return {
+        cityIndicatorMap: cityMap,
+        cityNameMap
+      };
+    }
+
+    function getcityHighlightedIds() {
+      if (!state.selectedcityId) {
+        return new Set();
+      }
+
+      const matched = state.cityIndicatorMap.get(state.selectedcityId);
+      return matched ? new Set(matched) : new Set();
+    }
+
+    function getCombinedHighlightedIds() {
+      const highlighted = getcityHighlightedIds();
+
+      state.selectedNodeIds.forEach((id) => {
+        highlighted.add(id);
+      });
+
+      return highlighted;
+    }
+
+    function getcityDisplayLabel(cityId) {
+      const nameRu = state.cityNameMap.get(cityId);
+      return nameRu ? nameRu + " (" + cityId + ")" : cityId;
+    }
+
+    function synccityFilterInput() {
+      const input = document.getElementById("city-filter");
+      input.value = state.selectedcityId ? getcityDisplayLabel(state.selectedcityId) : "";
+    }
+
+    function populatecityFilter() {
+      const datalist = document.getElementById("city-filter-options");
+      const countries = Array.from(state.cityIndicatorMap.keys()).sort((a, b) =>
+        getcityDisplayLabel(a).localeCompare(getcityDisplayLabel(b), "ru")
+      );
+
+      datalist.innerHTML = "";
+      state.cityLookup.clear();
+
+      countries.forEach((cityId) => {
+        const option = document.createElement("option");
+        const label = getcityDisplayLabel(cityId);
+        option.value = label;
+        datalist.appendChild(option);
+
+        state.cityLookup.set(label, cityId);
+        state.cityLookup.set(cityId, cityId);
+      });
+
+      synccityFilterInput();
+    }
+
+    function updateStatus() {
+      const status = document.getElementById("status");
+      const cityText = state.selectedcityId ? getcityDisplayLabel(state.selectedcityId) : "none";
+      const manualText = state.selectedNodeIds.size
+        ? String(state.selectedNodeIds.size)
+        : "none";
+      const cityHighlighted = getcityHighlightedIds().size;
+
+      status.textContent =
+        "Nodes: " + state.allNodes.length +
+        " | Edges: " + state.allLinks.length +
+        " | city: " + cityText +
+        " | m_cp=1: " + cityHighlighted +
+        " | Manual: " + manualText;
+    }
+
+    function updateFilterSummary() {
+      const summary = document.getElementById("filter-summary");
+      const cityText = state.selectedcityId ? getcityDisplayLabel(state.selectedcityId) : "none";
+      const cityHighlighted = getcityHighlightedIds().size;
+
+      if (!state.allNodes.length) {
+        summary.textContent = "Loading nodes...";
+        return;
+      }
+
+      if (!state.selectedNodeIds.size && !state.selectedcityId) {
+        summary.textContent =
+          "No selection active. " + state.visibleNodeIds.length + " nodes match the current search.";
+        return;
+      }
+
+      summary.textContent =
+        "city: " + cityText +
+        " | m_cp=1 nodes: " + cityHighlighted +
+        " | Manual: " + state.selectedNodeIds.size +
+        " | Search matches: " + state.visibleNodeIds.length;
+    }
+
+    function getDisplayNodes() {
+      const highlightedIds = getCombinedHighlightedIds();
+
+      if (!highlightedIds.size) {
+        return state.allNodes.map((node) => ({
+          ...node,
+          displayColor: node.color
+        }));
+      }
+
+      return state.allNodes.map((node) => ({
+        ...node,
+        displayColor: highlightedIds.has(node.id) ? node.color : mutedNodeColor
+      }));
+    }
+
+    function renderNetwork(nodes, links) {
+      const viz = document.getElementById("viz");
+      viz.innerHTML = "";
+
+      new d3plus.Network()
+        .select("#viz")
+        .nodes(nodes)
+        .links(links)
+        .x("x")
+        .y("y")
+        .size((d) => (d.size ? +d.size * 2 : 10))
+        .sizeMin(3)
+        .sizeMax(25)
+        .label(() => "")
+        .shapeConfig({
+          fill: (d) => d.displayColor || d.color,
+          stroke: "#ffffff",
+          strokeWidth: 1,
+          labelConfig: {
+            fontResize: true,
+            fontSize: 11,
+            padding: 0
+          }
+        })
+        .tooltipConfig({
+          width: 520,
+          title: (d) => d.label || d.id,
+          titleStyle: {
+            "max-width": "100%",
+            "white-space": "normal",
+            "word-break": "break-word",
+            "line-height": "1.35"
+          },
+          body: (d) => formatTooltipText(d.title),
+          bodyStyle: {
+            "max-width": "100%",
+            "white-space": "normal",
+            "word-break": "break-word",
+            "line-height": "1.4",
+            "margin-top": "8px"
+          },
+          tableStyle: {
+            width: "100%",
+            "table-layout": "auto"
+          },
+          tdStyle: {
+            "white-space": "normal",
+            "word-break": "break-word",
+            "vertical-align": "top",
+            "line-height": "1.35"
+          },
+          tbody: [
+            ["ID", (d) => d.id]
+          ]
+        })
+        .render();
+
+      updateStatus();
+      scheduleLabelRedraw();
+    }
+
+    function applySelectionColoring() {
+      renderNetwork(getDisplayNodes(), state.allLinks);
+      updateFilterSummary();
+    }
+
+    function createFilterItem(node) {
+      const item = document.createElement("label");
+      item.className = "filter-item";
+      item.title = node.label || node.id;
+
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.value = node.id;
+      input.checked = state.selectedNodeIds.has(node.id);
+      input.addEventListener("change", () => {
+        if (input.checked) {
+          state.selectedNodeIds.add(node.id);
+        } else {
+          state.selectedNodeIds.delete(node.id);
+        }
+
+        applySelectionColoring();
+      });
+
+      const textWrap = document.createElement("div");
+
+      const idText = document.createElement("div");
+      idText.className = "filter-item-id";
+      idText.textContent = node.id;
+      textWrap.appendChild(idText);
+
+      if (node.label && node.label !== node.id) {
+        const labelText = document.createElement("div");
+        labelText.className = "filter-item-label";
+        labelText.textContent = node.label;
+        textWrap.appendChild(labelText);
+      }
+
+      item.appendChild(input);
+      item.appendChild(textWrap);
+
+      return item;
+    }
+
+    function renderFilterList() {
+      const list = document.getElementById("node-filter-list");
+      const query = document.getElementById("node-search").value.trim().toLowerCase();
+
+      list.innerHTML = "";
+
+      const matchingNodes = state.allNodes.filter((node) => {
+        if (!query) return true;
+
+        return (
+          node.id.toLowerCase().includes(query) ||
+          (node.label || "").toLowerCase().includes(query)
+        );
+      });
+
+      state.visibleNodeIds = matchingNodes.map((node) => node.id);
+
+      if (!matchingNodes.length) {
+        const empty = document.createElement("div");
+        empty.className = "filter-empty";
+        empty.textContent = "No nodes match the current search.";
+        list.appendChild(empty);
+        updateFilterSummary();
+        return;
+      }
+
+      matchingNodes.forEach((node) => {
+        list.appendChild(createFilterItem(node));
+      });
+
+      updateFilterSummary();
+    }
+
+    async function main() {
+      document.getElementById("status").textContent = "Loading nodes.json, edges.csv, and spec.csv...";
+
+      const [nodesResponse, edgesResponse, specResponse] = await Promise.all([
+        fetch("industries_nodes.json", { cache: "no-store" }),
+        fetch("industries_edges.csv", { cache: "no-store" }),
+        fetch("industries_df_spec.csv", { cache: "no-store" })
+      ]);
+
+      if (!nodesResponse.ok) {
+        throw new Error("Could not load nodes.json");
+      }
+
+      if (!edgesResponse.ok) {
+        throw new Error("Could not load edges.csv");
+      }
+
+      if (!specResponse.ok) {
+        throw new Error("Could not load spec.csv");
+      }
+
+      const rawNodes = await nodesResponse.json();
+      const edgesCsv = await edgesResponse.text();
+      const specCsv = await specResponse.text();
+
+      const nodes = rawNodes
+        .filter((d) => d && d.id)
+        .map((d) => ({
+          id: d.id,
+          label: d.label || d.id,
+          title: d.title || "",
+          x: num(d.x, 0),
+          y: num(d.y, 0),
+          size:  d.size+15,
+          color: d.color || "#4e79a7",
+          value: num(d.value, 0)
+        }));
+
+      const validNodeIds = new Set(nodes.map((n) => n.id));
+      const links = parseEdgesCsv(edgesCsv, validNodeIds);
+      const specData = parseSpecCsv(specCsv);
+
+      state.allNodes = nodes
+        .slice()
+        .sort((a, b) => a.id.localeCompare(b.id));
+      state.allLinks = links;
+      state.cityIndicatorMap = specData.cityIndicatorMap;
+      state.cityNameMap = specData.cityNameMap;
+
+      populatecityFilter();
+
+      const cityFilter = document.getElementById("city-filter");
+      const applycityFilter = () => {
+        const rawValue = cityFilter.value.trim();
+
+        if (!rawValue) {
+          state.selectedcityId = "";
+          applySelectionColoring();
+          return;
+        }
+
+        const matchedcityId = state.cityLookup.get(rawValue);
+        if (!matchedcityId) {
+          return;
+        }
+
+        state.selectedcityId = matchedcityId;
+        synccityFilterInput();
+        applySelectionColoring();
+      };
+
+      cityFilter.addEventListener("change", applycityFilter);
+      cityFilter.addEventListener("input", () => {
+        if (!cityFilter.value.trim()) {
+          state.selectedcityId = "";
+          applySelectionColoring();
+        }
+      });
+      document.getElementById("clear-city-filter").addEventListener("click", () => {
+        state.selectedcityId = "";
+        synccityFilterInput();
+        applySelectionColoring();
+      });
+      document.getElementById("node-search").addEventListener("input", renderFilterList);
+      document.getElementById("select-visible").addEventListener("click", () => {
+        state.visibleNodeIds.forEach((id) => state.selectedNodeIds.add(id));
+        renderFilterList();
+        applySelectionColoring();
+      });
+      document.getElementById("clear-selection").addEventListener("click", () => {
+        state.selectedcityId = "";
+        state.selectedNodeIds.clear();
+        synccityFilterInput();
+        renderFilterList();
+        applySelectionColoring();
+      });
+
+      renderFilterList();
+      applySelectionColoring();
+
+      window.addEventListener("resize", () => setTimeout(drawTopIdLabels, 120));
+      document.getElementById("viz").addEventListener("mouseup", () => setTimeout(drawTopIdLabels, 90));
+      document.getElementById("viz").addEventListener("wheel", () => setTimeout(drawTopIdLabels, 90), { passive: true });
+    }
+  
+    main().catch((err) => {
+      document.getElementById("status").textContent = "Error: " + err.message;
+      console.error(err);
+    });
+    
+  </script>
+</body>
+</html>

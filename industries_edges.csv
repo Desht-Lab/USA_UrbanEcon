@@ -1,0 +1,602 @@
+,u,v,sim
+0,"Abrasive Product Manufacturing, 327910","Nonferrous Metal (except Copper and Aluminum) Rolling, Drawing, and Extruding , 331491",0.6363636363636364
+1,"Abrasive Product Manufacturing, 327910","Synthetic Dye and Pigment Manufacturing, 325130",0.5263157894736842
+2,"Abrasive Product Manufacturing, 327910","Nuclear Electric Power Generation , 221113",0.5
+3,"Abrasive Product Manufacturing, 327910","Copper Rolling, Drawing, Extruding, and Alloying, 331420",0.36363636363636365
+4,"Adhesive Manufacturing, 325520","Plastics Packaging Film and Sheet (including Laminated) Manufacturing , 326112",0.6
+5,"Adhesive Manufacturing, 325520","Switchgear and Switchboard Apparatus Manufacturing , 335313",0.5106382978723404
+6,"Adhesive Manufacturing, 325520","Corrugated and Solid Fiber Box Manufacturing , 322211",0.5
+7,"Adhesive Manufacturing, 325520","Custom Compounding of Purchased Resins , 325991",0.5357142857142857
+8,"Adhesive Manufacturing, 325520","Home Furnishing Merchant Wholesalers , 423220",0.53125
+9,"Adhesive Manufacturing, 325520","Other Lighting Equipment Manufacturing , 335129",0.5217391304347826
+10,"Adhesive Manufacturing, 325520","Sports Teams and Clubs , 711211",0.5333333333333333
+11,"Administrative Management and General Management Consulting Services , 541611","Other Management Consulting Services , 541618",0.5306122448979592
+12,"Administrative Management and General Management Consulting Services , 541611","Other Computer Related Services, 541519",0.5098039215686274
+13,"Administrative Management and General Management Consulting Services , 541611","Other Nonscheduled Air Transportation , 481219",0.46808510638297873
+14,"Administrative Management and General Management Consulting Services , 541611","Computer Facilities Management Services , 541513",0.44
+15,"Administrative Management and General Management Consulting Services , 541611","Voluntary Health Organizations , 813212",0.4
+16,"Advertising Agencies, 541810","Other Financial Vehicles , 525990",0.55
+17,"Advertising Agencies, 541810","All Other Legal Services , 541199",0.5454545454545454
+18,"Advertising Agencies, 541810","Marketing Research and Public Opinion Polling, 541910",0.5306122448979592
+19,"Advertising Agencies, 541810","All Other Publishers , 511199",0.5185185185185185
+20,"Advertising Agencies, 541810","Marketing Consulting Services , 541613",0.5
+21,"Advertising Agencies, 541810","Media Buying Agencies, 541830",0.5142857142857142
+22,"Advertising Material Distribution Services, 541870","Semiconductor Machinery Manufacturing , 333242",0.5833333333333334
+23,"Advertising Material Distribution Services, 541870","Media Buying Agencies, 541830",0.5185185185185185
+24,"Advertising Material Distribution Services, 541870","Motion Picture and Video Production , 512110",0.4
+25,"Agents and Managers for Artists, Athletes, Entertainers, and Other Public Figures, 711410","Record Production and Distribution, 512250",0.5714285714285714
+26,"Agents and Managers for Artists, Athletes, Entertainers, and Other Public Figures, 711410","Cable and Other Subscription Programming, 515210",0.5555555555555556
+27,"Agents and Managers for Artists, Athletes, Entertainers, and Other Public Figures, 711410","Radio Networks , 515111",0.4166666666666667
+28,"Air Traffic Control, 488111","Other Electric Power Generation , 221118",0.42857142857142855
+29,"Air and Gas Compressor Manufacturing , 333912","Fluid Power Pump and Motor Manufacturing , 333996",0.56
+30,"Air and Gas Compressor Manufacturing , 333912","Fluid Power Valve and Hose Fitting Manufacturing , 332912",0.5333333333333333
+31,"Air and Gas Compressor Manufacturing , 333912","Heating Equipment (except Warm Air Furnaces) Manufacturing , 333414",0.5294117647058824
+32,"Air and Gas Compressor Manufacturing , 333912","Office Machinery and Equipment Rental and Leasing, 532420",0.5
+33,"Air-Conditioning and Warm Air Heating Equipment and Commercial and Industrial Refrigeration Equipment Manufacturing , 333415","Measuring, Dispensing, and Other Pumping Equipment Manufacturing , 333914",0.46153846153846156
+34,"Aircraft Engine and Engine Parts Manufacturing , 336412","Fluid Power Valve and Hose Fitting Manufacturing , 332912",0.5161290322580645
+35,"Aircraft Manufacturing , 336411","Other Aircraft Parts and Auxiliary Equipment Manufacturing , 336413",0.5294117647058824
+36,"Aircraft Manufacturing , 336411","Computer Terminal and Other Computer Peripheral Equipment Manufacturing , 334118",0.48
+37,"All Other Basic Organic Chemical Manufacturing , 325199","Industrial Gas Manufacturing, 325120",0.48
+38,"All Other Information Services, 519190","Scheduled Passenger Air Transportation , 481111",0.55
+39,"All Other Information Services, 519190","Human Resources Consulting Services , 541612",0.5106382978723404
+40,"All Other Information Services, 519190","Credit Card Issuing , 522210",0.42857142857142855
+41,"All Other Insurance Related Activities , 524298","Human Resources Consulting Services , 541612",0.5263157894736842
+42,"All Other Miscellaneous Chemical Product and Preparation Manufacturing , 325998","Sports Teams and Clubs , 711211",0.5294117647058824
+43,"All Other Miscellaneous Chemical Product and Preparation Manufacturing , 325998","Corrugated and Solid Fiber Box Manufacturing , 322211",0.5
+44,"All Other Miscellaneous Chemical Product and Preparation Manufacturing , 325998","Custom Compounding of Purchased Resins , 325991",0.5
+45,"All Other Miscellaneous Chemical Product and Preparation Manufacturing , 325998","Measuring, Dispensing, and Other Pumping Equipment Manufacturing , 333914",0.5079365079365079
+46,"All Other Miscellaneous Chemical Product and Preparation Manufacturing , 325998","Plastics Material and Resin Manufacturing , 325211",0.5194805194805194
+47,"All Other Miscellaneous Electrical Equipment and Component Manufacturing , 335999","Other Measuring and Controlling Device Manufacturing , 334519",0.463768115942029
+48,"All Other Miscellaneous General Purpose Machinery Manufacturing , 333999","Other Industrial Machinery Manufacturing , 333249",0.6363636363636364
+49,"All Other Miscellaneous General Purpose Machinery Manufacturing , 333999","Corrugated and Solid Fiber Box Manufacturing , 322211",0.5054945054945055
+50,"All Other Miscellaneous General Purpose Machinery Manufacturing , 333999","Plastics Materials and Basic Forms and Shapes Merchant Wholesalers , 424610",0.5128205128205128
+51,"All Other Miscellaneous Waste Management Services , 562998","Other Commercial Equipment Merchant Wholesalers , 423440",0.43010752688172044
+52,"All Other Nonmetallic Mineral Mining , 212399","Automobile Manufacturing , 336111",0.4
+53,"All Other Nonmetallic Mineral Mining , 212399","Geothermal Electric Power Generation , 221116",0.3333333333333333
+54,"All Other Petroleum and Coal Products Manufacturing , 324199","Petrochemical Manufacturing, 325110",0.5714285714285714
+55,"All Other Petroleum and Coal Products Manufacturing , 324199","All Other Pipeline Transportation, 486990",0.5
+56,"All Other Petroleum and Coal Products Manufacturing , 324199","Cyclic Crude, Intermediate, and Gum and Wood Chemical Manufacturing , 325194",0.5
+57,"All Other Petroleum and Coal Products Manufacturing , 324199","Inland Water Freight Transportation , 483211",0.5
+58,"All Other Pipeline Transportation, 486990","Cyclic Crude, Intermediate, and Gum and Wood Chemical Manufacturing , 325194",1.0
+59,"All Other Pipeline Transportation, 486990","Glass Container Manufacturing , 327213",0.5
+60,"All Other Pipeline Transportation, 486990","Industrial Sand Mining , 212322",0.5
+61,"All Other Pipeline Transportation, 486990","Guided Missile and Space Vehicle Manufacturing , 336414",0.5
+62,"All Other Publishers , 511199","Audio and Video Equipment Manufacturing, 334310",0.5098039215686274
+63,"All Other Support Activities for Transportation , 488999","Steam and Air-Conditioning Supply , 221330",0.6666666666666666
+64,"All Other Support Activities for Transportation , 488999","Gypsum Product Manufacturing, 327420",0.5
+65,"All Other Support Activities for Transportation , 488999","Satellite Telecommunications, 517410",0.5263157894736842
+66,"All Other Telecommunications , 517919","Photographic and Photocopying Equipment Manufacturing , 333316",0.5294117647058824
+67,"All Other Telecommunications , 517919","Other Crushed and Broken Stone Mining and Quarrying , 212319",0.47058823529411764
+68,"All Other Telecommunications , 517919","Computer Training , 611420",0.4444444444444444
+69,"All Other Travel Arrangement and Reservation Services , 561599","Scheduled Passenger Air Transportation , 481111",0.47619047619047616
+70,"Alumina Refining and Primary Aluminum Production , 331313","Light Truck and Utility Vehicle Manufacturing , 336112",0.5
+71,"Alumina Refining and Primary Aluminum Production , 331313","Securities and Commodity Exchanges, 523210",0.5
+72,"Alumina Refining and Primary Aluminum Production , 331313","Wet Corn Milling , 311221",0.5
+73,"Alumina Refining and Primary Aluminum Production , 331313","Aluminum Sheet, Plate, and Foil Manufacturing , 331315",0.4
+74,"Analytical Laboratory Instrument Manufacturing , 334516","Software Publishers, 511210",0.5098039215686274
+75,"Analytical Laboratory Instrument Manufacturing , 334516","Custom Computer Programming Services , 541511",0.5
+76,"Analytical Laboratory Instrument Manufacturing , 334516","Electromedical and Electrotherapeutic Apparatus Manufacturing , 334510",0.5
+77,"Anthracite Mining , 212113","Mining Machinery and Equipment Manufacturing , 333131",0.2222222222222222
+78,"Art Dealers , 453920","Coastal and Great Lakes Passenger Transportation , 483114",0.38461538461538464
+79,"Asphalt Paving Mixture and Block Manufacturing , 324121","Corrugated and Solid Fiber Box Manufacturing , 322211",0.5111111111111111
+80,"Asphalt Shingle and Coating Materials Manufacturing , 324122","Paperboard Mills , 322130",0.5555555555555556
+81,"Asphalt Shingle and Coating Materials Manufacturing , 324122","Rendering and Meat Byproduct Processing , 311613",0.5217391304347826
+82,"Audio and Video Equipment Manufacturing, 334310","Other Electronic Component Manufacturing , 334419",0.5185185185185185
+83,"Audio and Video Equipment Manufacturing, 334310","Other Specialized Design Services, 541490",0.45454545454545453
+84,"Audio and Video Equipment Manufacturing, 334310","Dental Equipment and Supplies Manufacturing , 339114",0.42424242424242425
+85,"Automatic Environmental Control Manufacturing for Residential, Commercial, and Appliance Use , 334512","Electronic Connector Manufacturing , 334417",0.5454545454545454
+86,"Automobile Manufacturing , 336111","Nonferrous Forging , 332112",0.5714285714285714
+87,"Biological Product (except Diagnostic) Manufacturing , 325414","Research and Development in Biotechnology (except Nanobiotechnology), 541714",0.5263157894736842
+88,"Biological Product (except Diagnostic) Manufacturing , 325414","In-Vitro Diagnostic Substance Manufacturing , 325413",0.42857142857142855
+89,"Biomass Electric Power Generation , 221117","Cane Sugar Manufacturing , 311314",0.5714285714285714
+90,"Biomass Electric Power Generation , 221117","Teleproduction and Other Postproduction Services , 512191",0.5
+91,"Bituminous Coal Underground Mining , 212112","Bituminous Coal and Lignite Surface Mining , 212111",1.0
+92,"Bituminous Coal Underground Mining , 212112","Support Activities for Coal Mining , 213113",0.6666666666666666
+93,"Bituminous Coal Underground Mining , 212112","Cement Manufacturing, 327310",0.36363636363636365
+94,"Bituminous Coal and Lignite Surface Mining , 212111","Support Activities for Coal Mining , 213113",0.6666666666666666
+95,"Blank Magnetic and Optical Recording Media Manufacturing , 334613","Securities and Commodity Exchanges, 523210",0.6666666666666666
+96,"Blank Magnetic and Optical Recording Media Manufacturing , 334613","Scale and Balance Manufacturing , 333997",0.5
+97,"Blank Magnetic and Optical Recording Media Manufacturing , 334613","Solid Waste Combustors and Incinerators , 562213",0.5
+98,"Bolt, Nut, Screw, Rivet, and Washer Manufacturing , 332722","Motor Vehicle Gasoline Engine and Engine Parts Manufacturing, 336310",0.55
+99,"Bolt, Nut, Screw, Rivet, and Washer Manufacturing , 332722","Plastics Materials and Basic Forms and Shapes Merchant Wholesalers , 424610",0.5483870967741935
+100,"Bolt, Nut, Screw, Rivet, and Washer Manufacturing , 332722","Folding Paperboard Box Manufacturing , 322212",0.5
+101,"Bolt, Nut, Screw, Rivet, and Washer Manufacturing , 332722","Iron and Steel Forging , 332111",0.5
+102,"Bolt, Nut, Screw, Rivet, and Washer Manufacturing , 332722","Rolling Mill and Other Metalworking Machinery Manufacturing , 333519",0.5116279069767442
+103,"Book Publishers , 511130","Semiconductor and Related Device Manufacturing , 334413",0.3783783783783784
+104,"Business to Business Electronic Markets , 425110","Secondary Market Financing , 522294",0.5
+105,"Cable and Other Subscription Programming, 515210","Other Urban Transit Systems , 485119",0.5454545454545454
+106,"Cable and Other Subscription Programming, 515210","Women's, Children's, and Infants' Clothing and Accessories Merchant Wholesalers , 424330",0.38095238095238093
+107,"Cable and Other Subscription Programming, 515210","Motion Picture and Video Distribution, 512120",0.5
+108,"Cable and Other Subscription Programming, 515210","Ophthalmic Goods Merchant Wholesalers , 423460",0.5
+109,"Cable and Other Subscription Programming, 515210","Record Production and Distribution, 512250",0.5
+110,"Cable and Other Subscription Programming, 515210","Sound Recording Studios, 512240",0.5
+111,"Cane Sugar Manufacturing , 311314","Deep Sea Passenger Transportation , 483112",0.5714285714285714
+112,"Cane Sugar Manufacturing , 311314","Motion Picture and Video Distribution, 512120",0.5
+113,"Cane Sugar Manufacturing , 311314","Record Production and Distribution, 512250",0.5
+114,"Carbon and Graphite Product Manufacturing , 335991","Current-Carrying Wiring Device Manufacturing , 335931",0.5263157894736842
+115,"Carbon and Graphite Product Manufacturing , 335991","Welding and Soldering Equipment Manufacturing , 333992",0.45161290322580644
+116,"Cement Manufacturing, 327310","Wood Preservation , 321114",0.5555555555555556
+117,"Chocolate and Confectionery Manufacturing from Cacao Beans , 311351","Media Buying Agencies, 541830",0.43478260869565216
+118,"Chocolate and Confectionery Manufacturing from Cacao Beans , 311351","Farm Management Services , 115116",0.37037037037037035
+119,"Claims Adjusting , 524291","General Line Grocery Merchant Wholesalers , 424410",0.4578313253012048
+120,"Clay and Ceramic and Refractory Minerals Mining , 212325","Monetary Authorities-Central Bank, 521110",0.3333333333333333
+121,"Coal and Other Mineral and Ore Merchant Wholesalers , 423520","Commodity Contracts Dealing , 523130",0.5
+122,"Coastal and Great Lakes Freight Transportation , 483113","Marine Cargo Handling, 488320",0.625
+123,"Coastal and Great Lakes Freight Transportation , 483113","Deep Sea Freight Transportation , 483111",0.5185185185185185
+124,"Coastal and Great Lakes Freight Transportation , 483113","Navigational Services to Shipping , 488330",0.5263157894736842
+125,"Coastal and Great Lakes Freight Transportation , 483113","Other Support Activities for Water Transportation, 488390",0.5714285714285714
+126,"Coastal and Great Lakes Freight Transportation , 483113","Port and Harbor Operations, 488310",0.5185185185185185
+127,"Coastal and Great Lakes Passenger Transportation , 483114","Motion Picture and Video Distribution, 512120",0.6
+128,"Coastal and Great Lakes Passenger Transportation , 483114","International Trade Financing , 522293",0.5454545454545454
+129,"Coastal and Great Lakes Passenger Transportation , 483114","Record Production and Distribution, 512250",0.6
+130,"Commercial Air, Rail, and Water Transportation Equipment Rental and Leasing , 532411","Marine Cargo Handling, 488320",0.5
+131,"Commercial Air, Rail, and Water Transportation Equipment Rental and Leasing , 532411","Media Buying Agencies, 541830",0.5
+132,"Commodity Contracts Brokerage , 523140","Commodity Contracts Dealing , 523130",0.5
+133,"Commodity Contracts Brokerage , 523140","Offices of Bank Holding Companies , 551111",0.4375
+134,"Commodity Contracts Brokerage , 523140","Farm Product Warehousing and Storage, 493130",0.3448275862068966
+135,"Commodity Contracts Brokerage , 523140","Photographic Equipment and Supplies Merchant Wholesalers , 423410",0.5
+136,"Commodity Contracts Dealing , 523130","Investment Banking and Securities Dealing , 523110",0.8
+137,"Commodity Contracts Dealing , 523130","International Trade Financing , 522293",0.6
+138,"Commodity Contracts Dealing , 523130","Other Electric Power Generation , 221118",0.6
+139,"Commodity Contracts Dealing , 523130","Media Buying Agencies, 541830",0.5
+140,"Commodity Contracts Dealing , 523130","Scale and Balance Manufacturing , 333997",0.5
+141,"Commodity Contracts Dealing , 523130","Securities and Commodity Exchanges, 523210",0.5714285714285714
+142,"Computer Storage Device Manufacturing , 334112","Photographic and Photocopying Equipment Manufacturing , 333316",0.5714285714285714
+143,"Computer Storage Device Manufacturing , 334112","Copper, Nickel, Lead, and Zinc Mining , 212230",0.4
+144,"Computer Systems Design Services , 541512","Data Processing, Hosting, and Related Services, 518210",0.5882352941176471
+145,"Computer Systems Design Services , 541512","Custom Computer Programming Services , 541511",0.5714285714285714
+146,"Computer Systems Design Services , 541512","Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology) , 541715",0.5666666666666667
+147,"Computer Systems Design Services , 541512","Software Publishers, 511210",0.5517241379310345
+148,"Computer Terminal and Other Computer Peripheral Equipment Manufacturing , 334118","Office Machinery and Equipment Rental and Leasing, 532420",0.5142857142857142
+149,"Computer Terminal and Other Computer Peripheral Equipment Manufacturing , 334118","Electronic Connector Manufacturing , 334417",0.5
+150,"Computer Terminal and Other Computer Peripheral Equipment Manufacturing , 334118","Photographic and Photocopying Equipment Manufacturing , 333316",0.5
+151,"Computer Terminal and Other Computer Peripheral Equipment Manufacturing , 334118","Other Communications Equipment Manufacturing, 334290",0.5
+152,"Computer Terminal and Other Computer Peripheral Equipment Manufacturing , 334118","Residential Electric Lighting Fixture Manufacturing , 335121",0.5
+153,"Computer and Computer Peripheral Equipment and Software Merchant Wholesalers , 423430","Software Publishers, 511210",0.5714285714285714
+154,"Computer and Computer Peripheral Equipment and Software Merchant Wholesalers , 423430","Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology) , 541715",0.5172413793103449
+155,"Concrete Block and Brick Manufacturing , 327331","Rolling Mill and Other Metalworking Machinery Manufacturing , 333519",0.5098039215686274
+156,"Concrete Block and Brick Manufacturing , 327331","Payroll Services , 541214",0.4657534246575342
+157,"Concrete Block and Brick Manufacturing , 327331","Folding Paperboard Box Manufacturing , 322212",0.5
+158,"Confectionery Merchant Wholesalers , 424450","Dairy Product (except Dried or Canned) Merchant Wholesalers , 424430",0.40625
+159,"Construction Machinery Manufacturing, 333120","Motor and Generator Manufacturing , 335312",0.3829787234042553
+160,"Convention and Visitors Bureaus , 561591","Soft Drink Manufacturing , 312111",0.6027397260273972
+161,"Convention and Visitors Bureaus , 561591","Sports Teams and Clubs , 711211",0.5797101449275363
+162,"Convention and Visitors Bureaus , 561591","Surgical Appliance and Supplies Manufacturing , 339113",0.5
+163,"Convention and Visitors Bureaus , 561591","Dairy Product (except Dried or Canned) Merchant Wholesalers , 424430",0.4931506849315068
+164,"Convention and Visitors Bureaus , 561591","Wine and Distilled Alcoholic Beverage Merchant Wholesalers , 424820",0.48
+165,"Convention and Visitors Bureaus , 561591","General Line Grocery Merchant Wholesalers , 424410",0.5054945054945055
+166,"Conveyor and Conveying Equipment Manufacturing , 333922","Paint and Coating Manufacturing, 325510",0.5084745762711864
+167,"Corrugated and Solid Fiber Box Manufacturing , 322211","Plastics Materials and Basic Forms and Shapes Merchant Wholesalers , 424610",0.5842696629213483
+168,"Corrugated and Solid Fiber Box Manufacturing , 322211","Other Commercial Equipment Merchant Wholesalers , 423440",0.5794392523364486
+169,"Corrugated and Solid Fiber Box Manufacturing , 322211","Other Industrial Machinery Manufacturing , 333249",0.5656565656565656
+170,"Corrugated and Solid Fiber Box Manufacturing , 322211","Other Electronic and Precision Equipment Repair and Maintenance , 811219",0.4318181818181818
+171,"Corrugated and Solid Fiber Box Manufacturing , 322211","Custom Compounding of Purchased Resins , 325991",0.5128205128205128
+172,"Corrugated and Solid Fiber Box Manufacturing , 322211","Gasket, Packing, and Sealing Device Manufacturing , 339991",0.5647058823529412
+173,"Corrugated and Solid Fiber Box Manufacturing , 322211","Plastics Material and Resin Manufacturing , 325211",0.5054945054945055
+174,"Corrugated and Solid Fiber Box Manufacturing , 322211","Printing and Writing Paper Merchant Wholesalers , 424110",0.5
+175,"Corrugated and Solid Fiber Box Manufacturing , 322211","Special Die and Tool, Die Set, Jig, and Fixture Manufacturing , 333514",0.5111111111111111
+176,"Creamery Butter Manufacturing , 311512","Power Boiler and Heat Exchanger Manufacturing, 332410",0.18181818181818182
+177,"Credit Bureaus, 561450","Other Financial Vehicles , 525990",0.5517241379310345
+178,"Credit Bureaus, 561450","Other Communications Equipment Manufacturing, 334290",0.5185185185185185
+179,"Credit Card Issuing , 522210","Crushed and Broken Granite Mining and Quarrying , 212313",0.46153846153846156
+180,"Crop Harvesting, Primarily by Machine , 115113","Farm Management Services , 115116",0.45454545454545453
+181,"Current-Carrying Wiring Device Manufacturing , 335931","Sports Teams and Clubs , 711211",0.5454545454545454
+182,"Current-Carrying Wiring Device Manufacturing , 335931","Other Lighting Equipment Manufacturing , 335129",0.5365853658536586
+183,"Current-Carrying Wiring Device Manufacturing , 335931","Paint and Coating Manufacturing, 325510",0.5357142857142857
+184,"Custom Compounding of Purchased Resins , 325991","Paint and Coating Manufacturing, 325510",0.6101694915254238
+185,"Custom Compounding of Purchased Resins , 325991","Plastics Materials and Basic Forms and Shapes Merchant Wholesalers , 424610",0.5846153846153846
+186,"Custom Compounding of Purchased Resins , 325991","Printing and Writing Paper Merchant Wholesalers , 424110",0.5
+187,"Custom Compounding of Purchased Resins , 325991","Unlaminated Plastics Film and Sheet (except Packaging) Manufacturing , 326113",0.5416666666666666
+188,"Custom Computer Programming Services , 541511","Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology) , 541715",0.6229508196721312
+189,"Custom Computer Programming Services , 541511","Electromedical and Electrotherapeutic Apparatus Manufacturing , 334510",0.5357142857142857
+190,"Custom Computer Programming Services , 541511","Data Processing, Hosting, and Related Services, 518210",0.5
+191,"Custom Computer Programming Services , 541511","Research and Development in Biotechnology (except Nanobiotechnology), 541714",0.509090909090909
+192,"Custom Computer Programming Services , 541511","Research and Development in Nanotechnology , 541713",0.509090909090909
+193,"Custom Computer Programming Services , 541511","Software Publishers, 511210",0.5423728813559322
+194,"Cyclic Crude, Intermediate, and Gum and Wood Chemical Manufacturing , 325194","Glass Container Manufacturing , 327213",0.5
+195,"Cyclic Crude, Intermediate, and Gum and Wood Chemical Manufacturing , 325194","Guided Missile and Space Vehicle Manufacturing , 336414",0.5
+196,"Cyclic Crude, Intermediate, and Gum and Wood Chemical Manufacturing , 325194","Industrial Sand Mining , 212322",0.5
+197,"Data Processing, Hosting, and Related Services, 518210","Software Publishers, 511210",0.5531914893617021
+198,"Data Processing, Hosting, and Related Services, 518210","Lessors of Nonfinancial Intangible Assets (except Copyrighted Works), 533110",0.47619047619047616
+199,"Deep Sea Freight Transportation , 483111","Port and Harbor Operations, 488310",0.6
+200,"Deep Sea Freight Transportation , 483111","Marine Cargo Handling, 488320",0.56
+201,"Deep Sea Freight Transportation , 483111","Navigational Services to Shipping , 488330",0.5161290322580645
+202,"Deep Sea Passenger Transportation , 483112","Guided Missile and Space Vehicle Propulsion Unit and Propulsion Unit Parts Manufacturing , 336415",0.6666666666666666
+203,"Deep Sea Passenger Transportation , 483112","Heavy Duty Truck Manufacturing, 336120",0.6666666666666666
+204,"Deep Sea Passenger Transportation , 483112","Motion Picture and Video Distribution, 512120",0.5714285714285714
+205,"Deep Sea Passenger Transportation , 483112","International Trade Financing , 522293",0.5
+206,"Deep Sea Passenger Transportation , 483112","Record Production and Distribution, 512250",0.5714285714285714
+207,"Direct Health and Medical Insurance Carriers , 524114","Third Party Administration of Insurance and Pension Funds , 524292",0.5617977528089888
+208,"Direct Health and Medical Insurance Carriers , 524114","Gasket, Packing, and Sealing Device Manufacturing , 339991",0.49382716049382713
+209,"Direct Life Insurance Carriers , 524113","Wine and Distilled Alcoholic Beverage Merchant Wholesalers , 424820",0.44776119402985076
+210,"Direct Property and Casualty Insurance Carriers , 524126","Political Organizations , 813940",0.4657534246575342
+211,"Direct Title Insurance Carriers , 524127","HMO Medical Centers , 621491",0.53125
+212,"Direct Title Insurance Carriers , 524127","Other Electronic Component Manufacturing , 334419",0.48
+213,"Directory and Mailing List Publishers , 511140","Explosives Manufacturing, 325920",0.5
+214,"Directory and Mailing List Publishers , 511140","Secondary Smelting, Refining, and Alloying of Nonferrous Metal (except Copper and Aluminum) , 331492",0.5
+215,"Dog and Cat Food Manufacturing , 311111","Food Product Machinery Manufacturing , 333241",0.5365853658536586
+216,"Drilling Oil and Gas Wells, 213111","Oil and Gas Field Machinery and Equipment Manufacturing , 333132",0.6666666666666666
+217,"Drilling Oil and Gas Wells, 213111","Natural Gas Extraction , 211130",0.5
+218,"Drilling Oil and Gas Wells, 213111","Oil and Gas Pipeline and Related Structures Construction , 237120",0.5625
+219,"Drilling Oil and Gas Wells, 213111","Pipeline Transportation of Crude Oil, 486110",0.5454545454545454
+220,"Drugs and Druggists' Sundries Merchant Wholesalers , 424210","Public Relations Agencies, 541820",0.5142857142857142
+221,"Drugs and Druggists' Sundries Merchant Wholesalers , 424210","Research and Development in Biotechnology (except Nanobiotechnology), 541714",0.5128205128205128
+222,"Electric Bulk Power Transmission and Control , 221121","Passenger Car Leasing , 532112",0.5454545454545454
+223,"Electric Lamp Bulb and Part Manufacturing, 335110","Scale and Balance Manufacturing , 333997",0.8571428571428571
+224,"Electric Lamp Bulb and Part Manufacturing, 335110","Fats and Oils Refining and Blending , 311225",0.6
+225,"Electric Lamp Bulb and Part Manufacturing, 335110","International Trade Financing , 522293",0.6666666666666666
+226,"Electric Lamp Bulb and Part Manufacturing, 335110","Motion Picture and Video Distribution, 512120",0.5
+227,"Electric Lamp Bulb and Part Manufacturing, 335110","Open-End Investment Funds , 525910",0.5714285714285714
+228,"Electric Lamp Bulb and Part Manufacturing, 335110","Other Motion Picture and Video Industries , 512199",0.6
+229,"Electric Lamp Bulb and Part Manufacturing, 335110","Record Production and Distribution, 512250",0.5
+230,"Electric Lamp Bulb and Part Manufacturing, 335110","Securities and Commodity Exchanges, 523210",0.6666666666666666
+231,"Electric Lamp Bulb and Part Manufacturing, 335110","Solid Waste Combustors and Incinerators , 562213",0.5714285714285714
+232,"Electromedical and Electrotherapeutic Apparatus Manufacturing , 334510","Instrument Manufacturing for Measuring and Testing Electricity and Electrical Signals , 334515",0.5
+233,"Electronic Computer Manufacturing , 334111","Irradiation Apparatus Manufacturing , 334517",0.5
+234,"Electronic Computer Manufacturing , 334111","Other Electric Power Generation , 221118",0.5
+235,"Electronic Connector Manufacturing , 334417","Miscellaneous Financial Investment Activities , 523999",0.5185185185185185
+236,"Electronic Connector Manufacturing , 334417","Residential Electric Lighting Fixture Manufacturing , 335121",0.5
+237,"Elevator and Moving Stairway Manufacturing , 333921","Media Buying Agencies, 541830",0.631578947368421
+238,"Elevator and Moving Stairway Manufacturing , 333921","Fats and Oils Refining and Blending , 311225",0.5714285714285714
+239,"Elevator and Moving Stairway Manufacturing , 333921","Miscellaneous Intermediation , 523910",0.5714285714285714
+240,"Elevator and Moving Stairway Manufacturing , 333921","Open-End Investment Funds , 525910",0.5555555555555556
+241,"Elevator and Moving Stairway Manufacturing , 333921","Secondary Smelting, Refining, and Alloying of Nonferrous Metal (except Copper and Aluminum) , 331492",0.5263157894736842
+242,"Ethyl Alcohol Manufacturing , 325193","Farm Machinery and Equipment Manufacturing , 333111",0.3333333333333333
+243,"Executive Search Services , 561312","Periodical Publishers , 511120",0.5652173913043478
+244,"Executive Search Services , 561312","Portfolio Management , 523920",0.5128205128205128
+245,"Explosives Manufacturing, 325920","Telephone Apparatus Manufacturing, 334210",0.5714285714285714
+246,"Explosives Manufacturing, 325920","Other Depository Credit Intermediation , 522190",0.4
+247,"Farm Machinery and Equipment Manufacturing , 333111","Farm Management Services , 115116",0.4
+248,"Farm Product Warehousing and Storage, 493130","Soybean and Other Oilseed Processing , 311224",0.2222222222222222
+249,"Fats and Oils Refining and Blending , 311225","Scale and Balance Manufacturing , 333997",0.6666666666666666
+250,"Fats and Oils Refining and Blending , 311225","Teleproduction and Other Postproduction Services , 512191",0.5454545454545454
+251,"Fats and Oils Refining and Blending , 311225","International Trade Financing , 522293",0.5454545454545454
+252,"Fats and Oils Refining and Blending , 311225","Monetary Authorities-Central Bank, 521110",0.5454545454545454
+253,"Fats and Oils Refining and Blending , 311225","Open-End Investment Funds , 525910",0.5
+254,"Fats and Oils Refining and Blending , 311225","Other Motion Picture and Video Industries , 512199",0.5
+255,"Fats and Oils Refining and Blending , 311225","Securities and Commodity Exchanges, 523210",0.5
+256,"Fertilizer (Mixing Only) Manufacturing , 325314","Hazardous Waste Collection , 562112",0.4166666666666667
+257,"Fiber Optic Cable Manufacturing , 335921","Other Electric Power Generation , 221118",0.46153846153846156
+258,"Financial Transactions Processing, Reserve, and Clearinghouse Activities , 522320","Other Direct Insurance (except Life, Health, and Medical) Carriers , 524128",0.4864864864864865
+259,"Finfish Fishing , 114111","Ship Building and Repairing , 336611",0.38095238095238093
+260,"Flavoring Syrup and Concentrate Manufacturing, 311930","Passenger Car Leasing , 532112",0.6363636363636364
+261,"Flavoring Syrup and Concentrate Manufacturing, 311930","Totalizing Fluid Meter and Counting Device Manufacturing , 334514",0.5217391304347826
+262,"Flavoring Syrup and Concentrate Manufacturing, 311930","Other Lighting Equipment Manufacturing , 335129",0.5
+263,"Flour Milling , 311211","Hazardous Waste Collection , 562112",0.46153846153846156
+264,"Fluid Milk Manufacturing , 311511","Sports Teams and Clubs , 711211",0.5517241379310345
+265,"Fluid Milk Manufacturing , 311511","Other Computer Related Services, 541519",0.5283018867924528
+266,"Fluid Milk Manufacturing , 311511","Meat and Meat Product Merchant Wholesalers , 424470",0.5172413793103449
+267,"Fluid Power Cylinder and Actuator Manufacturing , 333995","Speed Changer, Industrial High-Speed Drive, and Gear Manufacturing , 333612",0.5833333333333334
+268,"Fluid Power Cylinder and Actuator Manufacturing , 333995","Fluid Power Pump and Motor Manufacturing , 333996",0.5454545454545454
+269,"Fluid Power Cylinder and Actuator Manufacturing , 333995","Fluid Power Valve and Hose Fitting Manufacturing , 332912",0.5185185185185185
+270,"Fluid Power Cylinder and Actuator Manufacturing , 333995","Mechanical Power Transmission Equipment Manufacturing , 333613",0.5217391304347826
+271,"Fluid Power Pump and Motor Manufacturing , 333996","Iron Foundries , 331511",0.42105263157894735
+272,"Fluid Power Pump and Motor Manufacturing , 333996","Other Metal Valve and Pipe Fitting Manufacturing , 332919",0.5263157894736842
+273,"Fluid Power Pump and Motor Manufacturing , 333996","Speed Changer, Industrial High-Speed Drive, and Gear Manufacturing , 333612",0.5454545454545454
+274,"Fluid Power Valve and Hose Fitting Manufacturing , 332912","Mechanical Power Transmission Equipment Manufacturing , 333613",0.5384615384615384
+275,"Fluid Power Valve and Hose Fitting Manufacturing , 332912","Noncurrent-Carrying Wiring Device Manufacturing , 335932",0.5
+276,"Folding Paperboard Box Manufacturing , 322212","Printing Ink Manufacturing, 325910",0.5714285714285714
+277,"Folding Paperboard Box Manufacturing , 322212","Home Furnishing Merchant Wholesalers , 423220",0.5423728813559322
+278,"Folding Paperboard Box Manufacturing , 322212","Motor Vehicle Gasoline Engine and Engine Parts Manufacturing, 336310",0.5
+279,"Folding Paperboard Box Manufacturing , 322212","Plastics Packaging Film and Sheet (including Laminated) Manufacturing , 326112",0.5333333333333333
+280,"Folding Paperboard Box Manufacturing , 322212","Printing and Writing Paper Merchant Wholesalers , 424110",0.5283018867924528
+281,"Folding Paperboard Box Manufacturing , 322212","Soft Drink Manufacturing , 312111",0.5423728813559322
+282,"Food Product Machinery Manufacturing , 333241","Printing and Writing Paper Merchant Wholesalers , 424110",0.4642857142857143
+283,"Footwear Merchant Wholesalers , 424340","Media Buying Agencies, 541830",0.5
+284,"Furniture Merchant Wholesalers , 423210","Home Furnishing Merchant Wholesalers , 423220",0.5526315789473685
+285,"Furniture Merchant Wholesalers , 423210","Paint and Coating Manufacturing, 325510",0.5205479452054794
+286,"Gasket, Packing, and Sealing Device Manufacturing , 339991","Plastics Materials and Basic Forms and Shapes Merchant Wholesalers , 424610",0.5833333333333334
+287,"Gasket, Packing, and Sealing Device Manufacturing , 339991","Instruments and Related Products Manufacturing for Measuring, Displaying, and Controlling Industrial Process Variables , 334513",0.5797101449275363
+288,"Gasket, Packing, and Sealing Device Manufacturing , 339991","Plastics Material and Resin Manufacturing , 325211",0.5405405405405406
+289,"Gasket, Packing, and Sealing Device Manufacturing , 339991","Relay and Industrial Control Manufacturing , 335314",0.5373134328358209
+290,"Gasket, Packing, and Sealing Device Manufacturing , 339991","Motor and Generator Manufacturing , 335312",0.49056603773584906
+291,"Gasket, Packing, and Sealing Device Manufacturing , 339991","Other Industrial Machinery Manufacturing , 333249",0.5121951219512195
+292,"Gasket, Packing, and Sealing Device Manufacturing , 339991","Psychiatric and Substance Abuse Hospitals , 622210",0.5
+293,"General Line Grocery Merchant Wholesalers , 424410","Other Commercial Equipment Merchant Wholesalers , 423440",0.5504587155963303
+294,"General Line Grocery Merchant Wholesalers , 424410","Soft Drink Manufacturing , 312111",0.5454545454545454
+295,"General Line Grocery Merchant Wholesalers , 424410","Tobacco and Tobacco Product Merchant Wholesalers , 424940",0.5365853658536586
+296,"General Line Grocery Merchant Wholesalers , 424410","Other Professional Equipment and Supplies Merchant Wholesalers , 423490",0.45652173913043476
+297,"Geophysical Surveying and Mapping Services, 541360","Pipeline Transportation of Crude Oil, 486110",0.4666666666666667
+298,"Geothermal Electric Power Generation , 221116","Gold Ore Mining , 212221",0.5
+299,"Glass Container Manufacturing , 327213","Guided Missile and Space Vehicle Manufacturing , 336414",0.6666666666666666
+300,"Glass Container Manufacturing , 327213","International Trade Financing , 522293",0.5
+301,"Gold Ore Mining , 212221","Support Activities for Metal Mining , 213114",0.75
+302,"Greeting Card Publishers , 511191","Light Truck and Utility Vehicle Manufacturing , 336112",0.4
+303,"Ground or Treated Mineral and Earth Manufacturing , 327992","Rolled Steel Shape Manufacturing , 331221",0.5185185185185185
+304,"Ground or Treated Mineral and Earth Manufacturing , 327992","Iron and Steel Pipe and Tube Manufacturing from Purchased Steel, 331210",0.5
+305,"Ground or Treated Mineral and Earth Manufacturing , 327992","Secondary Smelting and Alloying of Aluminum , 331314",0.5
+306,"Guided Missile and Space Vehicle Manufacturing , 336414","International Trade Financing , 522293",0.5
+307,"Guided Missile and Space Vehicle Propulsion Unit and Propulsion Unit Parts Manufacturing , 336415","Heavy Duty Truck Manufacturing, 336120",0.6666666666666666
+308,"Gypsum Product Manufacturing, 327420","Steam and Air-Conditioning Supply , 221330",0.6
+309,"Gypsum Product Manufacturing, 327420","Scheduled Passenger Air Transportation , 481111",0.5142857142857142
+310,"Gypsum Product Manufacturing, 327420","International Trade Financing , 522293",0.5
+311,"Gypsum Product Manufacturing, 327420","Nitrogenous Fertilizer Manufacturing , 325311",0.5
+312,"Gypsum Product Manufacturing, 327420","Office Machinery and Equipment Rental and Leasing, 532420",0.5
+313,"Gypsum Product Manufacturing, 327420","Open-End Investment Funds , 525910",0.5714285714285714
+314,"Gypsum Product Manufacturing, 327420","Satellite Telecommunications, 517410",0.5714285714285714
+315,"Gypsum Product Manufacturing, 327420","Secondary Smelting, Refining, and Alloying of Nonferrous Metal (except Copper and Aluminum) , 331492",0.5454545454545454
+316,"Hazardous Waste Collection , 562112","Heating Equipment (except Warm Air Furnaces) Manufacturing , 333414",0.5333333333333333
+317,"Hazardous Waste Treatment and Disposal , 562211","Other Basic Inorganic Chemical Manufacturing , 325180",0.5882352941176471
+318,"Hazardous Waste Treatment and Disposal , 562211","Industrial Gas Manufacturing, 325120",0.5454545454545454
+319,"Hazardous Waste Treatment and Disposal , 562211","Packaged Frozen Food Merchant Wholesalers , 424420",0.5
+320,"Heating Equipment (except Warm Air Furnaces) Manufacturing , 333414","Sports Teams and Clubs , 711211",0.56
+321,"Heating Equipment (except Warm Air Furnaces) Manufacturing , 333414","Office Machinery and Equipment Rental and Leasing, 532420",0.5
+322,"Home Furnishing Merchant Wholesalers , 423220","Unlaminated Plastics Film and Sheet (except Packaging) Manufacturing , 326113",0.5714285714285714
+323,"Home Furnishing Merchant Wholesalers , 423220","Packaged Frozen Food Merchant Wholesalers , 424420",0.5
+324,"Household Appliances, Electric Housewares, and Consumer Electronics Merchant Wholesalers , 423620","Refrigeration Equipment and Supplies Merchant Wholesalers , 423740",0.45714285714285713
+325,"Human Resources Consulting Services , 541612","Other Lighting Equipment Manufacturing , 335129",0.5
+326,"Human Rights Organizations , 813311","Professional Organizations , 813920",0.4782608695652174
+327,"Hydroelectric Power Generation , 221111","Public Relations Agencies, 541820",0.3684210526315789
+328,"In-Vitro Diagnostic Substance Manufacturing , 325413","Trust, Fiduciary, and Custody Activities , 523991",0.47368421052631576
+329,"Independent Artists, Writers, and Performers , 711510","Motion Picture and Video Distribution, 512120",0.5454545454545454
+330,"Independent Artists, Writers, and Performers , 711510","Music Publishers, 512230",0.5
+331,"Independent Artists, Writers, and Performers , 711510","Record Production and Distribution, 512250",0.5454545454545454
+332,"Independent Artists, Writers, and Performers , 711510","Sound Recording Studios, 512240",0.5333333333333333
+333,"Industrial Design Services, 541420","Ophthalmic Goods Merchant Wholesalers , 423460",0.5581395348837209
+334,"Industrial Design Services, 541420","Pharmaceutical Preparation Manufacturing , 325412",0.49056603773584906
+335,"Industrial Process Furnace and Oven Manufacturing , 333994","Petroleum Lubricating Oil and Grease Manufacturing , 324191",0.6111111111111112
+336,"Industrial Process Furnace and Oven Manufacturing , 333994","Industrial Truck, Tractor, Trailer, and Stacker Machinery Manufacturing , 333924",0.5789473684210527
+337,"Industrial Process Furnace and Oven Manufacturing , 333994","Polish and Other Sanitation Good Manufacturing , 325612",0.5641025641025641
+338,"Industrial Process Furnace and Oven Manufacturing , 333994","Unlaminated Plastics Profile Shape Manufacturing , 326121",0.5365853658536586
+339,"Industrial Process Furnace and Oven Manufacturing , 333994","Other Lighting Equipment Manufacturing , 335129",0.5555555555555556
+340,"Industrial Process Furnace and Oven Manufacturing , 333994","Printing Ink Manufacturing, 325910",0.5405405405405406
+341,"Industrial Process Furnace and Oven Manufacturing , 333994","Speed Changer, Industrial High-Speed Drive, and Gear Manufacturing , 333612",0.5161290322580645
+342,"Industrial Sand Mining , 212322","Lime Manufacturing, 327410",0.5714285714285714
+343,"Industrial Sand Mining , 212322","Monetary Authorities-Central Bank, 521110",0.5
+344,"Industrial Truck, Tractor, Trailer, and Stacker Machinery Manufacturing , 333924","Other Lighting Equipment Manufacturing , 335129",0.6111111111111112
+345,"Industrial Truck, Tractor, Trailer, and Stacker Machinery Manufacturing , 333924","Plastics Packaging Film and Sheet (including Laminated) Manufacturing , 326112",0.55
+346,"Industrial Truck, Tractor, Trailer, and Stacker Machinery Manufacturing , 333924","Printing and Writing Paper Merchant Wholesalers , 424110",0.5416666666666666
+347,"Industrial Truck, Tractor, Trailer, and Stacker Machinery Manufacturing , 333924","Offices of Other Holding Companies , 551112",0.5263157894736842
+348,"Industrial Truck, Tractor, Trailer, and Stacker Machinery Manufacturing , 333924","Petroleum Lubricating Oil and Grease Manufacturing , 324191",0.5555555555555556
+349,"Industrial Truck, Tractor, Trailer, and Stacker Machinery Manufacturing , 333924","Polish and Other Sanitation Good Manufacturing , 325612",0.5128205128205128
+350,"Industrial Truck, Tractor, Trailer, and Stacker Machinery Manufacturing , 333924","Printing Ink Manufacturing, 325910",0.5405405405405406
+351,"Industrial Truck, Tractor, Trailer, and Stacker Machinery Manufacturing , 333924","Totalizing Fluid Meter and Counting Device Manufacturing , 334514",0.5161290322580645
+352,"Industrial Valve Manufacturing , 332911","Mechanical Power Transmission Equipment Manufacturing , 333613",0.5806451612903226
+353,"Industrial Valve Manufacturing , 332911","Iron and Steel Forging , 332111",0.5
+354,"Industrial Valve Manufacturing , 332911","Petroleum Lubricating Oil and Grease Manufacturing , 324191",0.5405405405405406
+355,"Industrial and Personal Service Paper Merchant Wholesalers , 424130","Other Commercial Equipment Merchant Wholesalers , 423440",0.5344827586206896
+356,"Inland Water Freight Transportation , 483211","Petrochemical Manufacturing, 325110",0.6153846153846154
+357,"Inland Water Freight Transportation , 483211","Navigational Services to Shipping , 488330",0.5333333333333333
+358,"Instrument Manufacturing for Measuring and Testing Electricity and Electrical Signals , 334515","Medical, Dental, and Hospital Equipment and Supplies Merchant Wholesalers , 423450",0.46153846153846156
+359,"Instrument Manufacturing for Measuring and Testing Electricity and Electrical Signals , 334515","Semiconductor and Related Device Manufacturing , 334413",0.5
+360,"Instruments and Related Products Manufacturing for Measuring, Displaying, and Controlling Industrial Process Variables , 334513","Other Measuring and Controlling Device Manufacturing , 334519",0.6842105263157895
+361,"Instruments and Related Products Manufacturing for Measuring, Displaying, and Controlling Industrial Process Variables , 334513","Petroleum and Petroleum Products Merchant Wholesalers (except Bulk Stations and Terminals) , 424720",0.4444444444444444
+362,"Instruments and Related Products Manufacturing for Measuring, Displaying, and Controlling Industrial Process Variables , 334513","Other Industrial Machinery Manufacturing , 333249",0.5060240963855421
+363,"International Trade Financing , 522293","Scale and Balance Manufacturing , 333997",0.75
+364,"International Trade Financing , 522293","Motion Picture and Video Distribution, 512120",0.6666666666666666
+365,"International Trade Financing , 522293","Open-End Investment Funds , 525910",0.6666666666666666
+366,"International Trade Financing , 522293","Media Buying Agencies, 541830",0.5
+367,"International Trade Financing , 522293","Other Electric Power Generation , 221118",0.6
+368,"International Trade Financing , 522293","Other Motion Picture and Video Industries , 512199",0.5454545454545454
+369,"International Trade Financing , 522293","Record Production and Distribution, 512250",0.6666666666666666
+370,"International Trade Financing , 522293","Residential Electric Lighting Fixture Manufacturing , 335121",0.5333333333333333
+371,"International Trade Financing , 522293","Secondary Smelting, Refining, and Alloying of Nonferrous Metal (except Copper and Aluminum) , 331492",0.625
+372,"International Trade Financing , 522293","Securities and Commodity Exchanges, 523210",0.5714285714285714
+373,"International Trade Financing , 522293","Solid Waste Combustors and Incinerators , 562213",0.5
+374,"Internet Publishing and Broadcasting and Web Search Portals, 519130","Media Representatives, 541840",0.5454545454545454
+375,"Internet Publishing and Broadcasting and Web Search Portals, 519130","Teleproduction and Other Postproduction Services , 512191",0.5333333333333333
+376,"Investment Advice , 523930","Portfolio Management , 523920",0.5806451612903226
+377,"Investment Advice , 523930","Other Financial Vehicles , 525990",0.5625
+378,"Investment Advice , 523930","Media Buying Agencies, 541830",0.5185185185185185
+379,"Investment Advice , 523930","Miscellaneous Intermediation , 523910",0.5517241379310345
+380,"Investment Banking and Securities Dealing , 523110","Media Buying Agencies, 541830",0.5
+381,"Investment Banking and Securities Dealing , 523110","Scale and Balance Manufacturing , 333997",0.5
+382,"Investment Banking and Securities Dealing , 523110","Securities and Commodity Exchanges, 523210",0.5714285714285714
+383,"Iron and Steel Forging , 332111","Rolled Steel Shape Manufacturing , 331221",0.5517241379310345
+384,"Iron and Steel Forging , 332111","Iron and Steel Pipe and Tube Manufacturing from Purchased Steel, 331210",0.5333333333333333
+385,"Iron and Steel Forging , 332111","Rolling Mill and Other Metalworking Machinery Manufacturing , 333519",0.5142857142857142
+386,"Iron and Steel Forging , 332111","Secondary Smelting and Alloying of Aluminum , 331314",0.5454545454545454
+387,"Iron and Steel Mills and Ferroalloy Manufacturing , 331110","Iron and Steel Pipe and Tube Manufacturing from Purchased Steel, 331210",0.64
+388,"Iron and Steel Mills and Ferroalloy Manufacturing , 331110","Motor Vehicle Transmission and Power Train Parts Manufacturing, 336350",0.45454545454545453
+389,"Iron and Steel Mills and Ferroalloy Manufacturing , 331110","Rolled Steel Shape Manufacturing , 331221",0.5
+390,"Iron and Steel Mills and Ferroalloy Manufacturing , 331110","Secondary Smelting and Alloying of Aluminum , 331314",0.5882352941176471
+391,"Iron and Steel Pipe and Tube Manufacturing from Purchased Steel, 331210","Rolling Mill and Other Metalworking Machinery Manufacturing , 333519",0.6060606060606061
+392,"Iron and Steel Pipe and Tube Manufacturing from Purchased Steel, 331210","Secondary Smelting and Alloying of Aluminum , 331314",0.6
+393,"Iron and Steel Pipe and Tube Manufacturing from Purchased Steel, 331210","Rolled Steel Shape Manufacturing , 331221",0.5925925925925926
+394,"Iron and Steel Pipe and Tube Manufacturing from Purchased Steel, 331210","Overhead Traveling Crane, Hoist, and Monorail System Manufacturing , 333923",0.5454545454545454
+395,"Iron and Steel Pipe and Tube Manufacturing from Purchased Steel, 331210","Petroleum Lubricating Oil and Grease Manufacturing , 324191",0.5161290322580645
+396,"Jewelry, Watch, Precious Stone, and Precious Metal Merchant Wholesalers , 423940","Other Management Consulting Services , 541618",0.4090909090909091
+397,"Lessors of Nonfinancial Intangible Assets (except Copyrighted Works), 533110","Support Activities for Nonmetallic Minerals (except Fuels) Mining , 213115",0.45161290322580644
+398,"Light Truck and Utility Vehicle Manufacturing , 336112","Nonferrous Forging , 332112",0.5
+399,"Light Truck and Utility Vehicle Manufacturing , 336112","Secondary Smelting and Alloying of Aluminum , 331314",0.5
+400,"Light Truck and Utility Vehicle Manufacturing , 336112","Securities and Commodity Exchanges, 523210",0.5
+401,"Light Truck and Utility Vehicle Manufacturing , 336112","Wet Corn Milling , 311221",0.5
+402,"Lime Manufacturing, 327410","Mining Machinery and Equipment Manufacturing , 333131",0.5
+403,"Luggage and Leather Goods Stores , 448320","Totalizing Fluid Meter and Counting Device Manufacturing , 334514",0.5185185185185185
+404,"Luggage and Leather Goods Stores , 448320","Offices of Lawyers, 541110",0.5
+405,"Luggage and Leather Goods Stores , 448320","Photographic Equipment and Supplies Merchant Wholesalers , 423410",0.5
+406,"Machine Tool Manufacturing , 333517","Special Die and Tool, Die Set, Jig, and Fixture Manufacturing , 333514",0.6575342465753424
+407,"Machine Tool Manufacturing , 333517","Rolling Mill and Other Metalworking Machinery Manufacturing , 333519",0.6037735849056604
+408,"Machine Tool Manufacturing , 333517","Other Industrial Machinery Manufacturing , 333249",0.5853658536585366
+409,"Machine Tool Manufacturing , 333517","Other Measuring and Controlling Device Manufacturing , 334519",0.5333333333333333
+410,"Marine Cargo Handling, 488320","Navigational Services to Shipping , 488330",0.6111111111111112
+411,"Marine Cargo Handling, 488320","Petroleum Refineries, 324110",0.5925925925925926
+412,"Marine Cargo Handling, 488320","Other Support Activities for Water Transportation, 488390",0.6060606060606061
+413,"Marine Cargo Handling, 488320","Port and Harbor Operations, 488310",0.56
+414,"Marine Cargo Handling, 488320","Ship Building and Repairing , 336611",0.5
+415,"Marketing Consulting Services , 541613","Medicinal and Botanical Manufacturing , 325411",0.5396825396825397
+416,"Marketing Consulting Services , 541613","Marketing Research and Public Opinion Polling, 541910",0.5230769230769231
+417,"Marketing Consulting Services , 541613","Professional and Management Development Training , 611430",0.5063291139240507
+418,"Marketing Consulting Services , 541613","Promoters of Performing Arts, Sports, and Similar Events without Facilities , 711320",0.42424242424242425
+419,"Marketing Research and Public Opinion Polling, 541910","Research and Development in Nanotechnology , 541713",0.5
+420,"Mayonnaise, Dressing, and Other Prepared Sauce Manufacturing , 311941","Rubber and Plastics Hoses and Belting Manufacturing, 326220",0.5
+421,"Measuring, Dispensing, and Other Pumping Equipment Manufacturing , 333914","Prefabricated Metal Building and Component Manufacturing , 332311",0.5283018867924528
+422,"Measuring, Dispensing, and Other Pumping Equipment Manufacturing , 333914","Petroleum Lubricating Oil and Grease Manufacturing , 324191",0.5116279069767442
+423,"Mechanical Power Transmission Equipment Manufacturing , 333613","Other Lighting Equipment Manufacturing , 335129",0.5714285714285714
+424,"Mechanical Power Transmission Equipment Manufacturing , 333613","Passenger Car Leasing , 532112",0.5454545454545454
+425,"Mechanical Power Transmission Equipment Manufacturing , 333613","Synthetic Dye and Pigment Manufacturing, 325130",0.5263157894736842
+426,"Media Buying Agencies, 541830","Residential Electric Lighting Fixture Manufacturing , 335121",0.6666666666666666
+427,"Media Buying Agencies, 541830","Portfolio Management , 523920",0.6153846153846154
+428,"Media Buying Agencies, 541830","Miscellaneous Intermediation , 523910",0.5833333333333334
+429,"Media Buying Agencies, 541830","Ophthalmic Goods Merchant Wholesalers , 423460",0.5161290322580645
+430,"Media Buying Agencies, 541830","Other Electric Power Generation , 221118",0.5
+431,"Media Buying Agencies, 541830","Other Financial Vehicles , 525990",0.5185185185185185
+432,"Media Representatives, 541840","Other Sound Recording Industries, 512290",0.56
+433,"Media Representatives, 541840","Reinsurance Carriers , 524130",0.5
+434,"Media Representatives, 541840","Sound Recording Studios, 512240",0.5
+435,"Medicinal and Botanical Manufacturing , 325411","Turbine and Turbine Generator Set Units Manufacturing , 333611",0.3888888888888889
+436,"Men's and Boys' Clothing and Furnishings Merchant Wholesalers , 424320","Refrigeration Equipment and Supplies Merchant Wholesalers , 423740",0.42857142857142855
+437,"Metal Can Manufacturing , 332431","Steam and Air-Conditioning Supply , 221330",0.47058823529411764
+438,"Metal Kitchen Cookware, Utensil, Cutlery, and Flatware (except Precious) Manufacturing , 332215","Music Publishers, 512230",0.42857142857142855
+439,"Metal Tank (Heavy Gauge) Manufacturing, 332420","Plastics Pipe and Pipe Fitting Manufacturing , 326122",0.4897959183673469
+440,"Mineral Wool Manufacturing , 327993","Plastics Packaging Film and Sheet (including Laminated) Manufacturing , 326112",0.5454545454545454
+441,"Mineral Wool Manufacturing , 327993","Pesticide and Other Agricultural Chemical Manufacturing, 325320",0.5
+442,"Miscellaneous Financial Investment Activities , 523999","Wind Electric Power Generation , 221115",0.42857142857142855
+443,"Miscellaneous Intermediation , 523910","Portfolio Management , 523920",0.6428571428571429
+444,"Miscellaneous Intermediation , 523910","Open-End Investment Funds , 525910",0.5217391304347826
+445,"Monetary Authorities-Central Bank, 521110","Securities and Commodity Exchanges, 523210",0.5714285714285714
+446,"Monetary Authorities-Central Bank, 521110","Paperboard Mills , 322130",0.5
+447,"Monetary Authorities-Central Bank, 521110","Scale and Balance Manufacturing , 333997",0.5
+448,"Mortgage and Nonmortgage Loan Brokers , 522310","Sports Teams and Clubs , 711211",0.5161290322580645
+449,"Motion Picture and Video Distribution, 512120","Record Production and Distribution, 512250",0.75
+450,"Motion Picture and Video Distribution, 512120","Sound Recording Studios, 512240",0.6666666666666666
+451,"Motion Picture and Video Distribution, 512120","Scale and Balance Manufacturing , 333997",0.5714285714285714
+452,"Motion Picture and Video Distribution, 512120","Solid Waste Combustors and Incinerators , 562213",0.5714285714285714
+453,"Music Publishers, 512230","Record Production and Distribution, 512250",0.6666666666666666
+454,"Music Publishers, 512230","Steel Investment Foundries , 331512",0.6666666666666666
+455,"Music Publishers, 512230","Scale and Balance Manufacturing , 333997",0.5
+456,"Music Publishers, 512230","Solid Waste Combustors and Incinerators , 562213",0.5
+457,"Natural Gas Extraction , 211130","Pipeline Transportation of Crude Oil, 486110",0.7142857142857143
+458,"Natural Gas Extraction , 211130","Oil and Gas Pipeline and Related Structures Construction , 237120",0.631578947368421
+459,"Natural Gas Extraction , 211130","Oil and Gas Field Machinery and Equipment Manufacturing , 333132",0.5833333333333334
+460,"Navigational Services to Shipping , 488330","Other Support Activities for Water Transportation, 488390",0.6666666666666666
+461,"New Multifamily Housing Construction (except For-Sale Builders) , 236116","Wine and Distilled Alcoholic Beverage Merchant Wholesalers , 424820",0.47619047619047616
+462,"News Syndicates, 519110","Other Management Consulting Services , 541618",0.45161290322580644
+463,"News Syndicates, 519110","Phosphatic Fertilizer Manufacturing , 325312",0.25
+464,"Nitrogenous Fertilizer Manufacturing , 325311","Other Electric Power Generation , 221118",0.6
+465,"Nitrogenous Fertilizer Manufacturing , 325311","Satellite Telecommunications, 517410",0.5333333333333333
+466,"Nitrogenous Fertilizer Manufacturing , 325311","Steam and Air-Conditioning Supply , 221330",0.5714285714285714
+467,"Noncurrent-Carrying Wiring Device Manufacturing , 335932","Synthetic Rubber Manufacturing , 325212",0.5263157894736842
+468,"Nonferrous Forging , 332112","Other Guided Missile and Space Vehicle Parts and Auxiliary Equipment Manufacturing , 336419",0.5
+469,"Nonferrous Forging , 332112","Nonscheduled Chartered Freight Air Transportation , 481212",0.4444444444444444
+470,"Nonferrous Metal (except Aluminum) Smelting and Refining , 331410","Secondary Smelting, Refining, and Alloying of Nonferrous Metal (except Copper and Aluminum) , 331492",0.47058823529411764
+471,"Nonferrous Metal (except Aluminum) Smelting and Refining , 331410","Other Chemical and Fertilizer Mineral Mining , 212393",0.2857142857142857
+472,"Nonferrous Metal (except Copper and Aluminum) Rolling, Drawing, and Extruding , 331491","Nuclear Electric Power Generation , 221113",0.5
+473,"Nonferrous Metal (except Copper and Aluminum) Rolling, Drawing, and Extruding , 331491","Rolled Steel Shape Manufacturing , 331221",0.5
+474,"Nonresidential Property Managers , 531312","Office Machinery and Equipment Rental and Leasing, 532420",0.5185185185185185
+475,"Nonscheduled Chartered Freight Air Transportation , 481212","Scheduled Freight Air Transportation , 481112",0.42857142857142855
+476,"Nonscheduled Chartered Passenger Air Transportation , 481211","Payroll Services , 541214",0.4
+477,"Office Machinery and Equipment Rental and Leasing, 532420","Sports Teams and Clubs , 711211",0.6538461538461539
+478,"Offices of Lawyers, 541110","Other Activities Related to Real Estate , 531390",0.4528301886792453
+479,"Offices of Lawyers, 541110","Television Broadcasting, 515120",0.4186046511627907
+480,"Oil and Gas Field Machinery and Equipment Manufacturing , 333132","Pipeline Transportation of Crude Oil, 486110",0.7272727272727273
+481,"Oil and Gas Pipeline and Related Structures Construction , 237120","Pipeline Transportation of Crude Oil, 486110",0.6111111111111112
+482,"Open-End Investment Funds , 525910","Secondary Smelting, Refining, and Alloying of Nonferrous Metal (except Copper and Aluminum) , 331492",0.6666666666666666
+483,"Open-End Investment Funds , 525910","Port and Harbor Operations, 488310",0.5
+484,"Open-End Investment Funds , 525910","Residential Electric Lighting Fixture Manufacturing , 335121",0.5
+485,"Ophthalmic Goods Merchant Wholesalers , 423460","Storage Battery Manufacturing , 335911",0.5625
+486,"Ophthalmic Goods Merchant Wholesalers , 423460","Toy and Hobby Goods and Supplies Merchant Wholesalers , 423920",0.5365853658536586
+487,"Optical Instrument and Lens Manufacturing , 333314","Unlaminated Plastics Profile Shape Manufacturing , 326121",0.4888888888888889
+488,"Other Basic Inorganic Chemical Manufacturing , 325180","Petroleum Lubricating Oil and Grease Manufacturing , 324191",0.5405405405405406
+489,"Other Commercial Equipment Merchant Wholesalers , 423440","Other Industrial Machinery Manufacturing , 333249",0.5
+490,"Other Commercial Equipment Merchant Wholesalers , 423440","Printing and Writing Paper Merchant Wholesalers , 424110",0.5176470588235295
+491,"Other Commercial Equipment Merchant Wholesalers , 423440","Soft Drink Manufacturing , 312111",0.5054945054945055
+492,"Other Commercial and Service Industry Machinery Manufacturing , 333318","Paint and Coating Manufacturing, 325510",0.4857142857142857
+493,"Other Communications Equipment Manufacturing, 334290","Photographic and Photocopying Equipment Manufacturing , 333316",0.5
+494,"Other Depository Credit Intermediation , 522190","Secondary Market Financing , 522294",0.5
+495,"Other Direct Insurance (except Life, Health, and Medical) Carriers , 524128","Switchgear and Switchboard Apparatus Manufacturing , 335313",0.42424242424242425
+496,"Other Electric Power Generation , 221118","Satellite Telecommunications, 517410",0.6666666666666666
+497,"Other Electronic Component Manufacturing , 334419","Radio and Television Broadcasting and Wireless Communications Equipment Manufacturing, 334220",0.5660377358490566
+498,"Other Electronic Component Manufacturing , 334419","Semiconductor and Related Device Manufacturing , 334413",0.5283018867924528
+499,"Other Electronic Component Manufacturing , 334419","Other Electronic Parts and Equipment Merchant Wholesalers , 423690",0.5185185185185185
+500,"Other Electronic Parts and Equipment Merchant Wholesalers , 423690","Semiconductor and Related Device Manufacturing , 334413",0.5853658536585366
+501,"Other Engine Equipment Manufacturing , 333618","Overhead Traveling Crane, Hoist, and Monorail System Manufacturing , 333923",0.46153846153846156
+502,"Other Farm Product Raw Material Merchant Wholesalers , 424590","Refrigeration Equipment and Supplies Merchant Wholesalers , 423740",0.5074626865671642
+503,"Other Financial Vehicles , 525990","Scheduled Passenger Air Transportation , 481111",0.5
+504,"Other Industrial Machinery Manufacturing , 333249","Other Measuring and Controlling Device Manufacturing , 334519",0.5393258426966292
+505,"Other Industrial Machinery Manufacturing , 333249","Plastics Materials and Basic Forms and Shapes Merchant Wholesalers , 424610",0.5348837209302325
+506,"Other Industrial Machinery Manufacturing , 333249","Special Die and Tool, Die Set, Jig, and Fixture Manufacturing , 333514",0.5287356321839081
+507,"Other Lighting Equipment Manufacturing , 335129","Photographic Equipment and Supplies Merchant Wholesalers , 423410",0.6
+508,"Other Lighting Equipment Manufacturing , 335129","Passenger Car Leasing , 532112",0.5
+509,"Other Lighting Equipment Manufacturing , 335129","Printing Ink Manufacturing, 325910",0.5142857142857142
+510,"Other Lighting Equipment Manufacturing , 335129","Residential Electric Lighting Fixture Manufacturing , 335121",0.5185185185185185
+511,"Other Lighting Equipment Manufacturing , 335129","Secondary Smelting, Refining, and Alloying of Nonferrous Metal (except Copper and Aluminum) , 331492",0.5
+512,"Other Lighting Equipment Manufacturing , 335129","Sports Teams and Clubs , 711211",0.5
+513,"Other Lighting Equipment Manufacturing , 335129","Unlaminated Plastics Profile Shape Manufacturing , 326121",0.5128205128205128
+514,"Other Measuring and Controlling Device Manufacturing , 334519","Printed Circuit Assembly (Electronic Assembly) Manufacturing , 334418",0.5135135135135135
+515,"Other Metal Valve and Pipe Fitting Manufacturing , 332919","Petroleum Lubricating Oil and Grease Manufacturing , 324191",0.5384615384615384
+516,"Other Metal Valve and Pipe Fitting Manufacturing , 332919","Secondary Smelting, Refining, and Alloying of Nonferrous Metal (except Copper and Aluminum) , 331492",0.5
+517,"Other Motion Picture and Video Industries , 512199","Scale and Balance Manufacturing , 333997",0.6666666666666666
+518,"Other Motion Picture and Video Industries , 512199","Residential Electric Lighting Fixture Manufacturing , 335121",0.625
+519,"Other Motion Picture and Video Industries , 512199","Potash, Soda, and Borate Mineral Mining , 212391",0.2857142857142857
+520,"Other Motion Picture and Video Industries , 512199","Securities and Commodity Exchanges, 523210",0.5
+521,"Other Nonhazardous Waste Treatment and Disposal , 562219","Sports Teams and Clubs , 711211",0.5555555555555556
+522,"Other Nonhazardous Waste Treatment and Disposal , 562219","Petroleum Lubricating Oil and Grease Manufacturing , 324191",0.55
+523,"Other Spectator Sports , 711219","Promoters of Performing Arts, Sports, and Similar Events without Facilities , 711320",0.4186046511627907
+524,"Other Support Activities for Water Transportation, 488390","Ship Building and Repairing , 336611",0.5925925925925926
+525,"Other Warehousing and Storage, 493190","Sewage Treatment Facilities , 221320",0.5454545454545454
+526,"Other Warehousing and Storage, 493190","Soft Drink Manufacturing , 312111",0.5294117647058824
+527,"Outdoor Advertising, 541850","Pharmaceutical Preparation Manufacturing , 325412",0.4117647058823529
+528,"Overhead Traveling Crane, Hoist, and Monorail System Manufacturing , 333923","Petroleum Lubricating Oil and Grease Manufacturing , 324191",0.5555555555555556
+529,"Packaging Machinery Manufacturing , 333993","Printing Ink Manufacturing, 325910",0.5
+530,"Packaging Machinery Manufacturing , 333993","Rubber and Plastics Hoses and Belting Manufacturing, 326220",0.5
+531,"Paint and Coating Manufacturing, 325510","Petroleum Lubricating Oil and Grease Manufacturing , 324191",0.5306122448979592
+532,"Paint and Coating Manufacturing, 325510","Plastics Material and Resin Manufacturing , 325211",0.5277777777777778
+533,"Paint and Coating Manufacturing, 325510","Printing and Writing Paper Merchant Wholesalers , 424110",0.5245901639344263
+534,"Paint and Coating Manufacturing, 325510","Sports Teams and Clubs , 711211",0.5079365079365079
+535,"Paint, Varnish, and Supplies Merchant Wholesalers , 424950","Specialty (except Psychiatric and Substance Abuse) Hospitals , 622310",0.45714285714285713
+536,"Paper (except Newsprint) Mills , 322121","Residential Electric Lighting Fixture Manufacturing , 335121",0.375
+537,"Paperboard Mills , 322130","Passenger Car Leasing , 532112",0.5555555555555556
+538,"Passenger Car Leasing , 532112","Printing Machinery and Equipment Manufacturing , 333244",0.5384615384615384
+539,"Petrochemical Manufacturing, 325110","Petroleum Refineries, 324110",0.5
+540,"Petroleum Lubricating Oil and Grease Manufacturing , 324191","Spice and Extract Manufacturing , 311942",0.47058823529411764
+541,"Petroleum Lubricating Oil and Grease Manufacturing , 324191","Sports Teams and Clubs , 711211",0.5416666666666666
+542,"Petroleum Refineries, 324110","Pipeline Transportation of Crude Oil, 486110",0.48
+543,"Photographic and Photocopying Equipment Manufacturing , 333316","Search, Detection, Navigation, Guidance, Aeronautical, and Nautical System and Instrument Manufacturing , 334511",0.5
+544,"Pipeline Transportation of Refined Petroleum Products, 486910","Sewage Treatment Facilities , 221320",0.5
+545,"Plastics Material and Resin Manufacturing , 325211","Plastics Materials and Basic Forms and Shapes Merchant Wholesalers , 424610",0.5128205128205128
+546,"Plastics Materials and Basic Forms and Shapes Merchant Wholesalers , 424610","Rolling Mill and Other Metalworking Machinery Manufacturing , 333519",0.5263157894736842
+547,"Plastics Packaging Film and Sheet (including Laminated) Manufacturing , 326112","Printing Ink Manufacturing, 325910",0.6666666666666666
+548,"Plastics Packaging Film and Sheet (including Laminated) Manufacturing , 326112","Unlaminated Plastics Film and Sheet (except Packaging) Manufacturing , 326113",0.5714285714285714
+549,"Plastics Pipe and Pipe Fitting Manufacturing , 326122","Soft Drink Manufacturing , 312111",0.5
+550,"Political Organizations , 813940","Professional Organizations , 813920",0.5769230769230769
+551,"Portfolio Management , 523920","Securities Brokerage , 523120",0.45
+552,"Power Boiler and Heat Exchanger Manufacturing, 332410","Steam and Air-Conditioning Supply , 221330",0.42105263157894735
+553,"Primary Battery Manufacturing , 335912","Semiconductor Machinery Manufacturing , 333242",0.42857142857142855
+554,"Printing Ink Manufacturing, 325910","Rubber and Plastics Hoses and Belting Manufacturing, 326220",0.5625
+555,"Printing Ink Manufacturing, 325910","Unlaminated Plastics Film and Sheet (except Packaging) Manufacturing , 326113",0.5128205128205128
+556,"Printing and Writing Paper Merchant Wholesalers , 424110","Sales Financing , 522220",0.5185185185185185
+557,"Printing and Writing Paper Merchant Wholesalers , 424110","Sawmill, Woodworking, and Paper Machinery Manufacturing , 333243",0.43478260869565216
+558,"Printing and Writing Paper Merchant Wholesalers , 424110","Soft Drink Manufacturing , 312111",0.5
+559,"Professional Organizations , 813920","Public Relations Agencies, 541820",0.4888888888888889
+560,"Professional and Management Development Training , 611430","Solar Electric Power Generation , 221114",0.4918032786885246
+561,"Professional and Management Development Training , 611430","Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology) , 541715",0.5
+562,"Psychiatric and Substance Abuse Hospitals , 622210","Sports Teams and Clubs , 711211",0.5230769230769231
+563,"Public Relations Agencies, 541820","Research and Development in Nanotechnology , 541713",0.5238095238095238
+564,"Radio and Television Broadcasting and Wireless Communications Equipment Manufacturing, 334220","Research and Development in Biotechnology (except Nanobiotechnology), 541714",0.5116279069767442
+565,"Railroad Rolling Stock Manufacturing, 336510","Steam and Air-Conditioning Supply , 221330",0.4444444444444444
+566,"Record Production and Distribution, 512250","Tobacco Manufacturing , 312230",0.4444444444444444
+567,"Record Production and Distribution, 512250","Scale and Balance Manufacturing , 333997",0.5714285714285714
+568,"Record Production and Distribution, 512250","Solid Waste Combustors and Incinerators , 562213",0.5714285714285714
+569,"Record Production and Distribution, 512250","Sound Recording Studios, 512240",0.6666666666666666
+570,"Refrigeration Equipment and Supplies Merchant Wholesalers , 423740","Soft Drink Manufacturing , 312111",0.5
+571,"Refrigeration Equipment and Supplies Merchant Wholesalers , 423740","Specialty (except Psychiatric and Substance Abuse) Hospitals , 622310",0.4931506849315068
+572,"Refrigeration Equipment and Supplies Merchant Wholesalers , 423740","Transportation Equipment and Supplies (except Motor Vehicle) Merchant Wholesalers , 423860",0.417910447761194
+573,"Refrigeration Equipment and Supplies Merchant Wholesalers , 423740","Sports Teams and Clubs , 711211",0.5
+574,"Relay and Industrial Control Manufacturing , 335314","Special Die and Tool, Die Set, Jig, and Fixture Manufacturing , 333514",0.5
+575,"Research and Development in Biotechnology (except Nanobiotechnology), 541714","Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology) , 541715",0.5769230769230769
+576,"Research and Development in Nanotechnology , 541713","Research and Development in the Social Sciences and Humanities , 541720",0.46511627906976744
+577,"Research and Development in Nanotechnology , 541713","Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology) , 541715",0.5
+578,"Rolled Steel Shape Manufacturing , 331221","Secondary Smelting and Alloying of Aluminum , 331314",0.5263157894736842
+579,"Rolling Mill and Other Metalworking Machinery Manufacturing , 333519","Special Die and Tool, Die Set, Jig, and Fixture Manufacturing , 333514",0.5517241379310345
+580,"Rubber and Plastics Hoses and Belting Manufacturing, 326220","Speed Changer, Industrial High-Speed Drive, and Gear Manufacturing , 333612",0.5384615384615384
+581,"Rubber and Plastics Hoses and Belting Manufacturing, 326220","Timber Tract Operations, 113110",0.47619047619047616
+582,"Sanitary Paper Product Manufacturing , 322291","Solid Waste Combustors and Incinerators , 562213",0.5
+583,"Satellite Telecommunications, 517410","Steam and Air-Conditioning Supply , 221330",0.631578947368421
+584,"Scale and Balance Manufacturing , 333997","Securities and Commodity Exchanges, 523210",0.8
+585,"Scale and Balance Manufacturing , 333997","Solid Waste Combustors and Incinerators , 562213",0.6666666666666666
+586,"Scale and Balance Manufacturing , 333997","Teleproduction and Other Postproduction Services , 512191",0.5
+587,"Scheduled Passenger Air Transportation , 481111","Travel Agencies, 561510",0.4230769230769231
+588,"Scheduled Passenger Air Transportation , 481111","Sports Teams and Clubs , 711211",0.509090909090909
+589,"Secondary Smelting, Refining, and Alloying of Nonferrous Metal (except Copper and Aluminum) , 331492","Synthetic Dye and Pigment Manufacturing, 325130",0.5263157894736842
+590,"Secondary Smelting, Refining, and Alloying of Nonferrous Metal (except Copper and Aluminum) , 331492","Steam and Air-Conditioning Supply , 221330",0.5
+591,"Securities and Commodity Exchanges, 523210","Wet Corn Milling , 311221",0.5
+592,"Small Arms, Ordnance, and Ordnance Accessories Manufacturing , 332994","Transportation Equipment and Supplies (except Motor Vehicle) Merchant Wholesalers , 423860",0.4
+593,"Soft Drink Manufacturing , 312111","Sports Teams and Clubs , 711211",0.5151515151515151
+594,"Soft Drink Manufacturing , 312111","Tobacco and Tobacco Product Merchant Wholesalers , 424940",0.5
+595,"Solid Waste Combustors and Incinerators , 562213","Teleproduction and Other Postproduction Services , 512191",0.5
+596,"Steel Foundries (except Investment) , 331513","Steel Investment Foundries , 331512",0.5
+597,"Storage Battery Manufacturing , 335911","Unlaminated Plastics Profile Shape Manufacturing , 326121",0.5294117647058824
+598,"Surface Active Agent Manufacturing , 325613","Synthetic Dye and Pigment Manufacturing, 325130",0.6666666666666666
+599,"Surgical Appliance and Supplies Manufacturing , 339113","Surgical and Medical Instrument Manufacturing , 339112",0.5161290322580645
+600,"Timber Tract Operations, 113110","Wood Preservation , 321114",0.47058823529411764

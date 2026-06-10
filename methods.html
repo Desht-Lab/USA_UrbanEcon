@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How it works — Methodology · Desht</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1115; --fg: #e5e7eb; --muted: #9ca3af; --panel: #14171d; --card: #16191f;
+      --accent: #376c8a; --accent-2: #4f86a4; --nav-accent: #e5b983; --nav-accent-2: #f0cb9b;
+      --border: #222733; --accent-shadow: rgba(55,108,138,.35);
+      --bg-grad-1: rgba(55,108,138,.12); --bg-grad-2: rgba(229,185,131,.07);
+      --shadow: 0 12px 30px rgba(0,0,0,.35); --shadow-sm: 0 6px 16px rgba(0,0,0,.25);
+      --radius: 16px; --radius-sm: 10px;
+    }
+    [data-theme="light"] {
+      --bg: #f8fafc; --fg: #0f172a; --muted: #475569; --panel: #eeedeb; --card: #ffffff;
+      --accent: #e5b983; --accent-2: #e4c7a1; --nav-accent: #376c8a; --nav-accent-2: #4f86a4;
+      --border: #e9e1d7; --accent-shadow: rgba(229,185,131,.35);
+      --bg-grad-1: rgba(55,108,138,.08); --bg-grad-2: rgba(229,185,131,.14);
+      --shadow: 0 12px 30px rgba(15,23,42,.14); --shadow-sm: 0 6px 16px rgba(15,23,42,.10);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--fg);
+      font-family: "Gotham","Space Grotesk","Inter","Segoe UI",system-ui,sans-serif;
+      background:
+        radial-gradient(60% 50% at 12% 0%, var(--bg-grad-1), transparent 60%),
+        radial-gradient(55% 55% at 100% 100%, var(--bg-grad-2), transparent 55%),
+        var(--bg);
+      background-attachment: fixed; line-height: 1.65; -webkit-font-smoothing: antialiased;
+    }
+    /* language switch */
+    html[data-lang="en"] .lang.ru { display: none; }
+    html[data-lang="ru"] .lang.en { display: none; }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 40;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 12px clamp(16px,3vw,28px);
+      border-bottom: 1px solid var(--border);
+      background: color-mix(in srgb, var(--panel) 80%, transparent);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark {
+      width: 36px; height: 36px; flex: none; display: grid; place-items: center;
+      border-radius: 11px; background: linear-gradient(135deg, var(--nav-accent), var(--nav-accent-2));
+      color: #0f1115; font-weight: 700; font-size: 18px; box-shadow: 0 6px 18px var(--accent-shadow);
+    }
+    .brand-title { font-size: 16px; font-weight: 600; }
+    .brand-sub { font-size: 12px; color: var(--muted); }
+    .topbar-right { display: flex; align-items: center; gap: 10px; }
+    .pill-btn {
+      display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px;
+      border: 1px solid var(--border); border-radius: 999px; background: var(--card);
+      color: var(--fg); font: inherit; font-size: 12.5px; font-weight: 500; cursor: pointer;
+      text-decoration: none; white-space: nowrap;
+      transition: border-color .15s, color .15s, transform .15s;
+    }
+    .pill-btn:hover { border-color: var(--nav-accent); color: var(--nav-accent); transform: translateY(-1px); }
+    .icon-btn {
+      width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--border);
+      border-radius: 11px; background: var(--card); color: var(--fg); cursor: pointer; font-size: 16px;
+      transition: border-color .15s, transform .15s;
+    }
+    .icon-btn:hover { border-color: var(--accent-2); transform: translateY(-1px); }
+    .lang-switch { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; }
+    .lang-switch button {
+      border: 0; background: transparent; color: var(--muted); font: inherit; font-size: 12.5px; font-weight: 600;
+      padding: 8px 13px; cursor: pointer;
+    }
+    .lang-switch button.on { background: var(--nav-accent); color: #0f1115; }
+
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 clamp(20px,5vw,32px); }
+    .hero { padding: clamp(44px,8vh,96px) 0 26px; }
+    .eyebrow { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--nav-accent); font-weight: 600; }
+    .hero h1 { font-size: clamp(28px,4.6vw,46px); line-height: 1.1; margin: 14px 0 0; letter-spacing: -.5px; }
+    .hero p { font-size: clamp(16px,2vw,19px); color: var(--muted); max-width: 68ch; margin: 16px 0 0; }
+
+    .step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 26px 0; border-top: 1px solid var(--border); }
+    .step-num {
+      width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+      font-size: 18px; font-weight: 700; color: #0f1115;
+      background: linear-gradient(135deg, var(--nav-accent), var(--nav-accent-2));
+      box-shadow: 0 6px 16px var(--accent-shadow);
+    }
+    .step h2 { font-size: clamp(19px,2.4vw,24px); margin: 2px 0 8px; line-height: 1.2; }
+    .step p { margin: 0 0 10px; color: var(--fg); }
+    .step p.sub { color: var(--muted); font-size: 14.5px; }
+
+    .callout {
+      margin: 14px 0 4px; padding: 16px 18px; border: 1px solid color-mix(in srgb, var(--nav-accent) 45%, var(--border));
+      border-left: 3px solid var(--nav-accent); border-radius: 12px;
+      background: color-mix(in srgb, var(--nav-accent) 9%, transparent);
+    }
+    .callout .tag { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--nav-accent); }
+    .callout p { margin: 6px 0 0; font-size: 14.5px; }
+
+    .formula {
+      font-family: "Space Grotesk", monospace; font-size: 14px; background: var(--card);
+      border: 1px solid var(--border); border-radius: 8px; padding: 4px 9px; display: inline-block; margin-top: 6px;
+    }
+    .pills { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+    .pill { font-size: 12px; padding: 4px 11px; border-radius: 999px; border: 1px solid var(--border); background: color-mix(in srgb, var(--card) 70%, transparent); color: var(--muted); }
+    .paren { font-style: italic; font-size: .85em; opacity: .9; }
+
+    .funnel { display: flex; flex-direction: column; align-items: center; gap: 7px; margin: 16px 0 4px; }
+    .funnel-row { text-align: center; padding: 12px 18px; border: 1px solid var(--border); border-radius: 12px;
+      background: color-mix(in srgb, var(--card) 75%, transparent); }
+    .funnel-row b { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .funnel-row .fl { display: block; font-size: 12.5px; color: var(--muted); margin-top: 1px; }
+    .funnel-keep { border-color: color-mix(in srgb, var(--nav-accent) 55%, var(--border));
+      background: linear-gradient(135deg, color-mix(in srgb, var(--nav-accent) 22%, var(--card)), var(--card)); }
+    .funnel-keep b { color: var(--nav-accent); }
+    .funnel .down { color: var(--muted); font-size: 15px; line-height: 1; }
+    .funnel .crit { font-size: 12px; color: var(--muted); max-width: 470px; text-align: center; line-height: 1.4; }
+    .funnel .drop { font-size: 11.5px; color: var(--muted); opacity: .8; }
+    .crit-list { list-style: none; margin: 2px 0; padding: 0; max-width: 480px; display: flex; flex-direction: column; gap: 5px; }
+    .crit-list li { font-size: 12.5px; color: var(--fg); border: 1px solid var(--border); border-radius: 9px;
+      padding: 8px 12px; background: color-mix(in srgb, var(--card) 62%, transparent); }
+    .crit-list .k { color: var(--nav-accent); font-weight: 700; margin-right: 5px; }
+
+    .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+    .mini { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; background: color-mix(in srgb, var(--card) 70%, transparent); }
+    .mini h3 { margin: 0 0 4px; font-size: 15px; }
+    .mini p { margin: 0; font-size: 13.5px; color: var(--muted); }
+
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; padding: 30px 0 80px; }
+    .cta a { flex: 1; min-width: 220px; text-decoration: none; color: var(--fg);
+      border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px;
+      background: color-mix(in srgb, var(--card) 80%, transparent); transition: border-color .15s, transform .15s; }
+    .cta a:hover { border-color: var(--nav-accent); transform: translateY(-2px); }
+    .cta b { display: block; font-size: 16px; }
+    .cta span { font-size: 13px; color: var(--muted); }
+
+    @media (max-width: 620px) {
+      .step { grid-template-columns: 1fr; gap: 8px; }
+      .step-num { width: 38px; height: 38px; font-size: 16px; }
+      .twocol { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">◇</div>
+      <div>
+        <div class="brand-title"><span class="lang en">How it works</span><span class="lang ru">Как это работает</span></div>
+        <div class="brand-sub">Desht · methodology</div>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <a class="pill-btn" href="index_cities.html"><span class="lang en">← Network</span><span class="lang ru">← Сеть</span></a>
+      <a class="pill-btn" href="clusters_story.html"><span class="lang en">Storyline</span><span class="lang ru">Сторилайн</span></a>
+      <div class="lang-switch" id="lang-switch">
+        <button data-lang="en" type="button">EN</button>
+        <button data-lang="ru" type="button">RU</button>
+      </div>
+      <button id="theme-toggle" class="icon-btn" type="button" title="Toggle theme" aria-label="Toggle theme">☀</button>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow"><span class="lang en">Methodology · in plain language</span><span class="lang ru">Методология · простыми словами</span></div>
+      <h1>
+        <span class="lang en">How we mapped America's nine economies</span>
+        <span class="lang ru">Как мы составили карту девяти экономик Америки</span>
+      </h1>
+      <p>
+        <span class="lang en">No statistics background needed. This page walks through how we turned raw business
+          data into nine economic "types" of American city — and borrows one neat idea from the world of
+          language AI to do it.</span>
+        <span class="lang ru">На этой странице объясняется, как мы
+          превратили данные о бизнесе в девять экономических «типов» американских городов — и позаимствовали для
+          этого одну изящную идею из мира языкового ИИ.</span>
+      </p>
+    </section>
+
+    <!-- Step 1 -->
+    <section class="step">
+      <div class="step-num">1</div>
+      <div>
+        <h2><span class="lang en">What is each city actually good at?</span><span class="lang ru">В чём каждый город действительно силён?</span></h2>
+        <p>
+          <span class="lang en">We start with U.S. Census business data (2023): how many people every metro employs in
+            each of ~960 detailed industries. A city is called <b>specialised</b> in an industry when that industry
+            takes up a bigger share of its economy than it does nationally — economists call this a
+            "location quotient." Detroit is specialised in auto parts; Houston in oil-field services.</span>
+          <span class="lang ru">Мы берём данные Бюро переписи США о бизнесе (2023): сколько человек в каждом
+            мегаполисе занято в каждой из ~960 детальных отраслей. Город считается <b>специализированным</b> в
+            отрасли, если на неё приходится бóльшая доля его экономики, чем в среднем по стране — экономисты
+            называют это «коэффициентом локализации». Детройт специализируется на автозапчастях, Хьюстон — на
+            нефтесервисе.</span>
+        </p>
+        <p>
+          <span class="lang en">More precisely this is <b>Revealed Comparative Advantage (RCA)</b> — also called a location
+            quotient. For a city <i>c</i> and industry <i>p</i> it compares the industry's share of that city's payroll
+            with its share of the whole country's payroll:</span>
+          <span class="lang ru">Точнее, это <b>выявленное сравнительное преимущество (RCA, Revealed Comparative
+            Advantage)</b> — оно же коэффициент локализации. Для города <i>c</i> и отрасли <i>p</i> оно сравнивает долю
+            отрасли в фонде оплаты труда города с её долей по стране:</span>
+        </p>
+        <div class="formula">RCA(c, p) = ( payroll<sub>c,p</sub> / payroll<sub>c</sub> ) ÷ ( payroll<sub>p</sub> / payroll<sub>total</sub> )</div>
+        <p>
+          <span class="lang en">RCA = 1 is the city's "fair share" of the industry; RCA &gt; 1 means over-represented.
+            We collapse it into a yes/no flag — the <b>specialisation matrix M<sub>cp</sub></b>:
+            <b>M<sub>cp</sub> = 1 when RCA ≥ 1</b>, otherwise 0. So each city becomes a checklist of the ~960
+            industries it is specialised in. (We measure on payroll, not headcount, so a few high-paying jobs
+            outweigh many low-paying ones.)</span>
+          <span class="lang ru">RCA = 1 — это «справедливая доля» города в отрасли; RCA &gt; 1 — отрасль представлена
+            сильнее обычного. Мы сворачиваем это в флаг да/нет — <b>матрицу специализации M<sub>cp</sub></b>:
+            <b>M<sub>cp</sub> = 1, если RCA ≥ 1</b>, иначе 0. Так каждый город превращается в список из ~960 отраслей,
+            в которых он специализируется. (Считаем по фонду оплаты труда, а не по числу занятых: несколько
+            высокооплачиваемых мест весят больше, чем много низкооплачиваемых.)</span>
+        </p>
+        <div class="formula">M<sub>cp</sub> = 1, if RCA(c, p) ≥ 1; else 0</div>
+      </div>
+    </section>
+
+    <!-- Step 2 · city filter -->
+    <section class="step">
+      <div class="step-num">2</div>
+      <div>
+        <h2><span class="lang en">Which cities do we even cluster?</span><span class="lang ru">Какие города мы вообще кластеризуем?</span></h2>
+        <p>
+          <span class="lang en">Not all 925 U.S. metros are worth clustering — most are ordinary. So we first sort every
+            metro into <b>three economic tiers</b> (low / middle / elite) by clustering them on three standardised
+            indicators — <b>ECI</b> (complexity), <b>industrial diversity</b> and <b>average wage</b> — and then keep a
+            metro if it meets <b>any one</b> of the three rules below. That leaves <b>151 metros</b> with a real
+            economic identity (41 elite-tier + 28 with over a million jobs + qualifying mid-tier metros); the other
+            774 are set aside. "Beats its size-trend" means it scores higher on complexity or wage than a metro of its
+            size usually would.</span>
+          <span class="lang ru">Не все 925 мегаполисов США стоит кластеризовать — большинство обычные. Поэтому сначала мы
+            делим каждый город на <b>три экономических уровня</b> (низкий / средний / элитный), кластеризуя их по трём
+            стандартизованным показателям — <b>ECI</b> (сложность), <b>диверсификация отраслей</b> и <b>средняя
+            зарплата</b>, — а затем оставляем город, если выполнено <b>хотя бы одно</b> из трёх правил ниже. Остаётся
+            <b>151 город</b> с реальной экономической идентичностью (41 из элитного уровня + 28 с занятостью свыше
+            миллиона + подходящие города среднего уровня); остальные 774 откладываются. «Превышает тренд для своего
+            размера» означает, что по сложности или зарплате город выше, чем обычно бывает у города его размера.</span>
+        </p>
+        <div class="funnel">
+          <div class="funnel-row" style="width:100%;max-width:470px">
+            <b>925</b><span class="fl"><span class="lang en">all U.S. metro areas</span><span class="lang ru">все мегаполисы США</span></span>
+          </div>
+          <div class="down">▼</div>
+          <div class="crit"><span class="lang en">3 tiers by ECI · diversity · wage → keep a metro if <b>ANY</b>:</span><span class="lang ru">3 уровня по ECI · диверсификации · зарплате → оставляем, если выполнено <b>ЛЮБОЕ</b>:</span></div>
+          <ul class="crit-list">
+            <li><span class="k">1</span><span class="lang en">it's in the <b>elite tier</b> (the top-complexity third)</span><span class="lang ru">город в <b>элитном уровне</b> (треть с наивысшей сложностью)</span></li>
+            <li><span class="k">2</span><span class="lang en">it has <b>&gt; 1,000,000 jobs</b> (any very large metro)</span><span class="lang ru">в нём <b>&gt; 1 000 000 рабочих мест</b> (любой очень крупный город)</span></li>
+            <li><span class="k">3</span><span class="lang en">it's <b>mid-tier</b>, has <b>&gt; 50,000 jobs</b>, and <b>beats its size-trend</b> on complexity or wage</span><span class="lang ru">город <b>среднего уровня</b>, в нём <b>&gt; 50 000 мест</b>, и он <b>превышает тренд для своего размера</b> по сложности или зарплате</span></li>
+          </ul>
+          <div class="down">▼</div>
+          <div class="funnel-row funnel-keep" style="width:64%;max-width:310px">
+            <b>151</b><span class="fl"><span class="lang en">distinctive metros we cluster</span><span class="lang ru">характерных города — их и кластеризуем</span></span>
+          </div>
+          <div class="drop"><span class="lang en">774 generic metros set aside</span><span class="lang ru">774 обычных города отложены в сторону</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 3 · TF-IDF -->
+    <section class="step">
+      <div class="step-num">3</div>
+      <div>
+        <h2><span class="lang en">A trick borrowed from language AI: TF-IDF</span><span class="lang ru">Приём из языкового ИИ: TF-IDF</span></h2>
+        <p>
+          <span class="lang en">But why weight industries at all? Because two simpler approaches both break.
+            <b>Treat every industry equally</b> and the ubiquitous ones — gas stations, restaurants, dentists —
+            drown out everything, so every city looks like every other and the clusters come out noisy and generic.
+            <b>Simply delete the common industries</b> and you're left with rare ones that almost no two cities share,
+            so the links between cities go sparse and essentially random. We need something in between.</span>
+          <span class="lang ru">Но зачем вообще взвешивать отрасли? Потому что два более простых подхода ломаются.
+            <b>Считать все отрасли одинаково важными</b> — и вездесущие (заправки, рестораны, стоматологии)
+            заглушают всё: все города выглядят одинаково, а кластеры получаются шумными и безликими.
+            <b>Просто удалить частые отрасли</b> — и остаются редкие, которых почти ни у одной пары городов нет
+            одновременно: связи между городами становятся разрежёнными и по сути случайными. Нужно что-то посередине.</span>
+        </p>
+        <p>
+          <span class="lang en"><b>TF-IDF</b> (term frequency–inverse document frequency) is exactly that middle path —
+            a classic technique from <b>natural language processing (NLP)</b>, the field behind search engines and
+            chatbots. It scores words by how <em>informative</em> they are: super-common words like "the" and "and"
+            get almost no weight, while rare, distinctive words carry a lot. We keep <em>every</em> industry, but weight
+            each by how much it really distinguishes a city.</span>
+          <span class="lang ru"><b>TF-IDF</b> (частота слова × обратная частота документа) — это и есть тот средний путь:
+            классический приём из <b>обработки естественного языка (NLP)</b>, той самой области, что стоит за
+            поисковиками и чат-ботами. Он оценивает слова по их <em>информативности</em>: сверхчастые слова вроде
+            «и» или «в» получают почти нулевой вес, а редкие и характерные — большой. Мы оставляем <em>все</em>
+            отрасли, но взвешиваем каждую по тому, насколько сильно она отличает город.</span>
+        </p>
+        <div class="callout">
+          <div class="tag"><span class="lang en">The analogy</span><span class="lang ru">Аналогия</span></div>
+          <p>
+            <span class="lang en">Treat every <b>city like a document</b> and every <b>industry like a word</b>.
+              Industries almost everywhere — gas stations, restaurants, dentists — are the "the" and "and" of the
+              economy and get near-zero weight. Rare industries — semiconductor fabs, carpet mills, oil refineries —
+              are the distinctive words that actually tell two cities apart, so they count for a lot.</span>
+            <span class="lang ru">Каждый <b>город — это документ</b>, а каждая <b>отрасль — слово</b>. Отрасли,
+              встречающиеся почти везде (заправки, рестораны, стоматологии), — это «и» и «в» экономики, их вес почти
+              нулевой. Редкие отрасли (микрочипы, ковровые фабрики, нефтепереработка) — характерные слова, по которым
+              города реально отличаются, поэтому им присваивается большой вес.</span>
+          </p>
+        </div>
+        <div class="formula">weight = presence × IDF&nbsp;&nbsp;·&nbsp;&nbsp;IDF = ln( 925 ÷ metros that have the industry )</div>
+        <div class="twocol">
+          <div class="mini">
+            <h3>⛽ <span class="lang en">Gas stations</span><span class="lang ru">Заправки</span></h3>
+            <p>
+              <span class="lang en">in 862 of 925 metros → IDF = ln(925/862) ≈ <b>0.07</b>. Shared by almost everyone, so it barely moves similarity.</span>
+              <span class="lang ru">в 862 из 925 городов → IDF = ln(925/862) ≈ <b>0,07</b>. Есть почти у всех, поэтому почти не влияют на сходство.</span>
+            </p>
+          </div>
+          <div class="mini">
+            <h3>🚀 <span class="lang en">Guided missiles</span><span class="lang ru">Ракеты и космос</span></h3>
+            <p>
+              <span class="lang en">in just 5 of 925 → IDF = ln(925/5) ≈ <b>5.2</b> — about <b>75× heavier</b>. Share this and two cities are genuinely alike.</span>
+              <span class="lang ru">всего в 5 из 925 → IDF = ln(925/5) ≈ <b>5,2</b> — примерно <b>в 75 раз больше веса</b>. Если это общее — города действительно похожи.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 4 -->
+    <section class="step">
+      <div class="step-num">4</div>
+      <div>
+        <h2><span class="lang en">How similar are two cities?</span><span class="lang ru">Насколько похожи два города?</span></h2>
+        <p>
+          <span class="lang en">Each city becomes a long list of weighted industries — its economic "fingerprint."
+            To compare two cities we use <b>cosine similarity</b>: think of it as checking how much two playlists, or
+            two shopping baskets, overlap. Two cities that both lean on rare aerospace and electronics score as very
+            similar; a tourism town and a steel town barely overlap at all.</span>
+          <span class="lang ru">Каждый город превращается в длинный список взвешенных отраслей — его экономический
+            «отпечаток». Чтобы сравнить два города, мы используем <b>косинусное сходство</b>: представьте, что
+            сравниваете два плейлиста или две продуктовые корзины — насколько они совпадают. Два города, оба
+            опирающиеся на редкую аэрокосмическую и электронную промышленность, окажутся очень похожими; курортный
+            городок и металлургический почти не пересекаются.</span>
+        </p>
+        <p>
+          <span class="lang en">Formally, each city is a vector of TF-IDF weights, and similarity is the <b>cosine</b> of
+            the angle between two such vectors — 0 means nothing in common, 1 means an identical industry mix:</span>
+          <span class="lang ru">Формально каждый город — это вектор TF-IDF-весов, а сходство — <b>косинус</b> угла между
+            двумя такими векторами: 0 — ничего общего, 1 — одинаковый набор отраслей:</span>
+        </p>
+        <div class="formula">cos(A, B) = (A · B) / ( ‖A‖ × ‖B‖ )</div>
+        <div class="callout">
+          <div class="tag"><span class="lang en">Worked example</span><span class="lang ru">Разбор примера</span></div>
+          <p>
+            <span class="lang en">Take three industries with weights IDF ≈ gas <b>0.1</b>, wineries <b>2.0</b>, missiles <b>5.0</b>.<br>
+              • <b>City A</b> (gas + missiles) = [0.1, 0, 5.0] vs <b>City B</b> (gas + wineries) = [0.1, 2.0, 0]:
+              they share only gas stations → A·B = 0.01, so <b>cos ≈ 0.001</b> — essentially unrelated, even though
+              both "have" gas stations.<br>
+              • <b>City A</b> vs <b>City C</b> (missiles + wineries) = [0, 2.0, 5.0]: they share missiles →
+              A·C = 25, so <b>cos ≈ 0.93</b> — strongly similar.<br>
+              Same overlap each time (one shared industry), opposite result — TF-IDF makes the <em>rare</em> shared
+              industry decisive and the ubiquitous one almost invisible.</span>
+            <span class="lang ru">Возьмём три отрасли с весами IDF ≈ заправки <b>0,1</b>, винодельни <b>2,0</b>, ракеты <b>5,0</b>.<br>
+              • <b>Город A</b> (заправки + ракеты) = [0,1; 0; 5,0] против <b>города B</b> (заправки + винодельни) =
+              [0,1; 2,0; 0]: общее только заправки → A·B = 0,01, поэтому <b>cos ≈ 0,001</b> — практически не связаны,
+              хотя у обоих «есть» заправки.<br>
+              • <b>Город A</b> против <b>города C</b> (ракеты + винодельни) = [0; 2,0; 5,0]: общее — ракеты →
+              A·C = 25, поэтому <b>cos ≈ 0,93</b> — сильно похожи.<br>
+              Одинаковое число совпадений (по одной общей отрасли), но противоположный итог — TF-IDF делает
+              <em>редкую</em> общую отрасль решающей, а вездесущую — почти невидимой.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 5 -->
+    <section class="step">
+      <div class="step-num">5</div>
+      <div>
+        <h2><span class="lang en">Drawing the map &amp; finding the tribes</span><span class="lang ru">Строим карту и находим «племена»</span></h2>
+        <p>
+          <span class="lang en">We connect each pair of strongly-similar cities with a link, producing a network — the
+            web of dots you see in the network view. Then a standard "community detection" algorithm (Louvain) groups
+            the network the way you'd find friend circles in a social network: clusters of cities that are far more
+            connected to each other than to outsiders. Those groups are our economic clusters.</span>
+          <span class="lang ru">Мы соединяем каждую пару сильно похожих городов связью — получается сеть, та самая
+            паутина точек в разделе «Сеть». Затем стандартный алгоритм «выделения сообществ» (Louvain) группирует
+            сеть так же, как находят круги друзей в соцсети: кластеры городов, которые связаны между собой гораздо
+            теснее, чем с остальными. Эти группы и есть наши экономические кластеры.</span>
+        </p>
+        <p>
+          <span class="lang en">Under the hood Louvain maximises <b>modularity</b> — a single score that is high when links
+            are dense <em>inside</em> groups and sparse <em>between</em> them. It works greedily in two repeating
+            phases: every city starts in its own group; each one is then moved into whichever neighbour's group raises
+            modularity the most; once no move helps, each group is collapsed into a single "super-node" and the whole
+            process repeats on this smaller network — until the score can't improve. That two-phase trick is why it
+            finds clean communities fast, even on large graphs.</span>
+          <span class="lang ru">Под капотом Louvain максимизирует <b>модулярность</b> — единый показатель, который высок,
+            когда связей много <em>внутри</em> групп и мало <em>между</em> ними. Алгоритм работает жадно в две
+            повторяющиеся фазы: каждый город сначала сам по себе; затем его переносят в группу того соседа, что сильнее
+            всего повышает модулярность; когда улучшать больше нечем, каждую группу «схлопывают» в один узел-агрегат и
+            весь процесс повторяют на уменьшённой сети — пока показатель не перестанет расти. Этот двухфазный приём и
+            позволяет быстро находить чёткие сообщества даже на больших графах.</span>
+        </p>
+        <p class="sub">
+          <span class="lang en">We run Louvain at several "resolutions" (a dial that controls how large the groups come
+            out) and keep the most stable, best-separated partition — here, nine clusters.</span>
+          <span class="lang ru">Мы запускаем Louvain при нескольких «разрешениях» (параметр, задающий размер групп) и
+            оставляем самое стабильное и чётко разделённое разбиение — в нашем случае девять кластеров.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Step 6 -->
+    <section class="step">
+      <div class="step-num">6</div>
+      <div>
+        <h2><span class="lang en">Two scores worth knowing</span><span class="lang ru">Два показателя, которые стоит знать</span></h2>
+        <div class="twocol">
+          <div class="mini">
+            <h3>ECI <span class="lang en">— complexity of a city</span><span class="lang ru">— сложность города</span></h3>
+            <p>
+              <span class="lang en">Economic Complexity Index: how sophisticated and diversified a city's economy is.
+                High ECI = it does many hard-to-copy things (think San Jose).</span>
+              <span class="lang ru">Индекс экономической сложности: насколько разнообразна и продвинута экономика
+                города. Высокий ECI = город делает много того, что трудно скопировать (например, Сан-Хосе).</span>
+            </p>
+          </div>
+          <div class="mini">
+            <h3>PCI <span class="lang en">— complexity of an industry</span><span class="lang ru">— сложность отрасли</span></h3>
+            <p>
+              <span class="lang en">Product Complexity Index: how rare and know-how-heavy an industry is. Aerospace
+                scores high; a sawmill scores low.</span>
+              <span class="lang ru">Индекс сложности продукта: насколько отрасль редка и наукоёмка. Аэрокосмос — высоко,
+                лесопилка — низко.</span>
+            </p>
+          </div>
+        </div>
+        <p class="sub" style="margin-top:12px">
+          <span class="lang en">In the visuals, a metro's dot/area size is its total employment, and its colour is its
+            cluster. Hover anything to see its numbers.</span>
+          <span class="lang ru">На визуализациях размер точки/области города — это его общая занятость, а цвет — его
+            кластер. Наведите курсор, чтобы увидеть цифры.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Step 7 -->
+    <section class="step">
+      <div class="step-num">7</div>
+      <div>
+        <h2><span class="lang en">The result: nine economic Americas</span><span class="lang ru">Результат: девять экономических «Америк»</span></h2>
+        <p>
+          <span class="lang en">151 distinctive metros sort into nine clusters — coastal tech-and-finance superstars, a
+            Great-Lakes machine shop, a Carolina textile belt, a Gulf-Coast oil chain, plains agribusiness, and more.
+            The storyline page walks through each one on the map.</span>
+          <span class="lang ru">151 характерный мегаполис распределяется по девяти кластерам — прибрежные суперзвёзды
+            технологий и финансов, «механический цех» Великих озёр, текстильный пояс Каролин, нефтяная цепочка
+            Мексиканского залива, агробизнес равнин и другие. Страница «Сторилайн» проводит по каждому из них на карте.</span>
+        </p>
+        <div class="pills">
+          <span class="pill">Diversified Industrial</span><span class="pill">Coastal Tech-Finance</span>
+          <span class="pill">Great Lakes Metalworking</span><span class="pill">Carolina Textiles</span>
+          <span class="pill">Gulf Oil &amp; Gas</span><span class="pill">High-Amenity &amp; Knowledge</span>
+          <span class="pill">New England Hardware</span><span class="pill">Upper-Midwest Paper</span>
+          <span class="pill">Plains Agribusiness</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta">
+      <a href="clusters_story.html">
+        <b><span class="lang en">Read the storyline →</span><span class="lang ru">Открыть сторилайн →</span></b>
+        <span class="lang en">Meet all nine clusters on the map.</span><span class="lang ru">Познакомьтесь со всеми девятью кластерами на карте.</span>
+      </a>
+      <a href="index_cities.html">
+        <b><span class="lang en">Explore the network →</span><span class="lang ru">Изучить сеть →</span></b>
+        <span class="lang en">The interactive city-similarity graph.</span><span class="lang ru">Интерактивный граф сходства городов.</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function applyTheme(t) {
+      document.documentElement.setAttribute("data-theme", t);
+      document.getElementById("theme-toggle").textContent = t === "dark" ? "☀" : "☾";
+      try { localStorage.setItem("desht-theme", t); } catch (e) {}
+    }
+    function applyLang(l) {
+      document.documentElement.setAttribute("data-lang", l);
+      document.documentElement.setAttribute("lang", l);
+      document.querySelectorAll("#lang-switch button").forEach((b) => b.classList.toggle("on", b.dataset.lang === l));
+      try { localStorage.setItem("desht-lang", l); } catch (e) {}
+    }
+
+    // restore prefs (no flash)
+    try { const s = localStorage.getItem("desht-theme"); if (s) document.documentElement.setAttribute("data-theme", s); } catch (e) {}
+    try { const l = localStorage.getItem("desht-lang"); if (l) { document.documentElement.setAttribute("data-lang", l); document.documentElement.setAttribute("lang", l); } } catch (e) {}
+
+    document.getElementById("theme-toggle").textContent =
+      document.documentElement.getAttribute("data-theme") === "light" ? "☾" : "☀";
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+      applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
+    });
+    document.querySelectorAll("#lang-switch button").forEach((b) =>
+      b.addEventListener("click", () => applyLang(b.dataset.lang)));
+    applyLang(document.documentElement.getAttribute("data-lang") || "en");
+
+    // italicise & shrink parenthetical text in prose (skip formulas/code)
+    function italicizeParens(root) {
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+        acceptNode(n) {
+          if (!n.nodeValue || !/\([^)]*\)/.test(n.nodeValue)) return NodeFilter.FILTER_REJECT;
+          for (let p = n.parentElement; p; p = p.parentElement) {
+            if (p.tagName === "SCRIPT" || p.tagName === "STYLE") return NodeFilter.FILTER_REJECT;
+            if (p.classList && (p.classList.contains("formula") || p.classList.contains("paren"))) return NodeFilter.FILTER_REJECT;
+          }
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      });
+      const nodes = []; let cur;
+      while ((cur = walker.nextNode())) nodes.push(cur);
+      nodes.forEach((node) => {
+        const parts = node.nodeValue.split(/(\([^)]*\))/g);
+        if (parts.length < 2) return;
+        const frag = document.createDocumentFragment();
+        parts.forEach((part) => {
+          if (/^\([^)]*\)$/.test(part)) {
+            const s = document.createElement("span"); s.className = "paren"; s.textContent = part; frag.appendChild(s);
+          } else if (part) { frag.appendChild(document.createTextNode(part)); }
+        });
+        node.parentNode.replaceChild(frag, node);
+      });
+    }
+    italicizeParens(document.querySelector(".wrap"));
+  </script>
+</body>
+</html>
