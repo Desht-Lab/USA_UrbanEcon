@@ -327,20 +327,24 @@
               города реально отличаются, поэтому им присваивается большой вес.</span>
           </p>
         </div>
-        <div class="formula">weight = presence × IDF&nbsp;&nbsp;·&nbsp;&nbsp;IDF = ln( 925 ÷ metros that have the industry )</div>
+        <div class="formula">weight = presence × IDF&nbsp;&nbsp;·&nbsp;&nbsp;IDF = log( 925 ÷ metros that have the industry )</div>
+        <p class="sub">
+          <span class="lang en">log is the natural logarithm (<code>np.log</code> in the pipeline).</span>
+          <span class="lang ru">log — натуральный логарифм (<code>np.log</code> в коде пайплайна).</span>
+        </p>
         <div class="twocol">
           <div class="mini">
             <h3>⛽ <span class="lang en">Gas stations</span><span class="lang ru">Заправки</span></h3>
             <p>
-              <span class="lang en">in 862 of 925 metros → IDF = ln(925/862) ≈ <b>0.07</b>. Shared by almost everyone, so it barely moves similarity.</span>
-              <span class="lang ru">в 862 из 925 городов → IDF = ln(925/862) ≈ <b>0,07</b>. Есть почти у всех, поэтому почти не влияют на сходство.</span>
+              <span class="lang en">in 862 of 925 metros → IDF = log(925/862) ≈ <b>0.07</b>. Shared by almost everyone, so it barely moves similarity.</span>
+              <span class="lang ru">в 862 из 925 городов → IDF = log(925/862) ≈ <b>0,07</b>. Есть почти у всех, поэтому почти не влияют на сходство.</span>
             </p>
           </div>
           <div class="mini">
             <h3>🚀 <span class="lang en">Guided missiles</span><span class="lang ru">Ракеты и космос</span></h3>
             <p>
-              <span class="lang en">in just 5 of 925 → IDF = ln(925/5) ≈ <b>5.2</b> — about <b>75× heavier</b>. Share this and two cities are genuinely alike.</span>
-              <span class="lang ru">всего в 5 из 925 → IDF = ln(925/5) ≈ <b>5,2</b> — примерно <b>в 75 раз больше веса</b>. Если это общее — города действительно похожи.</span>
+              <span class="lang en">in just 5 of 925 → IDF = log(925/5) ≈ <b>5.2</b> — about <b>75× heavier</b>. Share this and two cities are genuinely alike.</span>
+              <span class="lang ru">всего в 5 из 925 → IDF = log(925/5) ≈ <b>5,2</b> — примерно <b>в 75 раз больше веса</b>. Если это общее — города действительно похожи.</span>
             </p>
           </div>
         </div>
