@@ -366,6 +366,12 @@
     }
     .ind-pill:hover { border-color: var(--accent-2); background: color-mix(in srgb, var(--accent) 14%, transparent); }
     .ind-pci { margin-left: 5px; color: var(--nav-accent); font-weight: 600; font-variant-numeric: tabular-nums; }
+    .emp-list { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
+    .emp-row { display: flex; align-items: baseline; gap: 8px; font-size: 12px; }
+    .emp-name { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .emp-val { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .emp-share { color: var(--nav-accent); font-weight: 600; font-variant-numeric: tabular-nums; min-width: 44px; text-align: right; }
+    .emp-bar { height: 3px; border-radius: 99px; background: color-mix(in srgb, var(--accent) 55%, transparent); margin-top: 2px; }
     .paren { font-style: italic; font-size: .85em; opacity: .9; }
 
     /* ── Viz ───────────────────────────────────────────────────────────── */
@@ -537,10 +543,12 @@
     const UI = {
       en: { employment:"Employment", avgSalary:"Avg salary", niche:"Niche", links:"Links",
         specInd:"Specialized industries", byPci:"by PCI", noRca:"No RCA ≥ 1 industries recorded.", generic:"Generic",
+        topEmp:"Top-5 industries by employment", ofCityEmp:"of metro employment",
         none:"none", clusterWord:"Cluster", neighbors:"neighbors", metrosWord:"metros", linksWord:"links",
         specializeIn:"metros specialize in", phInd:"Type an industry or NAICS…", phCity:"Type a metro name…" },
       ru: { employment:"Занятость", avgSalary:"Ср. зарплата", niche:"Ниша", links:"Связи",
         specInd:"Специализации", byPci:"по PCI", noRca:"Отраслей с RCA ≥ 1 не зафиксировано.", generic:"Без ниши",
+        topEmp:"Топ-5 отраслей по занятости", ofCityEmp:"от занятости города",
         none:"нет", clusterWord:"Кластер", neighbors:"соседей", metrosWord:"городов", linksWord:"связей",
         specializeIn:"городов специализируются на", phInd:"Введите отрасль или NAICS…", phCity:"Введите название города…" }
     };
@@ -573,6 +581,7 @@
       industryToCities: new Map(),  // naics_name -> Set(city ids, m_cp=1)
       cityToIndustries: new Map(),  // city id -> Set(naics_name, m_cp=1)
       industryPci: new Map(),       // naics_name -> pci (product complexity)
+      cityTopEmp: new Map(),        // city id -> [{name, emp, share}] top-5 by employment
       clusterMeta: [],              // [{id, color, count, eciMean, name}]
       clusterColor: new Map(),      // cluster id -> hex color
       selectedIndustry: "",
@@ -727,6 +736,28 @@
         const pci = num(cols[pciIdx], NaN);
         if (name && Number.isFinite(pci)) map.set(name, pci);
       }
+      return map;
+    }
+
+    function parseTopEmpCsv(csvText) {
+      const map = new Map();
+      const rows = parseCsvRows(csvText);
+      if (!rows.length) return map;
+      const headers = rows[0].map((h) => h.trim());
+      const cityIdx = headers.indexOf("msa_name_net");
+      const nameIdx = headers.indexOf("naics_name");
+      const empIdx = headers.indexOf("emp");
+      const shareIdx = headers.indexOf("share");
+      if (cityIdx < 0 || nameIdx < 0 || empIdx < 0 || shareIdx < 0) return map;
+      for (let i = 1; i < rows.length; i += 1) {
+        const cols = rows[i];
+        const cityId = (cols[cityIdx] || "").trim();
+        const name = (cols[nameIdx] || "").trim();
+        if (!cityId || !name) continue;
+        if (!map.has(cityId)) map.set(cityId, []);
+        map.get(cityId).push({ name, emp: num(cols[empIdx], NaN), share: num(cols[shareIdx], NaN) });
+      }
+      map.forEach((list) => list.sort((a, b) => (b.emp || 0) - (a.emp || 0)));
       return map;
     }
 
@@ -999,6 +1030,28 @@
     }
 
     /* ── detail panel ──────────────────────────────────────────────────── */
+    function topEmpHtml(id) {
+      const top = state.cityTopEmp.get(id);
+      if (!top || !top.length) return "";
+      const fmtShare = (s) => (Number.isFinite(s) ? (s * 100).toFixed(1) + "%" : "—");
+      const fmtN = (v) => (Number.isFinite(v) ? v.toLocaleString("en-US") : "—");
+      const maxShare = Math.max(...top.map((r) => r.share || 0)) || 1;
+      return (
+        '<div class="detail-sub" title="' + escapeAttr(t("ofCityEmp")) + '">' + t("topEmp") + '</div>' +
+        '<div class="emp-list">' +
+          top.map((r) =>
+            '<div>' +
+              '<div class="emp-row">' +
+                '<span class="emp-name" title="' + escapeAttr(shortCity(r.name)) + '">' + paren(escapeHtml(shortCity(r.name))) + '</span>' +
+                '<span class="emp-val">' + fmtN(r.emp) + '</span>' +
+                '<span class="emp-share">' + fmtShare(r.share) + '</span>' +
+              '</div>' +
+              '<div class="emp-bar" style="width:' + Math.max(4, Math.round((r.share || 0) / maxShare * 100)) + '%"></div>' +
+            '</div>').join("") +
+        '</div>'
+      );
+    }
+
     function showDetail(id) {
       const node = state.nodeById.get(id);
       if (!node) return;
@@ -1026,6 +1079,7 @@
           '<div class="metric"><div class="metric-label">' + t("niche") + '</div><div class="metric-value">' + fmt(node.niche, 1) + '</div></div>' +
           '<div class="metric"><div class="metric-label">' + t("links") + '</div><div class="metric-value">' + neighbors + '</div></div>' +
         '</div>' +
+        topEmpHtml(id) +
         '<div class="detail-sub">' + t("specInd") + ' · ' + inds.length + ' · ' + t("byPci") + '</div>' +
         '<div class="ind-list">' +
           (inds.length
@@ -1185,6 +1239,12 @@
         const pciR = await fetch("cities_naics_pci.csv", { cache: "no-store" });
         if (pciR.ok) state.industryPci = parsePciCsv(await pciR.text());
       } catch (e) { /* no pci file: filter + detail just omit it */ }
+
+      // top-employment industries are optional too
+      try {
+        const empR = await fetch("cities_top_emp.csv", { cache: "no-store" });
+        if (empR.ok) state.cityTopEmp = parseTopEmpCsv(await empR.text());
+      } catch (e) { /* no top-emp file: detail panel just omits the block */ }
 
       state.allNodes = nodes.slice().sort((a, b) => a.id.localeCompare(b.id));
       state.allLinks = links;
