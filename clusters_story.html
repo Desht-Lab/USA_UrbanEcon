@@ -365,7 +365,8 @@
         tblANote:"% of metros — share of cluster members specialised in the industry (payroll RCA ≥ 1); × — how many times that share exceeds the same share among all 151 network metros; mean RCA — among the specialised members.",
         tblBNote:"RCA — the same formula as in table A, but computed on jobs for the cluster as a whole: the industry's share of the cluster's total employment ÷ its share of employment across all 925 U.S. metros.",
         metros:"metros", jobs:"jobs", avgJobs:"avg jobs / metro", avgWage:"avg wage", meanEci:"mean ECI",
-        allMetros:"All 151 niche metros", allSub:"9 clusters · scroll to explore", metrosWord:"metros", jobsWord:"jobs" },
+        allMetros:"All 151 niche metros", allSub:"9 clusters · scroll to explore", metrosWord:"metros", jobsWord:"jobs",
+        tipOpen:"click — city profile" },
       ru: { nicheMetros:"характерных метрополиса", econClusters:"экономических кластера", jobsCovered:"рабочих мест", sixDigit:"6-значных отраслей",
         byComplexity:"по сложности", defining:"Ключевые отрасли", anchors:"Якорные города",
         bindsLbl:"Что связало эти города", profileLbl:"Занятость: профиль кластера",
@@ -375,7 +376,8 @@
         tblANote:"% городов — доля членов кластера со специализацией в отрасли (RCA ≥ 1 по payroll); × — во сколько раз эта доля выше той же доли среди всех 151 метро сети; средний RCA — по специализированным городам.",
         tblBNote:"RCA — та же формула, что в таблице A, но по занятости и для кластера в целом: доля отрасли в суммарной занятости кластера ÷ её доля в занятости всех 925 метро США.",
         metros:"городов", jobs:"раб. мест", avgJobs:"ср. занятость / город", avgWage:"ср. зарплата", meanEci:"средний ECI",
-        allMetros:"Все 151 характерный метрополис", allSub:"9 кластеров · прокрутите, чтобы изучить", metrosWord:"городов", jobsWord:"раб. мест" }
+        allMetros:"Все 151 характерный метрополис", allSub:"9 кластеров · прокрутите, чтобы изучить", metrosWord:"городов", jobsWord:"раб. мест",
+        tipOpen:"клик — страница города" }
     };
 
     let lang = "en", NAMES = NAMES_EN, NARR = NARR_EN;
@@ -472,14 +474,11 @@
         style: styleFor,
         onEachFeature: (f, layer) => {
           const p = f.properties;
-          layer.on("click", () => {
-            const sec = document.querySelector(`.story-section[data-cluster="${p.cluster}"]`);
-            if (sec) sec.scrollIntoView({ behavior: "smooth", block: "center" });
-          });
+          layer.on("click", () => { location.href = "city.html?msa=" + encodeURIComponent(p.code); });
           layer.on("mouseover", () => {
             layer.setStyle({ weight: 1.4, color: "#fff" });
             layer.bindTooltip(
-              `<b>${paren(p.name)}</b><span class="t-meta">${paren(NAMES[p.cluster])}<br>${fmtJobs(p.emp)} ${t("jobsWord")} · ECI ${num(p.eci)} · $${Math.round(p.wage)}k</span>`,
+              `<b>${paren(p.name)}</b><span class="t-meta">${paren(NAMES[p.cluster])}<br>${fmtJobs(p.emp)} ${t("jobsWord")} · ECI ${num(p.eci)} · $${Math.round(p.wage)}k<br><em>${t("tipOpen")}</em></span>`,
               { className: "metro-tip", sticky: true, direction: "top", opacity: 1 }).openTooltip();
           });
           layer.on("mouseout", () => geoLayer.setStyle(styleFor));
