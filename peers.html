@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Almaty peers — large US metros, their borders & lookalikes · Desht</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <style>
+    :root {
+      --bg: #0f1115; --fg: #e5e7eb; --muted: #9ca3af; --panel: #14171d; --card: #16191f;
+      --accent: #376c8a; --accent-2: #4f86a4; --nav-accent: #e5b983; --nav-accent-2: #f0cb9b;
+      --border: #222733; --accent-shadow: rgba(55,108,138,.35);
+      --bg-grad-1: rgba(55,108,138,.12); --bg-grad-2: rgba(229,185,131,.07);
+      --shadow: 0 12px 30px rgba(0,0,0,.35); --shadow-sm: 0 6px 16px rgba(0,0,0,.25);
+      --radius: 16px; --radius-sm: 10px;
+      --richer: #4fa05a; --similar: #b5892a; --poorer: #d1495b;
+    }
+    [data-theme="light"] {
+      --bg: #f8fafc; --fg: #0f172a; --muted: #475569; --panel: #eeedeb; --card: #ffffff;
+      --accent: #e5b983; --accent-2: #e4c7a1; --nav-accent: #376c8a; --nav-accent-2: #4f86a4;
+      --border: #e9e1d7; --accent-shadow: rgba(229,185,131,.35);
+      --bg-grad-1: rgba(55,108,138,.08); --bg-grad-2: rgba(229,185,131,.14);
+      --shadow: 0 12px 30px rgba(15,23,42,.14); --shadow-sm: 0 6px 16px rgba(15,23,42,.10);
+    }
+    * { box-sizing: border-box; }
+    html[data-lang="en"] .lang.ru { display: none; }
+    html[data-lang="ru"] .lang.en { display: none; }
+    body {
+      margin: 0; color: var(--fg);
+      font-family: "Gotham","Space Grotesk","Inter","Segoe UI",system-ui,sans-serif;
+      background: radial-gradient(60% 50% at 12% 0%, var(--bg-grad-1), transparent 60%),
+        radial-gradient(55% 55% at 100% 100%, var(--bg-grad-2), transparent 55%), var(--bg);
+      background-attachment: fixed; line-height: 1.55; -webkit-font-smoothing: antialiased;
+    }
+    .topbar {
+      position: sticky; top: 0; z-index: 1100; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px; padding: 12px clamp(16px,3vw,28px);
+      border-bottom: 1px solid var(--border);
+      background: color-mix(in srgb, var(--panel) 80%, transparent);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark { width: 36px; height: 36px; flex: none; display: grid; place-items: center;
+      border-radius: 11px; background: linear-gradient(135deg, var(--nav-accent), var(--nav-accent-2));
+      color: #0f1115; font-weight: 700; font-size: 18px; box-shadow: 0 6px 18px var(--accent-shadow); }
+    .brand-title { font-size: 16px; font-weight: 600; }
+    .brand-sub { font-size: 12px; color: var(--muted); }
+    .topbar-right { display: flex; align-items: center; gap: 10px; }
+    .pill-btn { display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px;
+      border: 1px solid var(--border); border-radius: 999px; background: var(--card);
+      color: var(--fg); font: inherit; font-size: 12.5px; font-weight: 500; cursor: pointer;
+      text-decoration: none; white-space: nowrap; transition: border-color .15s, color .15s, transform .15s; }
+    .pill-btn:hover { border-color: var(--nav-accent); color: var(--nav-accent); transform: translateY(-1px); }
+    .icon-btn { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--border);
+      border-radius: 11px; background: var(--card); color: var(--fg); cursor: pointer; font-size: 16px;
+      transition: border-color .15s, transform .15s; }
+    .icon-btn:hover { border-color: var(--accent-2); transform: translateY(-1px); }
+    .lang-switch { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; }
+    .lang-switch button { border: 0; background: transparent; color: var(--muted); font: inherit; font-size: 12.5px; font-weight: 600; padding: 8px 12px; cursor: pointer; }
+    .lang-switch button.on { background: var(--nav-accent); color: #0f1115; }
+
+    .layout { display: grid; grid-template-columns: minmax(0,380px) minmax(0,1fr); gap: 0; height: calc(100vh - 63px); }
+    .panel { overflow-y: auto; padding: 18px clamp(14px,1.4vw,20px) 40px; border-right: 1px solid var(--border); }
+    .map-wrap { position: relative; }
+    #map { position: absolute; inset: 0; background: var(--panel); }
+    .leaflet-container { background: var(--panel); font-family: inherit; }
+    .leaflet-tooltip.metro-tip { background: var(--card); border: 1px solid var(--border); color: var(--fg);
+      border-radius: 9px; box-shadow: var(--shadow); padding: 8px 11px; font-size: 12px; line-height: 1.35; }
+    .leaflet-tooltip.metro-tip::before { display: none; }
+    .metro-tip b { display:block; font-size: 13px; margin-bottom: 2px; }
+    .metro-tip .t-meta { color: var(--muted); font-size: 11px; }
+
+    h1.page-title { font-size: 20px; margin: 0 0 4px; letter-spacing: -.3px; }
+    .sub { font-size: 12.5px; color: var(--muted); margin: 0 0 16px; }
+    .modebar { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
+    .modebar button { flex: 1; min-width: 84px; padding: 8px 6px; border: 1px solid var(--border);
+      border-radius: 10px; background: var(--card); color: var(--fg); font: inherit; font-size: 12px;
+      font-weight: 600; cursor: pointer; transition: border-color .15s, color .15s; }
+    .modebar button.on { border-color: var(--nav-accent); color: var(--nav-accent); }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm);
+      padding: 12px 13px; margin-bottom: 12px; box-shadow: var(--shadow-sm); }
+    .card h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted);
+      margin: 0 0 9px; font-weight: 600; }
+    .legend-row { display: flex; align-items: center; gap: 8px; font-size: 12.5px; margin: 4px 0; }
+    .legend-row .sw { width: 14px; height: 14px; border-radius: 4px; flex: none; }
+    select.core-sel { width: 100%; padding: 7px 9px; border-radius: 9px; border: 1px solid var(--border);
+      background: var(--card); color: var(--fg); font: inherit; font-size: 12.5px; margin-top: 6px; }
+    .rank { list-style: none; padding: 0; margin: 0; }
+    .rank li { display: flex; align-items: center; gap: 8px; padding: 5px 6px; border-radius: 8px;
+      cursor: pointer; font-size: 12.5px; }
+    .rank li:hover { background: color-mix(in srgb, var(--nav-accent) 14%, transparent); }
+    .rank .pos { width: 18px; color: var(--muted); font-variant-numeric: tabular-nums; font-size: 11px; }
+    .rank .nm { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .rank .bar { height: 6px; border-radius: 3px; background: var(--accent-2); flex: none; }
+    .rank .sc { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 11px; width: 34px; text-align: right; }
+    .chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 999px;
+      border: 1px solid var(--border); font-size: 11.5px; margin: 2px 3px 2px 0; }
+    .spec-row { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; padding: 3px 0; border-bottom: 1px solid color-mix(in srgb,var(--border) 60%, transparent); }
+    .spec-row .r { color: var(--nav-accent); font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+    .eci-line { font-size: 13.5px; padding: 4px 0 8px; border-bottom: 1px solid var(--border); margin-bottom: 8px; }
+    .eci-line b { font-size: 19px; color: var(--nav-accent); font-variant-numeric: tabular-nums; margin: 0 4px; }
+    .map-legend { position: absolute; left: 14px; bottom: 14px; z-index: 1000; max-width: 60%;
+      padding: 10px 12px; border: 1px solid var(--border); border-radius: 12px;
+      background: color-mix(in srgb, var(--panel) 86%, transparent); backdrop-filter: blur(8px); }
+    .note { font-size: 11.5px; color: var(--muted); }
+    @media (max-width: 900px) { .layout { grid-template-columns: 1fr; height: auto; }
+      .map-wrap { height: 70vh; } .panel { border-right: 0; border-bottom: 1px solid var(--border); } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">◇</div>
+      <div>
+        <div class="brand-title"><span class="lang en">Almaty peers</span><span class="lang ru">Сопоставимые с Алматы</span></div>
+        <div class="brand-sub"><span class="lang en">Large metros, their borders & lookalikes · Desht</span><span class="lang ru">Крупные метрополии, их соседи и аналоги · Desht</span></div>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <a class="pill-btn" href="index.html"><span class="lang en">← Network</span><span class="lang ru">← Сеть</span></a>
+      <a class="pill-btn" href="clusters_story.html"><span class="lang en">Clusters</span><span class="lang ru">Кластеры</span></a>
+      <div class="lang-switch" id="lang-switch">
+        <button data-lang="en" type="button">EN</button>
+        <button data-lang="ru" type="button">RU</button>
+      </div>
+      <button id="theme-toggle" class="icon-btn" type="button" title="Toggle theme" aria-label="Toggle theme">☀</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="panel">
+      <h1 class="page-title"><span class="lang en">Almaty's US peer set</span><span class="lang ru">Аналоги Алматы в США</span></h1>
+      <p class="sub">
+        <span class="lang en">15 metros bigger than the Almaty agglomeration (the <b>cores</b>) plus the 110 metros that
+          <b>border</b> them — the analogue of Almaty's commuting shed — and the US metros whose industry mix is <b>most similar</b> to Almaty's.</span>
+        <span class="lang ru">15 метрополий крупнее Алматинской агломерации (<b>ядра</b>), 110 граничащих с ними метрополий —
+          аналог пригородной зоны Алматы — и метрополии США, чья отраслевая структура <b>наиболее похожа</b> на Алматы.</span>
+      </p>
+
+      <div class="modebar" id="modebar">
+        <button data-mode="peer" class="on"><span class="lang en">Core vs border</span><span class="lang ru">Ядро/сосед</span></button>
+        <button data-mode="cluster"><span class="lang en">Clusters</span><span class="lang ru">Кластеры</span></button>
+        <button data-mode="almaty"><span class="lang en">Almaty-like</span><span class="lang ru">Похожие</span></button>
+      </div>
+
+      <div id="panel-body"></div>
+    </aside>
+
+    <div class="map-wrap">
+      <div id="map"></div>
+      <div class="map-legend" id="legend"></div>
+    </div>
+  </div>
+
+  <script>
+    const PALETTE = ["#4878c0","#e07b39","#4fa05a","#d1495b","#8a63c9","#2aa198","#d96aa6","#b5892a","#6c7a99","#9c6b4f"];
+    const GENERIC = "#aeb7c4";   // light grey — kept distinct from cluster 8 (#6c7a99, High-Amenity/Knowledge/Tourism)
+    const CLUSTER_NAMES = {
+      "-1": {en:"No distinctive niche", ru:"Без выраженной ниши"},
+      0:{en:"Upper-Midwest Paper, Dairy & Food Machinery", ru:"Бумага, молоко и пищевое машиностроение"},
+      1:{en:"Corn Belt Agribusiness, Grain & Insurance", ru:"Агробизнес, зерно и страхование"},
+      2:{en:"Great Lakes Precision Metalworking", ru:"Точная металлообработка Великих озёр"},
+      3:{en:"Piedmont Textile & Fiber Belt", ru:"Текстильный пояс Пидмонта"},
+      5:{en:"Gulf Coast Oil, Gas & Petrochemicals", ru:"Нефть, газ и нефтехимия Залива"},
+      6:{en:"Diversified Industrial & Logistics", ru:"Диверсифицированная индустрия и логистика"},
+      7:{en:"Superstar Metros: Tech, Media & Space", ru:"Суперзвёзды: техно, медиа, космос"},
+      8:{en:"High-Amenity, Knowledge & Tourism", ru:"Комфорт, знания и туризм"},
+      9:{en:"Southern New England Hardware & Instruments", ru:"Точные приборы Новой Англии"}
+    };
+    const T = {
+      jobs:{en:"jobs",ru:"раб. мест"}, richer:{en:"richer",ru:"богаче"}, similar:{en:"similar",ru:"похоже"},
+      poorer:{en:"poorer",ru:"беднее"}, core:{en:"core",ru:"ядро"}, border:{en:"border",ru:"сосед"},
+      open:{en:"click to open city →",ru:"нажмите для города →"}, bridge:{en:"bridge city",ru:"город-мост"},
+      similarity:{en:"similarity to Almaty",ru:"сходство с Алматы"}
+    };
+    let lang = "en";
+    const tr = (o)=> (o && (o[lang]||o.en)) || "";
+    const clName = (c)=> tr(CLUSTER_NAMES[c] || {en:"Cluster "+c});
+    const clColor = (c)=> c==null||c<0 ? GENERIC : PALETTE[c % PALETTE.length];
+    const fmtJobs = (n)=> n>=1e6 ? (n/1e6).toFixed(1)+"M" : Math.round(n/1e3)+"k";
+    const RELCOL = {richer:getCss("--richer"), similar:getCss("--similar"), poorer:getCss("--poorer")};
+    function getCss(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim() || "#888"; }
+
+    let PEERS=[], BYCODE={}, SIM={bases:{},rankings:{},oked_basket:[]}, COMPL={top_pairs:[]}, GEO=null;
+    let map, baseLayer, geoLayer, countyLayer, CGEO=null, peerDetail="msa";
+    const BV = { HH:"#b2182b", HL:"#ef8a62", LH:"#67a9cf", LL:"#2166ac" };
+    const BV_LABEL = {
+      HH:{en:"Above US avg · neighbours above",ru:"Выше средней США · соседи выше"},
+      HL:{en:"Above US avg · neighbours below (island)",ru:"Выше средней США · соседи ниже (остров)"},
+      LH:{en:"Below US avg · neighbours above (pocket)",ru:"Ниже средней США · соседи выше (карман)"},
+      LL:{en:"Below US avg · neighbours below",ru:"Ниже средней США · соседи ниже"}
+    };
+    let mode = "peer", focusCore = "all", almMetric = "tf", almBasis = "us";
+    const ALM = ()=> {
+      const b = (SIM.bases && SIM.bases[almBasis]) || {profile:[],eci:null,n_spec:0};
+      const r = (SIM.rankings && SIM.rankings[almMetric+"_"+almBasis]) || [];
+      return {profile:b.profile, eci:b.eci, n_spec:b.n_spec, ranking:r};
+    };
+    const almSim = (p)=> p["sim_"+almMetric+"_"+almBasis] || 0;
+    const TILES = { dark:"https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                    light:"https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" };
+    const tileUrl = ()=> document.documentElement.getAttribute("data-theme")==="light" ? TILES.light : TILES.dark;
+    const simColor = (s)=> { const t=Math.max(0,Math.min(1,(s-0.15)/0.4));
+      return `rgb(${Math.round(91+t*148)},${Math.round(100+t*85)},${Math.round(114-t*4)})`; };
+
+    function relationFor(code){ // border's relation to the focused core (or its primary core)
+      const p = BYCODE[code]; if(!p || !p.cores || !p.cores.length) return null;
+      if(focusCore==="all") return p.cores[0].relation;          // primary = longest shared border
+      const c = p.cores.find(x=>String(x.core)===String(focusCore));
+      return c ? c.relation : null;
+    }
+    function styleFor(f){
+      const p=f.properties, code=p.code, base={weight:.7,color:"#0b0d11",fillOpacity:.82,opacity:.9};
+      if(mode==="cluster"){ return {...base, fillColor:clColor(p.cluster)}; }
+      if(mode==="almaty"){ const s=almSim(p); return {...base, fillColor: s>0?simColor(s):GENERIC, fillOpacity: s>0?.85:.25}; }
+      // peer mode
+      if(p.kind==="similar"){ return {...base, fillColor:GENERIC, fillOpacity:.12, weight:.4}; }
+      if(p.kind==="large"){ return {...base, fillColor:"#e5b983", weight:1.6, color:"#fff", fillOpacity:.9}; }
+      if(focusCore!=="all"){ // dim borders that don't touch the focused core
+        const touches=(BYCODE[code]?.cores||[]).some(x=>String(x.core)===String(focusCore));
+        if(!touches) return {...base, fillColor:GENERIC, fillOpacity:.12, weight:.4};
+      }
+      const rel=relationFor(code);
+      return {...base, fillColor: rel?RELCOL[rel]:GENERIC, fillOpacity: rel?.8:.4, weight: BYCODE[code]?.bridge?1.3:.7, color: BYCODE[code]?.bridge?"#fff":"#0b0d11"};
+    }
+
+    function tip(p){
+      const lines=[`<b>${p.name}</b>`];
+      if(mode==="almaty" && almSim(p)) lines.push(`<span class="t-meta">${(almSim(p)*100).toFixed(0)}% ${tr(T.similarity)}</span>`);
+      const meta=[];
+      meta.push(p.kind==="large"?`★ ${tr(T.core)}`:(p.kind==="border"?tr(T.border):"lookalike"));
+      if(p.cluster>=0) meta.push(clName(p.cluster));
+      meta.push(`${fmtJobs(p.emp)} ${tr(T.jobs)}`+(p.wage?` · $${p.wage}k`:""));
+      const rel=mode==="peer"?relationFor(p.code):null;
+      if(rel) meta.push(`<span style="color:${RELCOL[rel]}">${tr(T[rel])} ${tr(T.core)}</span>`);
+      if(p.bridge && mode==="peer") meta.push(`◇ ${tr(T.bridge)}`);
+      lines.push(`<span class="t-meta">${meta.join(" · ")}<br><em>${tr(T.open)}</em></span>`);
+      return lines.join("");
+    }
+
+    async function buildMap(){
+      GEO = await fetch("peers_geo.json",{cache:"no-store"}).then(r=>r.json());
+      map = L.map("map",{zoomControl:false,attributionControl:true,scrollWheelZoom:true,minZoom:3,maxZoom:9});
+      L.control.zoom({position:"topright"}).addTo(map);
+      map.fitBounds([[24.5,-125],[49.5,-66.5]]);
+      baseLayer = L.tileLayer(tileUrl(),{subdomains:"abcd",maxZoom:9,attribution:'© OpenStreetMap · © CARTO'}).addTo(map);
+      geoLayer = L.geoJSON(GEO,{ style:styleFor, onEachFeature:(f,layer)=>{
+        const p=f.properties;
+        layer.on("click",()=>{ location.href="city.html?msa="+encodeURIComponent(p.code); });
+        layer.on("mouseover",()=>{ layer.setStyle({weight:2,color:"#fff"});
+          layer.bindTooltip(tip(p),{className:"metro-tip",sticky:true,direction:"top",opacity:1}).openTooltip(); });
+        layer.on("mouseout",()=>geoLayer.setStyle(styleFor));
+      }}).addTo(map);
+      CGEO = await fetch("county_wage_geo.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>null);
+      if(CGEO){ countyLayer = L.geoJSON(CGEO,{ style:countyStyle, onEachFeature:(f,layer)=>{
+        const p=f.properties;
+        layer.on("click",()=>{ location.href="city.html?msa="+encodeURIComponent(p.cbsa); });
+        layer.on("mouseover",()=>{ layer.setStyle({weight:1.8,color:"#fff"});
+          layer.bindTooltip(countyTip(p),{className:"metro-tip",sticky:true,direction:"top",opacity:1}).openTooltip(); });
+        layer.on("mouseout",()=>countyLayer.setStyle(countyStyle));
+      }}); }
+      setTimeout(()=>map.invalidateSize(),200);
+    }
+    const flyTo = (code)=>{ if(!geoLayer) return; geoLayer.eachLayer(l=>{ if(l.feature.properties.code===code){ map.fitBounds(l.getBounds(),{maxZoom:8,padding:[40,40]}); l.openTooltip&&l.openTooltip(); } }); };
+    function showShared(code){
+      const r=(ALM().ranking||[]).find(x=>x.code===code); if(!r) return;
+      const card=document.getElementById("sharedCard");
+      if(!card) return;
+      document.getElementById("sharedTitle").innerHTML =
+        tr({en:"Shared with ",ru:"Общее с "})+r.name+" · "+tr({en:"top 10 by PCI",ru:"топ-10 по сложности"});
+      const sh=r.shared||[];
+      document.getElementById("sharedList").innerHTML = sh.length
+        ? sh.map(x=>`<div class="spec-row"><span>${x.name}</span><span class="r">PCI ${x.pci != null ? x.pci : '—'}</span></div>`).join("")
+        : `<p class="note">${tr({en:"No shared specialisations in the top tier.",ru:"Нет общих специализаций в верхнем эшелоне."})}</p>`;
+      card.style.display="block";
+    }
+
+    function countyStyle(f){ const p=f.properties;
+      return {weight: p.center?1.8:.5, color: p.center?"#fff":"#0b0d11", fillColor: BV[p.bv]||GENERIC, fillOpacity:.85}; }
+    function countyTip(p){
+      const vs = p.pay_vs_us!=null ? `${p.pay_vs_us>=1?'+':''}${Math.round((p.pay_vs_us-1)*100)}% ${tr({en:'vs US avg',ru:'к средней США'})}` : '';
+      const role = p.center ? ` · ★ ${tr({en:'central county',ru:'центральный округ'})}` : '';
+      return `<b>${p.name} County</b><span class="t-meta">${p.msa_name}<br>$${(p.pay/1000).toFixed(1)}k · ${vs}${role}<br><b style="color:${BV[p.bv]}">${p.bv}</b> ${tr(BV_LABEL[p.bv]||{en:''})}<br><em>${tr({en:'click → city profile',ru:'нажмите → профиль города'})}</em></span>`;
+    }
+    const activeCounty = ()=> mode==="peer" && peerDetail==="county" && countyLayer;
+    function applyLayers(){
+      if(activeCounty()){ if(geoLayer && map.hasLayer(geoLayer)) map.removeLayer(geoLayer); if(!map.hasLayer(countyLayer)) countyLayer.addTo(map); }
+      else { if(countyLayer && map.hasLayer(countyLayer)) map.removeLayer(countyLayer); if(geoLayer && !map.hasLayer(geoLayer)) geoLayer.addTo(map); }
+    }
+    function restyle(){ applyLayers(); if(activeCounty()) countyLayer.setStyle(countyStyle); else if(geoLayer) geoLayer.setStyle(styleFor); buildLegend(); }
+
+    function buildLegend(){
+      const el=document.getElementById("legend"); let h="";
+      if(activeCounty()){
+        const split = (CGEO && CGEO.us_avg) ? ` ($${Math.round(CGEO.us_avg/1000)}k)` : '';
+        h += `<div class="legend-row" style="margin-bottom:4px">${tr({en:"Pay vs US avg",ru:"Оплата к средней США"})}${split} · ${tr({en:"× neighbours",ru:"× соседи"})}</div>`;
+        for(const k of ["HH","HL","LH","LL"]) h += `<div class="legend-row"><span class="sw" style="background:${BV[k]}"></span><b style="width:22px;display:inline-block">${k}</b>${tr(BV_LABEL[k])}</div>`;
+        el.innerHTML=h; return;
+      }
+      if(mode==="peer"){
+        h += `<div class="legend-row"><span class="sw" style="background:#e5b983"></span>${tr({en:"Core (>Almaty)",ru:"Ядро (>Алматы)"})}</div>`;
+        ["richer","similar","poorer"].forEach(r=> h+=`<div class="legend-row"><span class="sw" style="background:${RELCOL[r]}"></span>${tr(T[r])} ${tr({en:"than core",ru:"чем ядро"})}</div>`);
+      } else if(mode==="cluster"){
+        Object.keys(CLUSTER_NAMES).filter(k=>k!=="-1").forEach(k=> h+=`<div class="legend-row"><span class="sw" style="background:${clColor(+k)}"></span>${clName(+k)}</div>`);
+      } else {
+        h += `<div class="legend-row" style="margin-bottom:6px">${tr(T.similarity)}</div>`;
+        h += `<div style="height:10px;border-radius:5px;background:linear-gradient(90deg,${simColor(.15)},${simColor(.55)})"></div>`;
+        h += `<div class="legend-row" style="justify-content:space-between"><span class="note">low</span><span class="note">high</span></div>`;
+      }
+      el.innerHTML=h;
+    }
+
+    function buildPanel(){
+      const b=document.getElementById("panel-body"); let h="";
+      if(mode==="peer"){
+        const cores=PEERS.filter(p=>p.kind==="large").sort((a,b)=>b.emp-a.emp);
+        h += `<div class="card"><h3>${tr({en:"Focus core",ru:"Выбрать ядро"})}</h3>
+          <select class="core-sel" id="coreSel"><option value="all">${tr({en:"All — colour borders by primary core",ru:"Все — по главному ядру"})}</option>`;
+        cores.forEach(c=> h+=`<option value="${c.code}">${c.name} · ${fmtJobs(c.emp)}</option>`);
+        h += `</select><p class="note" style="margin-top:8px">${tr({en:"Borders are coloured richer / similar / poorer than the core by average annual pay (±10% = similar). ‘Bridge’ cities (white outline) touch more than one core.",ru:"Соседи окрашены богаче / похоже / беднее ядра по средней годовой оплате (±10% = похоже). Города-мосты (белый контур) граничат с несколькими ядрами."})}</p></div>`;
+        h += `<div class="card"><h3>${tr({en:"Map detail",ru:"Детализация карты"})}</h3>
+          <div class="modebar" id="detailToggle" style="margin:0 0 8px">
+            <button data-d="msa" class="${peerDetail==='msa'?'on':''}">${tr({en:"MSA",ru:"Метро"})}</button>
+            <button data-d="county" class="${peerDetail==='county'?'on':''}">${tr({en:"Counties · wages",ru:"Округа · зарплаты"})}</button>
+          </div>
+          <p class="note" style="margin:0">${tr({en:"County view: centre-periphery quadrants — private pay vs the US average × neighbours'. HL = above-US island (often the centre), LH = below-US pocket in a richer ring. ★ = central county; click → city profile.",ru:"Округа: квадранты центр-периферия — частная оплата к средней по США × соседи. HL — «остров» выше средней США (обычно центр), LH — карман ниже средней в богатом окружении. ★ — центральный округ; клик → профиль города."})}</p></div>`;
+        const bridges=PEERS.filter(p=>p.bridge);
+        h += `<div class="card"><h3>${tr({en:"Bridge cities",ru:"Города-мосты"})} (${bridges.length})</h3>`;
+        bridges.forEach(p=>{ h+=`<div style="font-size:12.5px;margin-bottom:6px"><b style="cursor:pointer" onclick="flyTo(${p.code})">${p.name}</b><br>`+
+          p.cores.map(c=>`<span class="chip" style="border-color:${RELCOL[c.relation]||'var(--border)'}">${c.core_name}: ${tr(T[c.relation])} ×${c.pay_ratio}</span>`).join("")+`</div>`; });
+        h += `</div>`;
+        if(COMPL.top_pairs && COMPL.top_pairs.length){
+          h += `<div class="card"><h3>${tr({en:"Complementary cluster mixes",ru:"Дополняющие кластеры"})}</h3><p class="note" style="margin:0 0 8px">${tr({en:"Core cluster → border cluster pairs that co-locate more than chance (lift).",ru:"Пары «кластер ядра → кластер соседа», встречающиеся чаще случайного (lift)."})}</p>`;
+          COMPL.top_pairs.slice(0,6).forEach(tp=> h+=`<div class="spec-row"><span><span class="chip" style="border-color:${clColor(tp.core_cluster)}">${clName(tp.core_cluster)}</span>→<span class="chip" style="border-color:${clColor(tp.border_cluster)}">${clName(tp.border_cluster)}</span></span><span class="r">×${tp.lift}</span></div>`);
+          h += `</div>`;
+        }
+      } else if(mode==="cluster"){
+        h += `<div class="card"><h3>${tr({en:"Economic cluster of each metro",ru:"Экономический кластер метрополии"})}</h3><p class="note">${tr({en:"Peer metros coloured by their V4 economic cluster (the 9 ‘economic Americas’). Grey = no distinctive niche.",ru:"Метрополии окрашены по экономическому кластеру V4 (9 «экономических Америк»). Серый — без выраженной ниши."})}</p></div>`;
+      } else {
+        const B = ALM();
+        const basisNote = almBasis==="kz"
+          ? tr({en:`Basket: all ${B.n_spec||''} NAICS6 Almaty over-indexes in vs Kazakhstan, sorted by complexity (PCI).`,ru:`Корзина: все ${B.n_spec||''} отраслей NAICS6, где Алматы превышает уровень Казахстана, по сложности (PCI).`})
+          : tr({en:`Basket: all ${B.n_spec||''} NAICS6 Almaty over-indexes in vs the US, sorted by complexity (PCI).`,ru:`Корзина: все ${B.n_spec||''} отраслей NAICS6, где Алматы превышает уровень США, по сложности (PCI).`});
+        const metricDesc = almMetric==="prox"
+          ? tr({en:"Proximity (collective learning) — rewards related, not only identical, industries.",ru:"Близость (collective learning) — учитывает связанные, а не только одинаковые отрасли."})
+          : tr({en:"TF-IDF cosine — shared specialisations, rare industries weighted up.",ru:"Косинус TF-IDF — общие специализации, редкие отрасли весомее."});
+        h += `<div class="card"><h3>${tr({en:"Distance metric",ru:"Метрика расстояния"})}</h3>
+          <div class="modebar" id="metricToggle" style="margin:0 0 10px">
+            <button data-metric="tf" class="${almMetric==='tf'?'on':''}">TF-IDF</button>
+            <button data-metric="prox" class="${almMetric==='prox'?'on':''}">${tr({en:"Proximity",ru:"Близость"})}</button>
+          </div>
+          <h3>${tr({en:"RCA basis",ru:"База RCA"})}</h3>
+          <div class="modebar" id="basisToggle" style="margin:0 0 8px">
+            <button data-basis="kz" class="${almBasis==='kz'?'on':''}">${tr({en:"vs Kazakhstan",ru:"отн. Казахстана"})}</button>
+            <button data-basis="us" class="${almBasis==='us'?'on':''}">${tr({en:"vs USA",ru:"отн. США"})}</button>
+          </div>
+          <p class="note" style="margin:0">${metricDesc}</p></div>`;
+        h += `<div class="card"><h3>${tr({en:"Most similar US metros to Almaty",ru:"Метрополии США, похожие на Алматы"})} (5)</h3><ol class="rank" id="rank"></ol>
+          <p class="note" style="margin:8px 0 0">${tr({en:"Hover a metro to see the complex industries it shares with Almaty; click to zoom the map.",ru:"Наведите на метрополию, чтобы увидеть общие с Алматы сложные отрасли; нажмите, чтобы приблизить карту."})}</p></div>`;
+        h += `<div class="card" id="sharedCard" style="display:none"><h3 id="sharedTitle"></h3><div id="sharedList"></div></div>`;
+        h += `<div class="card"><h3>${tr({en:"Almaty's specialisation basket",ru:"Корзина специализации Алматы"})}</h3>
+          <div class="eci-line">${tr({en:"Almaty ECI",ru:"ECI Алматы"})}<b>${B.eci != null ? B.eci : '—'}</b><span class="note">${tr({en:"mean PCI of its specialisations",ru:"средний PCI её специализаций"})}</span></div>
+          <p class="note" style="margin:0 0 8px">${basisNote}</p><div id="basket"></div></div>`;
+      }
+      b.innerHTML=h;
+      if(mode==="peer"){
+        const s=document.getElementById("coreSel"); s.value=focusCore; s.onchange=()=>{ focusCore=s.value; restyle(); if(focusCore!=="all") flyTo(+focusCore); };
+        document.querySelectorAll("#detailToggle button").forEach(btn=>btn.addEventListener("click",()=>{ peerDetail=btn.dataset.d; buildPanel(); restyle(); }));
+      }
+      if(mode==="almaty"){
+        const B=ALM();
+        const rk=document.getElementById("rank");
+        const top=(B.ranking||[]).slice(0,5), max=top.length?top[0].sim:1;
+        rk.innerHTML=top.map((r,i)=>`<li onmouseenter="showShared(${r.code})" onclick="flyTo(${r.code})"><span class="pos">${i+1}</span><span class="nm">${r.name}</span><span class="bar" style="width:${Math.round(r.sim/max*46)}px;background:${simColor(r.sim)}"></span><span class="sc">${(r.sim*100).toFixed(0)}</span></li>`).join("");
+        const bk=document.getElementById("basket");
+        bk.innerHTML=(B.profile||[]).map(s=>`<div class="spec-row"><span>${s.name}</span><span class="r" title="RCA ${s.rca}× · ${(s.emp||0).toLocaleString()} est. jobs">PCI ${s.pci != null ? s.pci : '—'}</span></div>`).join("");
+        document.querySelectorAll("#metricToggle button").forEach(b=>b.addEventListener("click",()=>{ almMetric=b.dataset.metric; buildPanel(); restyle(); }));
+        document.querySelectorAll("#basisToggle button").forEach(b=>b.addEventListener("click",()=>{ almBasis=b.dataset.basis; buildPanel(); restyle(); }));
+      }
+    }
+
+    function setMode(m){ mode=m; document.querySelectorAll("#modebar button").forEach(b=>b.classList.toggle("on",b.dataset.mode===m)); buildPanel(); restyle(); }
+
+    function applyTheme(th){ document.documentElement.setAttribute("data-theme",th);
+      document.getElementById("theme-toggle").textContent = th==="dark"?"☀":"☾";
+      try{localStorage.setItem("desht-theme",th);}catch(e){}
+      RELCOL.richer=getCss("--richer");RELCOL.similar=getCss("--similar");RELCOL.poorer=getCss("--poorer");
+      if(baseLayer) baseLayer.setUrl(tileUrl()); restyle(); }
+    function applyLang(l){ lang=l; document.documentElement.setAttribute("data-lang",l); document.documentElement.setAttribute("lang",l);
+      document.querySelectorAll("#lang-switch button").forEach(b=>b.classList.toggle("on",b.dataset.lang===l));
+      try{localStorage.setItem("desht-lang",l);}catch(e){} buildPanel(); buildLegend(); }
+
+    async function main(){
+      [PEERS, SIM, COMPL] = await Promise.all([
+        fetch("peers.json",{cache:"no-store"}).then(r=>r.json()),
+        fetch("almaty_similarity.json",{cache:"no-store"}).then(r=>r.json()),
+        fetch("complementarity.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>({top_pairs:[]}))
+      ]);
+      PEERS.forEach(p=>BYCODE[p.code]=p);
+      await buildMap();
+      buildPanel(); buildLegend();
+      document.querySelectorAll("#modebar button").forEach(b=>b.addEventListener("click",()=>setMode(b.dataset.mode)));
+    }
+
+    try{const s=localStorage.getItem("desht-theme"); if(s) document.documentElement.setAttribute("data-theme",s);}catch(e){}
+    try{const l=localStorage.getItem("desht-lang"); if(l){lang=l; document.documentElement.setAttribute("data-lang",l); document.documentElement.setAttribute("lang",l);}}catch(e){}
+    document.getElementById("theme-toggle").textContent = document.documentElement.getAttribute("data-theme")==="light"?"☾":"☀";
+    document.querySelectorAll("#lang-switch button").forEach(b=>b.classList.toggle("on",b.dataset.lang===lang));
+    document.getElementById("theme-toggle").addEventListener("click",()=>applyTheme(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark"));
+    document.querySelectorAll("#lang-switch button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+    main().catch(err=>{ document.getElementById("panel-body").innerHTML="<p class='note'>Error: "+err.message+"</p>"; console.error(err); });
+  </script>
+</body>
+</html>
