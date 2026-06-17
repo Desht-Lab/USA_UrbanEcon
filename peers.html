@@ -189,12 +189,12 @@
 
     let PEERS=[], BYCODE={}, SIM={bases:{},rankings:{},oked_basket:[]}, COMPL={top_pairs:[]}, GEO=null;
     let map, baseLayer, geoLayer, countyLayer, CGEO=null, peerDetail="msa";
-    const BV = { HH:"#b2182b", HL:"#ef8a62", LH:"#67a9cf", LL:"#2166ac" };
-    const BV_LABEL = {
-      HH:{en:"Above US avg · neighbours above",ru:"Выше средней США · соседи выше"},
-      HL:{en:"Above US avg · neighbours below (island)",ru:"Выше средней США · соседи ниже (остров)"},
-      LH:{en:"Below US avg · neighbours above (pocket)",ru:"Ниже средней США · соседи выше (карман)"},
-      LL:{en:"Below US avg · neighbours below",ru:"Ниже средней США · соседи ниже"}
+    const CAT = { center:"#3b82c4", green:"#37a05a", red:"#d14b45", brown:"#a37a4c" };
+    const CAT_LABEL = {
+      center:{en:"Cluster centre — largest payroll",ru:"Центр сгустка — макс. ФОТ"},
+      green:{en:"Pay above centre (> +5%)",ru:"Оплата выше центра (> +5%)"},
+      brown:{en:"Within ±5% of centre",ru:"В пределах ±5% от центра"},
+      red:{en:"Pay below centre (> −5%)",ru:"Оплата ниже центра (> −5%)"}
     };
     let mode = "peer", focusCore = "all", almMetric = "tf", almBasis = "us";
     const ALM = ()=> {
@@ -283,11 +283,13 @@
     }
 
     function countyStyle(f){ const p=f.properties;
-      return {weight: p.center?1.8:.5, color: p.center?"#fff":"#0b0d11", fillColor: BV[p.bv]||GENERIC, fillOpacity:.85}; }
+      return {weight: p.center?1.8:.5, color: p.center?"#fff":"#0b0d11", fillColor: CAT[p.cat]||GENERIC, fillOpacity:.85}; }
     function countyTip(p){
-      const vs = p.pay_vs_us!=null ? `${p.pay_vs_us>=1?'+':''}${Math.round((p.pay_vs_us-1)*100)}% ${tr({en:'vs US avg',ru:'к средней США'})}` : '';
-      const role = p.center ? ` · ★ ${tr({en:'central county',ru:'центральный округ'})}` : '';
-      return `<b>${p.name} County</b><span class="t-meta">${p.msa_name}<br>$${(p.pay/1000).toFixed(1)}k · ${vs}${role}<br><b style="color:${BV[p.bv]}">${p.bv}</b> ${tr(BV_LABEL[p.bv]||{en:''})}<br><em>${tr({en:'click → city profile',ru:'нажмите → профиль города'})}</em></span>`;
+      const pct = p.pay_vs_center!=null ? Math.round((p.pay_vs_center-1)*100) : null;
+      const vs = p.center ? `★ ${tr({en:'centre',ru:'центр'})}`
+        : (pct!=null ? `${pct>=0?'+':''}${pct}% ${tr({en:'vs centre',ru:'к центру'})}` : '');
+      const cp = (!p.center && p.center_pay) ? `<br>${tr({en:'centre',ru:'центр'})}: $${(p.center_pay/1000).toFixed(1)}k` : '';
+      return `<b>${p.name} County</b><span class="t-meta">${p.msa_name}<br>$${(p.pay/1000).toFixed(1)}k · ${vs}${cp}<br><b style="color:${CAT[p.cat]}">${tr(CAT_LABEL[p.cat]||{en:''})}</b><br><em>${tr({en:'click → city profile',ru:'нажмите → профиль города'})}</em></span>`;
     }
     const activeCounty = ()=> mode==="peer" && peerDetail==="county" && countyLayer;
     function applyLayers(){
@@ -299,9 +301,8 @@
     function buildLegend(){
       const el=document.getElementById("legend"); let h="";
       if(activeCounty()){
-        const split = (CGEO && CGEO.us_avg) ? ` ($${Math.round(CGEO.us_avg/1000)}k)` : '';
-        h += `<div class="legend-row" style="margin-bottom:4px">${tr({en:"Pay vs US avg",ru:"Оплата к средней США"})}${split} · ${tr({en:"× neighbours",ru:"× соседи"})}</div>`;
-        for(const k of ["HH","HL","LH","LL"]) h += `<div class="legend-row"><span class="sw" style="background:${BV[k]}"></span><b style="width:22px;display:inline-block">${k}</b>${tr(BV_LABEL[k])}</div>`;
+        h += `<div class="legend-row" style="margin-bottom:4px">${tr({en:"Avg pay vs cluster centre",ru:"Средняя оплата к центру сгустка"})}</div>`;
+        for(const k of ["center","green","brown","red"]) h += `<div class="legend-row"><span class="sw" style="background:${CAT[k]}"></span>${tr(CAT_LABEL[k])}</div>`;
         el.innerHTML=h; return;
       }
       if(mode==="peer"){
@@ -331,7 +332,7 @@
             <button data-d="msa" class="${peerDetail==='msa'?'on':''}">${tr({en:"MSA",ru:"Метро"})}</button>
             <button data-d="county" class="${peerDetail==='county'?'on':''}">${tr({en:"Counties · wages",ru:"Округа · зарплаты"})}</button>
           </div>
-          <p class="note" style="margin:0">${tr({en:"County view: centre-periphery quadrants — private pay vs the US average × neighbours'. HL = above-US island (often the centre), LH = below-US pocket in a richer ring. ★ = central county; click → city profile.",ru:"Округа: квадранты центр-периферия — частная оплата к средней по США × соседи. HL — «остров» выше средней США (обычно центр), LH — карман ниже средней в богатом окружении. ★ — центральный округ; клик → профиль города."})}</p></div>`;
+          <p class="note" style="margin:0">${tr({en:"County view: each large (Almaty-size) core MSA anchors a cluster — surrounding metros join the core they border, ties broken by shared CSA. The centre (★) is the core's largest-payroll county; others are coloured by average pay vs the centre — green above (>+5%), red below (>−5%), brown within ±5%. Click → city profile.",ru:"Округа: каждое крупное ядро (размера Алматы) задаёт сгусток — соседние метро примыкают к ядру, с которым граничат (спорные — по общему CSA). Центр (★) — округ ядра с наибольшим ФОТ; остальные окрашены по средней оплате к центру — зелёный выше (>+5%), красный ниже (>−5%), коричневый ±5%. Клик → профиль города."})}</p></div>`;
         const bridges=PEERS.filter(p=>p.bridge);
         h += `<div class="card"><h3>${tr({en:"Bridge cities",ru:"Города-мосты"})} (${bridges.length})</h3>`;
         bridges.forEach(p=>{ h+=`<div style="font-size:12.5px;margin-bottom:6px"><b style="cursor:pointer" onclick="flyTo(${p.code})">${p.name}</b><br>`+
