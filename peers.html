@@ -350,8 +350,8 @@
         if(GEO && GEO.features){ const v=GEO.features.map(f=>f.properties[simKey]).filter(x=>x>0);
           if(v.length) almSimRange={lo:Math.min(...v), hi:Math.max(...v)}; }
         const basisNote = almBasis==="kz"
-          ? tr({en:`Basket: all ${B.n_spec||''} NAICS6 Almaty over-indexes in vs Kazakhstan, sorted by complexity (PCI).`,ru:`Корзина: все ${B.n_spec||''} отраслей NAICS6, где Алматы превышает уровень Казахстана, по сложности (PCI).`})
-          : tr({en:`Basket: all ${B.n_spec||''} NAICS6 Almaty over-indexes in vs the US, sorted by complexity (PCI).`,ru:`Корзина: все ${B.n_spec||''} отраслей NAICS6, где Алматы превышает уровень США, по сложности (PCI).`});
+          ? tr({en:`Basket: ${B.n_spec||''} NAICS-3 industries (Almaty city core) where it over-indexes vs Kazakhstan, by complexity (PCI).`,ru:`Корзина: ${B.n_spec||''} отраслей NAICS-3 (ядро г. Алматы), где он превышает уровень Казахстана, по сложности (PCI).`})
+          : tr({en:`Basket: ${B.n_spec||''} NAICS-3 industries (Almaty city core) where it over-indexes vs the US, by complexity (PCI).`,ru:`Корзина: ${B.n_spec||''} отраслей NAICS-3 (ядро г. Алматы), где он превышает уровень США, по сложности (PCI).`});
         const metricDesc = almMetric==="prox"
           ? tr({en:"Proximity (collective learning) — share of specialisations in common: shared ÷ average basket size.",ru:"Близость (collective learning) — доля общих специализаций: общие ÷ средний размер корзины."})
           : tr({en:"TF-IDF cosine — shared specialisations, rare industries weighted up.",ru:"Косинус TF-IDF — общие специализации, редкие отрасли весомее."});
