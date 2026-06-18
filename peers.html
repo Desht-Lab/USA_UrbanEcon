@@ -284,12 +284,14 @@
 
     function countyStyle(f){ const p=f.properties;
       return {weight: p.center?1.8:.5, color: p.center?"#fff":"#0b0d11", fillColor: CAT[p.cat]||GENERIC, fillOpacity:.85}; }
+    const fmtPay = (n)=> n>=1e9 ? "$"+(n/1e9).toFixed(1)+"B" : n>=1e6 ? "$"+Math.round(n/1e6)+"M" : "$"+Math.round(n/1e3)+"k";
     function countyTip(p){
       const pct = p.pay_vs_center!=null ? Math.round((p.pay_vs_center-1)*100) : null;
       const vs = p.center ? `★ ${tr({en:'centre',ru:'центр'})}`
         : (pct!=null ? `${pct>=0?'+':''}${pct}% ${tr({en:'vs centre',ru:'к центру'})}` : '');
-      const cp = (!p.center && p.center_pay) ? `<br>${tr({en:'centre',ru:'центр'})}: $${(p.center_pay/1000).toFixed(1)}k` : '';
-      return `<b>${p.name} County</b><span class="t-meta">${p.msa_name}<br>$${(p.pay/1000).toFixed(1)}k · ${vs}${cp}<br><b style="color:${CAT[p.cat]}">${tr(CAT_LABEL[p.cat]||{en:''})}</b><br><em>${tr({en:'click → city profile',ru:'нажмите → профиль города'})}</em></span>`;
+      const cp = (!p.center && p.center_pay) ? ` · ${tr({en:'centre',ru:'центр'})} $${(p.center_pay/1000).toFixed(1)}k` : '';
+      const stats = `${tr({en:'Jobs',ru:'Занятость'})}: ${fmtJobs(p.emp)} · ${tr({en:'Payroll',ru:'ФОТ'})}: ${fmtPay(p.wages)}`;
+      return `<b>${p.name} County</b><span class="t-meta">${p.msa_name}<br>${tr({en:'Avg pay',ru:'Ср. оплата'})} $${(p.pay/1000).toFixed(1)}k · ${vs}${cp}<br>${stats}<br><b style="color:${CAT[p.cat]}">${tr(CAT_LABEL[p.cat]||{en:''})}</b><br><em>${tr({en:'click → city profile',ru:'нажмите → профиль города'})}</em></span>`;
     }
     const activeCounty = ()=> mode==="peer" && peerDetail==="county" && countyLayer;
     function applyLayers(){
