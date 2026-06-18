@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>County industries — what drives wages · Desht</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1115; --fg: #e5e7eb; --muted: #9ca3af; --panel: #14171d; --card: #16191f;
+      --accent: #376c8a; --accent-2: #4f86a4; --nav-accent: #e5b983; --nav-accent-2: #f0cb9b;
+      --border: #222733; --accent-shadow: rgba(55,108,138,.35);
+      --bg-grad-1: rgba(55,108,138,.12); --bg-grad-2: rgba(229,185,131,.07);
+      --shadow: 0 12px 30px rgba(0,0,0,.35); --shadow-sm: 0 6px 16px rgba(0,0,0,.25);
+      --radius: 16px; --radius-sm: 10px; --above: #37a05a; --below: #d14b45; --grid: #2a3140;
+    }
+    [data-theme="light"] {
+      --bg: #f8fafc; --fg: #0f172a; --muted: #475569; --panel: #eeedeb; --card: #ffffff;
+      --nav-accent: #376c8a; --nav-accent-2: #4f86a4; --border: #e9e1d7; --grid: #e3e8ef;
+      --bg-grad-1: rgba(55,108,138,.08); --bg-grad-2: rgba(229,185,131,.14);
+      --shadow: 0 12px 30px rgba(15,23,42,.14); --shadow-sm: 0 6px 16px rgba(15,23,42,.10);
+    }
+    * { box-sizing: border-box; }
+    html[data-lang="en"] .lang.ru { display: none; }
+    html[data-lang="ru"] .lang.en { display: none; }
+    body { margin: 0; color: var(--fg);
+      font-family: "Space Grotesk","Inter","Segoe UI",system-ui,sans-serif;
+      background: radial-gradient(60% 50% at 12% 0%, var(--bg-grad-1), transparent 60%),
+        radial-gradient(55% 55% at 100% 100%, var(--bg-grad-2), transparent 55%), var(--bg);
+      background-attachment: fixed; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    .topbar { position: sticky; top: 0; z-index: 1100; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px; padding: 12px clamp(16px,3vw,28px);
+      border-bottom: 1px solid var(--border); background: color-mix(in srgb, var(--panel) 80%, transparent);
+      backdrop-filter: blur(12px); }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .brand-mark { width: 36px; height: 36px; flex: none; display: grid; place-items: center;
+      border-radius: 11px; background: linear-gradient(135deg, var(--nav-accent), var(--nav-accent-2));
+      color: #0f1115; font-weight: 700; font-size: 18px; box-shadow: 0 6px 18px var(--accent-shadow); }
+    .brand-title { font-size: 16px; font-weight: 600; }
+    .brand-sub { font-size: 12px; color: var(--muted); }
+    .topbar-right { display: flex; align-items: center; gap: 10px; }
+    select.county-sel { max-width: 46vw; padding: 8px 11px; border-radius: 999px; border: 1px solid var(--border);
+      background: var(--card); color: var(--fg); font: inherit; font-size: 12.5px; font-weight: 500; cursor: pointer; }
+    .pill-btn { display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px; border: 1px solid var(--border);
+      border-radius: 999px; background: var(--card); color: var(--fg); font: inherit; font-size: 12.5px;
+      font-weight: 500; cursor: pointer; text-decoration: none; white-space: nowrap; transition: border-color .15s, color .15s; }
+    .pill-btn:hover { border-color: var(--nav-accent); color: var(--nav-accent); }
+    .lang-switch { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; }
+    .lang-switch button { border: 0; background: transparent; color: var(--muted); font: inherit; font-size: 12.5px; font-weight: 600; padding: 8px 12px; cursor: pointer; }
+    .lang-switch button.on { background: var(--nav-accent); color: #0f1115; }
+
+    .layout { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,360px); gap: 0; height: calc(100vh - 63px); }
+    .chart-wrap { position: relative; min-width: 0; padding: 8px 8px 0; }
+    #chart { width: 100%; height: 100%; display: block; }
+    .panel { overflow-y: auto; padding: 18px clamp(14px,1.4vw,20px) 40px; border-left: 1px solid var(--border); }
+    h1.page-title { font-size: 19px; margin: 0 0 2px; letter-spacing: -.3px; }
+    .sub { font-size: 12.5px; color: var(--muted); margin: 0 0 14px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm);
+      padding: 12px 13px; margin-bottom: 12px; box-shadow: var(--shadow-sm); }
+    .card h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin: 0 0 9px; font-weight: 600; }
+    .stat-row { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; padding: 3px 0; }
+    .stat-row b { font-variant-numeric: tabular-nums; }
+    .rank { list-style: none; padding: 0; margin: 0; }
+    .rank li { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; padding: 6px 6px; border-radius: 8px; cursor: pointer; font-size: 12.5px; }
+    .rank li:hover, .rank li.hi { background: color-mix(in srgb, var(--nav-accent) 16%, transparent); }
+    .rank .nm { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .rank .sc { color: var(--nav-accent); font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+    .rank .meta { grid-column: 1 / -1; color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+    .legend-row { display: flex; align-items: center; gap: 8px; font-size: 12px; margin: 5px 0; color: var(--muted); }
+    .legend-row .dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+    .note { font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+    circle.pt { cursor: pointer; transition: stroke-width .1s; }
+    circle.pt:hover, circle.pt.hi { stroke: var(--fg); stroke-width: 2; }
+    .axis text { fill: var(--muted); font-size: 11px; }
+    .axis line, .axis path { stroke: var(--grid); }
+    .reflab { fill: var(--nav-accent); font-size: 11px; font-weight: 600; }
+    #tip { position: fixed; pointer-events: none; z-index: 1200; background: var(--card); border: 1px solid var(--border);
+      border-radius: 9px; box-shadow: var(--shadow); padding: 8px 11px; font-size: 12px; line-height: 1.4; max-width: 260px; display: none; }
+    #tip b { display: block; margin-bottom: 3px; font-size: 12.5px; }
+    #tip .m { color: var(--muted); font-size: 11px; }
+    @media (max-width: 900px){ .layout{ grid-template-columns: 1fr; height: auto; } .chart-wrap{ height: 60vh; } .panel{ border-left: 0; border-top: 1px solid var(--border);} }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-mark">D</div>
+      <div>
+        <div class="brand-title"><span class="lang en">What drives county wages</span><span class="lang ru">Что двигает зарплаты округа</span></div>
+        <div class="brand-sub lang en">NAICS-6 payroll × average pay · QCEW 2023 private</div>
+        <div class="brand-sub lang ru">NAICS-6 ФОТ × средняя оплата · QCEW 2023, частный сектор</div>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <select class="county-sel" id="countySel"></select>
+      <a class="pill-btn" href="peers.html">← <span class="lang en">Map</span><span class="lang ru">Карта</span></a>
+      <div class="lang-switch"><button data-lang="en">EN</button><button data-lang="ru">RU</button></div>
+      <button class="pill-btn" id="themeBtn">◐</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="chart-wrap"><svg id="chart"></svg></div>
+    <div class="panel" id="panel"></div>
+  </div>
+  <div id="tip"></div>
+
+<script>
+  const T = {
+    title:{en:"What drives wages",ru:"Что двигает зарплаты"},
+    sub:{en:"Each dot = a 6-digit NAICS industry (private). X = total payroll (log), Y = average annual pay. Big, high dots in the upper-right are the wage drivers; the dashed line is the county average.",
+         ru:"Точка = отрасль NAICS-6 (частный сектор). X = совокупный ФОТ (лог), Y = средняя годовая оплата. Крупные точки в правом-верхнем углу — драйверы; пунктир — средняя по округу."},
+    summary:{en:"County summary",ru:"Сводка по округу"},
+    avgpay:{en:"Average pay",ru:"Средняя оплата"}, jobs:{en:"Private jobs",ru:"Занятость (частн.)"},
+    payroll:{en:"Total payroll",ru:"Совокупный ФОТ"}, nind:{en:"Industries shown",ru:"Отраслей на графике"},
+    drivers:{en:"Top wage drivers",ru:"Главные драйверы зарплат"},
+    driversNote:{en:"By lift = employment share × (industry pay − county avg). These pull the county average up.",
+                 ru:"По вкладу = доля занятости × (оплата − средняя округа). Тянут среднюю вверх."},
+    biggest:{en:"Largest by payroll",ru:"Крупнейшие по ФОТ"},
+    above:{en:"Pays above county avg",ru:"Платит выше средней"}, below:{en:"Pays below county avg",ru:"Платит ниже средней"},
+    size:{en:"dot size = employment",ru:"размер точки = занятость"},
+    pay:{en:"avg pay",ru:"ср. оплата"}, emp:{en:"jobs",ru:"занятость"}, pr:{en:"payroll",ru:"ФОТ"}, lift:{en:"lift",ru:"вклад"},
+  };
+  const tr = o => o[document.documentElement.getAttribute("data-lang")] || o.en;
+  const fmtPay = n => n>=1e9 ? "$"+(n/1e9).toFixed(1)+"B" : n>=1e6 ? "$"+Math.round(n/1e6)+"M" : n>=1e3 ? "$"+Math.round(n/1e3)+"k" : "$"+Math.round(n);
+  const fmtJobs = n => n>=1e6 ? (n/1e6).toFixed(1)+"M" : n>=1e3 ? Math.round(n/1e3)+"k" : ""+n;
+  const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const qs = new URLSearchParams(location.search);
+  let INDEX = [], DATA = null, hiNaics = null;
+
+  function applyLang(){ document.querySelectorAll(".lang-switch button").forEach(b=>b.classList.toggle("on", b.dataset.lang===document.documentElement.getAttribute("data-lang"))); }
+  document.querySelectorAll(".lang-switch button").forEach(b=> b.onclick = ()=>{ document.documentElement.setAttribute("data-lang", b.dataset.lang); localStorage.setItem("lang", b.dataset.lang); applyLang(); render(); });
+  document.getElementById("themeBtn").onclick = ()=>{ const t=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark"; document.documentElement.setAttribute("data-theme",t); localStorage.setItem("theme",t); render(); };
+  (function initPrefs(){ const l=localStorage.getItem("lang"); if(l) document.documentElement.setAttribute("data-lang",l); const t=localStorage.getItem("theme"); if(t) document.documentElement.setAttribute("data-theme",t); applyLang(); })();
+
+  async function boot(){
+    INDEX = await fetch("county_industries/index.json",{cache:"no-store"}).then(r=>r.json());
+    const sel = document.getElementById("countySel");
+    sel.innerHTML = INDEX.map(c=>`<option value="${c.fips}">${c.county} · ${tr(T.avgpay)} ${fmtPay(c.pay)}</option>`).join("");
+    sel.onchange = ()=> load(sel.value);
+    let fips = qs.get("fips");
+    if(!INDEX.some(c=>c.fips===fips)) fips = INDEX[0].fips;
+    sel.value = fips;
+    load(fips);
+  }
+  async function load(fips){
+    DATA = await fetch(`county_industries/${fips}.json`,{cache:"no-store"}).then(r=>r.json());
+    const u = new URL(location); u.searchParams.set("fips", fips); history.replaceState(null,"",u);
+    document.getElementById("countySel").value = fips;
+    hiNaics = null; render();
+  }
+
+  function render(){ if(!DATA) return; drawChart(); drawPanel(); }
+
+  function drawChart(){
+    const svg = document.getElementById("chart"), wrap = svg.parentElement;
+    const W = wrap.clientWidth, H = wrap.clientHeight;
+    const m = {t:18, r:18, b:46, l:70};
+    const inds = DATA.industries;
+    const xs = inds.map(d=>d.wages).filter(v=>v>0), ys = inds.map(d=>d.pay);
+    const xmin = Math.min(...xs), xmax = Math.max(...xs);
+    const ymax = Math.max(DATA.county_pay, ...ys)*1.06, ymin = 0;
+    const lx0 = Math.floor(Math.log10(xmin)), lx1 = Math.ceil(Math.log10(xmax));
+    const X = v => m.l + (Math.log10(v)-lx0)/((lx1-lx0)||1) * (W-m.l-m.r);
+    const Y = v => H-m.b - (v-ymin)/((ymax-ymin)||1) * (H-m.t-m.b);
+    const emax = Math.max(...inds.map(d=>d.emp));
+    const R = e => Math.max(2.5, Math.sqrt(e/emax)*26);
+    const above=css("--above"), below=css("--below"), acc=css("--nav-accent"), grid=css("--grid"), muted=css("--muted");
+
+    let g = "";
+    // x grid + ticks (powers of 10)
+    for(let p=lx0; p<=lx1; p++){ const x=X(Math.pow(10,p));
+      g += `<line x1="${x}" y1="${m.t}" x2="${x}" y2="${H-m.b}" stroke="${grid}" stroke-width="1" opacity=".5"/>`;
+      g += `<text x="${x}" y="${H-m.b+18}" text-anchor="middle" fill="${muted}" font-size="11">${fmtPay(Math.pow(10,p))}</text>`; }
+    // y grid + ticks
+    const yticks=5; for(let i=0;i<=yticks;i++){ const v=ymin+(ymax-ymin)*i/yticks, y=Y(v);
+      g += `<line x1="${m.l}" y1="${y}" x2="${W-m.r}" y2="${y}" stroke="${grid}" stroke-width="1" opacity=".5"/>`;
+      g += `<text x="${m.l-8}" y="${y+4}" text-anchor="end" fill="${muted}" font-size="11">${fmtPay(v)}</text>`; }
+    // county avg reference line
+    const yref = Y(DATA.county_pay);
+    g += `<line x1="${m.l}" y1="${yref}" x2="${W-m.r}" y2="${yref}" stroke="${acc}" stroke-width="1.5" stroke-dasharray="6 4"/>`;
+    g += `<text class="reflab" x="${W-m.r}" y="${yref-6}" text-anchor="end">${tr(T.avgpay)} ${fmtPay(DATA.county_pay)}</text>`;
+    // axis labels
+    g += `<text x="${m.l+(W-m.l-m.r)/2}" y="${H-6}" text-anchor="middle" fill="${muted}" font-size="11.5">${tr(T.pr)} ▶ (log)</text>`;
+    g += `<text transform="translate(16,${m.t+(H-m.t-m.b)/2}) rotate(-90)" text-anchor="middle" fill="${muted}" font-size="11.5">${tr(T.avgpay)} ▶</text>`;
+    // points (largest first so small ones sit on top and stay hoverable)
+    [...inds].sort((a,b)=>b.emp-a.emp).forEach(d=>{
+      if(d.wages<=0) return;
+      const c = d.pay>=DATA.county_pay ? above : below;
+      const hi = d.naics===hiNaics;
+      g += `<circle class="pt${hi?' hi':''}" data-n="${d.naics}" cx="${X(d.wages).toFixed(1)}" cy="${Y(d.pay).toFixed(1)}" r="${R(d.emp).toFixed(1)}" fill="${c}" fill-opacity=".62" stroke="${hi?css('--fg'):c}" stroke-width="${hi?2:1}"/>`;
+    });
+    svg.setAttribute("viewBox",`0 0 ${W} ${H}`); svg.innerHTML = g;
+    svg.querySelectorAll("circle.pt").forEach(el=>{
+      const d = inds.find(x=>x.naics===el.dataset.n);
+      el.onmousemove = e=> showTip(e, d);
+      el.onmouseleave = hideTip;
+      el.onclick = ()=>{ hiNaics = (hiNaics===d.naics?null:d.naics); render(); };
+    });
+  }
+
+  function showTip(e, d){
+    const tip = document.getElementById("tip");
+    tip.innerHTML = `<b>${d.name}</b><span class="m">NAICS ${d.naics}</span><br>`+
+      `${tr(T.pay)}: <b>${fmtPay(d.pay)}</b> · ${tr(T.emp)}: ${fmtJobs(d.emp)}<br>`+
+      `${tr(T.pr)}: ${fmtPay(d.wages)} · LQ ${d.lq!=null?d.lq:"—"}<br>`+
+      `${tr(T.lift)}: <b style="color:${d.lift>=0?css('--above'):css('--below')}">${d.lift>=0?'+':''}${fmtPay(d.lift)}/job</b>`;
+    tip.style.display="block";
+    const pad=14; let x=e.clientX+pad, y=e.clientY+pad;
+    if(x+tip.offsetWidth>innerWidth) x=e.clientX-tip.offsetWidth-pad;
+    if(y+tip.offsetHeight>innerHeight) y=e.clientY-tip.offsetHeight-pad;
+    tip.style.left=x+"px"; tip.style.top=y+"px";
+  }
+  const hideTip = ()=> document.getElementById("tip").style.display="none";
+
+  function drawPanel(){
+    const p = document.getElementById("panel");
+    const drivers = [...DATA.industries].sort((a,b)=>b.lift-a.lift).slice(0,8);
+    const biggest = [...DATA.industries].sort((a,b)=>b.wages-a.wages).slice(0,8);
+    const li = d => `<li data-n="${d.naics}" class="${d.naics===hiNaics?'hi':''}">`+
+      `<span class="nm">${d.name}</span><span class="sc">${d.lift>=0?'+':''}${fmtPay(d.lift)}</span>`+
+      `<span class="meta">${tr(T.pay)} ${fmtPay(d.pay)} · ${tr(T.emp)} ${fmtJobs(d.emp)} · ${tr(T.pr)} ${fmtPay(d.wages)}</span></li>`;
+    const liBig = d => `<li data-n="${d.naics}" class="${d.naics===hiNaics?'hi':''}">`+
+      `<span class="nm">${d.name}</span><span class="sc">${fmtPay(d.wages)}</span>`+
+      `<span class="meta">${tr(T.pay)} ${fmtPay(d.pay)} · ${tr(T.emp)} ${fmtJobs(d.emp)}</span></li>`;
+    p.innerHTML =
+      `<h1 class="page-title">${DATA.county}</h1>`+
+      `<p class="sub">${DATA.msa_name} · <span style="color:var(--nav-accent)">${DATA.cat}</span></p>`+
+      `<p class="sub">${tr(T.sub)}</p>`+
+      `<div class="card"><h3>${tr(T.summary)}</h3>`+
+        `<div class="stat-row"><span>${tr(T.avgpay)}</span><b>${fmtPay(DATA.county_pay)}</b></div>`+
+        `<div class="stat-row"><span>${tr(T.jobs)}</span><b>${fmtJobs(DATA.county_emp)}</b></div>`+
+        `<div class="stat-row"><span>${tr(T.payroll)}</span><b>${fmtPay(DATA.county_wages)}</b></div>`+
+        `<div class="stat-row"><span>${tr(T.nind)}</span><b>${DATA.industries.length}</b></div>`+
+        `<div class="legend-row"><span class="dot" style="background:${css('--above')}"></span>${tr(T.above)}</div>`+
+        `<div class="legend-row"><span class="dot" style="background:${css('--below')}"></span>${tr(T.below)} · ${tr(T.size)}</div></div>`+
+      `<div class="card"><h3>${tr(T.drivers)}</h3><ul class="rank">${drivers.map(li).join("")}</ul>`+
+        `<p class="note" style="margin-top:8px">${tr(T.driversNote)}</p></div>`+
+      `<div class="card"><h3>${tr(T.biggest)}</h3><ul class="rank">${biggest.map(liBig).join("")}</ul></div>`;
+    p.querySelectorAll(".rank li").forEach(el=> el.onclick = ()=>{ hiNaics=(hiNaics===el.dataset.n?null:el.dataset.n); render(); });
+  }
+
+  let rt; addEventListener("resize", ()=>{ clearTimeout(rt); rt=setTimeout(()=>DATA&&drawChart(), 120); });
+  boot();
+</script>
+</body>
+</html>

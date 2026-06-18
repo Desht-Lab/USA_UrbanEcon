@@ -261,7 +261,9 @@
       CGEO = await fetch("county_wage_geo.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>null);
       if(CGEO){ countyLayer = L.geoJSON(CGEO,{ style:countyStyle, onEachFeature:(f,layer)=>{
         const p=f.properties;
-        layer.on("click",()=>{ location.href="city.html?msa="+encodeURIComponent(p.cbsa); });
+        layer.on("click",()=>{ location.href = p.cat!=="red"
+          ? "county_industries.html?fips="+encodeURIComponent(String(p.fips).padStart(5,"0"))
+          : "city.html?msa="+encodeURIComponent(p.cbsa); });
         layer.on("mouseover",()=>{ layer.setStyle({weight:1.8,color:"#fff"});
           layer.bindTooltip(countyTip(p),{className:"metro-tip",sticky:true,direction:"top",opacity:1}).openTooltip(); });
         layer.on("mouseout",()=>countyLayer.setStyle(countyStyle));
