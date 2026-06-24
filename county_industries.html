@@ -50,7 +50,7 @@
     .lang-switch button { border: 0; background: transparent; color: var(--muted); font: inherit; font-size: 12.5px; font-weight: 600; padding: 8px 12px; cursor: pointer; }
     .lang-switch button.on { background: var(--nav-accent); color: #0f1115; }
 
-    .layout { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,360px); gap: 0; height: calc(100vh - 63px); }
+    .layout { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 0; height: calc(100vh - 63px); }
     .chart-wrap { position: relative; min-width: 0; padding: 8px 8px 0; }
     #chart { width: 100%; height: 100%; display: block; }
     .panel { overflow-y: auto; padding: 18px clamp(14px,1.4vw,20px) 40px; border-left: 1px solid var(--border); }
@@ -80,6 +80,43 @@
     #tip b { display: block; margin-bottom: 3px; font-size: 12.5px; }
     #tip .m { color: var(--muted); font-size: 11px; }
     @media (max-width: 900px){ .layout{ grid-template-columns: 1fr; height: auto; } .chart-wrap{ height: 60vh; } .panel{ border-left: 0; border-top: 1px solid var(--border);} }
+
+    /* --- emergence: badges, sparklines, summary, detail --- */
+    .badge { display: inline-flex; align-items: center; gap: 3px; padding: 1px 7px; border-radius: 999px;
+      font-size: 10px; font-weight: 700; letter-spacing: .3px; text-transform: uppercase; white-space: nowrap;
+      border: 1px solid transparent; }
+    .badge.anchor   { color: #e08a3c; background: color-mix(in srgb,#e08a3c 16%,transparent); border-color: color-mix(in srgb,#e08a3c 40%,transparent); }
+    .badge.gradual  { color: var(--above); background: color-mix(in srgb,var(--above) 15%,transparent); border-color: color-mix(in srgb,var(--above) 38%,transparent); }
+    .badge.steady   { color: var(--accent-2); background: color-mix(in srgb,var(--accent-2) 16%,transparent); border-color: color-mix(in srgb,var(--accent-2) 40%,transparent); }
+    .badge.receding { color: var(--below); background: color-mix(in srgb,var(--below) 15%,transparent); border-color: color-mix(in srgb,var(--below) 38%,transparent); }
+    .badge.new      { color: var(--muted); background: color-mix(in srgb,var(--muted) 14%,transparent); border-color: color-mix(in srgb,var(--muted) 34%,transparent); }
+    .badge .caut { font-size: 11px; line-height: 1; }
+    .rank li .emrow { display: flex; align-items: center; gap: 8px; grid-column: 1 / -1; margin-top: 3px; }
+    .spark { flex: none; }
+    .spark .seg-jump { stroke-width: 2.4; }
+    .summary-line { font-size: 13px; line-height: 1.6; margin: 0 0 8px; }
+    .summary-line b { font-variant-numeric: tabular-nums; }
+    .chip { display: inline-flex; align-items: baseline; gap: 5px; padding: 3px 9px; border-radius: 8px;
+      background: color-mix(in srgb,var(--fg) 6%,transparent); margin: 0 6px 6px 0; font-size: 12px; }
+    .chip b { font-size: 14px; font-variant-numeric: tabular-nums; }
+    .chip.anchor b { color: #e08a3c; } .chip.gradual b { color: var(--above); }
+    .chip.steady b { color: var(--accent-2); } .chip.receding b { color: var(--below); }
+    .detail-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 2px; }
+    .detail-head .x { cursor: pointer; color: var(--muted); border: 0; background: none; font-size: 16px; line-height: 1; padding: 2px 4px; }
+    .detail-head .x:hover { color: var(--fg); }
+    .detail-name { font-size: 14px; font-weight: 600; }
+    .traj { width: 100%; height: auto; display: block; margin: 6px 0 2px; }
+    .traj .area { fill: color-mix(in srgb,var(--accent-2) 22%,transparent); }
+    .traj .eline { fill: none; stroke: var(--accent-2); stroke-width: 2; }
+    .traj .pline { fill: none; stroke: var(--nav-accent); stroke-width: 1.6; stroke-dasharray: 3 3; }
+    .traj .jump { stroke: #e08a3c; stroke-width: 3; }
+    .traj .dot { fill: var(--accent-2); }
+    .traj text { fill: var(--muted); font-size: 10px; }
+    .narr { font-size: 12.5px; line-height: 1.5; margin: 6px 0 0; }
+    .narr .caut { color: #e08a3c; display: block; margin-top: 5px; font-size: 11.5px; }
+    .legkey { display: flex; flex-wrap: wrap; gap: 6px 12px; margin-top: 8px; }
+    .legkey span { font-size: 11px; color: var(--muted); display: inline-flex; align-items: center; gap: 4px; }
+    .legkey i { width: 18px; height: 0; border-top: 2px solid; display: inline-block; }
   </style>
 </head>
 <body>
@@ -88,8 +125,8 @@
       <div class="brand-mark">D</div>
       <div>
         <div class="brand-title"><span class="lang en">What drives county wages</span><span class="lang ru">Что двигает зарплаты округа</span></div>
-        <div class="brand-sub lang en">NAICS-6 payroll × average pay · QCEW 2023 private</div>
-        <div class="brand-sub lang ru">NAICS-6 ФОТ × средняя оплата · QCEW 2023, частный сектор</div>
+        <div class="brand-sub lang en">NAICS-6 payroll × pay · QCEW private · how each driver emerged 1993→2023</div>
+        <div class="brand-sub lang ru">NAICS-6 ФОТ × оплата · QCEW частн. · как появился каждый драйвер 1993→2023</div>
       </div>
     </div>
     <div class="topbar-right">
@@ -121,6 +158,39 @@
     above:{en:"Pays above county avg",ru:"Платит выше средней"}, below:{en:"Pays below county avg",ru:"Платит ниже средней"},
     size:{en:"dot size = employment",ru:"размер точки = занятость"},
     pay:{en:"avg pay",ru:"ср. оплата"}, emp:{en:"jobs",ru:"занятость"}, pr:{en:"payroll",ru:"ФОТ"}, lift:{en:"lift",ru:"вклад"},
+    // --- emergence / history ---
+    emTitle:{en:"How the drivers emerged",ru:"Как появились драйверы"},
+    emNote:{en:"For each leading driver, its private employment across the 7 QCEW snapshots (1993→2023). Did it build up gradually, or did a big anchor land in one 5-year step? Click any driver to see its full path.",
+            ru:"Для каждого ведущего драйвера — частная занятость по 7 срезам QCEW (1993→2023). Он рос постепенно или крупный «якорь» появился за один 5-летний шаг? Нажмите на драйвер, чтобы увидеть всю траекторию."},
+    bAnchor:{en:"Abrupt",ru:"Резко"}, bGradual:{en:"Gradual",ru:"Постепенно"},
+    bSteady:{en:"Established",ru:"Устоялся"}, bReceding:{en:"Receding",ru:"Спадает"}, bNew:{en:"New code",ru:"Новый код"},
+    cAnchor:{en:"abrupt anchors",ru:"резких «якорей»"}, cGradual:{en:"built up gradually",ru:"росли постепенно"},
+    cSteady:{en:"long-established",ru:"давно устоялись"}, cReceding:{en:"receding",ru:"спадают"}, cNew:{en:"too new to read",ru:"слишком новые"},
+    ofTop:{en:n=>`Of the ${n} leading wage drivers`,ru:n=>`Из ${n} ведущих драйверов зарплат`},
+    and:{en:"and",ru:"и"},
+    reclassWarn:{en:n=>`${n} of these rest on split-estimated values, back-cast history, or too few clean years — treat them as uncertain, not hard anchors. Click a driver for details.`,
+                 ru:n=>`${n} из них опираются на оценки после расщепления, реконструированную историю или слишком малое число чистых лет — считайте их неопределёнными, а не твёрдыми «якорями». Нажмите на драйвер для деталей.`},
+    normNote:{en:"Jobs and payroll lines are each scaled to their own range (compare shapes). Average pay and the dotted county-average wage share one scale, so the gap between them is real. Hover a year for exact values.",
+              ru:"Линии занятости и ФОТ масштабированы каждая к своему диапазону (сравнивайте форму). Средняя оплата и пунктирная средняя зарплата округа — в одном масштабе, поэтому разрыв между ними реальный. Наведите на год для точных значений."},
+    estLeg:{en:"shaded / hollow = split-estimate", ru:"затенение / полые точки = оценка после расщепления"},
+    countyAvg:{en:"County avg wage", ru:"Ср. зарплата округа"},
+    nArrived:{en:"Appears from",ru:"Появляется с"}, nPeak:{en:"peak",ru:"пик"},
+    narrAnchor:{en:(m,y0,y1,s)=>`Jobs jumped <b>${m}×</b> in one step (${y0}→${y1}) — <b>${s}%</b> of all the growth came in that single period. An abrupt anchor.`,
+                ru:(m,y0,y1,s)=>`Занятость выросла в <b>${m}×</b> за один шаг (${y0}→${y1}) — <b>${s}%</b> всего роста пришлось на этот период. Резкий «якорь».`},
+    narrGradual:{en:s=>`Grew steadily across the period — no single 5-year step accounts for more than <b>${s}%</b> of the growth. A gradual build.`,
+                 ru:s=>`Рос равномерно — ни один 5-летний шаг не дал более <b>${s}%</b> роста. Постепенное развитие.`},
+    narrSteady:{en:y=>`Roughly the same size since ${y} — a long-standing pillar of the county economy, not a recent arrival.`,
+                ru:y=>`Примерно тот же размер с ${y} — давняя опора экономики округа, а не недавнее появление.`},
+    narrReceding:{en:(y)=>`Smaller now than at its ${y} peak — a driver that is fading rather than emerging.`,
+                  ru:(y)=>`Сейчас меньше, чем на пике в ${y} — драйвер угасает, а не появляется.`},
+    narrNew:{en:y=>`Only appears in the data from ${y} — too recent to judge its shape (likely a new NAICS-2022 code).`,
+             ru:y=>`Появляется в данных только с ${y} — слишком недавно, чтобы судить (вероятно, новый код NAICS-2022).`},
+    cautSplit:{en:(y,par)=>`The ${y} value is a split-estimate — its jobs were apportioned out of a broader code (${par}) by 2018 shares — so this jump may be a NAICS coding artifact, not real hiring.`,
+               ru:(y,par)=>`Значение за ${y} — оценка после расщепления: занятость разнесена из более широкого кода (${par}) по долям 2018 года, поэтому скачок может быть артефактом кодировки NAICS, а не реальным наймом.`},
+    cautRecon:{en:(y,par)=>`Values through ${y} are reconstructed by splitting a broader code (${par}); the industry is natively itself only afterward. Read the early trend as an estimate.`,
+               ru:(y,par)=>`Значения до ${y} включительно реконструированы расщеплением более широкого кода (${par}); как отдельный код отрасль существует только после. Раннюю динамику считайте оценкой.`},
+    cautThin:{en:n=>`Only ${n} of the 7 snapshots are clean native observations — too few to read the shape reliably.`,
+              ru:n=>`Лишь ${n} из 7 срезов — чистые наблюдения по родному коду — слишком мало, чтобы надёжно судить о форме.`},
   };
   const tr = o => o[document.documentElement.getAttribute("data-lang")] || o.en;
   const fmtPay = n => n>=1e9 ? "$"+(n/1e9).toFixed(1)+"B" : n>=1e6 ? "$"+Math.round(n/1e6)+"M" : n>=1e3 ? "$"+Math.round(n/1e3)+"k" : "$"+Math.round(n);
@@ -135,7 +205,7 @@
   (function initPrefs(){ const l=localStorage.getItem("lang"); if(l) document.documentElement.setAttribute("data-lang",l); const t=localStorage.getItem("theme"); if(t) document.documentElement.setAttribute("data-theme",t); applyLang(); })();
 
   async function boot(){
-    INDEX = await fetch("county_industries/index.json",{cache:"no-store"}).then(r=>r.json());
+    INDEX = await fetch("county_history/index.json",{cache:"no-store"}).then(r=>r.json());
     const sel = document.getElementById("countySel");
     sel.innerHTML = INDEX.map(c=>`<option value="${c.fips}">${c.county} · ${tr(T.avgpay)} ${fmtPay(c.pay)}</option>`).join("");
     sel.onchange = ()=> load(sel.value);
@@ -145,7 +215,7 @@
     load(fips);
   }
   async function load(fips){
-    DATA = await fetch(`county_industries/${fips}.json`,{cache:"no-store"}).then(r=>r.json());
+    DATA = await fetch(`county_history/${fips}.json`,{cache:"no-store"}).then(r=>r.json());
     const u = new URL(location); u.searchParams.set("fips", fips); history.replaceState(null,"",u);
     document.getElementById("countySel").value = fips;
     hiNaics = null; render();
@@ -189,7 +259,10 @@
       if(d.wages<=0) return;
       const c = d.pay>=DATA.county_pay ? above : below;
       const hi = d.naics===hiNaics;
-      g += `<circle class="pt${hi?' hi':''}" data-n="${d.naics}" cx="${X(d.wages).toFixed(1)}" cy="${Y(d.pay).toFixed(1)}" r="${R(d.emp).toFixed(1)}" fill="${c}" fill-opacity=".62" stroke="${hi?css('--fg'):c}" stroke-width="${hi?2:1}"/>`;
+      const h = DATA.hist && DATA.hist[d.naics];
+      const anchor = h && h.emergence==='anchor' && !h.caution;   // genuine abrupt arrival
+      const stroke = hi ? css('--fg') : anchor ? '#e08a3c' : c;
+      g += `<circle class="pt${hi?' hi':''}" data-n="${d.naics}" cx="${X(d.wages).toFixed(1)}" cy="${Y(d.pay).toFixed(1)}" r="${R(d.emp).toFixed(1)}" fill="${c}" fill-opacity=".62" stroke="${stroke}" stroke-width="${hi?2:anchor?2:1}"/>`;
     });
     svg.setAttribute("viewBox",`0 0 ${W} ${H}`); svg.innerHTML = g;
     svg.querySelectorAll("circle.pt").forEach(el=>{
@@ -202,32 +275,198 @@
 
   function showTip(e, d){
     const tip = document.getElementById("tip");
+    const h = DATA.hist && DATA.hist[d.naics];
     tip.innerHTML = `<b>${d.name}</b><span class="m">NAICS ${d.naics}</span><br>`+
       `${tr(T.pay)}: <b>${fmtPay(d.pay)}</b> · ${tr(T.emp)}: ${fmtJobs(d.emp)}<br>`+
-      `${tr(T.pr)}: ${fmtPay(d.wages)} · LQ ${d.lq!=null?d.lq:"—"}<br>`+
-      `${tr(T.lift)}: <b style="color:${d.lift>=0?css('--above'):css('--below')}">${d.lift>=0?'+':''}${fmtPay(d.lift)}/job</b>`;
-    tip.style.display="block";
-    const pad=14; let x=e.clientX+pad, y=e.clientY+pad;
+      `${tr(T.pr)}: ${fmtPay(d.wages)}<br>`+
+      `${tr(T.lift)}: <b style="color:${d.lift>=0?css('--above'):css('--below')}">${d.lift>=0?'+':''}${fmtPay(d.lift)}/job</b>`+
+      (h ? `<br>${badge(h)}` : ``);
+    tip.style.display="block"; placeTip(e);
+  }
+  function placeTip(e){
+    const tip=document.getElementById("tip"); const pad=14;
+    let x=e.clientX+pad, y=e.clientY+pad;
     if(x+tip.offsetWidth>innerWidth) x=e.clientX-tip.offsetWidth-pad;
     if(y+tip.offsetHeight>innerHeight) y=e.clientY-tip.offsetHeight-pad;
     tip.style.left=x+"px"; tip.style.top=y+"px";
   }
   const hideTip = ()=> document.getElementById("tip").style.display="none";
 
+  // ---------- emergence helpers ----------
+  const EMLABEL = {anchor:'bAnchor', gradual:'bGradual', steady:'bSteady', receding:'bReceding', new:'bNew'};
+  const emColor = em => ({anchor:'#e08a3c', gradual:css('--above'), steady:css('--accent-2'),
+                          receding:css('--below'), new:css('--muted')})[em] || css('--muted');
+  const badge = h => `<span class="badge ${h.emergence}">${tr(T[EMLABEL[h.emergence]])}`+
+      `${h.caution?'<span class="caut" title="possible reclassification">⚠</span>':''}</span>`;
+  const joinParts = a => a.length<=1 ? a.join('') : a.slice(0,-1).join(', ')+' '+tr(T.and)+' '+a[a.length-1];
+
+  function sparkline(h){
+    const W=80, H=22, pad=2.5, years=DATA.years;
+    const vals = h.e.filter(v=>v!=null);
+    if(vals.length<2) return `<svg class="spark" width="${W}" height="${H}"></svg>`;
+    const mn=Math.min(...vals), mx=Math.max(...vals);
+    const X=i=> pad + i/(years.length-1)*(W-2*pad);
+    const Y=e=> H-pad - (mx===mn?0.5:(e-mn)/(mx-mn))*(H-2*pad);
+    const col=emColor(h.emergence); let seg='', dots='', prev=null;
+    h.e.forEach((e,i)=>{ if(e==null){ prev=null; return; }
+      const x=X(i), y=Y(e);
+      if(prev){ const isJump=(h.emergence==='anchor' && years[i]===h.jump_year);
+        seg+=`<line x1="${prev.x.toFixed(1)}" y1="${prev.y.toFixed(1)}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="${isJump?'#e08a3c':col}" stroke-width="${isJump?2.4:1.4}" stroke-linecap="round"/>`; }
+      dots+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="1.4" fill="${col}"/>`; prev={x,y}; });
+    return `<svg class="spark" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">${seg}${dots}</svg>`;
+  }
+
+  // three series over the years; each scaled to its own range (units differ by 10^6)
+  const TSERIES = () => [
+    {key:'e', col:css('--accent-2'),   dash:''},     // employment
+    {key:'w', col:css('--above'),      dash:''},     // total payroll
+    {key:'p', col:css('--nav-accent'), dash:'4 3'},  // avg pay
+  ];
+  function trajChart(h){
+    const VW=460, VH=150, m={t:12,r:12,b:22,l:12}, years=DATA.years;
+    const pw=VW-m.l-m.r, ph=VH-m.t-m.b;
+    const X=i=> m.l + (years.length>1 ? i/(years.length-1) : .5)*pw;
+    const step = years.length>1 ? pw/(years.length-1) : pw;
+    let g='';
+    // baseline + year ticks
+    g+=`<line x1="${m.l}" y1="${VH-m.b}" x2="${VW-m.r}" y2="${VH-m.b}" stroke="${css('--grid')}"/>`;
+    years.forEach((yr,i)=> g+=`<text x="${X(i).toFixed(1)}" y="${VH-7}" text-anchor="middle">'${String(yr).slice(2)}</text>`);
+    // shade years whose value is a split-estimate (has_split_source) — "this part is approximate"
+    const ap = h.ap || [];
+    ap.forEach((a,i)=>{ if(a) g+=`<rect x="${(X(i)-step/2).toFixed(1)}" y="${m.t}" width="${step.toFixed(1)}" height="${ph}" fill="#e08a3c" opacity=".08"/>`; });
+    // jump guide (anchors)
+    if(h.emergence==='anchor' && h.jump_year!=null){ const xi=years.indexOf(h.jump_year);
+      if(xi>=0) g+=`<line x1="${X(xi).toFixed(1)}" y1="${m.t}" x2="${X(xi).toFixed(1)}" y2="${VH-m.b}" stroke="#e08a3c" stroke-width="1" stroke-dasharray="2 3" opacity=".55"/>`; }
+    // one normalized line per series (estimate points drawn hollow). The avg-pay line SHARES its
+    // scale with the county-average-wage benchmark, so the industry-vs-county gap is readable directly.
+    const cw = DATA.county_wage_series || [];
+    TSERIES().forEach(s=>{
+      const obs=h[s.key].map((v,i)=>({v,i})).filter(o=>o.v!=null);
+      if(!obs.length) return;
+      const pool = obs.map(o=>o.v).concat(s.key==='p' ? cw.filter(v=>v!=null) : []);
+      const mn=Math.min(...pool), mx=Math.max(...pool);
+      const Y=v=> (VH-m.b) - (mx===mn?0.5:(v-mn)/(mx-mn))*ph;
+      // county-average-wage benchmark, co-scaled with avg pay (drawn under the pay line)
+      if(s.key==='p'){
+        const cobs=cw.map((v,i)=>({v,i})).filter(o=>o.v!=null);
+        if(cobs.length){
+          let cd=''; cobs.forEach((o,k)=> cd+=`${k?'L':'M'} ${X(o.i).toFixed(1)} ${Y(o.v).toFixed(1)} `);
+          g+=`<path d="${cd}" fill="none" stroke="${css('--muted')}" stroke-width="1.3" stroke-dasharray="1 3" opacity=".85"/>`;
+          cobs.forEach(o=> g+=`<circle cx="${X(o.i).toFixed(1)}" cy="${Y(o.v).toFixed(1)}" r="1.5" fill="${css('--muted')}"/>`);
+        }
+      }
+      let d=''; obs.forEach((o,k)=> d+=`${k?'L':'M'} ${X(o.i).toFixed(1)} ${Y(o.v).toFixed(1)} `);
+      g+=`<path d="${d}" fill="none" stroke="${s.col}" stroke-width="1.9" stroke-linejoin="round"${s.dash?` stroke-dasharray="${s.dash}"`:''}/>`;
+      obs.forEach(o=> g+= ap[o.i]
+        ? `<circle cx="${X(o.i).toFixed(1)}" cy="${Y(o.v).toFixed(1)}" r="2.2" fill="var(--card)" stroke="${s.col}" stroke-width="1.3"/>`
+        : `<circle cx="${X(o.i).toFixed(1)}" cy="${Y(o.v).toFixed(1)}" r="2" fill="${s.col}"/>`);
+    });
+    // transparent per-year hover bands (one tooltip = all three values for that year)
+    years.forEach((yr,i)=> g+=`<rect class="hit" data-i="${i}" x="${(X(i)-step/2).toFixed(1)}" y="${m.t}" width="${step.toFixed(1)}" height="${ph}" fill="transparent"/>`);
+    return `<svg class="traj" viewBox="0 0 ${VW} ${VH}">${g}</svg>`;
+  }
+  function trajLegend(h){
+    const fi=h.e.findIndex(v=>v!=null), li=h.e.length-1-[...h.e].reverse().findIndex(v=>v!=null);
+    const rng=(arr,fmt)=> fmt(arr[fi])+' → '+fmt(arr[li]);
+    const rows=[
+      [tr(T.jobs),    css('--accent-2'),   rng(h.e,fmtJobs), ''],
+      [tr(T.payroll), css('--above'),      rng(h.w,fmtPay),  ''],
+      [tr(T.avgpay),  css('--nav-accent'), rng(h.p,fmtPay),  'dashed'],
+    ];
+    const cw=DATA.county_wage_series||[];
+    const cfi=cw.findIndex(v=>v!=null), cli=cw.length-1-[...cw].reverse().findIndex(v=>v!=null);
+    const cwRow = cfi>=0
+      ? `<span><i style="border-color:${css('--muted')};border-top-style:dotted"></i>${tr(T.countyAvg)} <b style="color:var(--fg)">${fmtPay(cw[cfi])} → ${fmtPay(cw[cli])}</b></span>` : '';
+    const estHint=(h.ap||[]).some(a=>a)
+      ? `<span><i style="border-color:#e08a3c;border-top-style:dashed"></i>${tr(T.estLeg)}</span>` : '';
+    return `<div class="legkey">`+rows.map(([lab,c,val,d])=>
+      `<span><i style="border-color:${c}${d?';border-top-style:dashed':''}"></i>${lab} <b style="color:var(--fg)">${val}</b></span>`).join('')+cwRow+estHint+`</div>`;
+  }
+  function trajTip(e,i){
+    const h=DATA.hist[hiNaics], tip=document.getElementById("tip");
+    tip.innerHTML = (h.e[i]==null)
+      ? `<b>${DATA.years[i]}</b><span class="m">—</span>`
+      : `<b>${DATA.years[i]}</b>`+
+        `${tr(T.jobs)}: ${fmtJobs(h.e[i])}<br>`+
+        `${tr(T.payroll)}: ${fmtPay(h.w[i])}<br>`+
+        `${tr(T.avgpay)}: ${fmtPay(h.p[i])}<br>`+
+        `${tr(T.lift)}: ${h.l[i]>=0?'+':''}${fmtPay(h.l[i])}/job`+
+        ((DATA.county_wage_series||[])[i]!=null ? `<br><span class="m">${tr(T.countyAvg)}: ${fmtPay(DATA.county_wage_series[i])}</span>` : '');
+    tip.style.display="block"; placeTip(e);
+  }
+
+  function narrative(h){
+    const obs=DATA.years.filter((y,i)=>h.e[i]!=null);
+    const y0=obs[obs.indexOf(h.jump_year)-1], s=Math.round((h.jump_share||0)*100);
+    let txt;
+    if(h.emergence==='anchor') txt=tr(T.narrAnchor)(h.jump_mult,y0,h.jump_year,s);
+    else if(h.emergence==='gradual') txt=tr(T.narrGradual)(s);
+    else if(h.emergence==='steady') txt=tr(T.narrSteady)(h.arrival);
+    else if(h.emergence==='receding') txt=tr(T.narrReceding)(h.peak_year);
+    else txt=tr(T.narrNew)(h.arrival);
+    let cn='';
+    if(h.caution){
+      const r=h.caution_reason;
+      if(r==='split_jump')        cn=tr(T.cautSplit)(h.split_year, h.parent||'—');
+      else if(r==='reconstructed')cn=tr(T.cautRecon)(h.recon_until, h.parent||'—');
+      else if(r==='thin')         cn=tr(T.cautThin)(h.n_clean);
+      // 'new' already explained by narrNew above; no extra note
+    }
+    return `<p class="narr">${txt}${cn?`<span class="caut">⚠ ${cn}</span>`:''}</p>`;
+  }
+
+  function detailCard(){
+    const d = DATA.industries.find(x=>x.naics===hiNaics), h = DATA.hist[hiNaics];
+    return `<div class="card"><div class="detail-head">`+
+        `<span class="detail-name">${d.name} ${badge(h)}</span>`+
+        `<button class="x" id="closeDetail">✕</button></div>`+
+      `<span class="m" style="font-size:11px;color:var(--muted)">NAICS ${d.naics} · ${tr(T.nArrived)} ${h.arrival}`+
+        `${(h.peak_year && h.peak_year!==h.arrival)?` · ${tr(T.nPeak)} ${h.peak_year}`:``}</span>`+
+      trajChart(h)+ trajLegend(h)+
+      `<p class="note" style="margin:6px 0 0">${tr(T.normNote)}</p>`+
+      narrative(h)+`</div>`;
+  }
+
+  function emergenceSummary(){
+    const top=[...DATA.industries].filter(d=>d.lift>0).sort((a,b)=>b.lift-a.lift).slice(0,12);
+    const c={anchor:0,gradual:0,steady:0,receding:0,new:0,caut:0};
+    top.forEach(d=>{ const h=DATA.hist[d.naics]; if(!h) return; c[h.emergence]++; if(h.caution) c.caut++; });
+    const parts=[];
+    if(c.anchor)   parts.push(`<b>${c.anchor}</b> ${tr(T.cAnchor)}`);
+    if(c.gradual)  parts.push(`<b>${c.gradual}</b> ${tr(T.cGradual)}`);
+    if(c.steady)   parts.push(`<b>${c.steady}</b> ${tr(T.cSteady)}`);
+    if(c.receding) parts.push(`<b>${c.receding}</b> ${tr(T.cReceding)}`);
+    if(c.new)      parts.push(`<b>${c.new}</b> ${tr(T.cNew)}`);
+    const chips=[['anchor',c.anchor,'bAnchor'],['gradual',c.gradual,'bGradual'],['steady',c.steady,'bSteady'],['receding',c.receding,'bReceding']]
+      .filter(x=>x[1]>0).map(([cl,n,lab])=>`<span class="chip ${cl}"><b>${n}</b> ${tr(T[lab])}</span>`).join('');
+    const warn=c.caut?`<p class="note" style="color:#e08a3c;margin:6px 0 0">⚠ ${tr(T.reclassWarn)(c.caut)}</p>`:'';
+    return `<div class="card"><h3>${tr(T.emTitle)}</h3>`+
+      `<p class="summary-line">${tr(T.ofTop)(top.length)}: ${joinParts(parts)}.</p>`+
+      `<div>${chips}</div>`+warn+
+      `<p class="note" style="margin-top:8px">${tr(T.emNote)}</p></div>`;
+  }
+
   function drawPanel(){
     const p = document.getElementById("panel");
     const drivers = [...DATA.industries].sort((a,b)=>b.lift-a.lift).slice(0,8);
     const biggest = [...DATA.industries].sort((a,b)=>b.wages-a.wages).slice(0,8);
+    const emRow = d => { const h=DATA.hist[d.naics];
+      return h ? `<span class="emrow">${sparkline(h)}${badge(h)}</span>` : ``; };
     const li = d => `<li data-n="${d.naics}" class="${d.naics===hiNaics?'hi':''}">`+
       `<span class="nm">${d.name}</span><span class="sc">${d.lift>=0?'+':''}${fmtPay(d.lift)}</span>`+
-      `<span class="meta">${tr(T.pay)} ${fmtPay(d.pay)} · ${tr(T.emp)} ${fmtJobs(d.emp)} · ${tr(T.pr)} ${fmtPay(d.wages)}</span></li>`;
+      `<span class="meta">${tr(T.pay)} ${fmtPay(d.pay)} · ${tr(T.emp)} ${fmtJobs(d.emp)} · ${tr(T.pr)} ${fmtPay(d.wages)}</span>`+
+      emRow(d)+`</li>`;
     const liBig = d => `<li data-n="${d.naics}" class="${d.naics===hiNaics?'hi':''}">`+
       `<span class="nm">${d.name}</span><span class="sc">${fmtPay(d.wages)}</span>`+
-      `<span class="meta">${tr(T.pay)} ${fmtPay(d.pay)} · ${tr(T.emp)} ${fmtJobs(d.emp)}</span></li>`;
+      `<span class="meta">${tr(T.pay)} ${fmtPay(d.pay)} · ${tr(T.emp)} ${fmtJobs(d.emp)}</span>`+
+      emRow(d)+`</li>`;
+    const detail = (hiNaics && DATA.hist && DATA.hist[hiNaics]) ? detailCard() : '';
     p.innerHTML =
       `<h1 class="page-title">${DATA.county}</h1>`+
       `<p class="sub">${DATA.msa_name} · <span style="color:var(--nav-accent)">${DATA.cat}</span></p>`+
       `<p class="sub">${tr(T.sub)}</p>`+
+      detail+
+      emergenceSummary()+
       `<div class="card"><h3>${tr(T.summary)}</h3>`+
         `<div class="stat-row"><span>${tr(T.avgpay)}</span><b>${fmtPay(DATA.county_pay)}</b></div>`+
         `<div class="stat-row"><span>${tr(T.jobs)}</span><b>${fmtJobs(DATA.county_emp)}</b></div>`+
@@ -239,6 +478,9 @@
         `<p class="note" style="margin-top:8px">${tr(T.driversNote)}</p></div>`+
       `<div class="card"><h3>${tr(T.biggest)}</h3><ul class="rank">${biggest.map(liBig).join("")}</ul></div>`;
     p.querySelectorAll(".rank li").forEach(el=> el.onclick = ()=>{ hiNaics=(hiNaics===el.dataset.n?null:el.dataset.n); render(); });
+    const cd=document.getElementById("closeDetail"); if(cd) cd.onclick=()=>{ hiNaics=null; render(); };
+    p.querySelectorAll(".traj .hit").forEach(el=>{ const i=+el.dataset.i;
+      el.onmousemove=e=>trajTip(e,i); el.onmouseleave=hideTip; });
   }
 
   let rt; addEventListener("resize", ()=>{ clearTimeout(rt); rt=setTimeout(()=>DATA&&drawChart(), 120); });

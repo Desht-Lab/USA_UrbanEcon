@@ -91,6 +91,17 @@
     .legend-row .sw { width: 14px; height: 14px; border-radius: 4px; flex: none; }
     select.core-sel { width: 100%; padding: 7px 9px; border-radius: 9px; border: 1px solid var(--border);
       background: var(--card); color: var(--fg); font: inherit; font-size: 12.5px; margin-top: 6px; }
+    input.county-search { width: 100%; padding: 7px 11px; border-radius: 999px; border: 1px solid var(--border);
+      background: var(--card); color: var(--fg); font: inherit; font-size: 12.5px; margin: 2px 0 8px; }
+    input.county-search:focus { outline: none; border-color: var(--nav-accent); }
+    .cs-list { max-height: 230px; overflow-y: auto; }
+    .cs-row { display: grid; grid-template-columns: 14px 1fr auto; align-items: center; gap: 8px;
+      padding: 5px 6px; border-radius: 8px; cursor: pointer; font-size: 12.5px; }
+    .cs-row:hover { background: color-mix(in srgb, var(--nav-accent) 14%, transparent); }
+    .cs-row .sw { width: 11px; height: 11px; border-radius: 3px; flex: none; }
+    .cs-nm { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .cs-msa { color: var(--muted); font-size: 11px; white-space: nowrap; overflow: hidden;
+      text-overflow: ellipsis; max-width: 140px; text-align: right; }
     .rank { list-style: none; padding: 0; margin: 0; }
     .rank li { display: flex; align-items: center; gap: 8px; padding: 5px 6px; border-radius: 8px;
       cursor: pointer; font-size: 12.5px; }
@@ -188,7 +199,7 @@
     function getCss(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim() || "#888"; }
 
     let PEERS=[], BYCODE={}, SIM={bases:{},rankings:{},oked_basket:[]}, COMPL={top_pairs:[]}, GEO=null;
-    let map, baseLayer, geoLayer, countyLayer, CGEO=null, peerDetail="msa";
+    let map, baseLayer, geoLayer, countyLayer, CGEO=null, peerDetail="msa", COUNTY_IDX=[];
     const CAT = { center:"#3b82c4", green:"#37a05a", red:"#d14b45", brown:"#a37a4c" };
     const CAT_LABEL = {
       center:{en:"Cluster centre — largest payroll",ru:"Центр сгустка — макс. ФОТ"},
@@ -261,16 +272,36 @@
       CGEO = await fetch("county_wage_geo.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>null);
       if(CGEO){ countyLayer = L.geoJSON(CGEO,{ style:countyStyle, onEachFeature:(f,layer)=>{
         const p=f.properties;
+        COUNTY_IDX.push({name:p.name, msa:p.msa_name||"", fips:String(p.fips).padStart(5,"0"), cat:p.cat, layer});
         layer.on("click",()=>{ location.href = p.cat!=="red"
           ? "county_industries.html?fips="+encodeURIComponent(String(p.fips).padStart(5,"0"))
           : "city.html?msa="+encodeURIComponent(p.cbsa); });
         layer.on("mouseover",()=>{ layer.setStyle({weight:1.8,color:"#fff"});
           layer.bindTooltip(countyTip(p),{className:"metro-tip",sticky:true,direction:"top",opacity:1}).openTooltip(); });
         layer.on("mouseout",()=>countyLayer.setStyle(countyStyle));
-      }}); }
+      }});
+        COUNTY_IDX.sort((a,b)=> a.name.localeCompare(b.name) || a.msa.localeCompare(b.msa)); }
       setTimeout(()=>map.invalidateSize(),200);
     }
     const flyTo = (code)=>{ if(!geoLayer) return; geoLayer.eachLayer(l=>{ if(l.feature.properties.code===code){ map.fitBounds(l.getBounds(),{maxZoom:8,padding:[40,40]}); l.openTooltip&&l.openTooltip(); } }); };
+    function flyToCounty(fips){
+      const c=COUNTY_IDX.find(x=>x.fips===fips); if(!c) return;
+      if(!activeCounty()){ peerDetail="county"; buildPanel(); restyle(); }   // ensure the county layer is shown
+      countyLayer.setStyle(countyStyle); c.layer.setStyle({weight:2.4,color:"#fff"}); c.layer.bringToFront();
+      map.fitBounds(c.layer.getBounds(),{maxZoom:9,padding:[40,40]});
+      c.layer.bindTooltip(countyTip(c.layer.feature.properties),{className:"metro-tip",sticky:true,direction:"top",opacity:1}).openTooltip();
+    }
+    function renderCountyResults(q){
+      const box=document.getElementById("countyResults"); if(!box) return;
+      q=(q||"").trim().toLowerCase();
+      const list = q ? COUNTY_IDX.filter(c=> c.name.toLowerCase().includes(q) || c.msa.toLowerCase().includes(q)) : COUNTY_IDX;
+      const shown=list.slice(0,14);
+      box.innerHTML = shown.length
+        ? shown.map(c=>`<div class="cs-row" data-fips="${c.fips}"><span class="sw" style="background:${CAT[c.cat]||GENERIC}"></span><span class="cs-nm">${c.name}</span><span class="cs-msa">${c.msa}</span></div>`).join("")
+          + (list.length>shown.length?`<div class="note" style="padding:5px 4px 0">+${list.length-shown.length} ${tr({en:"more — keep typing",ru:"ещё — уточните запрос"})}</div>`:"")
+        : `<p class="note" style="margin:6px 4px">${tr({en:"No county matches.",ru:"Округ не найден."})}</p>`;
+      box.querySelectorAll(".cs-row").forEach(r=> r.addEventListener("click",()=>flyToCounty(r.dataset.fips)));
+    }
     function showShared(code){
       const r=(ALM().ranking||[]).find(x=>x.code===code); if(!r) return;
       const card=document.getElementById("sharedCard");
@@ -337,6 +368,11 @@
             <button data-d="county" class="${peerDetail==='county'?'on':''}">${tr({en:"Counties · wages",ru:"Округа · зарплаты"})}</button>
           </div>
           <p class="note" style="margin:0">${tr({en:"County view: each large (Almaty-size) core MSA anchors a cluster — surrounding metros join the core they border, ties broken by shared CSA. The centre (★) is the core's largest-payroll county; others are coloured by average pay vs the centre — green above (>+5%), red below (>−5%), brown within ±5%. Click → city profile.",ru:"Округа: каждое крупное ядро (размера Алматы) задаёт сгусток — соседние метро примыкают к ядру, с которым граничат (спорные — по общему CSA). Центр (★) — округ ядра с наибольшим ФОТ; остальные окрашены по средней оплате к центру — зелёный выше (>+5%), красный ниже (>−5%), коричневый ±5%. Клик → профиль города."})}</p></div>`;
+        if(peerDetail==="county"){
+          h += `<div class="card"><h3>${tr({en:"Find a county",ru:"Поиск округа"})}</h3>
+            <input id="countySearch" class="county-search" type="search" autocomplete="off" placeholder="${tr({en:"Type a county name…",ru:"Введите название округа…"})}">
+            <div id="countyResults" class="cs-list"></div></div>`;
+        }
         const bridges=PEERS.filter(p=>p.bridge);
         h += `<div class="card"><h3>${tr({en:"Bridge cities",ru:"Города-мосты"})} (${bridges.length})</h3>`;
         bridges.forEach(p=>{ h+=`<div style="font-size:12.5px;margin-bottom:6px"><b style="cursor:pointer" onclick="flyTo(${p.code})">${p.name}</b><br>`+
@@ -382,6 +418,8 @@
       if(mode==="peer"){
         const s=document.getElementById("coreSel"); s.value=focusCore; s.onchange=()=>{ focusCore=s.value; restyle(); if(focusCore!=="all") flyTo(+focusCore); };
         document.querySelectorAll("#detailToggle button").forEach(btn=>btn.addEventListener("click",()=>{ peerDetail=btn.dataset.d; buildPanel(); restyle(); }));
+        const cs=document.getElementById("countySearch");
+        if(cs){ cs.addEventListener("input",()=>renderCountyResults(cs.value)); renderCountyResults(""); }
       }
       if(mode==="almaty"){
         const B=ALM();
