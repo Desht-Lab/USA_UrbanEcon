@@ -67,6 +67,15 @@
     .rank .nm { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .rank .sc { color: var(--nav-accent); font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
     .rank .meta { grid-column: 1 / -1; color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+    input.ind-search { width: 100%; padding: 7px 11px; border-radius: 999px; border: 1px solid var(--border);
+      background: var(--bg); color: var(--fg); font: inherit; font-size: 12.5px; margin: 2px 0 8px; }
+    input.ind-search:focus { outline: none; border-color: var(--nav-accent); }
+    .ind-list { max-height: 300px; overflow-y: auto; }
+    .ind-row { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; padding: 6px 6px;
+      border-radius: 8px; cursor: pointer; font-size: 12.5px; }
+    .ind-row:hover, .ind-row.on { background: color-mix(in srgb, var(--nav-accent) 16%, transparent); }
+    .ind-row .ind-nm { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .ind-row .ind-meta { grid-column: 1 / -1; color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
     .legend-row { display: flex; align-items: center; gap: 8px; font-size: 12px; margin: 5px 0; color: var(--muted); }
     .legend-row .dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
     .note { font-size: 11.5px; color: var(--muted); line-height: 1.5; }
@@ -184,6 +193,12 @@
     together:{en:"Together", ru:"Вместе"}, separate:{en:"Separate", ru:"Раздельно"},
     estLeg:{en:"shaded / hollow = split-estimate", ru:"затенение / полые точки = оценка после расщепления"},
     countyAvg:{en:"County avg wage", ru:"Ср. зарплата округа"},
+    findInd:{en:"Find an industry · dynamics", ru:"Поиск отрасли · динамика"},
+    indPh:{en:"Industry name or NAICS code…", ru:"Название отрасли или код NAICS…"},
+    indMore:{en:"more — keep typing", ru:"ещё — уточните запрос"},
+    indNone:{en:"No industry matches.", ru:"Отрасль не найдена."},
+    indHint:{en:"Type to search all industries; pick one to see its dynamics. Showing the largest by payroll.",
+             ru:"Введите запрос для поиска по всем отраслям; выберите, чтобы увидеть динамику. Показаны крупнейшие по ФОТ."},
     nArrived:{en:"Appears from",ru:"Появляется с"}, nPeak:{en:"peak",ru:"пик"},
     narrAnchor:{en:(m,y0,y1,s)=>`Jobs jumped <b>${m}×</b> in one step (${y0}→${y1}) — <b>${s}%</b> of all the growth came in that single period. An abrupt anchor.`,
                 ru:(m,y0,y1,s)=>`Занятость выросла в <b>${m}×</b> за один шаг (${y0}→${y1}) — <b>${s}%</b> всего роста пришлось на этот период. Резкий «якорь».`},
@@ -509,6 +524,30 @@
       `<p class="note" style="margin-top:8px">${tr(T.emNote)}</p></div>`;
   }
 
+  // searchable industry picker -> opens any industry's dynamics (not just the ranked ones)
+  function searchCard(){
+    return `<div class="card"><h3>${tr(T.findInd)}</h3>`+
+      `<input id="indSearch" class="ind-search" type="search" autocomplete="off" placeholder="${tr(T.indPh)}">`+
+      `<div id="indResults" class="ind-list"></div></div>`;
+  }
+  function renderIndResults(q){
+    const box=document.getElementById("indResults"); if(!box) return;
+    q=(q||"").trim().toLowerCase();
+    const list = q
+      ? DATA.industries.filter(d=> d.name.toLowerCase().includes(q) || d.naics.includes(q)).sort((a,b)=>b.wages-a.wages)
+      : [...DATA.industries].sort((a,b)=>b.wages-a.wages);     // default: largest by payroll
+    const shown=list.slice(0,14);
+    box.innerHTML = (shown.length
+        ? shown.map(d=>{ const h=DATA.hist[d.naics];
+            return `<div class="ind-row${d.naics===hiNaics?' on':''}" data-n="${d.naics}">`+
+              `<span class="ind-nm">${d.name}</span>${h?badge(h):''}`+
+              `<span class="ind-meta">${tr(T.pay)} ${fmtPay(d.pay)} · ${tr(T.emp)} ${fmtJobs(d.emp)} · ${tr(T.pr)} ${fmtPay(d.wages)}</span></div>`; }).join("")
+          + (list.length>shown.length?`<div class="note" style="padding:5px 4px 0">+${list.length-shown.length} ${tr(T.indMore)}</div>`:"")
+        : `<p class="note" style="margin:6px 4px">${tr(T.indNone)}</p>`)
+      + (q?"":`<p class="note" style="margin:6px 4px 0">${tr(T.indHint)}</p>`);
+    box.querySelectorAll(".ind-row").forEach(r=> r.onclick=()=>{ hiNaics=r.dataset.n; render(); });
+  }
+
   function drawPanel(){
     const p = document.getElementById("panel");
     const drivers = [...DATA.industries].sort((a,b)=>b.lift-a.lift).slice(0,8);
@@ -528,6 +567,7 @@
       `<h1 class="page-title">${DATA.county}</h1>`+
       `<p class="sub">${DATA.msa_name} · <span style="color:var(--nav-accent)">${DATA.cat}</span></p>`+
       `<p class="sub">${tr(T.sub)}</p>`+
+      searchCard()+
       detail+
       emergenceSummary()+
       `<div class="card"><h3>${tr(T.summary)}</h3>`+
@@ -541,6 +581,8 @@
         `<p class="note" style="margin-top:8px">${tr(T.driversNote)}</p></div>`+
       `<div class="card"><h3>${tr(T.biggest)}</h3><ul class="rank">${biggest.map(liBig).join("")}</ul></div>`;
     p.querySelectorAll(".rank li").forEach(el=> el.onclick = ()=>{ hiNaics=(hiNaics===el.dataset.n?null:el.dataset.n); render(); });
+    const isr=document.getElementById("indSearch");
+    if(isr){ isr.addEventListener("input",()=>renderIndResults(isr.value)); renderIndResults(""); }
     const cd=document.getElementById("closeDetail"); if(cd) cd.onclick=()=>{ hiNaics=null; render(); };
     p.querySelectorAll(".traj-toggle button").forEach(b=> b.onclick=()=>{ trajMode=b.dataset.m; render(); });
     p.querySelectorAll(".hit").forEach(el=>{ const i=+el.dataset.i;
