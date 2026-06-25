@@ -106,6 +106,13 @@
     .detail-head .x:hover { color: var(--fg); }
     .detail-name { font-size: 14px; font-weight: 600; }
     .traj { width: 100%; height: auto; display: block; margin: 6px 0 2px; }
+    .traj-mini { width: 100%; height: auto; display: block; margin-bottom: 4px; }
+    .traj-mini text { fill: var(--muted); font-size: 10px; }
+    .traj .hit, .traj-mini .hit { cursor: crosshair; }
+    .seg { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; margin: 8px 0 2px; }
+    .seg button { border: 0; background: transparent; color: var(--muted); font: inherit; font-size: 11.5px;
+      font-weight: 600; padding: 5px 13px; cursor: pointer; }
+    .seg button.on { background: var(--nav-accent); color: #0f1115; }
     .traj .area { fill: color-mix(in srgb,var(--accent-2) 22%,transparent); }
     .traj .eline { fill: none; stroke: var(--accent-2); stroke-width: 2; }
     .traj .pline { fill: none; stroke: var(--nav-accent); stroke-width: 1.6; stroke-dasharray: 3 3; }
@@ -125,8 +132,8 @@
       <div class="brand-mark">D</div>
       <div>
         <div class="brand-title"><span class="lang en">What drives county wages</span><span class="lang ru">Что двигает зарплаты округа</span></div>
-        <div class="brand-sub lang en">NAICS-6 payroll × pay · QCEW private · how each driver emerged 1993→2023</div>
-        <div class="brand-sub lang ru">NAICS-6 ФОТ × оплата · QCEW частн. · как появился каждый драйвер 1993→2023</div>
+        <div class="brand-sub lang en">NAICS-6 payroll × pay · QCEW private · how each driver emerged 1993→2023 · real 2023 $</div>
+        <div class="brand-sub lang ru">NAICS-6 ФОТ × оплата · QCEW частн. · как появился каждый драйвер 1993→2023 · пост. цены 2023</div>
       </div>
     </div>
     <div class="topbar-right">
@@ -170,8 +177,11 @@
     and:{en:"and",ru:"и"},
     reclassWarn:{en:n=>`${n} of these rest on split-estimated values, back-cast history, or too few clean years — treat them as uncertain, not hard anchors. Click a driver for details.`,
                  ru:n=>`${n} из них опираются на оценки после расщепления, реконструированную историю или слишком малое число чистых лет — считайте их неопределёнными, а не твёрдыми «якорями». Нажмите на драйвер для деталей.`},
-    normNote:{en:"Jobs and payroll lines are each scaled to their own range (compare shapes). Average pay and the dotted county-average wage share one scale, so the gap between them is real. Hover a year for exact values.",
-              ru:"Линии занятости и ФОТ масштабированы каждая к своему диапазону (сравнивайте форму). Средняя оплата и пунктирная средняя зарплата округа — в одном масштабе, поэтому разрыв между ними реальный. Наведите на год для точных значений."},
+    normNote:{en:"Jobs and payroll lines are each scaled to their own range (compare shapes). Average pay and the dotted county-average wage share one scale, so the gap between them is real. Every dollar figure is in constant 2023 dollars (CPI-adjusted), so a rising pay line means real wage growth, not inflation. Hover a year for exact values.",
+              ru:"Линии занятости и ФОТ масштабированы каждая к своему диапазону (сравнивайте форму). Средняя оплата и пунктирная средняя зарплата округа — в одном масштабе, поэтому разрыв между ними реальный. Все суммы — в постоянных ценах 2023 года (с поправкой на CPI), поэтому рост линии оплаты означает реальный рост зарплат, а не инфляцию. Наведите на год для точных значений."},
+    sepNote:{en:"Each series on its own axis with real values. On the pay panel, the dotted line is the county-average wage. All dollar figures are in constant 2023 dollars (CPI-adjusted) — wage growth shown is real, not inflation.",
+             ru:"Каждый ряд на своей оси с реальными значениями. На панели оплаты пунктир — средняя зарплата округа. Все суммы — в постоянных ценах 2023 года (с поправкой на CPI): показанный рост зарплат реальный, а не инфляция."},
+    together:{en:"Together", ru:"Вместе"}, separate:{en:"Separate", ru:"Раздельно"},
     estLeg:{en:"shaded / hollow = split-estimate", ru:"затенение / полые точки = оценка после расщепления"},
     countyAvg:{en:"County avg wage", ru:"Ср. зарплата округа"},
     nArrived:{en:"Appears from",ru:"Появляется с"}, nPeak:{en:"peak",ru:"пик"},
@@ -194,10 +204,10 @@
   };
   const tr = o => o[document.documentElement.getAttribute("data-lang")] || o.en;
   const fmtPay = n => n>=1e9 ? "$"+(n/1e9).toFixed(1)+"B" : n>=1e6 ? "$"+Math.round(n/1e6)+"M" : n>=1e3 ? "$"+Math.round(n/1e3)+"k" : "$"+Math.round(n);
-  const fmtJobs = n => n>=1e6 ? (n/1e6).toFixed(1)+"M" : n>=1e3 ? Math.round(n/1e3)+"k" : ""+n;
+  const fmtJobs = n => n>=1e6 ? (n/1e6).toFixed(1)+"M" : n>=1e3 ? Math.round(n/1e3)+"k" : ""+Math.round(n);
   const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
   const qs = new URLSearchParams(location.search);
-  let INDEX = [], DATA = null, hiNaics = null;
+  let INDEX = [], DATA = null, hiNaics = null, trajMode = "together";
 
   function applyLang(){ document.querySelectorAll(".lang-switch button").forEach(b=>b.classList.toggle("on", b.dataset.lang===document.documentElement.getAttribute("data-lang"))); }
   document.querySelectorAll(".lang-switch button").forEach(b=> b.onclick = ()=>{ document.documentElement.setAttribute("data-lang", b.dataset.lang); localStorage.setItem("lang", b.dataset.lang); applyLang(); render(); });
@@ -322,7 +332,57 @@
     {key:'w', col:css('--above'),      dash:''},     // total payroll
     {key:'p', col:css('--nav-accent'), dash:'4 3'},  // avg pay
   ];
+  // SEPARATE view: one small panel per series, each with its OWN visible y-axis (real values).
+  function trajMini(h, s, isLast){
+    const VW=460, VH=isLast?90:74, m={t:18,r:14,b:isLast?20:8,l:58}, years=DATA.years;
+    const pw=VW-m.l-m.r, step=years.length>1?pw/(years.length-1):pw;
+    const X=i=> m.l + (years.length>1 ? i/(years.length-1) : .5)*pw;
+    const obs=h[s.key].map((v,i)=>({v,i})).filter(o=>o.v!=null);
+    if(!obs.length) return '';
+    const extra = s.extra ? s.extra.filter(v=>v!=null) : [];
+    let mn=Math.min(...obs.map(o=>o.v), ...extra), mx=Math.max(...obs.map(o=>o.v), ...extra);
+    if(mn===mx) mx = mn + (Math.abs(mn)||1);                  // flat-series guard
+    const yTop=m.t+3, yBot=VH-m.b-2;                          // pixel inset so points never clip
+    const Y=v=> yBot - (v-mn)/((mx-mn)||1)*(yBot-yTop);
+    const ap=h.ap||[], grid=css('--grid'), muted=css('--muted');
+    let g='';
+    // shade split-estimate years + anchor jump guide (identical to the Together view)
+    ap.forEach((a,i)=>{ if(a) g+=`<rect x="${(X(i)-step/2).toFixed(1)}" y="${yTop.toFixed(1)}" width="${step.toFixed(1)}" height="${(yBot-yTop).toFixed(1)}" fill="#e08a3c" opacity=".08"/>`; });
+    if(h.emergence==='anchor' && h.jump_year!=null){ const xi=years.indexOf(h.jump_year);
+      if(xi>=0) g+=`<line x1="${X(xi).toFixed(1)}" y1="${yTop.toFixed(1)}" x2="${X(xi).toFixed(1)}" y2="${yBot.toFixed(1)}" stroke="#e08a3c" stroke-width="1" stroke-dasharray="2 3" opacity=".55"/>`; }
+    // frame: top & bottom gridlines + real min/max y labels (rounded, harmonised across panels)
+    g+=`<line x1="${m.l}" y1="${yBot.toFixed(1)}" x2="${VW-m.r}" y2="${yBot.toFixed(1)}" stroke="${grid}"/>`;
+    g+=`<line x1="${m.l}" y1="${yTop.toFixed(1)}" x2="${VW-m.r}" y2="${yTop.toFixed(1)}" stroke="${grid}" opacity=".5"/>`;
+    g+=`<text x="${m.l-7}" y="${(yTop+3).toFixed(1)}" text-anchor="end" fill="${muted}">${s.fmt(mx)}</text>`;
+    g+=`<text x="${m.l-7}" y="${(yBot+3).toFixed(1)}" text-anchor="end" fill="${muted}">${s.fmt(mn)}</text>`;
+    g+=`<text x="${m.l}" y="${(m.t-5).toFixed(1)}" fill="${s.col}" font-weight="600" font-size="11.5">${s.label}</text>`;
+    // county-wage benchmark on the pay panel (dotted, same axis)
+    if(s.extra){ const eo=s.extra.map((v,i)=>({v,i})).filter(o=>o.v!=null);
+      if(eo.length){ let ed=''; eo.forEach((o,k)=> ed+=`${k?'L':'M'} ${X(o.i).toFixed(1)} ${Y(o.v).toFixed(1)} `);
+        g+=`<path d="${ed}" fill="none" stroke="${muted}" stroke-width="1.3" stroke-dasharray="1 3" opacity=".85"/>`; } }
+    // main line + dots (estimate points hollow)
+    let d=''; obs.forEach((o,k)=> d+=`${k?'L':'M'} ${X(o.i).toFixed(1)} ${Y(o.v).toFixed(1)} `);
+    g+=`<path d="${d}" fill="none" stroke="${s.col}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+    obs.forEach(o=> g+= ap[o.i]
+      ? `<circle cx="${X(o.i).toFixed(1)}" cy="${Y(o.v).toFixed(1)}" r="2.3" fill="var(--card)" stroke="${s.col}" stroke-width="1.4"/>`
+      : `<circle cx="${X(o.i).toFixed(1)}" cy="${Y(o.v).toFixed(1)}" r="2.1" fill="${s.col}"/>`);
+    if(isLast) years.forEach((yr,i)=> g+=`<text x="${X(i).toFixed(1)}" y="${(VH-6).toFixed(1)}" text-anchor="middle" fill="${muted}">'${String(yr).slice(2)}</text>`);
+    // per-year hover bands (same combined tooltip as the Together view)
+    years.forEach((yr,i)=> g+=`<rect class="hit" data-i="${i}" x="${(X(i)-step/2).toFixed(1)}" y="${yTop.toFixed(1)}" width="${step.toFixed(1)}" height="${(yBot-yTop).toFixed(1)}" fill="transparent"/>`);
+    return `<svg class="traj-mini" viewBox="0 0 ${VW} ${VH}">${g}</svg>`;
+  }
+  function trajSeparate(h){
+    const cw=DATA.county_wage_series||[];
+    const panels=[
+      {key:'e', col:css('--accent-2'),   label:tr(T.jobs),    fmt:fmtJobs, extra:null},
+      {key:'w', col:css('--above'),      label:tr(T.payroll), fmt:fmtPay,  extra:null},
+      {key:'p', col:css('--nav-accent'), label:tr(T.avgpay),  fmt:fmtPay,  extra:cw},
+    ];
+    return panels.map((s,i)=> trajMini(h, s, i===panels.length-1)).join('');
+  }
+
   function trajChart(h){
+    if(trajMode==='separate') return trajSeparate(h);
     const VW=460, VH=150, m={t:12,r:12,b:22,l:12}, years=DATA.years;
     const pw=VW-m.l-m.r, ph=VH-m.t-m.b;
     const X=i=> m.l + (years.length>1 ? i/(years.length-1) : .5)*pw;
@@ -420,10 +480,13 @@
     return `<div class="card"><div class="detail-head">`+
         `<span class="detail-name">${d.name} ${badge(h)}</span>`+
         `<button class="x" id="closeDetail">✕</button></div>`+
-      `<span class="m" style="font-size:11px;color:var(--muted)">NAICS ${d.naics} · ${tr(T.nArrived)} ${h.arrival}`+
-        `${(h.peak_year && h.peak_year!==h.arrival)?` · ${tr(T.nPeak)} ${h.peak_year}`:``}</span>`+
+      `<div class="m" style="font-size:11px;color:var(--muted)">NAICS ${d.naics} · ${tr(T.nArrived)} ${h.arrival}`+
+        `${(h.peak_year && h.peak_year!==h.arrival)?` · ${tr(T.nPeak)} ${h.peak_year}`:``}</div>`+
+      `<div class="seg traj-toggle">`+
+        `<button data-m="together" class="${trajMode==='together'?'on':''}">${tr(T.together)}</button>`+
+        `<button data-m="separate" class="${trajMode==='separate'?'on':''}">${tr(T.separate)}</button></div>`+
       trajChart(h)+ trajLegend(h)+
-      `<p class="note" style="margin:6px 0 0">${tr(T.normNote)}</p>`+
+      `<p class="note" style="margin:6px 0 0">${tr(trajMode==='separate'?T.sepNote:T.normNote)}</p>`+
       narrative(h)+`</div>`;
   }
 
@@ -479,7 +542,8 @@
       `<div class="card"><h3>${tr(T.biggest)}</h3><ul class="rank">${biggest.map(liBig).join("")}</ul></div>`;
     p.querySelectorAll(".rank li").forEach(el=> el.onclick = ()=>{ hiNaics=(hiNaics===el.dataset.n?null:el.dataset.n); render(); });
     const cd=document.getElementById("closeDetail"); if(cd) cd.onclick=()=>{ hiNaics=null; render(); };
-    p.querySelectorAll(".traj .hit").forEach(el=>{ const i=+el.dataset.i;
+    p.querySelectorAll(".traj-toggle button").forEach(b=> b.onclick=()=>{ trajMode=b.dataset.m; render(); });
+    p.querySelectorAll(".hit").forEach(el=>{ const i=+el.dataset.i;
       el.onmousemove=e=>trajTip(e,i); el.onmouseleave=hideTip; });
   }
 
